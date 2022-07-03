@@ -1,0 +1,54 @@
+################################################################################
+# .vimiumrc doesn't exist, but store settings here.
+################################################################################
+
+################################################################################
+# Custom key mappings
+################################################################################
+
+map h goBack 
+map l goForward
+map H scrollLeft
+map L scrollRight
+
+map D scrollFullPageDown
+map U scrollFullPageUp
+
+map e scrollPageUp
+map E scrollFullPageUp
+
+
+
+map gx0 closeTabsOnLeft
+map gx$ closeTabsOnRight
+map gxx closeOtherTabs
+
+map t Vomnibar.activateTabSelection
+map T createTab
+
+#map b Vomnibar.activateBookmarksInNewTab
+#map gb Vomnibar.activateBookmarks
+
+# ------------------------------
+# Vivaldi
+# ------------------------------
+# vertical tabs
+# map J nextTab
+# map K previousTab
+
+#unmap <c-e>
+#unmap <c-y>
+
+################################################################################
+# Custom search engines
+################################################################################
+
+w: https://www.wikipedia.org/w/index.php?title=Special:Search&search=%s Wikipedia
+y: https://www.youtube.com/results?search_query=%s Youtube
+a: https://www.amazon.ca/s/?field-keywords=%s Amazon
+g: https://www.google.com/search?q=%s Google
+map: https://www.google.com/maps?q=%s Google maps
+gh: https://github.com/search?q=%s Github
+t: https://twitter.com/search?q=%s Twitter
+r: https://www.reddit.com/search/?q=%s Reddit
+rg: https://www.google.com/search?q=%s+Reddit Reddit Google

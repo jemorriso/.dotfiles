@@ -1,0 +1,103 @@
+
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'tommcdo/vim-exchange'
+
+let mapleader = " "
+
+set ignorecase
+set smartcase
+
+set showmode
+
+set scrolloff=3
+
+set incsearch
+"set hlsearch
+
+set number
+set relativenumber
+
+set surround
+set commentary
+set exchange
+
+map Y y$
+
+map <leader>y "+y
+map <leader>p "+p
+
+nnoremap <leader>h <c-w>h
+nnoremap <leader>l <c-w>l
+nnoremap <leader>/ :nohls<cr>
+nnoremap <leader>r :action ReformatCode<CR>
+nnoremap <leader>u :action FileStructurePopup<CR>
+nnoremap <leader>m :action MaximizeEditorInSplit<CR>
+nnoremap <leader>z :action ToggleDistractionFreeMode<CR>
+nnoremap <leader>Z :action ToggleZenMode<CR>
+nnoremap <leader>w :action HideAllWindows<CR>
+nnoremap <leader>x :action CloseContent<CR>
+nnoremap <leader><esc> :action JumpToLastWindow<CR>
+nnoremap <leader>, :action MoveEditorToOppositeTabGroup<CR>
+
+nnoremap <leader><leader>r :action RenameElement<cr>
+
+noremap gc :action CommentByLineComment<CR>
+
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gr :action FindUsages<CR>
+nnoremap gs :action GotoSymbol<CR>
+nnoremap ga :action GotoAction<CR>
+nnoremap gh :action ShowErrorDescription<CR>
+nnoremap g; :action JumpToLastChange<CR>
+
+"nnoremap <leader>gt :action GotoTest<CR>
+
+nnoremap <leader>ff :action GotoFile<CR>
+nnoremap <leader>fd :action FindInPath<CR>
+nnoremap <leader>fr :action ReplaceInPath<CR>
+nnoremap <leader>fc :action CloseAllEditors<CR>
+
+nnoremap <leader>gp :action PinActiveEditorTab<CR>
+nnoremap <leader>gx :action CloseAllUnpinnedEditors<CR>
+nnoremap <leader>go :action CloseAllEditorsButActive<CR>
+
+nnoremap <leader>ic :source ~/.ideavimrc<CR>
+nnoremap <leader>iw :action EditSourceInNewWindow<CR>
+nnoremap <leader>ia :action VimFindActionIdAction<CR>
+nnoremap <leader>ib :action ToggleLineBreakpoint<CR>
+nnoremap <leader>ix :action Debugger.RemoveAllBreakpoints<CR>
+
+nmap <C-o> <Action>(Back)<cr>
+nmap <C-i> <Action>(Forward)<cr>
+
+nnoremap [m :tabm-1<CR>
+nnoremap ]m :tabm+1<CR>
+nnoremap [b :action PreviousTab<cr>
+nnoremap ]b :action NextTab<cr>
+nnoremap [[ :action MethodUp<CR>
+nnoremap ]] :action MethodDown<CR>
+nnoremap ]e :action GotoNextError<cr>
+nnoremap [e :action GotoPreviousError<cr>
+" https://vim.fandom.com/wiki/Quickly_adding_and_deleting_empty_lines
+" context mark doesn't work in ideavim so use z
+nnoremap ]<space> mzo<esc>`z
+nnoremap [<space> mzO<esc>`z
+nnoremap [d mz:-d<cr>`z
+nnoremap ]d mz:+d<cr>`z
+nnoremap ]g :action VcsShowNextChangeMarker<cr>
+nnoremap [g :action VcsShowPrevChangeMarker<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CHOPPING BLOCK "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <leader>k :action EditorSplitLine<CR>
+
+"nnoremap <leader>fc :action GotoClass<CR>
+
+nnoremap <leader>ir :action ChooseRunConfiguration<CR>
+"nnoremap <leader>ip :action PasteMultiple<CR>
+nnoremap <leader>io :action OptimizeImports<CR>
+" Undo
+nnoremap <leader>iu :action LocalHistory.ShowHistory<CR>
+
