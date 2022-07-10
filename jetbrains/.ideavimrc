@@ -56,10 +56,10 @@ nnoremap g; :action JumpToLastChange<CR>
 nnoremap <leader>ff :action GotoFile<CR>
 nnoremap <leader>fd :action FindInPath<CR>
 nnoremap <leader>fr :action ReplaceInPath<CR>
-nnoremap <leader>fc :action CloseAllEditors<CR>
 
 nnoremap <leader>gp :action PinActiveEditorTab<CR>
 nnoremap <leader>gx :action CloseAllUnpinnedEditors<CR>
+nnoremap <leader>gX :action CloseAllEditors<CR>
 nnoremap <leader>go :action CloseAllEditorsButActive<CR>
 
 nnoremap <leader>ic :source ~/.ideavimrc<CR>
@@ -67,6 +67,8 @@ nnoremap <leader>iw :action EditSourceInNewWindow<CR>
 nnoremap <leader>ia :action VimFindActionIdAction<CR>
 nnoremap <leader>ib :action ToggleLineBreakpoint<CR>
 nnoremap <leader>ix :action Debugger.RemoveAllBreakpoints<CR>
+nnoremap <leader>id :action RestartIde<CR>
+nnoremap <leader>it :action ChangeLaf<CR>
 
 nmap <C-o> <Action>(Back)<cr>
 nmap <C-i> <Action>(Forward)<cr>
@@ -95,7 +97,7 @@ nnoremap <leader>k :action EditorSplitLine<CR>
 
 "nnoremap <leader>fc :action GotoClass<CR>
 
-nnoremap <leader>ir :action ChooseRunConfiguration<CR>
+"nnoremap <leader>ir :action ChooseRunConfiguration<CR>
 "nnoremap <leader>ip :action PasteMultiple<CR>
 nnoremap <leader>io :action OptimizeImports<CR>
 " Undo
