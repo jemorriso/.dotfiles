@@ -52,3 +52,4 @@ gh: https://github.com/search?q=%s Github
 t: https://twitter.com/search?q=%s Twitter
 r: https://www.reddit.com/search/?q=%s Reddit
 rg: https://www.google.com/search?q=%s+Reddit Reddit Google
+sr: https://www.reddit.com/r/%s SubReddit
