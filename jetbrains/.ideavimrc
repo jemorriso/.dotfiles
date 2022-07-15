@@ -13,7 +13,7 @@ set showmode
 set scrolloff=3
 
 set incsearch
-"set hlsearch
+set hlsearch
 
 set number
 set relativenumber
@@ -69,6 +69,7 @@ nnoremap <leader>ib :action ToggleLineBreakpoint<CR>
 nnoremap <leader>ix :action Debugger.RemoveAllBreakpoints<CR>
 nnoremap <leader>id :action RestartIde<CR>
 nnoremap <leader>it :action ChangeLaf<CR>
+nnoremap <leader>in :action ViewObsoleteNavBarAction<CR>
 
 nmap <C-o> <Action>(Back)<cr>
 nmap <C-i> <Action>(Forward)<cr>
@@ -102,4 +103,3 @@ nnoremap <leader>k :action EditorSplitLine<CR>
 nnoremap <leader>io :action OptimizeImports<CR>
 " Undo
 nnoremap <leader>iu :action LocalHistory.ShowHistory<CR>
-
