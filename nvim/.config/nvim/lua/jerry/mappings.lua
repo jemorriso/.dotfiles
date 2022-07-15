@@ -1,0 +1,10 @@
+vim.keymap.set('n', '<leader>e', ':Lex<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>y', '"+y', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>p', '"+p', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>/', ':nohl<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>dc', [[:put =strftime('%A, %B %d, %Y')<cr>kJ]], { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>rc', ':source $MYVIMRC<cr>', { noremap = true, silent = true })
+
+-- vim.keymap.set('n', '<leader>ff', function()
+--   require('telescope.builtin').find_files()
+-- end)
