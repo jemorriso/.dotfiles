@@ -1,4 +1,10 @@
+# https://superuser.com/questions/1043806/how-to-exit-the-ranger-file-explorer-back-to-command-prompt-but-keep-the-current
+alias ranger='source ranger'
+alias r='source ranger'
+
 export ZSH="$HOME/.oh-my-zsh"
+
+export PATH="$PATH:/home/jerry/.local/bin"
 
 plugins=(
   git
