@@ -24,7 +24,9 @@ vim.opt.autoindent = true
 vim.opt.smartindent = true
 
 vim.opt.wildmenu = true
-vim.opt.wildmode= {'longest', 'full'}
+vim.opt.wildmode = {'longest', 'full'}
+
+vim.opt.completeopt = {'menuone', 'noselect'}
 
 vim.opt.hidden = true
 vim.opt.splitbelow = true
