@@ -1,4 +1,4 @@
-vim.keymap.set('n', '<leader>e', ':Lex<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>x', ':Lex<cr>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>y', '"+y', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>p', '"+p', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>/', ':nohl<cr>', { noremap = true, silent = true })
