@@ -6,8 +6,6 @@
 # Custom key mappings
 ################################################################################
 
-map h goBack 
-map l goForward
 map H scrollLeft
 map L scrollRight
 
@@ -32,12 +30,14 @@ map T createTab
 # ------------------------------
 # Vivaldi
 # ------------------------------
-# vertical tabs
-# map J nextTab
-# map K previousTab
 
-#unmap <c-e>
-#unmap <c-y>
+# Use browser single key shortcuts
+unmap J
+unmap K
+unmap x
+unmap X
+unmap h
+unmap l
 
 ################################################################################
 # Custom search engines
