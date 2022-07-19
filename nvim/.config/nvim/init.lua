@@ -1,8 +1,8 @@
 require 'jerry.options'
 require 'jerry.mappings'
 require 'jerry.plugins'
-require 'jerry.cmp'
 require 'jerry.lsp'
+require 'jerry.cmp'
 
 -- require('telescope').setup{
 --   defaults = { 
