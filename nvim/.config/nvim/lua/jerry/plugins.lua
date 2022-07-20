@@ -13,6 +13,8 @@ require('packer').startup(function()
   use 'tpope/vim-commentary'
   use 'tpope/vim-fugitive'
 
+  use 'lewis6991/gitsigns.nvim'
+
   use 'junegunn/goyo.vim'
 
   use({ "windwp/nvim-autopairs" })
