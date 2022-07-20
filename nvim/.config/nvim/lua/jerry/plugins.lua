@@ -17,6 +17,9 @@ require('packer').startup(function()
 
   use 'junegunn/goyo.vim'
 
+  -- use 'kyazdani42/nvim-web-devicons'
+  use 'kyazdani42/nvim-tree.lua'
+
   use({ "windwp/nvim-autopairs" })
 
   use 'nvim-treesitter/nvim-treesitter'
