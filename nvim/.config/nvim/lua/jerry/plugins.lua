@@ -15,6 +15,8 @@ require('packer').startup(function()
 
   use 'junegunn/goyo.vim'
 
+  use({ "windwp/nvim-autopairs" })
+
   use 'nvim-treesitter/nvim-treesitter'
   use 'nvim-lua/plenary.nvim'
   use {
