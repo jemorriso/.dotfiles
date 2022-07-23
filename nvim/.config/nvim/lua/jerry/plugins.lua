@@ -8,23 +8,24 @@ end
 require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
-  use 'tpope/vim-repeat'
+  use 'junegunn/goyo.vim'
+  use({ "windwp/nvim-autopairs" })
+  use 'ggandor/leap.nvim'
+
   use 'tpope/vim-surround'
   use 'tpope/vim-commentary'
-  use 'tpope/vim-fugitive'
 
-  use 'lewis6991/gitsigns.nvim'
-
-  use 'junegunn/goyo.vim'
-
-  use 'ggandor/leap.nvim'
+  use "L3MON4D3/LuaSnip"
+  use "rafamadriz/friendly-snippets"
 
   -- use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
 
+  use { 'michaelb/sniprun', run = 'bash ./install.sh'}
   use 'akinsho/toggleterm.nvim'
 
-  use({ "windwp/nvim-autopairs" })
+  use 'tpope/vim-fugitive'
+  use 'lewis6991/gitsigns.nvim'
 
   use 'nvim-treesitter/nvim-treesitter'
   use 'nvim-lua/plenary.nvim'
@@ -32,6 +33,7 @@ require('packer').startup(function()
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
+
   use "hrsh7th/nvim-cmp"
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-buffer"
@@ -39,12 +41,11 @@ require('packer').startup(function()
   use "hrsh7th/cmp-cmdline"
   use "saadparwaiz1/cmp_luasnip"
 
-  use "L3MON4D3/LuaSnip"
-  use "rafamadriz/friendly-snippets"
-
   use "neovim/nvim-lspconfig"
   use "williamboman/nvim-lsp-installer"
   use 'jose-elias-alvarez/null-ls.nvim'
+
+  use 'tpope/vim-repeat'
 
   use 'arcticicestudio/nord-vim' 
   use({
