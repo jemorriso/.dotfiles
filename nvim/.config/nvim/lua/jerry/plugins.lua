@@ -17,6 +17,8 @@ require('packer').startup(function()
 
   use 'junegunn/goyo.vim'
 
+  use 'ggandor/leap.nvim'
+
   -- use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
 
