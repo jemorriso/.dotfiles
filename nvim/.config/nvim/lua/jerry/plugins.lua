@@ -20,6 +20,8 @@ require('packer').startup(function()
   -- use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
 
+  use 'akinsho/toggleterm.nvim'
+
   use({ "windwp/nvim-autopairs" })
 
   use 'nvim-treesitter/nvim-treesitter'
