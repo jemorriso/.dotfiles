@@ -1,5 +1,5 @@
 require 'jerry.options'
-require 'jerry.mappings'
+require 'jerry.keymaps'
 require 'jerry.plugins'
 require 'jerry.lsp'
 require 'jerry.null-ls'
