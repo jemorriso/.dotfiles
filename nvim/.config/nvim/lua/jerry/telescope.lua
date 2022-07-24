@@ -7,6 +7,7 @@ telescope.setup {
       ".git",
       ".venv",
       "logs",
+      "target",
     },
     prompt_prefix = " ",
     selection_caret = " ",
