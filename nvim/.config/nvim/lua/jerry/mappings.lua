@@ -1,4 +1,3 @@
-vim.keymap.set('n', '<leader>x', ':Lex<cr>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>y', '"+y', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>p', '"+p', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>/', ':nohl<cr>', { noremap = true, silent = true })
@@ -11,4 +10,5 @@ vim.keymap.set('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers
 vim.keymap.set('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>', {})
 
 vim.keymap.set("n", "<leader>ti", "<cmd>lua _ipython_toggle()<CR>", {noremap = true, silent = true})
+vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", {noremap = true, silent = true})
 
