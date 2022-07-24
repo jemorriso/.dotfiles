@@ -1,7 +1,7 @@
 local toggleterm = require 'toggleterm'
 
 toggleterm.setup({
-	size = 20,
+	size = vim.o.columns * 0.4,
 	open_mapping = [[<c-\>]],
 	hide_numbers = true,
 	shade_filetypes = {},
