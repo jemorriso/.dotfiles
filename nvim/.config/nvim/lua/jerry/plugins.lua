@@ -21,7 +21,8 @@ require('packer').startup(function()
   -- use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
 
-  use { 'michaelb/sniprun', run = 'bash ./install.sh'}
+  -- use { 'michaelb/sniprun', run = 'bash ./install.sh'}
+  -- use 'jpalardy/vim-slime'
   use 'akinsho/toggleterm.nvim'
 
   use 'tpope/vim-fugitive'

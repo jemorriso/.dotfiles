@@ -10,7 +10,7 @@ toggleterm.setup({
 	start_in_insert = true,
 	insert_mappings = true,
 	persist_size = true,
-	direction = "float",
+	direction = "vertical",
 	close_on_exit = true,
 	shell = vim.o.shell,
 	float_opts = {
@@ -35,6 +35,16 @@ end
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 local Terminal = require("toggleterm.terminal").Terminal
+
+local ipython = Terminal:new({ 
+  cmd = "ipython", 
+  hidden = false,
+})
+
+function _ipython_toggle()
+	ipython:toggle()
+end
+
 -- local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
 
 -- function _LAZYGIT_TOGGLE()
