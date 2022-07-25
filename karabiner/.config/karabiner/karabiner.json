@@ -8,10 +8,10 @@
         {
             "complex_modifications": {
                 "parameters": {
-                    "basic.simultaneous_threshold_milliseconds": 500,
-                    "basic.to_delayed_action_delay_milliseconds": 100,
+                    "basic.simultaneous_threshold_milliseconds": 50,
+                    "basic.to_delayed_action_delay_milliseconds": 500,
                     "basic.to_if_alone_timeout_milliseconds": 1000,
-                    "basic.to_if_held_down_threshold_milliseconds": 100,
+                    "basic.to_if_held_down_threshold_milliseconds": 500,
                     "mouse_motion_to_scroll.speed": 100
                 },
                 "rules": [
@@ -404,129 +404,374 @@
                         ]
                     },
                     {
-                        "description": "o Launcher",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "modifiers": {
-                                        "mandatory": []
-                                    },
-                                    "simultaneous": [
-                                        {
-                                            "key_code": "tab"
-                                        },
-                                        {
-                                            "key_code": "s"
-                                        }
-                                    ],
-                                    "simultaneous_options": {
-                                        "key_down_order": "strict"
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a spotify"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "modifiers": {
-                                        "mandatory": []
-                                    },
-                                    "simultaneous": [
-                                        {
-                                            "key_code": "tab"
-                                        },
-                                        {
-                                            "key_code": "i"
-                                        }
-                                    ],
-                                    "simultaneous_options": {
-                                        "key_down_order": "strict"
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a iterm"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "modifiers": {
-                                        "mandatory": []
-                                    },
-                                    "simultaneous": [
-                                        {
-                                            "key_code": "tab"
-                                        },
-                                        {
-                                            "key_code": "v"
-                                        }
-                                    ],
-                                    "simultaneous_options": {
-                                        "key_down_order": "strict"
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a vivaldi"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "modifiers": {
-                                        "mandatory": []
-                                    },
-                                    "simultaneous": [
-                                        {
-                                            "key_code": "tab"
-                                        },
-                                        {
-                                            "key_code": "o"
-                                        }
-                                    ],
-                                    "simultaneous_options": {
-                                        "key_down_order": "strict"
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a obsidian"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "modifiers": {
-                                        "mandatory": []
-                                    },
-                                    "simultaneous": [
-                                        {
-                                            "key_code": "tab"
-                                        },
-                                        {
-                                            "key_code": "p"
-                                        }
-                                    ],
-                                    "simultaneous_options": {
-                                        "key_down_order": "strict"
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a pycharm"
-                                    }
-                                ],
-                                "type": "basic"
+                      "description": "O-Launcher",
+                      "manipulators": [
+                        {
+                          "type": "basic",
+                          "from": {
+                            "key_code": "i",
+                            "modifiers": {
+                              "mandatory": [
+
+                              ],
+                              "optional": [
+                                "any"
+                              ]
                             }
-                        ]
+                          },
+                          "to": [
+                            {
+                              "shell_command": "open -a iterm"
+                            }
+                          ],
+                          "conditions": [
+                            {
+                              "type": "variable_if",
+                              "name": "launcher_mode",
+                              "value": 1
+                            }
+                          ]
+                        },
+                        {
+                          "type": "basic",
+                          "from": {
+                            "simultaneous": [
+                              {
+                                "key_code": "tab"
+                              },
+                              {
+                                "key_code": "i"
+                              }
+                            ],
+                            "simultaneous_options": {
+                              "key_down_order": "strict",
+                              "key_up_order": "strict_inverse",
+                              "to_after_key_up": [
+                                {
+                                  "set_variable": {
+                                    "name": "launcher_mode",
+                                    "value": 0
+                                  }
+                                }
+                              ]
+                            },
+                            "modifiers": {
+                              "mandatory": [
+
+                              ],
+                              "optional": [
+                                "any"
+                              ]
+                            }
+                          },
+                          "to": [
+                            {
+                              "set_variable": {
+                                "name": "launcher_mode",
+                                "value": 1
+                              }
+                            },
+                            {
+                              "shell_command": "open -a iterm"
+                            }
+                          ],
+                          "parameters": {
+                            "basic.simultaneous_threshold_milliseconds": 500
+                          }
+                        },
+                        {
+                          "type": "basic",
+                          "from": {
+                            "key_code": "s",
+                            "modifiers": {
+                              "mandatory": [
+
+                              ],
+                              "optional": [
+                                "any"
+                              ]
+                            }
+                          },
+                          "to": [
+                            {
+                              "shell_command": "open -a spotify"
+                            }
+                          ],
+                          "conditions": [
+                            {
+                              "type": "variable_if",
+                              "name": "launcher_mode",
+                              "value": 1
+                            }
+                          ]
+                        },
+                        {
+                          "type": "basic",
+                          "from": {
+                            "simultaneous": [
+                              {
+                                "key_code": "tab"
+                              },
+                              {
+                                "key_code": "s"
+                              }
+                            ],
+                            "simultaneous_options": {
+                              "key_down_order": "strict",
+                              "key_up_order": "strict_inverse",
+                              "to_after_key_up": [
+                                {
+                                  "set_variable": {
+                                    "name": "launcher_mode",
+                                    "value": 0
+                                  }
+                                }
+                              ]
+                            },
+                            "modifiers": {
+                              "mandatory": [
+
+                              ],
+                              "optional": [
+                                "any"
+                              ]
+                            }
+                          },
+                          "to": [
+                            {
+                              "set_variable": {
+                                "name": "launcher_mode",
+                                "value": 1
+                              }
+                            },
+                            {
+                              "shell_command": "open -a spotify"
+                            }
+                          ],
+                          "parameters": {
+                            "basic.simultaneous_threshold_milliseconds": 500
+                          }
+                        },
+                        {
+                          "type": "basic",
+                          "from": {
+                            "key_code": "v",
+                            "modifiers": {
+                              "mandatory": [
+
+                              ],
+                              "optional": [
+                                "any"
+                              ]
+                            }
+                          },
+                          "to": [
+                            {
+                              "shell_command": "open -a vivaldi"
+                            }
+                          ],
+                          "conditions": [
+                            {
+                              "type": "variable_if",
+                              "name": "launcher_mode",
+                              "value": 1
+                            }
+                          ]
+                        },
+                        {
+                          "type": "basic",
+                          "from": {
+                            "simultaneous": [
+                              {
+                                "key_code": "tab"
+                              },
+                              {
+                                "key_code": "v"
+                              }
+                            ],
+                            "simultaneous_options": {
+                              "key_down_order": "strict",
+                              "key_up_order": "strict_inverse",
+                              "to_after_key_up": [
+                                {
+                                  "set_variable": {
+                                    "name": "launcher_mode",
+                                    "value": 0
+                                  }
+                                }
+                              ]
+                            },
+                            "modifiers": {
+                              "mandatory": [
+
+                              ],
+                              "optional": [
+                                "any"
+                              ]
+                            }
+                          },
+                          "to": [
+                            {
+                              "set_variable": {
+                                "name": "launcher_mode",
+                                "value": 1
+                              }
+                            },
+                            {
+                              "shell_command": "open -a vivaldi"
+                            }
+                          ],
+                          "parameters": {
+                            "basic.simultaneous_threshold_milliseconds": 500
+                          }
+                        },
+                        {
+                          "type": "basic",
+                          "from": {
+                            "key_code": "o",
+                            "modifiers": {
+                              "mandatory": [
+
+                              ],
+                              "optional": [
+                                "any"
+                              ]
+                            }
+                          },
+                          "to": [
+                            {
+                              "shell_command": "open -a obsidian"
+                            }
+                          ],
+                          "conditions": [
+                            {
+                              "type": "variable_if",
+                              "name": "launcher_mode",
+                              "value": 1
+                            }
+                          ]
+                        },
+                        {
+                          "type": "basic",
+                          "from": {
+                            "simultaneous": [
+                              {
+                                "key_code": "tab"
+                              },
+                              {
+                                "key_code": "o"
+                              }
+                            ],
+                            "simultaneous_options": {
+                              "key_down_order": "strict",
+                              "key_up_order": "strict_inverse",
+                              "to_after_key_up": [
+                                {
+                                  "set_variable": {
+                                    "name": "launcher_mode",
+                                    "value": 0
+                                  }
+                                }
+                              ]
+                            },
+                            "modifiers": {
+                              "mandatory": [
+
+                              ],
+                              "optional": [
+                                "any"
+                              ]
+                            }
+                          },
+                          "to": [
+                            {
+                              "set_variable": {
+                                "name": "launcher_mode",
+                                "value": 1
+                              }
+                            },
+                            {
+                              "shell_command": "open -a obsidian"
+                            }
+                          ],
+                          "parameters": {
+                            "basic.simultaneous_threshold_milliseconds": 500
+                          }
+                        },
+                        {
+                          "type": "basic",
+                          "from": {
+                            "key_code": "p",
+                            "modifiers": {
+                              "mandatory": [
+
+                              ],
+                              "optional": [
+                                "any"
+                              ]
+                            }
+                          },
+                          "to": [
+                            {
+                              "shell_command": "open -a pycharm"
+                            }
+                          ],
+                          "conditions": [
+                            {
+                              "type": "variable_if",
+                              "name": "launcher_mode",
+                              "value": 1
+                            }
+                          ]
+                        },
+                        {
+                          "type": "basic",
+                          "from": {
+                            "simultaneous": [
+                              {
+                                "key_code": "tab"
+                              },
+                              {
+                                "key_code": "p"
+                              }
+                            ],
+                            "simultaneous_options": {
+                              "key_down_order": "strict",
+                              "key_up_order": "strict_inverse",
+                              "to_after_key_up": [
+                                {
+                                  "set_variable": {
+                                    "name": "launcher_mode",
+                                    "value": 0
+                                  }
+                                }
+                              ]
+                            },
+                            "modifiers": {
+                              "mandatory": [
+
+                              ],
+                              "optional": [
+                                "any"
+                              ]
+                            }
+                          },
+                          "to": [
+                            {
+                              "set_variable": {
+                                "name": "launcher_mode",
+                                "value": 1
+                              }
+                            },
+                            {
+                              "shell_command": "open -a pycharm"
+                            }
+                          ],
+                          "parameters": {
+                            "basic.simultaneous_threshold_milliseconds": 500
+                          }
+                        }
+                      ]
                     }
                 ]
             },
