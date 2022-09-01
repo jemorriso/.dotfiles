@@ -29,9 +29,11 @@ map <leader>p "+p
 
 nnoremap <leader>h <c-w>h
 nnoremap <leader>l <c-w>l
+nnoremap <leader>k :action EditorSplitLine<CR>
 nnoremap <leader>/ :nohls<cr>
 nnoremap <leader>r :action ReformatCode<CR>
 nnoremap <leader>u :action FileStructurePopup<CR>
+nnoremap <leader>b :action ShowBookmarks<CR>
 nnoremap <leader>m :action MaximizeEditorInSplit<CR>
 nnoremap <leader>z :action ToggleDistractionFreeMode<CR>
 nnoremap <leader>Z :action ToggleZenMode<CR>
@@ -51,8 +53,6 @@ nnoremap ga :action GotoAction<CR>
 nnoremap gh :action ShowErrorDescription<CR>
 nnoremap g; :action JumpToLastChange<CR>
 
-"nnoremap <leader>gt :action GotoTest<CR>
-
 nnoremap <leader>ff :action GotoFile<CR>
 nnoremap <leader>fd :action FindInPath<CR>
 nnoremap <leader>fr :action ReplaceInPath<CR>
@@ -61,15 +61,43 @@ nnoremap <leader>gp :action PinActiveEditorTab<CR>
 nnoremap <leader>gx :action CloseAllUnpinnedEditors<CR>
 nnoremap <leader>gX :action CloseAllEditors<CR>
 nnoremap <leader>go :action CloseAllEditorsButActive<CR>
+nnoremap <leader>gu :action LocalHistory.ShowHistory<CR>
+" git blame
+nnoremap <leader>gb :action Annotate<CR>
 
 nnoremap <leader>ic :source ~/.ideavimrc<CR>
 nnoremap <leader>iw :action EditSourceInNewWindow<CR>
 nnoremap <leader>ia :action VimFindActionIdAction<CR>
-nnoremap <leader>ib :action ToggleLineBreakpoint<CR>
-nnoremap <leader>ix :action Debugger.RemoveAllBreakpoints<CR>
+nnoremap <leader>im :action ToggleBookmark<CR>
 nnoremap <leader>id :action RestartIde<CR>
+" change theme
 nnoremap <leader>it :action ChangeLaf<CR>
 nnoremap <leader>in :action ViewObsoleteNavBarAction<CR>
+
+"debug / run namespace
+noremap \x :action EvaluateExpression<CR>
+
+nnoremap \j :action StepOver<CR>
+nnoremap \J :action ForceStepOver<CR>
+nnoremap \i :action StepInto<CR>
+nnoremap \I :action SmartStepInto<CR>
+nnoremap \o :action StepOut<CR>
+nnoremap \c :action RunToCursor<CR>
+nnoremap \C :action ForceRunToCursor<CR>
+nnoremap \. :action ShowExecutionPoint<CR>
+nnoremap \p :action Pause<CR>
+nnoremap \P :action Play<CR>
+nnoremap \s :action Stop<CR>
+nnoremap \d :action Debug<CR>
+nnoremap \r :action Run<CR>
+nnoremap \R :action Rerun<CR>
+nnoremap \b :action ToggleLineBreakpoint<CR>
+nnoremap \\x :action Debugger.RemoveAllBreakpoints<CR>
+nnoremap \\m :action XDebugger.MuteBreakpoints<CR>
+nnoremap \f :action ForceRunToCursor<CR>
+
+nnoremap \\b :action BuildWholeSolutionAction<CR>
+nnoremap \\B :action RebuildSolutionAction<CR>
 
 nmap <C-o> <Action>(Back)<cr>
 nmap <C-i> <Action>(Forward)<cr>
@@ -94,12 +122,12 @@ nnoremap [g :action VcsShowPrevChangeMarker<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CHOPPING BLOCK "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <leader>k :action EditorSplitLine<CR>
 
 "nnoremap <leader>fc :action GotoClass<CR>
 
 "nnoremap <leader>ir :action ChooseRunConfiguration<CR>
 "nnoremap <leader>ip :action PasteMultiple<CR>
-nnoremap <leader>io :action OptimizeImports<CR>
+"nnoremap <leader>io :action OptimizeImports<CR>
 " Undo
-nnoremap <leader>iu :action LocalHistory.ShowHistory<CR>
+"nnoremap <leader>gt :action GotoTest<CR>
+
