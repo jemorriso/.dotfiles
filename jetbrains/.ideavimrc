@@ -22,6 +22,9 @@ set surround
 set commentary
 set exchange
 
+set visualbell
+set noerrorbells
+
 map Y y$
 
 map <leader>y "+y
