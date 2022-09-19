@@ -47,4 +47,5 @@ vim.g.netrw_winsize = 25
 
 vim.g.mapleader = ' '
 
+vim.g.catppuccin_flavour = "macchiato"
 vim.cmd[[colorscheme catppuccin]]
