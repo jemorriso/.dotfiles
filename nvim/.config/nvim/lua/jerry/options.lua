@@ -47,3 +47,5 @@ vim.g.mapleader = ' '
 
 vim.g.catppuccin_flavour = "macchiato"
 vim.cmd[[colorscheme catppuccin]]
+
+-- vim.g.wordmotion_prefix = [[\]]

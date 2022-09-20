@@ -15,6 +15,8 @@ require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'tpope/vim-commentary'
 
+  use 'chaoren/vim-wordmotion'
+
   use "L3MON4D3/LuaSnip"
   use "rafamadriz/friendly-snippets"
 
