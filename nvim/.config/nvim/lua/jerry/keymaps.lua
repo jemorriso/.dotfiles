@@ -1,9 +1,12 @@
-vim.keymap.set('n', 'yr', '$', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>y', '"+y', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>p', '"+p', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>/', ':nohl<cr>', { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", {noremap = true, silent = true})
 vim.keymap.set("n", "<leader>r", "<cmd>lua vim.lsp.buf.format({async=true})<CR>", {noremap = true, silent = true})
+
+vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", {noremap = true, silent = true})
+vim.keymap.set("n", "<leader><esc>", "<cmd>NvimTreeFocus<CR>", {noremap = true, silent = true})
+
+vim.keymap.set("n", "<leader>gf", "<cmd>NvimTreeFindFile<CR>", {noremap = true, silent = true})
 
 vim.keymap.set('n', '<leader>dc', [[:put =strftime('%A, %B %d, %Y')<cr>kJ]], { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>ic', ':source $MYVIMRC<cr>', { noremap = true, silent = true })

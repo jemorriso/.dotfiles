@@ -1,4 +1,12 @@
 require("nvim-tree").setup({
+  actions = {
+    expand_all = {
+      exclude = {
+        ".git",
+      },
+    },
+  },
+  open_on_setup = true,
   renderer = {
     icons = {
       show = {
@@ -9,4 +17,7 @@ require("nvim-tree").setup({
       },
     },
   },
+  view = {
+    adaptive_size = true,
+  }
 })
