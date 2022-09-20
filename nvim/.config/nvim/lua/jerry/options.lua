@@ -39,11 +39,9 @@ vim.opt.background = 'dark'
 
 vim.wo.wrap = false
 
-vim.g.netrw_banner = 0
-vim.g.netrw_browse_split = 4
-vim.g.netrw_hide = 0
-vim.g.netrw_liststyle = 3
-vim.g.netrw_winsize = 25 
+-- for nvim-tree.lua
+vim.g.loaded = 1
+vim.g.loaded_netrwPlugin = 1
 
 vim.g.mapleader = ' '
 

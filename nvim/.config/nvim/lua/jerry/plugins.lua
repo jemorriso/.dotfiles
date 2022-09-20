@@ -18,7 +18,7 @@ require('packer').startup(function()
   use "L3MON4D3/LuaSnip"
   use "rafamadriz/friendly-snippets"
 
-  -- use 'kyazdani42/nvim-web-devicons'
+  use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
 
   -- use { 'michaelb/sniprun', run = 'bash ./install.sh'}
