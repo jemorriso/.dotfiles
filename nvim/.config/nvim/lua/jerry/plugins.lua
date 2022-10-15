@@ -20,8 +20,15 @@ require('packer').startup(function()
   use "L3MON4D3/LuaSnip"
   use "rafamadriz/friendly-snippets"
 
-  use 'kyazdani42/nvim-web-devicons'
-  use 'kyazdani42/nvim-tree.lua'
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = { 'nvim-tree/nvim-web-devicons' }
+  }
+  use 'nvim-tree/nvim-web-devicons'
 
   -- use { 'michaelb/sniprun', run = 'bash ./install.sh'}
   -- use 'jpalardy/vim-slime'
