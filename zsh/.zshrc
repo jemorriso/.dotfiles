@@ -6,11 +6,6 @@ alias lg='lazygit'
 export EDITOR="nvim"
 
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="$PATH:/home/jerry/.local/bin"
-
-export NNN_TRASH=1
-export NNN_OPTS="Heda"
-export NNN_PLUG="p:preview-tui;z:autojump;c:fzcd;h:fzhist;o:fzopen"
 
 plugins=(
   git
@@ -26,14 +21,3 @@ bindkey -v
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-alias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql
-
-source "$HOME/.dotfiles/nnn/quitcd.bash_zsh"
