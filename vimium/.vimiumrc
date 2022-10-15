@@ -17,7 +17,12 @@ map U scrollFullPageUp
 map e scrollPageUp
 map E scrollFullPageUp
 
+map s LinkHints.activateModeToOpenInNewForegroundTab
 
+# global marks on lowercase keys instead of uppercase
+map ` Marks.activateGotoMode swap
+map ' Marks.activateGotoMode swap
+map m Marks.activateCreateMode swap
 
 map gx0 closeTabsOnLeft
 map gx$ closeTabsOnRight
@@ -26,18 +31,12 @@ map gxx closeOtherTabs
 map t Vomnibar.activateTabSelection
 map T createTab
 
-#map b Vomnibar.activateBookmarksInNewTab
-#map gb Vomnibar.activateBookmarks
-
-# ------------------------------
-# Vivaldi
-# ------------------------------
-# vertical tabs
-# map J nextTab
-# map K previousTab
-
-#unmap <c-e>
-#unmap <c-y>
+unmap <a-p>
+unmap <a-f>
+unmap <a-m>
+map gp togglePinTab
+map gm toggleMuteTab
+map zf LinkHints.activateModeWithQueue
 
 ################################################################################
 # Custom search engines

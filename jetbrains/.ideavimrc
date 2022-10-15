@@ -21,65 +21,105 @@ set relativenumber
 set surround
 set commentary
 set exchange
+set sneak
+
+set visualbell
+set noerrorbells
 
 map Y y$
 
 map <leader>y "+y
 map <leader>p "+p
 
+nmap <C-d> <C-d>zz
+nmap <C-u> <C-u>zz
+
+noremap <leader>r :action ReformatCode<cr>
+
 nnoremap <leader>h <c-w>h
 nnoremap <leader>l <c-w>l
+nnoremap <leader>j <c-w>j
+nnoremap <leader>k <c-w>k
+" nnoremap <leader>k :action EditorSplitLine<cr>
 nnoremap <leader>/ :nohls<cr>
-nnoremap <leader>r :action ReformatCode<CR>
-nnoremap <leader>u :action FileStructurePopup<CR>
-nnoremap <leader>m :action MaximizeEditorInSplit<CR>
-nnoremap <leader>z :action ToggleDistractionFreeMode<CR>
-nnoremap <leader>Z :action ToggleZenMode<CR>
-nnoremap <leader>w :action HideAllWindows<CR>
-nnoremap <leader>x :action CloseContent<CR>
-nnoremap <leader><esc> :action JumpToLastWindow<CR>
-nnoremap <leader>, :action MoveEditorToOppositeTabGroup<CR>
+nnoremap <leader>u :action FileStructurePopup<cr>
+nnoremap <leader>m :action MaximizeEditorInSplit<cr>
+nnoremap <leader>z :action ToggleDistractionFreeMode<cr>
+nnoremap <leader>Z :action ToggleZenMode<cr>
+nnoremap <leader>w :action HideAllWindows<cr>
+nnoremap <leader>x :action CloseContent<cr>
+nnoremap <leader><esc> :action JumpToLastWindow<cr>
+nnoremap <leader>, :action MoveEditorToOppositeTabGroup<cr>
 
 nnoremap <leader><leader>r :action RenameElement<cr>
 
-noremap gc :action CommentByLineComment<CR>
+noremap gc :action CommentByLineComment<cr>
 
-nnoremap gd :action GotoDeclaration<CR>
-nnoremap gr :action FindUsages<CR>
-nnoremap gs :action GotoSymbol<CR>
-nnoremap ga :action GotoAction<CR>
-nnoremap gh :action ShowErrorDescription<CR>
-nnoremap g; :action JumpToLastChange<CR>
+nnoremap gd :action GotoDeclaration<cr>
+nnoremap gr :action FindUsages<cr>
+nnoremap gs :action GotoSymbol<cr>
+nnoremap ga :action GotoAction<cr>
+nnoremap gh :action ShowErrorDescription<cr>
+nnoremap g; :action JumpToLastChange<cr>
 
-"nnoremap <leader>gt :action GotoTest<CR>
+nnoremap <leader>ff :action GotoFile<cr>
+nnoremap <leader>fd :action FindInPath<cr>
+nnoremap <leader>fb :action ShowBookmarks<cr>
+nnoremap <leader>fr :action Refactorings.QuickListPopupAction<cr>
 
-nnoremap <leader>ff :action GotoFile<CR>
-nnoremap <leader>fd :action FindInPath<CR>
-nnoremap <leader>fr :action ReplaceInPath<CR>
+nnoremap <leader>gp :action PinActiveEditorTab<cr>
+nnoremap <leader>gx :action CloseAllUnpinnedEditors<cr>
+nnoremap <leader>gX :action CloseAllEditors<cr>
+nnoremap <leader>go :action CloseAllEditorsButActive<cr>
+nnoremap <leader>gu :action LocalHistory.ShowHistory<cr>
+" git blame
+nnoremap <leader>gb :action Annotate<cr>
 
-nnoremap <leader>gp :action PinActiveEditorTab<CR>
-nnoremap <leader>gx :action CloseAllUnpinnedEditors<CR>
-nnoremap <leader>gX :action CloseAllEditors<CR>
-nnoremap <leader>go :action CloseAllEditorsButActive<CR>
+nnoremap <leader>ic :source ~/.ideavimrc<cr>
+nnoremap <leader>iw :action EditSourceInNewWindow<cr>
+nnoremap <leader>ia :action VimFindActionIdAction<cr>
+nnoremap <leader>im :action ToggleBookmark<cr>
+nnoremap <leader>id :action RestartIde<cr>
+" change theme
+nnoremap <leader>it :action ChangeLaf<cr>
+nnoremap <leader>in :action ViewObsoleteNavBarAction<cr>
+nnoremap <leader>ib :action ViewToolButtons<cr>
 
-nnoremap <leader>ic :source ~/.ideavimrc<CR>
-nnoremap <leader>iw :action EditSourceInNewWindow<CR>
-nnoremap <leader>ia :action VimFindActionIdAction<CR>
-nnoremap <leader>ib :action ToggleLineBreakpoint<CR>
-nnoremap <leader>ix :action Debugger.RemoveAllBreakpoints<CR>
-nnoremap <leader>id :action RestartIde<CR>
-nnoremap <leader>it :action ChangeLaf<CR>
-nnoremap <leader>in :action ViewObsoleteNavBarAction<CR>
+"debug / run namespace
+noremap \x :action EvaluateExpression<cr>
+
+nnoremap \c :action RunToCursor<cr>
+nnoremap \C :action ForceRunToCursor<cr>
+nnoremap \. :action ShowExecutionPoint<cr>
+nnoremap \p :action Pause<cr>
+nnoremap \P :action Play<cr>
+nnoremap \s :action Stop<cr>
+nnoremap \d :action Debug<cr>
+nnoremap \r :action Run<cr>
+nnoremap \R :action Rerun<cr>
+nnoremap \b :action ToggleLineBreakpoint<cr>
+nnoremap \f :action ForceRunToCursor<cr>
+nnoremap \t :action RiderUnitTestRunContextSplitAction<cr>
+nnoremap \y :action RiderUnitTestDebugContextAction<cr>
+" not working
+" nnoremap \\x :action Debugger.RemoveAllBreakpoints<cr>
+" nnoremap \\m :action XDebugger.MuteBreakpoints<cr>
+" nnoremap \\b :action BuildWholeSolutionAction<cr>
+" nnoremap \\B :action RebuildSolutionAction<cr>
+nnoremap \x :action Debugger.RemoveAllBreakpoints<cr>
+nnoremap \m :action XDebugger.MuteBreakpoints<cr>
+nnoremap \, :action BuildWholeSolutionAction<cr>
+nnoremap \< :action RebuildSolutionAction<cr>
 
 nmap <C-o> <Action>(Back)<cr>
 nmap <C-i> <Action>(Forward)<cr>
 
-nnoremap [m :tabm-1<CR>
-nnoremap ]m :tabm+1<CR>
+nnoremap [m :tabm-1<cr>
+nnoremap ]m :tabm+1<cr>
 nnoremap [b :action PreviousTab<cr>
 nnoremap ]b :action NextTab<cr>
-nnoremap [[ :action MethodUp<CR>
-nnoremap ]] :action MethodDown<CR>
+nnoremap [[ :action MethodUp<cr>
+nnoremap ]] :action MethodDown<cr>
 nnoremap ]e :action GotoNextError<cr>
 nnoremap [e :action GotoPreviousError<cr>
 " https://vim.fandom.com/wiki/Quickly_adding_and_deleting_empty_lines
@@ -94,12 +134,12 @@ nnoremap [g :action VcsShowPrevChangeMarker<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CHOPPING BLOCK "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <leader>k :action EditorSplitLine<CR>
 
-"nnoremap <leader>fc :action GotoClass<CR>
+"nnoremap <leader>fc :action GotoClass<cr>
 
-"nnoremap <leader>ir :action ChooseRunConfiguration<CR>
-"nnoremap <leader>ip :action PasteMultiple<CR>
-nnoremap <leader>io :action OptimizeImports<CR>
+"nnoremap <leader>ir :action ChooseRunConfiguration<cr>
+"nnoremap <leader>ip :action PasteMultiple<cr>
+"nnoremap <leader>io :action OptimizeImports<cr>
 " Undo
-nnoremap <leader>iu :action LocalHistory.ShowHistory<CR>
+"nnoremap <leader>gt :action GotoTest<cr>
+
