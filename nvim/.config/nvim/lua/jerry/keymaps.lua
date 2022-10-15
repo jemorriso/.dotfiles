@@ -8,7 +8,6 @@ vim.keymap.set('n', '<leader>k', '<c-w>k', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>l', '<c-w>l', { noremap = true, silent = true })
 
 vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", {noremap = true, silent = true})
-vim.keymap.set("n", "<leader><esc>", "<cmd>NvimTreeFocus<CR>", {noremap = true, silent = true})
 
 vim.keymap.set("n", "<leader>gf", "<cmd>NvimTreeFindFile<CR>", {noremap = true, silent = true})
 
@@ -32,6 +31,3 @@ vim.keymap.set('n', '<leader>fk', '<cmd>lua require("telescope.builtin").keymaps
 vim.keymap.set('n', '<leader>fr', '<cmd>lua require("telescope.builtin").registers()<cr>', {})
 vim.keymap.set('n', '<leader>fs', '<cmd>lua require("telescope.builtin").search_history()<cr>', {})
 vim.keymap.set('n', '<leader>fz', '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<cr>', {})
-
-vim.keymap.set("n", "<leader>ti", "<cmd>lua _ipython_toggle()<CR>", {noremap = true, silent = true})
-
