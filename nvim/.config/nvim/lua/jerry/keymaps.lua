@@ -1,7 +1,6 @@
 vim.keymap.set('n', '<leader>y', '"+y', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>p', '"+p', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>/', ':nohl<cr>', { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>r", "<cmd>lua vim.lsp.buf.format({async=true})<CR>", {noremap = true, silent = true})
 vim.keymap.set('n', '<leader>h', '<c-w>h', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>j', '<c-w>j', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>k', '<c-w>k', { noremap = true, silent = true })
