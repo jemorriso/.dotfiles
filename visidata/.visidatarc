@@ -1,1 +1,4 @@
 options.confirm_overwrite = False
+
+TableSheet.unbindkey('i')
+TableSheet.bindkey('i', 'edit-cell')
