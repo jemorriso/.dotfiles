@@ -1,5 +1,5 @@
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "c_sharp", "lua", "python" },
+require 'nvim-treesitter.configs'.setup {
+  ensure_installed = { 'c_sharp', 'lua', 'python' },
   sync_install = false,
   auto_install = false,
   ignore_install = {},

@@ -6,9 +6,9 @@ vim.keymap.set('n', '<leader>j', '<c-w>j', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>k', '<c-w>k', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>l', '<c-w>l', { noremap = true, silent = true })
 
-vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", {noremap = true, silent = true})
+vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<CR>', { noremap = true, silent = true })
 
-vim.keymap.set("n", "<leader>gf", "<cmd>NvimTreeFindFile<CR>", {noremap = true, silent = true})
+vim.keymap.set('n', '<leader>gf', '<cmd>NvimTreeFindFile<CR>', { noremap = true, silent = true })
 
 vim.keymap.set('n', '<leader>dc', [[:put =strftime('%A, %B %d, %Y')<cr>kJ]], { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>ic', ':source $MYVIMRC<cr>', { noremap = true, silent = true })

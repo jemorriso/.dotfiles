@@ -1,1 +1,1 @@
-require("catppuccin").setup()
+require('catppuccin').setup()

@@ -24,15 +24,15 @@ vim.opt.autoindent = true
 vim.opt.smartindent = true
 
 vim.opt.wildmenu = true
-vim.opt.wildmode = {'longest', 'full'}
+vim.opt.wildmode = { 'longest', 'full' }
 
-vim.opt.completeopt = {'menuone', 'noselect'}
+vim.opt.completeopt = { 'menuone', 'noselect' }
 
 vim.opt.hidden = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
-vim.opt.formatoptions:remove({'r', 'o'})
+vim.opt.formatoptions:remove({ 'r', 'o' })
 
 vim.opt.termguicolors = true
 vim.opt.background = 'dark'
@@ -48,7 +48,7 @@ vim.g.mapleader = ' '
 -- vim.g.catppuccin_flavour = "macchiato"
 -- vim.cmd[[colorscheme catppuccin]]
 -- vim.cmd[[colorscheme nord]]
-vim.cmd[[colorscheme kanagawa]]
+vim.cmd [[colorscheme kanagawa]]
 
 
 vim.g.wordmotion_prefix = [[\]]

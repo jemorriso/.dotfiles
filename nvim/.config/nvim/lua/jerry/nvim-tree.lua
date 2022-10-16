@@ -1,8 +1,8 @@
-require("nvim-tree").setup({
+require('nvim-tree').setup({
   actions = {
     expand_all = {
       exclude = {
-        ".git",
+        '.git',
       },
     },
   },
