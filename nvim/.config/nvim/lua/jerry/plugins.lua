@@ -9,16 +9,24 @@ require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
   use 'junegunn/goyo.vim'
+
   use({ "windwp/nvim-autopairs" })
-  use 'ggandor/leap.nvim'
-
-  use 'tpope/vim-surround'
-  use 'tpope/vim-commentary'
-
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+  }
+  use({
+      "kylechui/nvim-surround",
+      tag = "*",
+      config = function()
+          require("nvim-surround").setup({})
+      end
+  })
   use 'chaoren/vim-wordmotion'
 
-  use "L3MON4D3/LuaSnip"
-  use "rafamadriz/friendly-snippets"
+  use 'ggandor/leap.nvim'
 
   use {
     'nvim-lualine/lualine.nvim',
@@ -34,15 +42,11 @@ require('packer').startup(function()
   -- use 'jpalardy/vim-slime'
   use 'akinsho/toggleterm.nvim'
 
-  use 'tpope/vim-fugitive'
+  -- use 'tpope/vim-fugitive'
   use 'lewis6991/gitsigns.nvim'
 
-  use 'nvim-treesitter/nvim-treesitter'
-  use 'nvim-lua/plenary.nvim'
-  use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.0',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
+  use "L3MON4D3/LuaSnip"
+  use "rafamadriz/friendly-snippets"
 
   use "hrsh7th/nvim-cmp"
   use "hrsh7th/cmp-nvim-lsp"
@@ -52,14 +56,22 @@ require('packer').startup(function()
   use "saadparwaiz1/cmp_luasnip"
 
   use "neovim/nvim-lspconfig"
-  use "williamboman/nvim-lsp-installer"
+  use "williamboman/mason.nvim"
+  use "williamboman/mason-lspconfig.nvim"
   use 'jose-elias-alvarez/null-ls.nvim'
+  
+  use 'nvim-treesitter/nvim-treesitter'
+  use 'nvim-lua/plenary.nvim'
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
 
-  use 'tpope/vim-repeat'
-
-  use 'arcticicestudio/nord-vim' 
+  use 'shaunsingh/nord.nvim' 
   use({
     'catppuccin/nvim',
     as = 'catppuccin'
   })
+  use 'folke/tokyonight.nvim'
+  use "rebelot/kanagawa.nvim"
 end)
