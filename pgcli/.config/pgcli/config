@@ -1,0 +1,4 @@
+[main]
+pager = vd -f csv
+enable_pager = True
+table_format = csv
