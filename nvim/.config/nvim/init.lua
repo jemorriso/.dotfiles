@@ -1,18 +1,14 @@
 require 'jerry.options'
 require 'jerry.keymaps'
 require 'jerry.plugins'
-require 'jerry.null-ls'
+
 require 'jerry.cmp'
 require 'jerry.telescope'
 require 'jerry.autopairs'
-require 'jerry.gitsigns'
 require 'jerry.nvim-tree'
 require 'jerry.toggleterm'
-require 'jerry.leap'
-require 'jerry.catppuccin'
-require 'jerry.nvim-lualine'
-require 'jerry.comment-nvim'
-require 'jerry.nvim-surround'
+
+require 'jerry.null-ls'
 -- these 3 must be in this order
 require 'jerry.mason'
 require 'jerry.mason-lspconfig'

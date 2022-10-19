@@ -46,9 +46,9 @@ vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = ' '
 
 -- vim.g.catppuccin_flavour = "macchiato"
--- vim.cmd[[colorscheme catppuccin]]
+vim.cmd[[colorscheme catppuccin]]
 -- vim.cmd[[colorscheme nord]]
-vim.cmd [[colorscheme kanagawa]]
+-- vim.cmd [[colorscheme kanagawa]]
 
 
 vim.g.wordmotion_prefix = [[\]]
