@@ -1,5 +1,4 @@
 local telescope = require 'telescope'
-local actions = require 'telescope.actions'
 
 telescope.setup {
   defaults = {
@@ -11,6 +10,6 @@ telescope.setup {
       hidden = true
     },
   },
-  extensions = {
-  },
 }
+
+telescope.load_extension('zoxide')
