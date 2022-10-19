@@ -1,14 +1,8 @@
--- returns the require for use in `config` parameter of packer's use
--- expects the name of the config file
-function get_config(name)
-  -- return string.format('require("config/%s")', name)
-  return string.format('require("%s")', name)
-end
-
-require('packer').startup(function()
+require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use 'junegunn/goyo.vim'
+  use 'nyngwang/NeoZoom.lua'
 
   use({ 'windwp/nvim-autopairs' })
   use {
@@ -26,24 +20,33 @@ require('packer').startup(function()
   })
   use 'chaoren/vim-wordmotion'
 
-  use 'ggandor/leap.nvim'
+  use {
+    'ggandor/leap.nvim',
+    config = function()
+      require('leap').add_default_mappings()
+    end
+  }
 
   use {
     'nvim-lualine/lualine.nvim',
-    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+    config = function()
+      require('lualine').setup()
+    end
   }
   use {
     'nvim-tree/nvim-tree.lua',
     requires = { 'nvim-tree/nvim-web-devicons' }
   }
-  use 'nvim-tree/nvim-web-devicons'
 
-  -- use { 'michaelb/sniprun', run = 'bash ./install.sh'}
-  -- use 'jpalardy/vim-slime'
   use 'akinsho/toggleterm.nvim'
 
-  -- use 'tpope/vim-fugitive'
-  use 'lewis6991/gitsigns.nvim'
+  use {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require('gitsigns').setup()
+    end
+  }
 
   use 'L3MON4D3/LuaSnip'
   use 'rafamadriz/friendly-snippets'
@@ -63,16 +66,22 @@ require('packer').startup(function()
 
   use 'nvim-treesitter/nvim-treesitter'
   use 'nvim-lua/plenary.nvim'
+
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
+  use 'jvgrootveld/telescope-zoxide'
 
   use 'shaunsingh/nord.nvim'
-  use({
+  use {
     'catppuccin/nvim',
-    as = 'catppuccin'
-  })
+    as = 'catppuccin',
+    config = function()
+      vim.g.catppuccin_flavour = 'macchiato' -- latte, frappe, macchiato, mocha
+      require('catppuccin').setup()
+    end
+  }
   use 'folke/tokyonight.nvim'
   use 'rebelot/kanagawa.nvim'
 end)

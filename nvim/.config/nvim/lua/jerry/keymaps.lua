@@ -30,4 +30,5 @@ vim.keymap.set('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_ta
 vim.keymap.set('n', '<leader>fk', '<cmd>lua require("telescope.builtin").keymaps()<cr>', {})
 vim.keymap.set('n', '<leader>fr', '<cmd>lua require("telescope.builtin").registers()<cr>', {})
 vim.keymap.set('n', '<leader>fs', '<cmd>lua require("telescope.builtin").search_history()<cr>', {})
-vim.keymap.set('n', '<leader>fz', '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<cr>', {})
+vim.keymap.set('n', '<leader>fi', '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<cr>', {})
+vim.keymap.set('n', '<leader>fz', '<cmd>lua require("telescope").extensions.zoxide.list()<cr>', {})
