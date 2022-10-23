@@ -1,4 +1,7 @@
 [main]
+vi = True
+prompt = '\d 💯\n'
+
 pager = vd -f csv
 enable_pager = True
 table_format = csv
