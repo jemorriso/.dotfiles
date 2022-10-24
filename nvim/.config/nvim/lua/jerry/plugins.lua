@@ -1,8 +1,20 @@
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  use 'junegunn/goyo.vim'
-  use 'nyngwang/NeoZoom.lua'
+  use {
+    'folke/zen-mode.nvim',
+    config = function()
+      require('zen-mode').setup({
+        window = {
+          width = 1,
+          height = 1,
+          options = {
+            relativenumber = true
+          }
+        }
+      })
+    end
+  }
 
   use({ 'windwp/nvim-autopairs' })
   use {

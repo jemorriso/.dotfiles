@@ -6,8 +6,10 @@ vim.keymap.set('n', '<leader>j', '<c-w>j', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>k', '<c-w>k', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>l', '<c-w>l', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>r', '<cmd> lua vim.lsp.buf.format({async=true})<cr>', { noremap = true, silent = true })
-
 vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>z', '<cmd>ZenMode<CR>', { noremap = true, silent = true })
+
+vim.keymap.set('t', '<esc><esc>', [[<c-\><c-n>]], { noremap = true, silent = true })
 
 vim.keymap.set('n', '<leader>gf', '<cmd>NvimTreeFindFile<CR>', { noremap = true, silent = true })
 
@@ -32,3 +34,10 @@ vim.keymap.set('n', '<leader>fr', '<cmd>lua require("telescope.builtin").registe
 vim.keymap.set('n', '<leader>fs', '<cmd>lua require("telescope.builtin").search_history()<cr>', {})
 vim.keymap.set('n', '<leader>fi', '<cmd>lua require("telescope.builtin").current_buffer_fuzzy_find()<cr>', {})
 vim.keymap.set('n', '<leader>fz', '<cmd>lua require("telescope").extensions.zoxide.list()<cr>', {})
+
+vim.keymap.set('n', '<leader>tt', ':ToggleTerm direction=tab<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>tv', ':ToggleTerm direction=vertical<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>ts', ':ToggleTerm direction=horizontal<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>tf', ':ToggleTerm direction=float<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>tg', '<cmd>lua _lazygit_toggle()<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>ti', '<cmd>lua _ipython_toggle()<CR>', { noremap = true, silent = true })

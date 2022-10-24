@@ -24,9 +24,12 @@ map ` Marks.activateGotoMode swap
 map ' Marks.activateGotoMode swap
 map m Marks.activateCreateMode swap
 
-map gx0 closeTabsOnLeft
-map gx$ closeTabsOnRight
-map gxx closeOtherTabs
+map gxh closeTabsOnLeft
+map gxl closeTabsOnRight
+map g. closeOtherTabs
+
+map zh ScrollToLeft
+map zl ScrollToRight
 
 map t Vomnibar.activateTabSelection
 map T createTab

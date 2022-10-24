@@ -7,6 +7,7 @@ require 'jerry.telescope'
 require 'jerry.autopairs'
 require 'jerry.nvim-tree'
 require 'jerry.toggleterm'
+require 'jerry.zen-mode'
 
 require 'jerry.null-ls'
 -- these 3 must be in this order

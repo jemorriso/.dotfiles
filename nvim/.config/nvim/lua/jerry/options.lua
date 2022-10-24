@@ -37,6 +37,8 @@ vim.opt.formatoptions:remove({ 'r', 'o' })
 vim.opt.termguicolors = true
 vim.opt.background = 'dark'
 
+vim.opt.laststatus = 3
+
 vim.wo.wrap = false
 
 -- for nvim-tree.lua
@@ -45,10 +47,8 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.g.mapleader = ' '
 
--- vim.g.catppuccin_flavour = "macchiato"
-vim.cmd[[colorscheme catppuccin]]
+-- vim.cmd[[colorscheme catppuccin]]
 -- vim.cmd[[colorscheme nord]]
--- vim.cmd [[colorscheme kanagawa]]
-
+vim.cmd [[colorscheme kanagawa]]
 
 vim.g.wordmotion_prefix = [[\]]
