@@ -38,6 +38,12 @@ require('packer').startup(function(use)
       require('leap').add_default_mappings()
     end
   }
+  use {
+    'ggandor/flit.nvim',
+    config = function()
+      require('flit').setup()
+    end
+  }
 
   use {
     'nvim-lualine/lualine.nvim',
@@ -83,6 +89,7 @@ require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
+  use { "nvim-telescope/telescope-file-browser.nvim" }
   use 'jvgrootveld/telescope-zoxide'
 
   use 'shaunsingh/nord.nvim'

@@ -38,6 +38,7 @@ vim.opt.termguicolors = true
 vim.opt.background = 'dark'
 
 vim.opt.laststatus = 3
+vim.opt.cmdheight = 0
 
 vim.wo.wrap = false
 
@@ -46,6 +47,7 @@ vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 
 vim.g.mapleader = ' '
+vim.g.maplocalleader = ','
 
 -- vim.cmd[[colorscheme catppuccin]]
 -- vim.cmd[[colorscheme nord]]
