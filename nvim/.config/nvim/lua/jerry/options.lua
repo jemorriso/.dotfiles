@@ -38,6 +38,7 @@ vim.opt.termguicolors = true
 vim.opt.background = 'dark'
 
 vim.opt.laststatus = 3
+vim.opt.cmdheight = 0
 
 vim.wo.wrap = false
 
