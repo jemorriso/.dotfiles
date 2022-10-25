@@ -38,6 +38,12 @@ require('packer').startup(function(use)
       require('leap').add_default_mappings()
     end
   }
+  use {
+    'ggandor/flit.nvim',
+    config = function()
+      require('flit').setup()
+    end
+  }
 
   use {
     'nvim-lualine/lualine.nvim',
