@@ -15,8 +15,6 @@ source $ZSH/oh-my-zsh.sh
 alias ranger='source ranger'
 alias r='source ranger'
 alias lg='lazygit'
-# below oh-my-zsh in order to override alias
-alias ls='exa'
 
 bindkey -v
 
