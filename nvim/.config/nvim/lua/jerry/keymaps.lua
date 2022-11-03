@@ -5,10 +5,11 @@ vim.keymap.set('', ';', ':', { noremap = true, silent = true })
 vim.keymap.set('', '<leader>y', '"+y', { noremap = true, silent = true })
 vim.keymap.set('', '<leader>p', '"+p', { noremap = true, silent = true })
 
-vim.keymap.set('t', '<esc><esc>', [[<c-\><c-n>]], { noremap = true, silent = true })
-
 vim.keymap.set('n', 'gr', '<cmd>lua require("telescope.builtin").lsp_references()<cr>', {})
 vim.keymap.set('n', 'gs', '<cmd>lua require("telescope.builtin").lsp_workspace_symbols()<cr>', {})
+
+vim.keymap.set('n', '<c-d>', '<c-d>zz', {})
+vim.keymap.set('n', '<c-u>', '<c-u>zz', {})
 
 vim.keymap.set('n', '<localleader>d', [[:put =strftime('%A, %B %d, %Y')<cr>kJ]], { noremap = true, silent = true })
 
