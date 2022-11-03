@@ -13,6 +13,7 @@ source $ZSH/oh-my-zsh.sh
 alias ranger='source ranger'
 alias r='source ranger'
 alias lg='lazygit'
+alias ls='exa'
 
 bindkey -v
 
