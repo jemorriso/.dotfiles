@@ -5,7 +5,6 @@ require 'jerry.plugins'
 require 'jerry.cmp'
 require 'jerry.telescope'
 require 'jerry.autopairs'
-require 'jerry.nvim-tree'
 require 'jerry.toggleterm'
 require 'jerry.zen-mode'
 
