@@ -9,10 +9,11 @@ toggleterm.setup({
       return vim.o.columns * 0.4
     end
   end,
-  open_mapping = [[<c-\>]],
-  start_in_insert = false,
+  -- this is [[c-/]] in tmux, cannot get it to work
+  open_mapping = [[<c-_>]],
+  -- start_in_insert = false,
   shade_terminals = false,
-  direction = 'tab',
+  direction = 'vertical',
 })
 
 local lazygit = Terminal:new({

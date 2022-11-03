@@ -49,6 +49,8 @@ vim.g.loaded_netrwPlugin = 1
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
 
+vim.g.slime_target = 'tmux'
+
 -- vim.cmd[[colorscheme catppuccin]]
 -- vim.cmd[[colorscheme nord]]
 vim.cmd [[colorscheme kanagawa]]
