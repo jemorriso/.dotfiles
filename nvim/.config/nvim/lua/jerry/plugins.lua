@@ -52,12 +52,9 @@ require('packer').startup(function(use)
       require('lualine').setup()
     end
   }
-  use {
-    'nvim-tree/nvim-tree.lua',
-    requires = { 'nvim-tree/nvim-web-devicons' }
-  }
 
   use 'akinsho/toggleterm.nvim'
+  use 'jpalardy/vim-slime'
 
   use {
     'lewis6991/gitsigns.nvim',
@@ -91,6 +88,10 @@ require('packer').startup(function(use)
   }
   use { "nvim-telescope/telescope-file-browser.nvim" }
   use 'jvgrootveld/telescope-zoxide'
+  use {
+    'camgraff/telescope-tmux.nvim',
+    requires = { { 'norcalli/nvim-terminal.lua' } }
+  }
 
   use 'shaunsingh/nord.nvim'
   use {
