@@ -1,4 +1,5 @@
 options.confirm_overwrite = False
+options.disp_float_fmt = '%.05f'
 
 # TableSheet.unbindkey('i')
 # TableSheet.bindkey('i', 'edit-cell')
