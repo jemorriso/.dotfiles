@@ -74,6 +74,7 @@ nnoremap <leader>go :action CloseAllEditorsButActive<cr>
 nnoremap <leader>gu :action LocalHistory.ShowHistory<cr>
 " git blame
 nnoremap <leader>gb :action Annotate<cr>
+nnoremap <leader>gi :action ReSharperGotoImplementation<cr>
 
 nnoremap <leader>ic :source ~/.ideavimrc<cr>
 nnoremap <leader>iw :action EditSourceInNewWindow<cr>
