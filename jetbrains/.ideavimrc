@@ -66,6 +66,8 @@ nnoremap <leader>ff :action GotoFile<cr>
 nnoremap <leader>fd :action FindInPath<cr>
 nnoremap <leader>fb :action ShowBookmarks<cr>
 nnoremap <leader>fr :action Refactorings.QuickListPopupAction<cr>
+nnoremap <leader>fc :action GotoClass<cr>
+nnoremap <leader>ft :action GotoTest<cr>
 
 nnoremap <leader>gp :action PinActiveEditorTab<cr>
 nnoremap <leader>gx :action CloseAllUnpinnedEditors<cr>
@@ -75,6 +77,7 @@ nnoremap <leader>gu :action LocalHistory.ShowHistory<cr>
 " git blame
 nnoremap <leader>gb :action Annotate<cr>
 nnoremap <leader>gi :action ReSharperGotoImplementation<cr>
+nnoremap <leader>gc :action ActivateUnitTestsCoverageToolWindow<cr>
 
 nnoremap <leader>ic :source ~/.ideavimrc<cr>
 nnoremap <leader>iw :action EditSourceInNewWindow<cr>
@@ -83,6 +86,7 @@ nnoremap <leader>im :action ToggleBookmark<cr>
 nnoremap <leader>id :action RestartIde<cr>
 " change theme
 nnoremap <leader>it :action ChangeLaf<cr>
+" toggle navbar
 nnoremap <leader>in :action ViewObsoleteNavBarAction<cr>
 nnoremap <leader>ib :action ViewToolButtons<cr>
 
@@ -99,7 +103,6 @@ nnoremap \d :action Debug<cr>
 nnoremap \r :action Run<cr>
 nnoremap \R :action Rerun<cr>
 nnoremap \b :action ToggleLineBreakpoint<cr>
-nnoremap \f :action ForceRunToCursor<cr>
 nnoremap \t :action RiderUnitTestRunContextSplitAction<cr>
 nnoremap \y :action RiderUnitTestDebugContextAction<cr>
 " not working
@@ -136,11 +139,6 @@ nnoremap [g :action VcsShowPrevChangeMarker<cr>
 " CHOPPING BLOCK "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"nnoremap <leader>fc :action GotoClass<cr>
-
 "nnoremap <leader>ir :action ChooseRunConfiguration<cr>
 "nnoremap <leader>ip :action PasteMultiple<cr>
-"nnoremap <leader>io :action OptimizeImports<cr>
-" Undo
-"nnoremap <leader>gt :action GotoTest<cr>
 
