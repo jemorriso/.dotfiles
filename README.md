@@ -21,3 +21,10 @@
 ### Friday, October 21, 2022
 
 - lua doesn't have regex for string pattern matching!!! 😶
+
+### Monday, November 14, 2022
+
+- split .zshrc into multiple files depending on machine
+- from the zsh directory:
+  - macos: `stow -t ~ macos`
+  - wsl: `stow -t ~ wsl`
