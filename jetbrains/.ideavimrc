@@ -100,21 +100,19 @@ nnoremap \. :action ShowExecutionPoint<cr>
 nnoremap \p :action Pause<cr>
 nnoremap \P :action Play<cr>
 nnoremap \q :action Stop<cr>
-nnoremap \d :action Debug<cr>
-nnoremap \r :action Run<cr>
-nnoremap \R :action Rerun<cr>
+nnoremap \d :action RiderUnitTestDebugContextAction<cr>
+nnoremap \D :action Debug<cr>
+nnoremap \r :action RiderUnitTestRepeatPreviousRunAction<cr>
+nnoremap \R :action Run<cr>
 nnoremap \b :action ToggleLineBreakpoint<cr>
 nnoremap \t :action RiderUnitTestRunContextSplitAction<cr>
-nnoremap \y :action RiderUnitTestDebugContextAction<cr>
-" not working
-" nnoremap \\x :action Debugger.RemoveAllBreakpoints<cr>
-" nnoremap \\m :action XDebugger.MuteBreakpoints<cr>
-" nnoremap \\b :action BuildWholeSolutionAction<cr>
-" nnoremap \\B :action RebuildSolutionAction<cr>
-nnoremap \x :action Debugger.RemoveAllBreakpoints<cr>
-nnoremap \m :action XDebugger.MuteBreakpoints<cr>
-nnoremap \, :action BuildWholeSolutionAction<cr>
-nnoremap \< :action RebuildSolutionAction<cr>
+" maps to just 2 backslashes - I guess when it's just one it doesn't escape
+" but when its 2 it does so you need 4???
+nnoremap \\\\x :action Debugger.RemoveAllBreakpoints<cr>
+nnoremap \\\\m :action XDebugger.MuteBreakpoints<cr>
+nnoremap \\\\b :action BuildWholeSolutionAction<cr>
+nnoremap \\\\B :action RebuildSolutionAction<cr>
+nnoremap \\\\r :action Rerun<cr>
 
 nmap <C-o> <Action>(Back)<cr>
 nmap <C-i> <Action>(Forward)<cr>
