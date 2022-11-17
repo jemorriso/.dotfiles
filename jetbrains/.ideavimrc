@@ -99,7 +99,7 @@ nnoremap \C :action ForceRunToCursor<cr>
 nnoremap \. :action ShowExecutionPoint<cr>
 nnoremap \p :action Pause<cr>
 nnoremap \P :action Play<cr>
-nnoremap \s :action Stop<cr>
+nnoremap \q :action Stop<cr>
 nnoremap \d :action Debug<cr>
 nnoremap \r :action Run<cr>
 nnoremap \R :action Rerun<cr>
