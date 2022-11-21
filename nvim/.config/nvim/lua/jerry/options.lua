@@ -44,11 +44,12 @@ vim.opt.cmdheight = 1
 vim.wo.wrap = false
 
 -- for nvim-tree.lua
-vim.g.loaded = 1
-vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded = 1
+-- vim.g.loaded_netrwPlugin = 1
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
+vim.g.markdown_recommended_style = false
 
 vim.g.slime_target = 'tmux'
 
