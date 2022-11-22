@@ -13,7 +13,10 @@ shift + alt - l : yabai -m window --focus east
 shift + alt - k : yabai -m window --focus north
 shift + alt - j : yabai -m window --focus south
 
-shift + alt - f : yabai -m window --toggle zoom-fullscreen
+meh - h : yabai -m window --swap west
+meh - l : yabai -m window --swap east
+meh - k : yabai -m window --swap north
+meh - j : yabai -m window --swap south
 
 shift + alt - 1 : yabai -m space --focus 1
 shift + alt - 2 : yabai -m space --focus 2
@@ -26,9 +29,23 @@ shift + alt - 8 : yabai -m space --focus 8
 shift + alt - 9 : yabai -m space --focus 9
 shift + alt - 0 : yabai -m space --focus 10
 
+meh - 1 : yabai -m window --space 1; yabai -m space --focus 1
+meh - 2 : yabai -m window --space 2; yabai -m space --focus 2
+meh - 3 : yabai -m window --space 3; yabai -m space --focus 3
+meh - 4 : yabai -m window --space 4; yabai -m space --focus 4
+meh - 5 : yabai -m window --space 5; yabai -m space --focus 5
+meh - 6 : yabai -m window --space 6; yabai -m space --focus 6
+meh - 7 : yabai -m window --space 7; yabai -m space --focus 7
+meh - 8 : yabai -m window --space 8; yabai -m space --focus 8
+meh - 9 : yabai -m window --space 9; yabai -m space --focus 9
+meh - 0 : yabai -m window --space 10; yabai -m space --focus 10
+
+shift + alt - f : yabai -m window --toggle zoom-fullscreen
+
 shift + alt - n: yabai -m space --focus next
 shift + alt - p : yabai -m space --focus prev
 shift + alt - b : yabai -m space --focus recent
+
 # left bracket
 shift + alt - 0x21 : yabai -m space --focus first
 # right bracket
@@ -42,22 +59,6 @@ meh - n : yabai -m space --rotate 90
 meh - p : yabai -m space --rotate 270
 
 meh - b : yabai -m display --focus recent
-
-meh - h : yabai -m window --swap west
-meh - l : yabai -m window --swap east
-meh - k : yabai -m window --swap north
-meh - j : yabai -m window --swap south
-
-meh - 1 : yabai -m window --space 1; yabai -m space --focus 1
-meh - 2 : yabai -m window --space 2; yabai -m space --focus 2
-meh - 3 : yabai -m window --space 3; yabai -m space --focus 3
-meh - 4 : yabai -m window --space 4; yabai -m space --focus 4
-meh - 5 : yabai -m window --space 5; yabai -m space --focus 5
-meh - 6 : yabai -m window --space 6; yabai -m space --focus 6
-meh - 7 : yabai -m window --space 7; yabai -m space --focus 7
-meh - 8 : yabai -m window --space 8; yabai -m space --focus 8
-meh - 9 : yabai -m window --space 9; yabai -m space --focus 9
-meh - 0 : yabai -m window --space 10; yabai -m space --focus 10
 
 # can't get angle brackets to work
 # sends same hex codes as comma and period, but the flags are different
