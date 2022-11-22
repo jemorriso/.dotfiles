@@ -34,8 +34,8 @@ shift + alt - 0x21 : yabai -m space --focus first
 # right bracket
 shift + alt - 0x1E : yabai -m space --focus last
 
-# shift + alt - t : yabai -m space --layout bsp
-# shift + alt - 0x31 : yabai -m space --layout float
+shift + alt - t : yabai -m space --layout bsp
+shift + alt - 0x31 : yabai -m space --layout float
 # shift + alt - s : yabai -m space --layout stack
 
 meh - n : yabai -m space --rotate 90
@@ -59,18 +59,20 @@ meh - 8 : yabai -m window --space 8; yabai -m space --focus 8
 meh - 9 : yabai -m window --space 9; yabai -m space --focus 9
 meh - 0 : yabai -m window --space 10; yabai -m space --focus 10
 
-# # can't get angle brackets to work
-# # sends same hex codes as comma and period, but the flags are different
-# # i have different key on ergodox for angle brackets, but using meh or shift + ctrl + alt won't work with these hex codes
-# # not sure why
-# shift + alt - 0x2F : yabai -m space --move next
-# shift + alt - 0x2B : yabai -m space --move prev
-#
+# can't get angle brackets to work
+# sends same hex codes as comma and period, but the flags are different
+# i have different key on ergodox for angle brackets, but using meh or shift + ctrl + alt won't work with these hex codes
+# not sure why
+shift + alt - 0x2F : yabai -m space --move next
+shift + alt - 0x2B : yabai -m space --move prev
+
 # shift + alt - 0x1B : yabai -m space --balance x-axis
 # shift + alt - 0x2A : yabai -m space --balance y-axis
-#
-# meh - 0x1B : yabai -m space --mirror x-axis
-# meh - 0x2A : yabai -m space --mirror y-axis
+
+# dash
+shift + alt - 0x1B : yabai -m space --mirror x-axis
+# backslash
+shift + alt - 0x2A : yabai -m space --mirror y-axis
 #
 # hyper - 1 : yabai -m space --display 1
 # hyper - 2 : yabai -m space --display 2
