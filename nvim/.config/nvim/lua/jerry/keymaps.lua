@@ -24,7 +24,7 @@ vim.keymap.set('n', '<leader>z', '<cmd>ZenMode<CR>', { noremap = true, silent = 
 vim.keymap.set('n', '<leader>u', '<cmd>lua require("telescope.builtin").lsp_document_symbols()<cr>', {})
 
 vim.keymap.set('n', '<leader>fd', '<cmd>lua require("telescope.builtin").diagnostics()<cr>', {})
-vim.keymap.set('n', '<leader>F', '<cmd>lua require("telescope.builtin").find_files()<cr>', {})
+vim.keymap.set('n', '<leader>fa', '<cmd>lua require("telescope.builtin").find_files()<cr>', {})
 vim.keymap.set('n', '<leader>f.', '<cmd>lua require("telescope.builtin").resume()<cr>', {})
 vim.keymap.set('n', '<leader>f;', '<cmd>lua require("telescope.builtin").commands()<cr>', {})
 vim.keymap.set('n', '<leader>fb', '<cmd>lua require("telescope.builtin").buffers()<cr>', {})
