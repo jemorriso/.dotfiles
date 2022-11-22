@@ -4,3 +4,8 @@ sudo yabai --load-sa
 
 #
 yabai -m config layout bsp
+
+yabai -m config mouse_modifier meh
+yabai -m config mouse_action1 resize
+yabai -m config mouse_action2 move
+yabai -m config mouse_drop_action swap
