@@ -42,9 +42,12 @@ meh - 0 : yabai -m window --space 10; yabai -m space --focus 10
 
 shift + alt - f : yabai -m window --toggle zoom-fullscreen
 
-shift + alt - n: yabai -m space --focus next
-shift + alt - p : yabai -m space --focus prev
+shift + alt - n: yabai -m space --focus next || yabai -m space --focus first
+shift + alt - p : yabai -m space --focus prev || yabai -m space --focus last
 shift + alt - b : yabai -m space --focus recent
+
+shift + alt - c : yabai -m space --create
+shift + alt - d : yabai -m space --destroy
 
 # left bracket
 shift + alt - 0x21 : yabai -m space --focus first
