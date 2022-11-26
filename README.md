@@ -28,3 +28,6 @@
 - from the zsh directory:
   - macos: `stow -t ~ macos`
   - wsl: `stow -t ~ wsl`
+
+### Friday, November 25, 2022
+- attempting to get some good spell completion but vim is just suggesting a bunch of weird crap

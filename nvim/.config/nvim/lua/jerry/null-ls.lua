@@ -13,6 +13,7 @@ local sources = {
     extra_args = { '--dialect', 'postgres' },
   }),
   null_ls.builtins.formatting.prettier,
+  -- null_ls.builtins.completion.spell,
 }
 
 null_ls.setup({

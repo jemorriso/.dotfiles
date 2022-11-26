@@ -23,6 +23,7 @@ vim.opt.smarttab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 
+-- vim.opt.spell = true
 vim.opt.wildmenu = true
 vim.opt.wildmode = { 'longest', 'full' }
 

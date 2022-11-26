@@ -72,6 +72,7 @@ require('packer').startup(function(use)
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'saadparwaiz1/cmp_luasnip'
+  use 'f3fora/cmp-spell'
 
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'

@@ -3,7 +3,7 @@ local luasnip = require 'luasnip'
 
 require('luasnip/loaders/from_vscode').lazy_load()
 
-cmp.setup {
+cmp.setup({
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -34,4 +34,14 @@ cmp.setup {
   experimental = {
     ghost_text = false,
   },
-}
+})
+
+-- cmp.setup.filetype('markdown', {
+--   sources = {
+--     { name = 'nvim_lsp' },
+--     { name = 'luasnip' },
+--     { name = 'buffer' },
+--     { name = 'path' },
+--     -- { name = 'spell', option = { keep_all_entries = true } }
+--   }
+-- })
