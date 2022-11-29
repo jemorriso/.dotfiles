@@ -78,6 +78,7 @@ nnoremap <leader>gu :action LocalHistory.ShowHistory<cr>
 nnoremap <leader>gb :action Annotate<cr>
 nnoremap <leader>gi :action ReSharperGotoImplementation<cr>
 nnoremap <leader>gc :action ActivateUnitTestsCoverageToolWindow<cr>
+nnoremap <leader>gu :action ActivateUnitTestsToolWindow<cr>
 
 nnoremap <leader>ic :source ~/.ideavimrc<cr>
 nnoremap <leader>iw :action EditSourceInNewWindow<cr>
