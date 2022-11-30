@@ -90,6 +90,7 @@ nnoremap <leader>it :action ChangeLaf<cr>
 " toggle navbar
 nnoremap <leader>in :action ViewObsoleteNavBarAction<cr>
 nnoremap <leader>ib :action ViewToolButtons<cr>
+nnoremap <leader>ir :action SynchronizeCurrentFile<cr>
 
 "debug / run namespace
 noremap \e :action QuickEvaluateExpression<cr>
