@@ -39,6 +39,13 @@ vim.keymap.set('n', '<leader>fi', '<cmd>lua require("telescope.builtin").current
 vim.keymap.set('n', '<leader>fz', '<cmd>lua require("telescope").extensions.zoxide.list()<cr>', {})
 vim.keymap.set('n', '<leader>fe', '<cmd>lua require("telescope").extensions.file_browser.file_browser()<cr>', {})
 
+vim.keymap.set('n', '[c', '<cmd>lua require("gitsigns").prev_hunk()<cr>', {})
+vim.keymap.set('n', ']c', '<cmd>lua require("gitsigns").next_hunk()<cr>', {})
+vim.keymap.set('n', ']m', ':tabm+1', {})
+vim.keymap.set('n', '[m', ':tabm-1', {})
+vim.keymap.set('n', ']b', ':bnext', {})
+vim.keymap.set('n', '[b', ':bprev', {})
+
 vim.keymap.set('n', '<leader>tt', ':ToggleTerm direction=tab<cr>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>tv', ':ToggleTerm direction=vertical<cr>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>ts', ':ToggleTerm direction=horizontal<cr>', { noremap = true, silent = true })
