@@ -8,82 +8,82 @@
 #default < 
 #prefix < 1 : yabai -m space --display 1; skhd -k "escape";
 
-shift + alt - h : yabai -m window --focus west
-shift + alt - l : yabai -m window --focus east
-shift + alt - k : yabai -m window --focus north
-shift + alt - j : yabai -m window --focus south
+meh - h : yabai -m window --focus west
+meh - l : yabai -m window --focus east
+meh - k : yabai -m window --focus north
+meh - j : yabai -m window --focus south
 
-meh - h : yabai -m window --swap west
-meh - l : yabai -m window --swap east
-meh - k : yabai -m window --swap north
-meh - j : yabai -m window --swap south
+hyper - h : yabai -m window --swap west
+hyper - l : yabai -m window --swap east
+hyper - k : yabai -m window --swap north
+hyper - j : yabai -m window --swap south
 
-shift + alt - 1 : yabai -m space --focus 1
-shift + alt - 2 : yabai -m space --focus 2
-shift + alt - 3 : yabai -m space --focus 3
-shift + alt - 4 : yabai -m space --focus 4
-shift + alt - 5 : yabai -m space --focus 5
-shift + alt - 6 : yabai -m space --focus 6
-shift + alt - 7 : yabai -m space --focus 7
-shift + alt - 8 : yabai -m space --focus 8
-shift + alt - 9 : yabai -m space --focus 9
-shift + alt - 0 : yabai -m space --focus 10
+meh - 1 : yabai -m space --focus 1
+meh - 2 : yabai -m space --focus 2
+meh - 3 : yabai -m space --focus 3
+meh - 4 : yabai -m space --focus 4
+meh - 5 : yabai -m space --focus 5
+meh - 6 : yabai -m space --focus 6
+meh - 7 : yabai -m space --focus 7
+meh - 8 : yabai -m space --focus 8
+meh - 9 : yabai -m space --focus 9
+meh - 0 : yabai -m space --focus 10
 
-meh - 1 : yabai -m window --space 1; yabai -m space --focus 1
-meh - 2 : yabai -m window --space 2; yabai -m space --focus 2
-meh - 3 : yabai -m window --space 3; yabai -m space --focus 3
-meh - 4 : yabai -m window --space 4; yabai -m space --focus 4
-meh - 5 : yabai -m window --space 5; yabai -m space --focus 5
-meh - 6 : yabai -m window --space 6; yabai -m space --focus 6
-meh - 7 : yabai -m window --space 7; yabai -m space --focus 7
-meh - 8 : yabai -m window --space 8; yabai -m space --focus 8
-meh - 9 : yabai -m window --space 9; yabai -m space --focus 9
-meh - 0 : yabai -m window --space 10; yabai -m space --focus 10
+hyper - 1 : yabai -m window --space 1; yabai -m space --focus 1
+hyper - 2 : yabai -m window --space 2; yabai -m space --focus 2
+hyper - 3 : yabai -m window --space 3; yabai -m space --focus 3
+hyper - 4 : yabai -m window --space 4; yabai -m space --focus 4
+hyper - 5 : yabai -m window --space 5; yabai -m space --focus 5
+hyper - 6 : yabai -m window --space 6; yabai -m space --focus 6
+hyper - 7 : yabai -m window --space 7; yabai -m space --focus 7
+hyper - 8 : yabai -m window --space 8; yabai -m space --focus 8
+hyper - 9 : yabai -m window --space 9; yabai -m space --focus 9
+hyper - 0 : yabai -m window --space 10; yabai -m space --focus 10
 
-hyper - 1 : yabai -m display --focus 1
-hyper - 2 : yabai -m display --focus 2
-hyper - 3 : yabai -m display --focus 3
+shift + alt - 1 : yabai -m display --focus 1
+shift + alt - 2 : yabai -m display --focus 2
+shift + alt - 3 : yabai -m display --focus 3
 
-shift + alt - f : yabai -m window --toggle zoom-fullscreen
+meh - f : yabai -m window --toggle zoom-fullscreen
 
-shift + alt - n: yabai -m space --focus next || yabai -m space --focus first
-shift + alt - p : yabai -m space --focus prev || yabai -m space --focus last
-shift + alt - b : yabai -m space --focus recent
+meh - n: yabai -m space --focus next || yabai -m space --focus first
+meh - p : yabai -m space --focus prev || yabai -m space --focus last
+meh - b : yabai -m space --focus recent
 
-shift + alt - c : yabai -m space --create
-shift + alt - d : yabai -m space --destroy
+hyper - b : yabai -m display --focus recent
+hyper - n : yabai -m space --rotate 90
+hyper - p : yabai -m space --rotate 270
+
+meh - c : yabai -m space --create
+meh - d : yabai -m space --destroy
 
 # left bracket
-shift + alt - 0x21 : yabai -m space --focus first
+meh - 0x21 : yabai -m space --focus first
 # right bracket
-shift + alt - 0x1E : yabai -m space --focus last
+meh - 0x1E : yabai -m space --focus last
 
-shift + alt - t : yabai -m space --layout bsp
-# shift + alt - s : yabai -m space --layout stack
+meh - t : yabai -m space --layout bsp
+# meh - s : yabai -m space --layout stack
 # space
-shift + alt - 0x31 : yabai -m space --layout float
+meh - 0x31 : yabai -m space --layout float
 
-meh - 0x31 : yabai -m window --toggle float
+hyper - 0x31 : yabai -m window --toggle float
 
-meh - n : yabai -m space --rotate 90
-meh - p : yabai -m space --rotate 270
-
-meh - b : yabai -m display --focus recent
+# dash
+meh - 0x1B : yabai -m space --mirror x-axis
+# backslash
+meh - 0x2A : yabai -m space --mirror y-axis
 
 # can't get angle brackets to work
 # sends same hex codes as comma and period, but the flags are different
 # i have different key on ergodox for angle brackets, but using meh or shift + ctrl + alt won't work with these hex codes
 # not sure why
-shift + alt - 0x2F : yabai -m space --move next
-shift + alt - 0x2B : yabai -m space --move prev
+meh - 0x2F : yabai -m space --move next
+meh - 0x2B : yabai -m space --move prev
 
 # shift + alt - 0x1B : yabai -m space --balance x-axis
 # shift + alt - 0x2A : yabai -m space --balance y-axis
 
-# dash
-shift + alt - 0x1B : yabai -m space --mirror x-axis
-# backslash
-shift + alt - 0x2A : yabai -m space --mirror y-axis
 #
 # hyper - 1 : yabai -m space --display 1
 # hyper - 2 : yabai -m space --display 2
