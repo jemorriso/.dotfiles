@@ -14,6 +14,8 @@ alias ranger='TERM=screen-256color source ranger'
 alias r='TERM=screen-256color source ranger'
 alias vd='TERM=screen-256color vd'
 alias lg='lazygit'
+# workaround for alt key seemingly not working in tmux / wsl
+alias fc='cd $(ls -d */ | fzf)'
 
 bindkey -v
 
