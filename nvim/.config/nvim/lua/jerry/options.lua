@@ -24,6 +24,7 @@ vim.opt.autoindent = true
 vim.opt.smartindent = true
 
 -- vim.opt.spell = true
+
 vim.opt.wildmenu = true
 vim.opt.wildmode = { 'longest', 'full' }
 
@@ -58,4 +59,4 @@ vim.g.slime_target = 'tmux'
 -- vim.cmd[[colorscheme nord]]
 vim.cmd [[colorscheme kanagawa]]
 
-vim.g.wordmotion_prefix = [[\]]
+vim.g.wordmotion_prefix = [[,]]
