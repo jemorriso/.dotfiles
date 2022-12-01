@@ -1,6 +1,6 @@
 -- free up comma, semicolon keys - using clever-f
 vim.keymap.set('', ',,', ',', { noremap = true, silent = true })
-vim.keymap.set('', ';', ':', { noremap = true, silent = true })
+-- vim.keymap.set('', ';', ':', { noremap = true, silent = true })
 
 vim.keymap.set('', '<leader>y', '"+y', { noremap = true, silent = true })
 vim.keymap.set('', '<leader>p', '"+p', { noremap = true, silent = true })

@@ -27,6 +27,8 @@ set visualbell
 set noerrorbells
 
 map Y y$
+" noremap : ;
+" noremap ; :
 
 map <leader>y "+y
 map <leader>p "+p
@@ -90,6 +92,7 @@ nnoremap <leader>it :action ChangeLaf<cr>
 " toggle navbar
 nnoremap <leader>in :action ViewObsoleteNavBarAction<cr>
 nnoremap <leader>ib :action ViewToolButtons<cr>
+" reload file from disk
 nnoremap <leader>ir :action SynchronizeCurrentFile<cr>
 
 "debug / run namespace
