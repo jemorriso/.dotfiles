@@ -34,3 +34,9 @@
 
 ### Wednesday, November 30, 2022
 - don't stow `karabiner.json` because karabiner-elements overwrites the file. instead just try to remember to copy it over
+
+> update: using goku instead
+- to compile `karabiner.edn` to `karabiner.json`:
+```
+goku
+```

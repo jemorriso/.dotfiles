@@ -1,0 +1,52 @@
+{
+  :devices {
+            :macbook-keyboard [{:product_id 1452 :vendor_id 845}]
+            }
+
+  ;; this is in the examples but not in the tutorial
+  :layers {
+              :tab-mode {:key :tab}
+              :open_bracket-mode {:key :open_bracket}
+              }
+
+  ;; tried to do simlayer on caps_lock -> esc key but it doesn't seem to work either with caps_lock or esc
+  :simlayers {
+              :z-mode {:key :z}
+              }
+
+  :main [
+         ;; need ## so that it works when other modifiers also applied
+         {:des   "caps_lock to esc when pressed alone, to ctrl as modifier"
+         :rules [[:##caps_lock :left_control nil {:alone :escape}]]}
+
+         ;; left command with optional right command (Q) (which makes hyper) to meh
+         ;; can't use mapping of [x,y,z] because it makes a sequence
+         ;; can't do :!TOS because it expects a name to apply the modifiers to 😩
+         {:des   "left command to meh"
+         :rules [[:#Qleft_command :!TOleft_shift]]}
+
+         {:des   "left option to left command"
+         :rules [[:##left_option :left_command]]}
+
+         {:des   "left ctrl to left option"
+         :rules [[:##left_control :left_option]]}
+
+         {:des "tab-mode arrows"
+          :rules [:tab-mode
+                  [:h :left_arrow] 
+                  [:j :down_arrow] 
+                  [:k :up_arrow] 
+                  [:l :right_arrow] 
+                  [:spacebar :return_or_enter] 
+                  ]}
+
+         {:des "open_bracket-mode nav"
+          :rules [:open_bracket-mode
+                  [:s :home] 
+                  [:f :end] 
+                  [:d :page_down] 
+                  [:e :page_up] 
+                  [:spacebar :return_or_enter] 
+                  ]}
+         ]
+}
