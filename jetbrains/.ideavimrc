@@ -122,12 +122,13 @@ nnoremap \\\\r :action Rerun<cr>
 nmap <C-o> <Action>(Back)<cr>
 nmap <C-i> <Action>(Forward)<cr>
 
+noremap [[ :action MethodUp<cr>
+noremap ]] :action MethodDown<cr>
+
 nnoremap [m :tabm-1<cr>
 nnoremap ]m :tabm+1<cr>
 nnoremap [b :action PreviousTab<cr>
 nnoremap ]b :action NextTab<cr>
-nnoremap [[ :action MethodUp<cr>
-nnoremap ]] :action MethodDown<cr>
 nnoremap ]e :action GotoNextError<cr>
 nnoremap [e :action GotoPreviousError<cr>
 " https://vim.fandom.com/wiki/Quickly_adding_and_deleting_empty_lines
