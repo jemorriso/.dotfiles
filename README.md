@@ -31,3 +31,6 @@
 
 ### Friday, November 25, 2022
 - attempting to get some good spell completion but vim is just suggesting a bunch of weird crap
+
+### Wednesday, November 30, 2022
+- don't stow `karabiner.json` because karabiner-elements overwrites the file. instead just try to remember to copy it over
