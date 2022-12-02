@@ -44,6 +44,11 @@ shift + alt - 1 : yabai -m display --focus 1
 shift + alt - 2 : yabai -m display --focus 2
 shift + alt - 3 : yabai -m display --focus 3
 
+# todo - use prefix for these
+meh - q : yabai -m space --display 1
+meh - e : yabai -m space --display 2
+meh - w : yabai -m space --display 3
+
 meh - f : yabai -m window --toggle zoom-fullscreen
 
 meh - n: yabai -m space --focus next || yabai -m space --focus first
