@@ -8,6 +8,14 @@
 #default < 
 #prefix < 1 : yabai -m space --display 1; skhd -k "escape";
 
+# 0x21 : left bracket 
+# 0x1E : right bracket
+# 0x31 : space
+# 0x1B : dash
+# 0x2A : backslash
+# 0x2F : comma
+# 0x2B : period
+
 meh - h : yabai -m window --focus west
 meh - l : yabai -m window --focus east
 meh - k : yabai -m window --focus north
@@ -62,21 +70,16 @@ hyper - p : yabai -m space --rotate 270
 meh - c : yabai -m space --create
 meh - d : yabai -m space --destroy
 
-# left bracket
 meh - 0x21 : yabai -m space --focus first
-# right bracket
 meh - 0x1E : yabai -m space --focus last
 
 meh - t : yabai -m space --layout bsp
 # meh - s : yabai -m space --layout stack
-# space
 meh - 0x31 : yabai -m space --layout float
 
 hyper - 0x31 : yabai -m window --toggle float
 
-# dash
 meh - 0x1B : yabai -m space --mirror x-axis
-# backslash
 meh - 0x2A : yabai -m space --mirror y-axis
 
 # can't get angle brackets to work
