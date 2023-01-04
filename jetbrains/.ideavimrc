@@ -24,11 +24,10 @@ set exchange
 set sneak
 
 set visualbell
-set noerrorbells
+" todo this setting doesn't exist
+" set noerrorbells
 
 map Y y$
-" noremap : ;
-" noremap ; :
 
 map <leader>y "+y
 map <leader>p "+p
@@ -52,6 +51,7 @@ nnoremap <leader>w :action HideAllWindows<cr>
 nnoremap <leader>x :action CloseContent<cr>
 nnoremap <leader><esc> :action JumpToLastWindow<cr>
 nnoremap <leader>, :action MoveEditorToOppositeTabGroup<cr>
+nnoremap <leader>b :action RecentFiles<cr>
 
 nnoremap <leader><leader>r :action RenameElement<cr>
 
@@ -66,11 +66,13 @@ nnoremap g; :action JumpToLastChange<cr>
 nnoremap g, :action JumpToNextChange<cr>
 
 nnoremap <leader>ff :action GotoFile<cr>
-nnoremap <leader>fd :action FindInPath<cr>
-nnoremap <leader>fb :action ShowBookmarks<cr>
-nnoremap <leader>fr :action Refactorings.QuickListPopupAction<cr>
+" live grep
+nnoremap <leader>fg :action FindInPath<cr>
+" nnoremap <leader>fb :action ShowBookmarks<cr>
 nnoremap <leader>fc :action GotoClass<cr>
 nnoremap <leader>ft :action GotoTest<cr>
+nnoremap <leader>fb :action RecentFiles<cr>
+nnoremap <leader>fl :action RecentLocations<cr>
 
 nnoremap <leader>gp :action PinActiveEditorTab<cr>
 nnoremap <leader>gx :action CloseAllUnpinnedEditors<cr>
@@ -80,8 +82,7 @@ nnoremap <leader>gu :action LocalHistory.ShowHistory<cr>
 " git blame
 nnoremap <leader>gb :action Annotate<cr>
 nnoremap <leader>gi :action ReSharperGotoImplementation<cr>
-nnoremap <leader>gc :action ActivateUnitTestsCoverageToolWindow<cr>
-nnoremap <leader>gu :action ActivateUnitTestsToolWindow<cr>
+nnoremap <leader>gh :action Refactorings.QuickListPopupAction<cr>
 
 nnoremap <leader>ic :source ~/.ideavimrc<cr>
 nnoremap <leader>iw :action EditSourceInNewWindow<cr>
@@ -95,6 +96,8 @@ nnoremap <leader>in :action ViewObsoleteNavBarAction<cr>
 nnoremap <leader>ib :action ViewToolButtons<cr>
 " reload file from disk
 nnoremap <leader>ir :action SynchronizeCurrentFile<cr>
+nnoremap <leader>iv :action ActivateUnitTestsCoverageToolWindow<cr>
+nnoremap <leader>iu :action ActivateUnitTestsToolWindow<cr>
 
 "debug / run namespace
 noremap \e :action QuickEvaluateExpression<cr>
@@ -137,8 +140,8 @@ nnoremap ]<space> mzo<esc>`z
 nnoremap [<space> mzO<esc>`z
 nnoremap [d mz:-d<cr>`z
 nnoremap ]d mz:+d<cr>`z
-nnoremap ]g :action VcsShowNextChangeMarker<cr>
-nnoremap [g :action VcsShowPrevChangeMarker<cr>
+nnoremap ]c :action VcsShowNextChangeMarker<cr>
+nnoremap [c :action VcsShowPrevChangeMarker<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CHOPPING BLOCK "
