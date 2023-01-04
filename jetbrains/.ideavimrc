@@ -63,6 +63,7 @@ nnoremap gs :action GotoSymbol<cr>
 nnoremap ga :action GotoAction<cr>
 nnoremap gh :action ShowErrorDescription<cr>
 nnoremap g; :action JumpToLastChange<cr>
+nnoremap g, :action JumpToNextChange<cr>
 
 nnoremap <leader>ff :action GotoFile<cr>
 nnoremap <leader>fd :action FindInPath<cr>
