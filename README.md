@@ -30,20 +30,27 @@
   - wsl: `stow -t ~ wsl`
 
 ### Friday, November 25, 2022
+
 - attempting to get some good spell completion but vim is just suggesting a bunch of weird crap
 
 ### Wednesday, November 30, 2022
+
 - don't stow `karabiner.json` because karabiner-elements overwrites the file. instead just try to remember to copy it over
 
 > update: using goku instead
+
 - to compile `karabiner.edn` to `karabiner.json`:
+
 ```
 goku
 ```
 
 ### Tuesday, January 10, 2023
+
 - bad times getting `tmux-256color` working on macos
 - I finally got it by following the issue here: (https://github.com/htop-dev/htop/issues/251), downloading the file here: (https://gist.github.com/nicm/ea9cf3c93f22e0246ec858122d9abea1)
-and doing `tic -x tmux-256color` to install it to the folder that programs like ranger, nnn and visidata use
+  and doing `tic -x tmux-256color` to install it to the folder that programs like ranger, nnn and visidata use
 - tmux installed by homebrew uses a different ncurses version, macos one is old and doesn't have `tmux-256color`, which is why I have to install it to the
   directory used by the system ncurses. I think.
+
+- adding list of homebrew packages that I'll try to keep up to date
