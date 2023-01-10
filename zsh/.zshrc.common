@@ -6,13 +6,6 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export NNN_TRASH=1
 export NNN_OPTS="Hda"
 
-# https://superuser.com/questions/1043806/how-to-exit-the-ranger-file-explorer-back-to-command-prompt-but-keep-the-current
-alias ranger='source ranger'
-alias r='source ranger'
-alias lg='lazygit'
-# workaround for alt key seemingly not working in tmux / wsl
-alias fc='cd $(ls -d */ | fzf)'
-
 bindkey -v
 
 eval "$(zoxide init zsh)"
