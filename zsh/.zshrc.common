@@ -11,9 +11,8 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # https://superuser.com/questions/1043806/how-to-exit-the-ranger-file-explorer-back-to-command-prompt-but-keep-the-current
-alias ranger='TERM=screen-256color source ranger'
-alias r='TERM=screen-256color source ranger'
-alias vd='TERM=screen-256color vd'
+alias ranger='source ranger'
+alias r='source ranger'
 alias lg='lazygit'
 # workaround for alt key seemingly not working in tmux / wsl
 alias fc='cd $(ls -d */ | fzf)'
