@@ -12,6 +12,8 @@ eval "$(pyenv init -)"
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+alias fc='cd $(fd --type directory | fzf)'
+
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
