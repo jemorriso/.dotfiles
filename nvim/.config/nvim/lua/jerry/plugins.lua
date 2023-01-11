@@ -16,6 +16,13 @@ require('packer').startup(function(use)
     end
   }
 
+  -- use {
+  --   'stevearc/oil.nvim',
+  --   config = function()
+  --     require('oil').setup()
+  --   end
+  -- }
+
   use({ 'windwp/nvim-autopairs' })
   use {
     'numToStr/Comment.nvim',
