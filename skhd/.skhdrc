@@ -16,6 +16,9 @@
 # 0x2F : comma
 # 0x2B : period
 
+meh - c : open -a "Google Chrome"
+meh - i : open -a iTerm
+
 meh - h : yabai -m window --focus west
 meh - j : yabai -m window --focus south
 meh - k : yabai -m window --focus north
