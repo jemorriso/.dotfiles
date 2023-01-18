@@ -83,6 +83,8 @@ nnoremap <leader>gu :action LocalHistory.ShowHistory<cr>
 nnoremap <leader>gb :action Annotate<cr>
 nnoremap <leader>gi :action ReSharperGotoImplementation<cr>
 nnoremap <leader>gh :action Refactorings.QuickListPopupAction<cr>
+" add new file to directory of current file
+nnoremap <leader>gf :action NewElementSamePlace<cr>
 
 nnoremap <leader>ic :source ~/.ideavimrc<cr>
 nnoremap <leader>iw :action EditSourceInNewWindow<cr>
