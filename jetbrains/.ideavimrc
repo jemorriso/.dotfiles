@@ -135,6 +135,7 @@ nnoremap ]b :action NextTab<cr>
 nnoremap [[ :action MethodUp<cr>
 nnoremap ]] :action MethodDown<cr>
 nnoremap ]e :action GotoNextError<cr>
+
 nnoremap [e :action GotoPreviousError<cr>
 " https://vim.fandom.com/wiki/Quickly_adding_and_deleting_empty_lines
 " context mark doesn't work in ideavim so use z
