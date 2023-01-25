@@ -100,6 +100,7 @@ nnoremap <leader>ib :action ViewToolButtons<cr>
 nnoremap <leader>ir :action SynchronizeCurrentFile<cr>
 nnoremap <leader>iv :action ActivateUnitTestsCoverageToolWindow<cr>
 nnoremap <leader>iu :action ActivateUnitTestsToolWindow<cr>
+nnoremap <leader>io :action RiderManageRecentProjects<cr>
 
 "debug / run namespace
 noremap \e :action QuickEvaluateExpression<cr>
