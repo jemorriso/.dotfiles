@@ -22,6 +22,7 @@ set surround
 set commentary
 set exchange
 set sneak
+set quickscope
 
 set visualbell
 " todo this setting doesn't exist
