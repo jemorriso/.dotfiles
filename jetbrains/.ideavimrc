@@ -29,6 +29,7 @@ set visualbell
 " set noerrorbells
 
 map Y y$
+map K :action QuickJavaDoc<cr>
 
 map <leader>y "+y
 map <leader>p "+p
