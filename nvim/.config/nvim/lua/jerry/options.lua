@@ -55,6 +55,9 @@ vim.g.markdown_recommended_style = false
 
 vim.g.slime_target = 'tmux'
 
+vim.g.tidal_target = 'tmux'
+vim.g.tidal_default_config = { socket_name =  'default', target_pane = ':.1'}
+
 -- vim.cmd[[colorscheme catppuccin]]
 -- vim.cmd[[colorscheme nord]]
 vim.cmd [[colorscheme kanagawa]]

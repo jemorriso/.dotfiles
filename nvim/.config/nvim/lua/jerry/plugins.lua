@@ -120,4 +120,6 @@ require('packer').startup(function(use)
   }
   use 'folke/tokyonight.nvim'
   use 'rebelot/kanagawa.nvim'
+
+  use 'tidalcycles/vim-tidal'
 end)
