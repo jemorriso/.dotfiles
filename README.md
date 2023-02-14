@@ -54,3 +54,13 @@ goku
   directory used by the system ncurses. I think.
 
 - adding list of homebrew packages that I'll try to keep up to date
+
+### Monday, February 13, 2023
+
+- installed `moc` in order to use audio preview nnn plugin, `mocq`
+- note that the `jack` daemon must be running in order to use `moc` (`brew services start jack`)
+- i actually did a custom version befure I realized you can just use the above one:
+
+`set -gx NNN_PLUG 'a:!afplay "$nnn" & *`
+
+- run any cli command by using `!`, on current file `"$nnn"`, in background `&` and without confirmation on completion `*`
