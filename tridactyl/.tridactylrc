@@ -13,6 +13,9 @@ bind l forward
 bind H scrollpx -5
 bind L scrollpx 5
 
+bind j scrollline 5
+bind k scrollline -5
+
 bind d scrollline 50
 bind u scrollline -50
 bind e scrollline -50
@@ -34,3 +37,11 @@ bind N findnext --search-from-view --reverse
 bind gn findselect
 bind gN composite findnext --search-from-view --reverse; findselect
 bind <Space>/ nohlsearch
+
+bind --mode=ex <ArrowDown>  ex.next_completion
+bind --mode=ex <ArrowUp>  ex.prev_completion 
+bind --mode=ex <A-j>  ex.next_history
+bind --mode=ex <A-k>  ex.prev_history 
+
+# doesn't work?
+bind --mode=browser <C-Escape> escapehatch
