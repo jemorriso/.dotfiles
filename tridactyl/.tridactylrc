@@ -3,6 +3,8 @@
 set colourscheme dark
 set smoothscroll true
 
+set hintchars jklasdfuiowermv
+
 bind x tabclose
 bind X undo
 bind zx winclose
