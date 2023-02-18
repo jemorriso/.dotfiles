@@ -17,8 +17,10 @@
 # 0x2B : period
 
 meh - i : open -a iterm
+hyper - i : open -a iterm
 hyper - c : open -a 'google chrome'
 hyper - f : open -a firefox
+hyper - g : open -a signal
 hyper - r : open -a 'microsoft remote desktop'
 hyper - s : open -a spotify
 hyper - t : open -a 'microsoft teams'
@@ -65,8 +67,8 @@ meh - 2 : yabai -m display --focus 1
 meh - 3 : yabai -m display --focus 3
 
 hyper - 1 : yabai -m window --display 2; yabai -m display --focus 2
-hyper - 2 : yabai -m window --display 3; yabai -m display --focus 1
-hyper - 3 : yabai -m window --display 1; yabai -m display --focus 3
+hyper - 2 : yabai -m window --display 1; yabai -m display --focus 1
+hyper - 3 : yabai -m window --display 3; yabai -m display --focus 3
 
 # todo - use prefix for these
 # meh - q : yabai -m space --display 1
