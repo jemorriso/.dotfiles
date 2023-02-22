@@ -31,13 +31,17 @@ bind yt tabduplicate
 bind gw tabdetach
 bind gp pin
 
+bind gs mute toggle
+bind gm mute all
+bind gM unmute all
+
+bind gn findselect
+bind gN composite findnext --search-from-view --reverse; findselect
+
 bind / fillcmdline find
 bind ? fillcmdline find --reverse
 bind n findnext --search-from-view
 bind N findnext --search-from-view --reverse
-
-bind gn findselect
-bind gN composite findnext --search-from-view --reverse; findselect
 bind <Space>/ nohlsearch
 
 bind --mode=ex <ArrowDown>  ex.next_completion
