@@ -1,10 +1,11 @@
 {
   :devices {
-            :macbook-keyboard [{:product_id 1452 :vendor_id 845}]
+            :macbook-keyboard [{:product_id 1452 :vendor_id 835}]
             }
 
   ;; this is in the examples but not in the tutorial
   :layers {
+              ;; tried using space but got too many mishits
               :tab-mode {:key :tab}
               :open_bracket-mode {:key :open_bracket}
               }
@@ -19,34 +20,67 @@
          {:des   "caps_lock to esc when pressed alone, to ctrl as modifier"
          :rules [[:##caps_lock :left_control nil {:alone :escape}]]}
 
-         ;; left command with optional right command (Q) (which makes hyper) to meh
-         ;; can't use mapping of [x,y,z] because it makes a sequence
          ;; can't do :!TOS because it expects a name to apply the modifiers to 😩
-         {:des   "left command to meh"
-         :rules [[:#Qleft_command :!TOleft_shift]]}
+         ;; i thought i needeed to put `##` on RHS to pass through command for hyper, but it works without
+         {:des   "right command to meh"
+         :rules [[:##right_command :!TOleft_shift]]}
 
-         {:des   "left option to left command"
-         :rules [[:##left_option :left_command]]}
+         {:des   "right option to hyper"
+         :rules [[:##right_option :!CTOleft_shift]]}
 
-         {:des   "left ctrl to left option"
-         :rules [[:##left_control :left_option]]}
+         ;; don't know why it doesn't work
+         ;;{:des "tab-mode nav"
+          ;;:rules [
+                  ;;[:s :left_arrow [:tab-mode :open_bracket-mode]] 
+                  ;;[:f :down_arrow [:tab-mode :open_bracket-mode]] 
+                  ;;[:d :up_arrow [:tab-mode :open_bracket-mode]] 
+                  ;;[:g :right_arrow [:tab-mode :open_bracket-mode]] 
 
-         {:des "tab-mode arrows"
-          :rules [:tab-mode
-                  [:h :left_arrow] 
-                  [:j :down_arrow] 
-                  [:k :up_arrow] 
-                  [:l :right_arrow] 
-                  [:spacebar :return_or_enter] 
-                  ]}
+                  ;;[:e :home [:tab-mode :open_bracket-mode]] 
+                  ;;[:r :end [:tab-mode :open_bracket-mode]] 
+                  ;;[:t :page_down [:tab-mode :open_bracket-mode]] 
+                  ;;[:w :page_up [:tab-mode :open_bracket-mode]] 
+                  ;;[:spacebar :return_or_enter [:tab-mode :open_bracket-mode]] 
+                  ;]}
 
+         {:des "tab-mode nav"
+           :rules [:tab-mode
+                   [:s :left_arrow] 
+                   [:f :down_arrow] 
+                   [:d :up_arrow] 
+                   [:g :right_arrow] 
+         
+                   [:e :home] 
+                   [:r :end] 
+                   [:t :page_down] 
+                   [:w :page_up] 
+                   [:spacebar :return_or_enter] 
+                   ]}
+         
          {:des "open_bracket-mode nav"
-          :rules [:open_bracket-mode
-                  [:s :home] 
-                  [:f :end] 
-                  [:d :page_down] 
-                  [:e :page_up] 
-                  [:spacebar :return_or_enter] 
-                  ]}
+           :rules [:open_bracket-mode
+                   [:s :left_arrow] 
+                   [:f :down_arrow] 
+                   [:d :up_arrow] 
+                   [:g :right_arrow] 
+         
+                   [:e :home] 
+                   [:r :end] 
+                   [:t :page_down] 
+                   [:w :page_up] 
+                   [:spacebar :return_or_enter]
+                   ]}
+
+         ;; from this article: https://kau.sh/blog/hacking-your-keyboard/
+         ;; space cadet shifts!
+          {:des "left shift once -> ("
+           :rules [
+             [:##left_shift :left_shift nil {:alone :!S9} ]
+           ]}
+
+          {:des "right shift once -> )"
+           :rules [
+             [:##right_shift :right_shift nil {:alone :!S0} ]
+           ]}
          ]
 }
