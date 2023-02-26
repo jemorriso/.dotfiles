@@ -12,6 +12,7 @@ vim.keymap.set('n', '<c-d>', '<c-d>zz', {})
 vim.keymap.set('n', '<c-u>', '<c-u>zz', {})
 
 vim.keymap.set('n', '<localleader>d', [[:put =strftime('%A, %B %d, %Y')<cr>kJ]], { noremap = true, silent = true })
+vim.keymap.set('n', '<localleader>t', [[:put =strftime('%T')<cr>kJ]], { noremap = true, silent = true })
 
 vim.keymap.set('n', '<leader>/', ':nohl<cr>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>h', '<c-w>h', { noremap = true, silent = true })
