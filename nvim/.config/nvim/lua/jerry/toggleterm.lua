@@ -9,9 +9,10 @@ toggleterm.setup({
       return vim.o.columns * 0.4
     end
   end,
-  -- this is [[c-/]] in tmux, cannot get it to work
+  -- works for control-hyphen
   open_mapping = [[<c-_>]],
-  -- start_in_insert = false,
+  -- so I can go back and forth like tmux
+  start_in_insert = false,
   shade_terminals = false,
   direction = 'vertical',
 })

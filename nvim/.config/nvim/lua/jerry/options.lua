@@ -39,7 +39,7 @@ vim.opt.formatoptions:remove({ 'r', 'o' })
 vim.opt.termguicolors = true
 vim.opt.background = 'dark'
 
-vim.opt.laststatus = 3
+-- vim.opt.laststatus = 3
 -- cmdheight 0 is too hardcore for me right now
 vim.opt.cmdheight = 1
 

@@ -1,5 +1,5 @@
 -- free up comma, semicolon keys - using clever-f
-vim.keymap.set('', ',,', ',', { noremap = true, silent = true })
+-- vim.keymap.set('', ',,', ',', { noremap = true, silent = true })
 -- vim.keymap.set('', ';', ':', { noremap = true, silent = true })
 
 vim.keymap.set('', '<leader>y', '"+y', { noremap = true, silent = true })
@@ -53,3 +53,5 @@ vim.keymap.set('n', '<leader>ts', ':ToggleTerm direction=horizontal<cr>', { nore
 vim.keymap.set('n', '<leader>tf', ':ToggleTerm direction=float<cr>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>tg', '<cmd>lua _lazygit_toggle()<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>ti', '<cmd>lua _ipython_toggle()<CR>', { noremap = true, silent = true })
+
+vim.keymap.set('t', '<c-esc>', [[<c-\><c-n>]], { noremap = true, silent = true })

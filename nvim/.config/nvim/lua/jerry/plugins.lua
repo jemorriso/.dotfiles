@@ -24,6 +24,7 @@ require('packer').startup(function(use)
   -- }
 
   use({ 'windwp/nvim-autopairs' })
+
   use {
     'numToStr/Comment.nvim',
     config = function()
@@ -45,12 +46,12 @@ require('packer').startup(function(use)
       require('leap').add_default_mappings()
     end
   }
-  use {
-    'ggandor/flit.nvim',
-    config = function()
-      require('flit').setup()
-    end
-  }
+  -- use {
+  --   'ggandor/flit.nvim',
+  --   config = function()
+  --     require('flit').setup()
+  --   end
+  -- }
 
   -- use {
   --   'dkendal/nvim-treeclimber',
