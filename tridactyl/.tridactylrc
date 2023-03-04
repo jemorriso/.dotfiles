@@ -42,7 +42,7 @@ bind / fillcmdline find
 bind ? fillcmdline find --reverse
 bind n findnext --search-from-view
 bind N findnext --search-from-view --reverse
-bind <Space>/ nohlsearch
+bind g/ nohlsearch
 
 bind --mode=ex <ArrowDown>  ex.next_completion
 bind --mode=ex <ArrowUp>  ex.prev_completion 
