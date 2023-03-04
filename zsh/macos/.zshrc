@@ -17,3 +17,5 @@ alias fc='cd $(fd --type directory | fzf)'
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source ${HOME}/.ghcup/env
