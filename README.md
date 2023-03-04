@@ -64,3 +64,6 @@ goku
 `set -gx NNN_PLUG 'a:!afplay "$nnn" & *`
 
 - run any cli command by using `!`, on current file `"$nnn"`, in background `&` and without confirmation on completion `*`
+
+### Saturday, March 04, 2023
+- using [YabaiIndicator](https://github.com/xiamaz/YabaiIndicator)
