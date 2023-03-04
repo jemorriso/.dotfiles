@@ -46,6 +46,13 @@ vim.keymap.set('n', ']m', ':tabm+1', {})
 vim.keymap.set('n', '[m', ':tabm-1', {})
 vim.keymap.set('n', ']b', ':bnext', {})
 vim.keymap.set('n', '[b', ':bprev', {})
+vim.keymap.set('n', ']t', ':tnext', {})
+vim.keymap.set('n', '[t', ':tprev', {})
+
+vim.keymap.set('n', ']<space>', 'mzo<esc>`z', {})
+vim.keymap.set('n', '[<space>', 'mzO<esc>`z', {})
+vim.keymap.set('n', '[d', 'mz:-d<cr>`z', {})
+vim.keymap.set('n', ']d', 'mz:+d<cr>`z', {})
 
 vim.keymap.set('n', '<leader>tt', ':ToggleTerm direction=tab<cr>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>tv', ':ToggleTerm direction=vertical<cr>', { noremap = true, silent = true })
