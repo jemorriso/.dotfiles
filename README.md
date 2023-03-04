@@ -67,3 +67,5 @@ goku
 
 ### Saturday, March 04, 2023
 - using [YabaiIndicator](https://github.com/xiamaz/YabaiIndicator)
+
+- to get cd on quit working for nnn and fish: (https://github.com/jarun/nnn/blob/master/misc/quitcd/quitcd.fish)
