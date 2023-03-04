@@ -28,6 +28,8 @@ set visualbell
 " todo this setting doesn't exist
 " set noerrorbells
 
+sethandler a:vim
+
 map Y y$
 map K :action QuickJavaDoc<cr>
 
