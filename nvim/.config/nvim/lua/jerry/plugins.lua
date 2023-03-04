@@ -24,6 +24,7 @@ require('packer').startup(function(use)
   -- }
 
   use({ 'windwp/nvim-autopairs' })
+  use({ 'mg979/vim-visual-multi' })
 
   use {
     'numToStr/Comment.nvim',
