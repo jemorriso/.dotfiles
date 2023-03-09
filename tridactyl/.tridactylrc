@@ -18,9 +18,9 @@ bind L scrollpx 5
 bind j scrollline 5
 bind k scrollline -5
 
-bind d scrollline 50
-bind u scrollline -50
-bind e scrollline -50
+bind d scrollline 35
+bind u scrollline -35
+bind e scrollline -35
 
 bind D scrollpage 1
 bind U scrollpage -1
