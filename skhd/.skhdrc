@@ -105,24 +105,24 @@ hyper - up : yabai -m window --insert north
 hyper - right : yabai -m window --insert east
 
 # just do both so it doesn't matter which side the window is on
-shift + alt - h : yabai -m window --resize left:-20:0 ; yabai -m window --resize right:-20:0
-shift + alt - j : yabai -m window --resize bottom:0:20 ; yabai -m window --resize top:0:20
-shift + alt - k : yabai -m window --resize top:0:-20 ; yabai -m window --resize bottom:0:-20
-shift + alt - l : yabai -m window --resize right:20:0 ; yabai -m window --resize left:20:0
+ctrl + alt - h : yabai -m window --resize left:-20:0 ; yabai -m window --resize right:-20:0
+ctrl + alt - j : yabai -m window --resize bottom:0:20 ; yabai -m window --resize top:0:20
+ctrl + alt - k : yabai -m window --resize top:0:-20 ; yabai -m window --resize bottom:0:-20
+ctrl + alt - l : yabai -m window --resize right:20:0 ; yabai -m window --resize left:20:0
 
-shift + alt - x : yabai -m space --display 1; yabai -m display --focus 1
-shift + alt - y : yabai -m space --display 2; yabai -m display --focus 2
-shift + alt - z : yabai -m space --display 3; yabai -m display --focus 3
+ctrl + alt - x : yabai -m space --display 1; yabai -m display --focus 1
+ctrl + alt - y : yabai -m space --display 2; yabai -m display --focus 2
+ctrl + alt - z : yabai -m space --display 3; yabai -m display --focus 3
 
-shift + alt - n : yabai -m space --rotate 90
-shift + alt - p : yabai -m space --rotate 270
+ctrl + alt - n : yabai -m space --rotate 90
+ctrl + alt - p : yabai -m space --rotate 270
 
-shift + alt - c : yabai -m space --create ; yabai -m space --focus next
-shift + alt - d : yabai -m space --destroy ; yabai -m space --focus recent
-shift + alt - w : yabai -m space --create ; yabai -m window --space next ; yabai -m space --focus next
-shift + alt - q : yabai -m window --space recent ; yabai -m space --destroy
+ctrl + alt - c : yabai -m space --create ; yabai -m space --focus next
+ctrl + alt - d : yabai -m space --destroy ; yabai -m space --focus recent
+ctrl + alt - w : yabai -m space --create ; yabai -m window --space next ; yabai -m space --focus next
+ctrl + alt - q : yabai -m window --space recent ; yabai -m space --destroy
 
-shift + alt - 0x1B : yabai -m space --balance x-axis
-shift + alt - 0x2A : yabai -m space --balance y-axis
-shift + alt - 0x31 : yabai -m space --balance
+ctrl + alt - 0x1B : yabai -m space --balance x-axis
+ctrl + alt - 0x2A : yabai -m space --balance y-axis
+ctrl + alt - 0x31 : yabai -m space --balance
 
