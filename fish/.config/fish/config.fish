@@ -6,7 +6,19 @@ set -gx NNN_OPTS "HdaA"
 set -gx NNN_PLUG 'm:mocq'
 
 alias lg=lazygit
-alias tg=toggl
+
+# todo: figure out how to echo the command output
+# alias togs="toggl stop"
+# alias togb="toggl start betting -o betting"
+# alias togw="toggl start exercise -o exercise"
+# alias togj="toggl start job-hunt -o job-hunt"
+# alias togm="toggl start music -o music"
+# alias togp="toggl start project -o project"
+# alias togr="toggl start reading -o reading"
+# alias togc="toggl start scheduling -o scheduling"
+# alias togs="toggl start sleeping -o sleeping"
+# alias togw="toggl start work -o work"
+# alias togf="toggl start workflow -o workflow"
 
 fish_vi_key_bindings
 
