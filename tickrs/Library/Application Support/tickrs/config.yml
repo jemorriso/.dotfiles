@@ -1,0 +1,16 @@
+symbols:
+  - ^DJI
+  - ^GSPC
+  - CADUSD=X
+  - AMZN
+  - AMD
+  - ATVI
+  - MSFT
+  - VFV.TO
+  - XEQT.TO
+  - BTC-USD
+  - ETH-USD
+
+time_frame: 1W
+
+show_x_labels: true
