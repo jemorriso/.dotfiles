@@ -69,3 +69,7 @@ goku
 - using [YabaiIndicator](https://github.com/xiamaz/YabaiIndicator)
 
 - to get cd on quit working for nnn and fish: (https://github.com/jarun/nnn/blob/master/misc/quitcd/quitcd.fish)
+
+### Friday, March 10, 2023
+Add scripts directory and Brewfile that will store all my installed programs via brew and brew cask
+- to generate brewfile: `brew bundle dump`
