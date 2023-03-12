@@ -73,3 +73,6 @@ goku
 ### Friday, March 10, 2023
 Add scripts directory and Brewfile that will store all my installed programs via brew and brew cask
 - to generate brewfile: `brew bundle dump`
+
+### Saturday, March 11, 2023
+Migrate as many apps as possible to brew cask. Did not do `postgres.app` as homebrew is not the recommended way to install postgres
