@@ -14,3 +14,5 @@ symbols:
 time_frame: 1W
 
 show_x_labels: true
+
+update_interval: 300
