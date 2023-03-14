@@ -1,6 +1,6 @@
 # see default mappings in tridactyl/src/lib/config.ts
 
-set colourscheme shydactyl
+set colors shydactyl
 set smoothscroll true
 
 set hintchars jklasdfuiowermv
