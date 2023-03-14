@@ -11,7 +11,7 @@ prefix < escape ; default
 # launch apps with prefix 😍
 prefix < i : open -a iterm; skhd -k 'escape'
 prefix < c : open -a 'google chrome'; skhd -k 'escape'
-prefix < f : open -a firefox; skhd -k 'escape'
+prefix < f : open -a 'firefox developer edition'; skhd -k 'escape'
 prefix < g : open -a signal; skhd -k 'escape'
 prefix < r : open -a 'microsoft remote desktop'; skhd -k 'escape'
 prefix < s : open -a spotify; skhd -k 'escape'
