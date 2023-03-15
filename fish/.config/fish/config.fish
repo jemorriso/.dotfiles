@@ -2,8 +2,11 @@ set -gx EDITOR nvim
 set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
 set -gx NNN_TRASH 1
-set -gx NNN_OPTS "HdaA"
+set -gx NNN_OPTS HdaA
 set -gx NNN_PLUG 'm:mocq'
+
+# for some reason macos curl stopped working
+set -gx HOMEBREW_FORCE_BREWED_CURL 1
 
 alias lg=lazygit
 
