@@ -189,16 +189,16 @@
                    [:9 :!S9]
                    [:0 :!S0]]}
 
-         ;; from this article: https://kau.sh/blog/hacking-your-keyboard/
-         ;; space cadet shifts!
-         ;  {:des "left shift once -> ("
-         ;   :rules [
-         ;     [:##left_shift :left_shift nil {:alone :!S9} ]
-         ;   ]}
-         ;
-         ;  {:des "right shift once -> )"
-         ;   :rules [
-         ;     [:##right_shift :right_shift nil {:alone :!S0} ]
-         ;   ]}
+         ; from this article: https://kau.sh/blog/hacking-your-keyboard/
+         ; space cadet brackets
+          {:des "left shift once -> ["
+           :rules [
+             [:##left_shift :left_shift nil {:alone :open_bracket} ]
+           ]}
+
+          {:des "right shift once -> ]"
+           :rules [
+             [:##right_shift :right_shift nil {:alone :close_bracket} ]
+           ]}
          ]
 }
