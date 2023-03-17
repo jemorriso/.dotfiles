@@ -5,6 +5,20 @@ set smoothscroll true
 
 set hintchars jklasdfuiowermv
 
+set searchurls.w https://www.wikipedia.org/w/index.php?title=Special:Search&search=%s
+set searchurls.y https://www.youtube.com/results?search_query=%s
+set searchurls.a https://www.amazon.ca/s/?field-keywords=%s
+set searchurls.g https://www.google.com/search?q=%s
+set searchurls.map https://www.google.com/maps?q=%s
+set searchurls.gh https://github.com/search?q=%s
+set searchurls.t https://twitter.com/search?q=%s
+set searchurls.r https://www.reddit.com/search/?q=%s
+set searchurls.rg https://www.google.com/search?q=%s+Reddit
+set searchurls.sr https://www.reddit.com/r/%s
+set searchurls.hr https://www.hockey-reference.com/search/search.fcgi?search=%s
+set searchurls.tah https://theathletic.com/nhl/team/%s
+set searchurls.ens https://www.espn.com/nhl/team/schedule/_/name/%s
+
 bind x tabclose
 bind X undo
 bind zx winclose
