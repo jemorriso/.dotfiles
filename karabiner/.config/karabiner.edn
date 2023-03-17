@@ -1,4 +1,7 @@
 {
+  :profiles {:Default
+                    {:sim 50,:delay 500,:alone 250,:held 500,:default true}}
+
   :devices {
             :macbook-keyboard [{:product_id 1452 :vendor_id 835}]
             }
