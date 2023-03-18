@@ -29,6 +29,13 @@
   - macos: `stow -t ~ macos`
   - wsl: `stow -t ~ wsl`
 
+#### update Saturday, March 18, 2023
+
+copied idea to fish shell
+from the fish directory:
+- macos: `stow -t ~/.config/fish macos`
+- wsl: `stow -t ~/.config/fish wsl`
+
 ### Friday, November 25, 2022
 
 - attempting to get some good spell completion but vim is just suggesting a bunch of weird crap
