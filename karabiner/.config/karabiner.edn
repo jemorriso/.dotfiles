@@ -214,5 +214,11 @@
 
          {:des   "left option tap -> {"
          :rules [[:##left_option :left_option nil {:alone :!Sopen_bracket}]]}
+
+         {:des   "fn tap -> <"
+         :rules [[:##fn :fn nil {:alone :!Scomma}]]}
+
+         {:des   "left ctrl tap -> >"
+         :rules [[:##left_control :left_control nil {:alone :!Speriod}]]}
   ]
 }
