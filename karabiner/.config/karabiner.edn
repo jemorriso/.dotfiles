@@ -28,14 +28,6 @@
          {:des   "caps_lock to esc when pressed alone, to ctrl as modifier"
          :rules [[:##caps_lock :left_control nil {:alone :escape}]]}
 
-         ;; can't do :!TOS because it expects a name to apply the modifiers to 😩
-         ;; i thought i needeed to put `##` on RHS to pass through command for hyper, but it works without
-         {:des   "right command to meh"
-         :rules [[:##right_command :!TOleft_shift]]}
-
-         {:des   "right option to hyper"
-         :rules [[:##right_option :!CTOleft_shift]]}
-
          {:des   "open bracket to backspace"
          :rules [[:open_bracket :delete_or_backspace]]}
 
@@ -194,14 +186,33 @@
 
          ; from this article: https://kau.sh/blog/hacking-your-keyboard/
          ; space cadet brackets
-          {:des "left shift once -> ["
+          {:des "left shift tap -> ["
            :rules [
              [:##left_shift :left_shift nil {:alone :open_bracket} ]
            ]}
 
-          {:des "right shift once -> ]"
+          {:des "right shift tap -> ]"
            :rules [
              [:##right_shift :right_shift nil {:alone :close_bracket} ]
            ]}
-         ]
+
+         ;; can't do :!TOS because it expects a name to apply the modifiers to 😩
+         ;; i thought i needeed to put `##` on RHS to pass through command for hyper, but it works without
+         {:des   "right command to meh, tap -> )"
+          :rules [
+            [:##right_command :!TOleft_shift nil {:alone :!S0} ]
+            [:##right_command :!TOleft_shift]
+          ]}
+
+          {:des "left command tap -> ("
+           :rules [
+             [:##left_command :left_command nil {:alone :!S9} ]
+           ]}
+
+         {:des   "right option to hyper, tap -> }"
+         :rules [[:##right_option :!CTOleft_shift nil {:alone :!Sclose_bracket}]]}
+
+         {:des   "left option tap -> {"
+         :rules [[:##left_option :left_option nil {:alone :!Sopen_bracket}]]}
+  ]
 }
