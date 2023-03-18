@@ -218,28 +218,27 @@
     }
 
     ; from this article: https://kau.sh/blog/hacking-your-keyboard/
-    ; space cadet brackets
     {
-      :des "left shift tap -> ["
-      :rules [[:##left_shift :left_shift nil {:alone :open_bracket}]]
+      :des "left shift tap -> ("
+      :rules [[:##left_shift :left_shift nil {:alone :!S9}]]
     }
 
     {
-      :des "right shift tap -> ]"
-      :rules [[:##right_shift :right_shift nil {:alone :close_bracket}]]
+      :des "right shift tap -> )"
+      :rules [[:##right_shift :right_shift nil {:alone :!S0}]]
     }
 
     ;; can't do :!TOS because it expects a name to apply the modifiers to 😩
     ;; i thought i needeed to put `##` on RHS to pass through command for hyper, but it works without
     {
-      :des "right command to meh, tap -> )"
-      :rules [[:##right_command :!TOleft_shift nil {:alone :!S0}]]
+      :des "right command to meh, tap -> enter"
+      :rules [[:##right_command :!TOleft_shift nil {:alone :return_or_enter}]]
     }
 
-    {
-      :des "left command tap -> ("
-      :rules [[:##left_command :left_command nil {:alone :!S9}]]
-    }
+    ; {
+    ;   :des "left command tap -> ("
+    ;   :rules [[:##left_command :left_command nil {:alone :!S9}]]
+    ; }
 
     {
       :des "right option to hyper, tap -> }"
@@ -252,13 +251,13 @@
     }
 
     {
-      :des "fn tap -> <"
-      :rules [[:##fn :fn nil {:alone :!Scomma}]]
+      :des "fn tap -> ["
+      :rules [[:##fn :fn nil {:alone :open_bracket}]]
     }
 
     {
-      :des "left ctrl tap -> >"
-      :rules [[:##left_control :left_control nil {:alone :!Speriod}]]
+      :des "left ctrl tap -> ]"
+      :rules [[:##left_control :left_control nil {:alone :close_bracket}]]
     }
   ]
 }
