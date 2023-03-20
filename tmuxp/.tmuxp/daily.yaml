@@ -1,0 +1,17 @@
+session_name: daily
+windows:
+- layout: d5ec,180x129,0,0,25
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: fish
+  start_directory: /Users/jerry/docs
+  window_name: docs
+- focus: 'true'
+  layout: d5ed,180x129,0,0,26
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: fish
+  start_directory: /Users/jerry
+  window_name: toggl
