@@ -49,6 +49,31 @@
       :rules [[:##caps_lock :left_control nil {:alone :escape}]]
     }
 
+    ; {
+    ;   :des "hold 9 -> shift"
+    ;   :rules [[:##9 :left_shift nil {:alone :9}]]
+    ; }
+    ;
+    ; {
+    ;   :des "hold 3 -> shift"
+    ;   :rules [[:##3 :left_shift nil {:alone :3}]]
+    ; }
+
+    {
+      :des "hold slash -> shift"
+      :rules [[:##slash :left_shift nil {:alone :slash}]]
+    }
+    ; {
+    ;   :des "hold comma -> meh"
+    ;   :rules [[:##comma :!TOleft_shift nil {:alone :comma}]]
+    ; }
+    ;
+    ; {
+    ;   :des "hold period -> hyper"
+    ;   :rules [[:##period :!CTOleft_shift nil {:alone :period}]]
+    ; }
+
+    ; actually still works with curly brace
     {
       :des "open bracket to backspace"
       :rules [[:open_bracket :delete_or_backspace]]
@@ -235,10 +260,10 @@
       :rules [[:##right_command :!TOleft_shift nil {:alone :return_or_enter}]]
     }
 
-    ; {
-    ;   :des "left command tap -> ("
-    ;   :rules [[:##left_command :left_command nil {:alone :!S9}]]
-    ; }
+    {
+      :des "left command tap -> backslash"
+      :rules [[:##left_command :left_command nil {:alone :backslash}]]
+    }
 
     {
       :des "right option to hyper, tap -> }"
