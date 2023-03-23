@@ -1,0 +1,17 @@
+session_name: dotfiles
+windows:
+- focus: 'true'
+  layout: bbe2,216x53,0,0,5
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: nvim
+  start_directory: /Users/jerry/.dotfiles
+  window_name: dotfiles
+- layout: bfe3,216x54,0,0,6
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: nvim
+  start_directory: /Users/jerry/.dotfiles/lazyvim/.config/nvim
+  window_name: lazyvim
