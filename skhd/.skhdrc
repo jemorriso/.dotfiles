@@ -40,10 +40,6 @@ meh - 8 : yabai -m space --focus 8
 meh - 9 : yabai -m space --focus 9
 meh - 0 : yabai -m space --focus 10
 
-meh - x : yabai -m display --focus 1
-meh - y : yabai -m display --focus 2
-meh - z : yabai -m display --focus 3
-
 meh - h : yabai -m window --focus west
 meh - j : yabai -m window --focus south
 meh - k : yabai -m window --focus north
@@ -73,6 +69,9 @@ meh - down : yabai -m window --warp south
 meh - up : yabai -m window --warp north
 meh - right : yabai -m window --warp east
 
+# meh - z : superkey
+# meh - c : scoot
+
 hyper - 1 : yabai -m window --space 1; yabai -m space --focus 1
 hyper - 2 : yabai -m window --space 2; yabai -m space --focus 2
 hyper - 3 : yabai -m window --space 3; yabai -m space --focus 3
@@ -84,9 +83,9 @@ hyper - 8 : yabai -m window --space 8; yabai -m space --focus 8
 hyper - 9 : yabai -m window --space 9; yabai -m space --focus 9
 hyper - 0 : yabai -m window --space 10; yabai -m space --focus 10
 
-hyper - x : yabai -m window --display 1; yabai -m display --focus 1
-hyper - y : yabai -m window --display 2; yabai -m display --focus 2
-hyper - z : yabai -m window --display 3; yabai -m display --focus 3
+# hyper - x : yabai -m window --display 1; yabai -m display --focus 1
+# hyper - y : yabai -m window --display 2; yabai -m display --focus 2
+# hyper - z : yabai -m window --display 3; yabai -m display --focus 3
 
 hyper - h : yabai -m window --swap west
 hyper - j : yabai -m window --swap south
