@@ -83,3 +83,13 @@ Add scripts directory and Brewfile that will store all my installed programs via
 
 ### Saturday, March 11, 2023
 Migrate as many apps as possible to brew cask. Did not do `postgres.app` as homebrew is not the recommended way to install postgres
+
+### Thursday, March 23, 2023
+fun times trying to pin supercollider and deal with homebrew packages. Pinned supercollider using [homebrew-cask-upgrade](https://github.com/buo/homebrew-cask-upgrade) but when I run `brew upgrade` it ignores the pin. So then I was doing `brew install <package list>`, but that caused `brew bundle dump` to output those packages since they were explicitly installed, which I don't want. 
+
+There is [no way to mark packages as automatically installed](https://github.com/Homebrew/brew/issues/10754). For some reason `brew bundle cleanup --force` did not work, even after deleting those packages from the brew file. There is also [no way to remove a package from brew bundle](https://github.com/Homebrew/homebrew-bundle/issues/818)
+
+The way to go is go into each package's `INSTALL_RECEIPT.json` file and change `installed_on_request` to false. Then run `brew bundle dump` and those packages no longer appear.
+
+Will need to deal with supercollider separately 😁
+
