@@ -25,15 +25,15 @@
 
     ctl_esc (tap-hold-next-release 200 KeyEsc lctl)
 
-    met_a (tap-hold-next-release 200 a lmet)
+    ctl_a (tap-hold-next-release 200 a lctl)
     alt_s (tap-hold-next-release 200 s lalt)
-    ctl_d (tap-hold-next-release 200 d lctl)
+    met_d (tap-hold-next-release 200 d lmet)
     sft_f (tap-hold-next-release 200 f lsft)
 
     sft_j (tap-hold-next-release 200 j rsft)
-    ctl_k (tap-hold-next-release 200 k rctl)
+    met_k (tap-hold-next-release 200 k rmet)
     alt_l (tap-hold-next-release 200 l lalt)
-    met_; (tap-hold-next-release 200 ; rmet)
+    ctl_; (tap-hold-next-release 200 ; rctl)
 
     hyp_c (tap-hold-next-release 200 c C-A-M-S)
     meh_v (tap-hold-next-release 200 v C-A-M)
@@ -52,9 +52,9 @@
   _        brdn     brup     lp       mctl     bldn     blup     prev     pp       next     mute     vold     volu
   _        _        _        _        _        _        _        _        _        _        _        _        _        _
   _        _        _        _        _        _        _        _        _        _        _        bspc     _        _
-  @ctl_esc @met_a   @alt_s   @ctl_d   @sft_f   g        h        @sft_j   @ctl_k   @alt_l   @met_;   _        _
+  @ctl_esc @ctl_a   @alt_s   @met_d   @sft_f   g        h        @sft_j   @met_k   @alt_l   @ctl_;   _        _
   _        _        _        @hyp_c   @meh_v   _        _        @meh_m   @hyp_,   _        _        _        _
-  @fn      _        _        _                 _                 @meh_ret @hyp     _        _        _
+  @fn      _        _        _                 @spc_p1           @meh_ret @hyp     _        _        _
 )
 
 (deflayer function
