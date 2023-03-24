@@ -1,30 +1,3 @@
-;;(defcfg
-;;  input (iokit-name "Magic Keyboard")
-;;  output (kext)
-;;  fallthrough true
-;;)
-;;
-;;(defsrc
-;;   caps    a    s    d    f    g    h    j    k    l    ;
-;;)
-;;
-;;(defalias
-;;    ctrl_esc (tap-hold-next-release 200 KeyEsc lctl)
-;;    met_a (tap-hold-next-release 200 a lmet)
-;;    alt_s (tap-hold-next-release 200 s lalt)
-;;    ctl_d (tap-hold-next-release 200 d lctl)
-;;    sft_f (tap-hold-next-release 200 f lsft)
-;;
-;;    sft_j (tap-hold-next-release 200 j rsft)
-;;    ctl_k (tap-hold-next-release 200 k rctl)
-;;    alt_l (tap-hold-next-release 200 l lalt)
-;;    met_; (tap-hold-next-release 200 ; rmet)
-;;)
-;;
-;;(deflayer homerowmods
-;;    @ctrl_esc @met_a   @alt_s   @ctl_d   @sft_f   g   h   @sft_j   @ctl_k   @alt_l   @met_;
-;;)
-
 ;; modified from `kmonad/keymap/template/apple.kbd`
 
 (defcfg
@@ -34,12 +7,12 @@
 )
 
 (defsrc
-  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
-  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
-  caps a    s    d    f    g    h    j    k    l    ;    '    ret
-  lsft z    x    c    v    b    n    m    ,    .    /    rsft up
-  fn   lctl lalt lmet           spc            rmet ralt left down rght
+  esc      f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
+  grv      1        2        3        4        5        6        7        8        9        0        -        =        bspc
+  tab      q        w        e        r        t        y        u        i        o        p        [        ]        \
+  caps     a        s        d        f        g        h        j        k        l        ;        '        ret
+  lsft     z        x        c        v        b        n        m        ,        .        /        rsft     up
+  fn       lctl     lalt     lmet              spc               rmet     ralt     left     down     rght
 )
 
 ;; Below, I use `around' to compose `layer-toggle' with `fn' (instead
@@ -50,7 +23,7 @@
 (defalias 
     fn (around (layer-toggle function) fn)
 
-    ctrl_esc (tap-hold-next-release 200 KeyEsc lctl)
+    ctl_esc (tap-hold-next-release 200 KeyEsc lctl)
 
     met_a (tap-hold-next-release 200 a lmet)
     alt_s (tap-hold-next-release 200 s lalt)
@@ -63,24 +36,21 @@
     met_; (tap-hold-next-release 200 ; rmet)
 )
 
+;; first defined layer is always the default layer
 (deflayer default
-  _    brdn brup lp   mctl bldn blup prev pp   next mute vold volu
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _
-  @fn  _    _    _              _              _    _    _    _    _
+  _        brdn     brup     lp       mctl     bldn     blup     prev     pp       next     mute     vold     volu
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _
+  @ctl_esc @met_a   @alt_s   @ctl_d   @sft_f   g        h        @sft_j   @ctl_k   @alt_l   @met_;   _        _
+  _        _        _        _        _        _        _        _        _        _        _        _        _
+  @fn      _        _        _                 _                 _        _        _        _        _
 )
 
 (deflayer function
-  _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _              _              _    _    _    _    _
+  _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _
+  _        _        _        _        _        _        _        _        _        _        _        _        _
+  _        _        _        _        _        _        _        _        _        _        _        _        _
+  _        _        _        _                 _                 _        _        _        _        _
 )
-
-;;(deflayer homerowmods
-;;    @ctrl_esc @met_a   @alt_s   @ctl_d   @sft_f   g   h   @sft_j   @ctl_k   @alt_l   @met_;
-;;)
