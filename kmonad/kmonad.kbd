@@ -34,16 +34,25 @@
     ctl_k (tap-hold-next-release 200 k rctl)
     alt_l (tap-hold-next-release 200 l lalt)
     met_; (tap-hold-next-release 200 ; rmet)
+
+    hyp_c (tap-hold-next-release 200 c C-A-M-S)
+    meh_v (tap-hold-next-release 200 v C-A-M)
+
+    meh_m (tap-hold-next-release 200 m C-A-M)
+    hyp_, (tap-hold-next-release 200 , C-A-M-S)
+
+    meh_ret (tap-hold-next-release 200 ret C-A-M)
+    hyp C-A-M-S
 )
 
 ;; first defined layer is always the default layer
 (deflayer default
   _        brdn     brup     lp       mctl     bldn     blup     prev     pp       next     mute     vold     volu
   _        _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        _        _        _        _        _        _        _        _        _        _        _        _
+  _        _        _        _        _        _        _        _        _        _        _        bspc     _        _
   @ctl_esc @met_a   @alt_s   @ctl_d   @sft_f   g        h        @sft_j   @ctl_k   @alt_l   @met_;   _        _
-  _        _        _        _        _        _        _        _        _        _        _        _        _
-  @fn      _        _        _                 _                 _        _        _        _        _
+  _        _        _        @hyp_c   @meh_v   _        _        @meh_m   @hyp_,   _        _        _        _
+  @fn      _        _        _                 _                 @meh_ret @hyp     _        _        _
 )
 
 (deflayer function
