@@ -21,7 +21,29 @@
 ;; can use `fn' as a modifier (like Emacs).
 
 (defalias 
-    fn (around (layer-toggle function) fn)
+    meh (around lctrl (around lalt lshft))
+    hyp (around lctrl (around lalt (around lmeta lshft)))
+
+    ;; autoshift
+    as_grv (tap-hold-next-release 200 grv ~)
+    as_1 (tap-hold-next-release 200 1 !)
+    as_2 (tap-hold-next-release 200 2 @)
+    as_3 (tap-hold-next-release 200 3 #)
+    as_4 (tap-hold-next-release 200 4 $)
+    as_5 (tap-hold-next-release 200 5 %)
+    as_6 (tap-hold-next-release 200 6 ^)
+    as_7 (tap-hold-next-release 200 7 &)
+    as_8 (tap-hold-next-release 200 8 *)
+    as_9 (tap-hold-next-release 200 9 S-9)
+    as_0 (tap-hold-next-release 200 0 S-0)
+    as_dash (tap-hold-next-release 200 - S--)
+    as_eq (tap-hold-next-release 200 = +)
+
+    as_ob (tap-hold-next-release 200 [ S-[)
+    as_cb (tap-hold-next-release 200 ] S-])
+    as_bs (tap-hold-next-release 200 \ |)
+
+    as_' (tap-hold-next-release 200 ' ")
 
     ctl_esc (tap-hold-next-release 200 KeyEsc lctl)
 
@@ -35,14 +57,15 @@
     alt_l (tap-hold-next-release 200 l lalt)
     ctl_; (tap-hold-next-release 200 ; rctl)
 
-    hyp_c (tap-hold-next-release 200 c C-A-M-S)
-    meh_v (tap-hold-next-release 200 v C-A-M)
+    hyp_c (tap-hold-next-release 200 c (around lctrl (around lalt (around lmeta lshft))))
+    meh_v (tap-hold-next-release 200 v (around lctrl (around lalt lshft)))
 
-    meh_m (tap-hold-next-release 200 m C-A-M)
-    hyp_, (tap-hold-next-release 200 , C-A-M-S)
+    meh_m (tap-hold-next-release 200 m (around lctrl (around lalt lshft)))
+    hyp_, (tap-hold-next-release 200 , (around lctrl (around lalt (around lmeta lshft))))
 
-    meh_ret (tap-hold-next-release 200 ret C-A-M)
-    hyp C-A-M-S
+    meh_ret (tap-hold-next-release 200 ret (around lctrl (around lalt lshft)))
+
+    fn (around (layer-toggle function) fn)
 
     spc_p1 (tap-hold-next-release 200 spc (layer-toggle priority))
 )
@@ -50,9 +73,9 @@
 ;; first defined layer is always the default layer
 (deflayer default
   _        brdn     brup     lp       mctl     bldn     blup     prev     pp       next     mute     vold     volu
-  _        _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        _        _        _        _        _        _        _        _        _        bspc     _        _
-  @ctl_esc @ctl_a   @alt_s   @met_d   @sft_f   g        h        @sft_j   @met_k   @alt_l   @ctl_;   _        _
+  _        @as_1    @as_2    @as_3    @as_4    @as_5    @as_6    @as_7    @as_8    @as_9    @as_0    @as_dash @as_eq   _
+  _        _        _        _        _        _        _        _        _        _        _        bspc     @as_cb   @as_bs
+  @ctl_esc @ctl_a   @alt_s   @met_d   @sft_f   g        h        @sft_j   @met_k   @alt_l   @ctl_;   @as_'    @as_ob
   _        _        _        @hyp_c   @meh_v   _        _        @meh_m   @hyp_,   _        _        _        _
   @fn      _        _        _                 @spc_p1           @meh_ret @hyp     _        _        _
 )
