@@ -21,6 +21,32 @@
 ;; can use `fn' as a modifier (like Emacs).
 
 (defalias 
+    ;; -------------------------------------------------- 
+    ;; define sticky layers
+    ;; -------------------------------------------------- 
+    ;; only problem with these is that you can't hold them, e.g. command+tab does't work properly - but that's what the home-row mods are for 😁
+    altd (sticky-key 500 (layer-toggle alted))            ;; a
+    ctld (sticky-key 500 (layer-toggle controlled))       ;; c
+    metd (sticky-key 500 (layer-toggle metaed))           ;; m
+    sftd (sticky-key 500 (layer-toggle shifted))          ;; s
+
+    scd (sticky-key 500 (layer-toggle shifted_controlled))  ;; cs
+    smd (sticky-key 500 (layer-toggle shifted_metaed))      ;; ms
+    sad (sticky-key 500 (layer-toggle shifted_alted))       ;; as
+
+    cad (sticky-key 500 (layer-toggle controlled_alted))    ;; ac
+    cmd (sticky-key 500 (layer-toggle controlled_metaed))   ;; cm
+
+    mad (sticky-key 500 (layer-toggle metaed_alted))        ;; am
+
+    scmd (sticky-key 500 (layer-toggle shifted_controlled_metaed))    ;; cms
+    samd (sticky-key 500 (layer-toggle shifted_alted_metaed))         ;; ams
+    camd (sticky-key 500 (layer-toggle controlled_alted_metaed))      ;; acm
+    mehd (sticky-key 500 (layer-toggle mehed))            ;; acs
+
+    hypd (sticky-key 500 (layer-toggle hypered))          ;; acms
+
+    ;; -------------------------------------------------- 
     meh (around lctrl (around lalt lshft))
     hyp (around lctrl (around lalt (around lmeta lshft)))
 
@@ -90,6 +116,140 @@
 )
 
 (deflayer priority
+(deflayer shifted
+  S-esc    S-f1     S-f2     S-f3     S-f4     S-f5     S-f6     S-f7     S-f8     S-f9     S-f10    S-f11    S-f12
+  S-grv    S-1      S-2      S-3      S-4      S-5      S-6      S-7      S-8      S-9      S-0      S--      S-=      S-bspc
+  S-tab    S-q      S-w      S-e      S-r      S-t      S-y      S-u      S-i      S-o      S-p      S-[      S-]      S-\
+  S-esc    S-a      S-s      S-d      S-f      S-g      S-h      S-j      S-k      S-l      S-;      S-'      S-ret
+  _        S-z      S-x      S-c      S-v      S-b      S-n      S-m      S-,      S-.      S-/      _        _
+  _        @scd     @sad     @smd              S-spc             S-ret    _        _        _        _
+)
+
+(deflayer controlled
+  C-esc    C-f1     C-f2     C-f3     C-f4     C-f5     C-f6     C-f7     C-f8     C-f9     C-f10    C-f11    C-f12
+  C-grv    C-1      C-2      C-3      C-4      C-5      C-6      C-7      C-8      C-9      C-0      C--      C-=      C-bspc
+  C-tab    C-q      C-w      C-e      C-r      C-t      C-y      C-u      C-i      C-o      C-p      C-[      C-]      C-\
+  C-esc    C-a      C-s      C-d      C-f      C-g      C-h      C-j      C-k      C-l      C-;      C-'      C-ret
+  @scd     C-z      C-x      C-c      C-v      C-b      C-n      C-m      C-,      C-.      C-/      _        _
+  _        _        @cad     @cmd              C-spc             C-ret    _        _        _        _
+)
+
+(deflayer metaed
+  M-esc    M-f1     M-f2     M-f3     M-f4     M-f5     M-f6     M-f7     M-f8     M-f9     M-f10    M-f11    M-f12
+  M-grv    M-1      M-2      M-3      M-4      M-5      M-6      M-7      M-8      M-9      M-0      M--      M-=      M-bspc
+  M-tab    M-q      M-w      M-e      M-r      M-t      M-y      M-u      M-i      M-o      M-p      M-[      M-]      M-\
+  M-esc    M-a      M-s      M-d      M-f      M-g      M-h      M-j      M-k      M-l      M-;      M-'      M-ret
+  @smd     M-z      M-x      M-c      M-v      M-b      M-n      M-m      M-,      M-.      M-/      _        _
+  _        @cmd     @mad     _                 M-spc             M-ret    @hypd    _        _        _
+)
+
+(deflayer alted
+  A-esc    A-f1     A-f2     A-f3     A-f4     A-f5     A-f6     A-f7     A-f8     A-f9     A-f10    A-f11    A-f12
+  A-grv    A-1      A-2      A-3      A-4      A-5      A-6      A-7      A-8      A-9      A-0      A--      A-=      A-bspc
+  A-tab    A-q      A-w      A-e      A-r      A-t      A-y      A-u      A-i      A-o      A-p      A-[      A-]      A-\
+  A-esc    A-a      A-s      A-d      A-f      A-g      A-h      A-j      A-k      A-l      A-;      A-'      A-ret
+  @sad     A-z      A-x      A-c      A-v      A-b      A-n      A-m      A-,      A-.      A-/      _        _
+  _        @cad     _        @mad              A-spc             A-ret    _        _        _        _
+)
+(deflayer shifted_controlled
+  S-C-esc    S-C-f1     S-C-f2     S-C-f3     S-C-f4     S-C-f5     S-C-f6     S-C-f7     S-C-f8     S-C-f9     S-C-f10    S-C-f11    S-C-f12
+  S-C-grv    S-C-1      S-C-2      S-C-3      S-C-4      S-C-5      S-C-6      S-C-7      S-C-8      S-C-9      S-C-0      S-C--      S-C-=      S-C-bspc
+  S-C-tab    S-C-q      S-C-w      S-C-e      S-C-r      S-C-t      S-C-y      S-C-u      S-C-i      S-C-o      S-C-p      S-C-[      S-C-]      S-C-\
+  S-C-esc    S-C-a      S-C-s      S-C-d      S-C-f      S-C-g      S-C-h      S-C-j      S-C-k      S-C-l      S-C-;      S-C-'      S-C-ret
+  _          S-C-z      S-C-x      S-C-c      S-C-v      S-C-b      S-C-n      S-C-m      S-C-,      S-C-.      S-C-/      _          _
+  _          _          @mehd      @scmd                 S-C-spc               S-C-ret    _          _          _          _
+)
+
+(deflayer shifted_metaed
+  S-M-esc    S-M-f1     S-M-f2     S-M-f3     S-M-f4     S-M-f5     S-M-f6     S-M-f7     S-M-f8     S-M-f9     S-M-f10    S-M-f11    S-M-f12
+  S-M-grv    S-M-1      S-M-2      S-M-3      S-M-4      S-M-5      S-M-6      S-M-7      S-M-8      S-M-9      S-M-0      S-M--      S-M-=      S-M-bspc
+  S-M-tab    S-M-q      S-M-w      S-M-e      S-M-r      S-M-t      S-M-y      S-M-u      S-M-i      S-M-o      S-M-p      S-M-[      S-M-]      S-M-\
+  S-M-esc    S-M-a      S-M-s      S-M-d      S-M-f      S-M-g      S-M-h      S-M-j      S-M-k      S-M-l      S-M-;      S-M-'      S-M-ret
+  _          S-M-z      S-M-x      S-M-c      S-M-v      S-M-b      S-M-n      S-M-m      S-M-,      S-M-.      S-M-/      _          _
+  _          @scmd      @samd      _                     S-M-spc               S-M-ret    _          _          _          _
+)
+
+(deflayer shifted_alted
+  S-A-esc    S-A-f1     S-A-f2     S-A-f3     S-A-f4     S-A-f5     S-A-f6     S-A-f7     S-A-f8     S-A-f9     S-A-f10    S-A-f11    S-A-f12
+  S-A-grv    S-A-1      S-A-2      S-A-3      S-A-4      S-A-5      S-A-6      S-A-7      S-A-8      S-A-9      S-A-0      S-A--      S-A-=      S-A-bspc
+  S-A-tab    S-A-q      S-A-w      S-A-e      S-A-r      S-A-t      S-A-y      S-A-u      S-A-i      S-A-o      S-A-p      S-A-[      S-A-]      S-A-\
+  S-A-esc    S-A-a      S-A-s      S-A-d      S-A-f      S-A-g      S-A-h      S-A-j      S-A-k      S-A-l      S-A-;      S-A-'      S-A-ret
+  _          S-A-z      S-A-x      S-A-c      S-A-v      S-A-b      S-A-n      S-A-m      S-A-,      S-A-.      S-A-/      _          _
+  _          @mehd      _          @samd                 S-A-spc               S-A-ret    _          _          _          _
+)
+
+(deflayer controlled_alted
+  C-A-esc    C-A-f1     C-A-f2     C-A-f3     C-A-f4     C-A-f5     C-A-f6     C-A-f7     C-A-f8     C-A-f9     C-A-f10    C-A-f11    C-A-f12
+  C-A-grv    C-A-1      C-A-2      C-A-3      C-A-4      C-A-5      C-A-6      C-A-7      C-A-8      C-A-9      C-A-0      C-A--      C-A-=      C-A-bspc
+  C-A-tab    C-A-q      C-A-w      C-A-e      C-A-r      C-A-t      C-A-y      C-A-u      C-A-i      C-A-o      C-A-p      C-A-[      C-A-]      C-A-\
+  C-A-esc    C-A-a      C-A-s      C-A-d      C-A-f      C-A-g      C-A-h      C-A-j      C-A-k      C-A-l      C-A-;      C-A-'      C-A-ret
+  @mehd      C-A-z      C-A-x      C-A-c      C-A-v      C-A-b      C-A-n      C-A-m      C-A-,      C-A-.      C-A-/      _          _
+  _          _          _          @camd                 C-A-spc               C-A-ret    _          _          _          _
+)
+
+(deflayer controlled_metaed
+  C-M-esc    C-M-f1     C-M-f2     C-M-f3     C-M-f4     C-M-f5     C-M-f6     C-M-f7     C-M-f8     C-M-f9     C-M-f10    C-M-f11    C-M-f12
+  C-M-grv    C-M-1      C-M-2      C-M-3      C-M-4      C-M-5      C-M-6      C-M-7      C-M-8      C-M-9      C-M-0      C-M--      C-M-=      C-M-bspc
+  C-M-tab    C-M-q      C-M-w      C-M-e      C-M-r      C-M-t      C-M-y      C-M-u      C-M-i      C-M-o      C-M-p      C-M-[      C-M-]      C-M-\
+  C-M-esc    C-M-a      C-M-s      C-M-d      C-M-f      C-M-g      C-M-h      C-M-j      C-M-k      C-M-l      C-M-;      C-M-'      C-M-ret
+  @scmd      C-M-z      C-M-x      C-M-c      C-M-v      C-M-b      C-M-n      C-M-m      C-M-,      C-M-.      C-M-/      _          _
+  _          _          @camd      _                     C-M-spc               C-M-ret    _          _          _          _
+)
+
+(deflayer metaed_alted
+  M-A-esc    M-A-f1     M-A-f2     M-A-f3     M-A-f4     M-A-f5     M-A-f6     M-A-f7     M-A-f8     M-A-f9     M-A-f10    M-A-f11    M-A-f12
+  M-A-grv    M-A-1      M-A-2      M-A-3      M-A-4      M-A-5      M-A-6      M-A-7      M-A-8      M-A-9      M-A-0      M-A--      M-A-=      M-A-bspc
+  M-A-tab    M-A-q      M-A-w      M-A-e      M-A-r      M-A-t      M-A-y      M-A-u      M-A-i      M-A-o      M-A-p      M-A-[      M-A-]      M-A-\
+  M-A-esc    M-A-a      M-A-s      M-A-d      M-A-f      M-A-g      M-A-h      M-A-j      M-A-k      M-A-l      M-A-;      M-A-'      M-A-ret
+  @samd      M-A-z      M-A-x      M-A-c      M-A-v      M-A-b      M-A-n      M-A-m      M-A-,      M-A-.      M-A-/      _          _
+  _          @camd      _          _                     M-A-spc               M-A-ret    _          _          _          _
+)
+
+(deflayer controlled_alted_metaed
+  C-A-M-esc    C-A-M-f1     C-A-M-f2     C-A-M-f3     C-A-M-f4     C-A-M-f5     C-A-M-f6     C-A-M-f7     C-A-M-f8     C-A-M-f9     C-A-M-f10    C-A-M-f11    C-A-M-f12
+  C-A-M-grv    C-A-M-1      C-A-M-2      C-A-M-3      C-A-M-4      C-A-M-5      C-A-M-6      C-A-M-7      C-A-M-8      C-A-M-9      C-A-M-0      C-A-M--      C-A-M-=      C-A-M-bspc
+  C-A-M-tab    C-A-M-q      C-A-M-w      C-A-M-e      C-A-M-r      C-A-M-t      C-A-M-y      C-A-M-u      C-A-M-i      C-A-M-o      C-A-M-p      C-A-M-[      C-A-M-]      C-A-M-\
+  C-A-M-esc    C-A-M-a      C-A-M-s      C-A-M-d      C-A-M-f      C-A-M-g      C-A-M-h      C-A-M-j      C-A-M-k      C-A-M-l      C-A-M-;      C-A-M-'      C-A-M-ret
+  @hypd        C-A-M-z      C-A-M-x      C-A-M-c      C-A-M-v      C-A-M-b      C-A-M-n      C-A-M-m      C-A-M-,      C-A-M-.      C-A-M-/      _            _
+  _            _            _            _                         C-A-M-spc                 C-A-M-ret    _            _            _            _
+)
+
+(deflayer shifted_controlled_metaed
+  S-C-M-esc    S-C-M-f1     S-C-M-f2     S-C-M-f3     S-C-M-f4     S-C-M-f5     S-C-M-f6     S-C-M-f7     S-C-M-f8     S-C-M-f9     S-C-M-f10    S-C-M-f11    S-C-M-f12
+  S-C-M-grv    S-C-M-1      S-C-M-2      S-C-M-3      S-C-M-4      S-C-M-5      S-C-M-6      S-C-M-7      S-C-M-8      S-C-M-9      S-C-M-0      S-C-M--      S-C-M-=      S-C-M-bspc
+  S-C-M-tab    S-C-M-q      S-C-M-w      S-C-M-e      S-C-M-r      S-C-M-t      S-C-M-y      S-C-M-u      S-C-M-i      S-C-M-o      S-C-M-p      S-C-M-[      S-C-M-]      S-C-M-\
+  S-C-M-esc    S-C-M-a      S-C-M-s      S-C-M-d      S-C-M-f      S-C-M-g      S-C-M-h      S-C-M-j      S-C-M-k      S-C-M-l      S-C-M-;      S-C-M-'      S-C-M-ret
+  _            S-C-M-z      S-C-M-x      S-C-M-c      S-C-M-v      S-C-M-b      S-C-M-n      S-C-M-m      S-C-M-,      S-C-M-.      S-C-M-/      _            _
+  _            _            @hypd        _                         S-C-M-spc                 S-C-M-ret    _            _            _            _
+)
+
+(deflayer shifted_alted_metaed
+  S-A-M-esc    S-A-M-f1     S-A-M-f2     S-A-M-f3     S-A-M-f4     S-A-M-f5     S-A-M-f6     S-A-M-f7     S-A-M-f8     S-A-M-f9     S-A-M-f10    S-A-M-f11    S-A-M-f12
+  S-A-M-grv    S-A-M-1      S-A-M-2      S-A-M-3      S-A-M-4      S-A-M-5      S-A-M-6      S-A-M-7      S-A-M-8      S-A-M-9      S-A-M-0      S-A-M--      S-A-M-=      S-A-M-bspc
+  S-A-M-tab    S-A-M-q      S-A-M-w      S-A-M-e      S-A-M-r      S-A-M-t      S-A-M-y      S-A-M-u      S-A-M-i      S-A-M-o      S-A-M-p      S-A-M-[      S-A-M-]      S-A-M-\
+  S-A-M-esc    S-A-M-a      S-A-M-s      S-A-M-d      S-A-M-f      S-A-M-g      S-A-M-h      S-A-M-j      S-A-M-k      S-A-M-l      S-A-M-;      S-A-M-'      S-A-M-ret
+  _            S-A-M-z      S-A-M-x      S-A-M-c      S-A-M-v      S-A-M-b      S-A-M-n      S-A-M-m      S-A-M-,      S-A-M-.      S-A-M-/      _            _
+  _            @hypd        _            _                         S-A-M-spc                 S-A-M-ret    _            _            _            _
+)
+
+(deflayer mehed
+  C-S-A-esc    C-S-A-f1     C-S-A-f2     C-S-A-f3     C-S-A-f4     C-S-A-f5     C-S-A-f6     C-S-A-f7     C-S-A-f8     C-S-A-f9     C-S-A-f10    C-S-A-f11    C-S-A-f12
+  C-S-A-grv    C-S-A-1      C-S-A-2      C-S-A-3      C-S-A-4      C-S-A-5      C-S-A-6      C-S-A-7      C-S-A-8      C-S-A-9      C-S-A-0      C-S-A--      C-S-A-=      C-S-A-bspc
+  C-S-A-tab    C-S-A-q      C-S-A-w      C-S-A-e      C-S-A-r      C-S-A-t      C-S-A-y      C-S-A-u      C-S-A-i      C-S-A-o      C-S-A-p      C-S-A-[      C-S-A-]      C-S-A-\
+  C-S-A-esc    C-S-A-a      C-S-A-s      C-S-A-d      C-S-A-f      C-S-A-g      C-S-A-h      C-S-A-j      C-S-A-k      C-S-A-l      C-S-A-;      C-S-A-'      C-S-A-ret
+  _            C-S-A-z      C-S-A-x      C-S-A-c      C-S-A-v      C-S-A-b      C-S-A-n      C-S-A-m      C-S-A-,      C-S-A-.      C-S-A-/      _            _
+  _            _            _            @hypd                     C-S-A-spc                 C-S-A-ret    _            _            _            _
+)
+
+(deflayer hypered
+  M-C-S-A-esc    M-C-S-A-f1     M-C-S-A-f2     M-C-S-A-f3     M-C-S-A-f4     M-C-S-A-f5     M-C-S-A-f6     M-C-S-A-f7     M-C-S-A-f8     M-C-S-A-f9     M-C-S-A-f10    M-C-S-A-f11    M-C-S-A-f12
+  M-C-S-A-grv    M-C-S-A-1      M-C-S-A-2      M-C-S-A-3      M-C-S-A-4      M-C-S-A-5      M-C-S-A-6      M-C-S-A-7      M-C-S-A-8      M-C-S-A-9      M-C-S-A-0      M-C-S-A--      M-C-S-A-=      M-C-S-A-bspc
+  M-C-S-A-tab    M-C-S-A-q      M-C-S-A-w      M-C-S-A-e      M-C-S-A-r      M-C-S-A-t      M-C-S-A-y      M-C-S-A-u      M-C-S-A-i      M-C-S-A-o      M-C-S-A-p      M-C-S-A-[      M-C-S-A-]      M-C-S-A-\
+  M-C-S-A-esc    M-C-S-A-a      M-C-S-A-s      M-C-S-A-d      M-C-S-A-f      M-C-S-A-g      M-C-S-A-h      M-C-S-A-j      M-C-S-A-k      M-C-S-A-l      M-C-S-A-;      M-C-S-A-'      M-C-S-A-ret
+  _              M-C-S-A-z      M-C-S-A-x      M-C-S-A-c      M-C-S-A-v      M-C-S-A-b      M-C-S-A-n      M-C-S-A-m      M-C-S-A-,      M-C-S-A-.      M-C-S-A-/      _              _
+  _              _              _              _                             M-C-S-A-spc                   M-C-S-A-ret    _              _              _              _
+)
+
   _        _        _        _        _        _        _        _        _        _        _        _        _
   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12      _
   _        _        pgup     home     end      pgdn     _        _        S-9      S-0      _        _        _        _
