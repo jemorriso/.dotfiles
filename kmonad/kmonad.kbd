@@ -106,7 +106,12 @@
 
     ;; meh_ret (tap-hold-next-release 200 ret (around lctrl (around lalt lshft)))
 
+    ;; -------------------------------------------------- 
+    ;; layer-tap
+    ;; -------------------------------------------------- 
     spc_p1 (tap-hold-next-release 200 spc (layer-toggle priority))
+    ret_nf (tap-hold-next-release 200 ret (layer-toggle num_func))
+    z_nf (tap-hold-next-release 200 z (layer-toggle num_func))
 )
 
 ;; first defined layer is always the default layer
