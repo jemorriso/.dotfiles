@@ -51,6 +51,9 @@
     hyp (around lctrl (around lalt (around lmeta lshft)))
 
     ;; autoshift
+    ;; -------------------------------------------------- 
+    ;; autoshift keys
+    ;; -------------------------------------------------- 
     as_grv (tap-hold-next-release 200 grv ~)
     as_1 (tap-hold-next-release 200 1 !)
     as_2 (tap-hold-next-release 200 2 @)
@@ -71,7 +74,14 @@
 
     as_' (tap-hold-next-release 200 ' ")
 
-    ctl_esc (tap-hold-next-release 200 KeyEsc lctl)
+    as_, (tap-hold-next-release 200 , <)
+    as_. (tap-hold-next-release 200 . >)
+    as_slsh (tap-hold-next-release 200 / ?)
+
+    as_left (tap-hold-next-release 200 left home)
+    as_down (tap-hold-next-release 200 down pgdn)
+    as_up (tap-hold-next-release 200 up pgup)
+    as_rght (tap-hold-next-release 200 rght end)
 
     ctl_a (tap-hold-next-release 200 a lctl)
     alt_s (tap-hold-next-release 200 s lalt)
