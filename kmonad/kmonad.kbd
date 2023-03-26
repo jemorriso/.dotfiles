@@ -83,6 +83,9 @@
     as_up (tap-hold-next-release 200 up pgup)
     as_rght (tap-hold-next-release 200 rght end)
 
+    ;; -------------------------------------------------- 
+    ;; home-row mods / mod-tap
+    ;; -------------------------------------------------- 
     ctl_a (tap-hold-next-release 200 a lctl)
     alt_s (tap-hold-next-release 200 s lalt)
     met_d (tap-hold-next-release 200 d lmet)
@@ -96,12 +99,12 @@
     hyp_c (tap-hold-next-release 200 c (around lctrl (around lalt (around lmeta lshft))))
     meh_v (tap-hold-next-release 200 v (around lctrl (around lalt lshft)))
 
-    meh_m (tap-hold-next-release 200 m (around lctrl (around lalt lshft)))
-    hyp_, (tap-hold-next-release 200 , (around lctrl (around lalt (around lmeta lshft))))
+    meh_n (tap-hold-next-release 200 n (around lctrl (around lalt lshft)))
+    hyp_m (tap-hold-next-release 200 m (around lctrl (around lalt (around lmeta lshft))))
 
-    meh_ret (tap-hold-next-release 200 ret (around lctrl (around lalt lshft)))
+    ctl_esc (tap-hold-next-release 200 KeyEsc lctl)
 
-    fn (around (layer-toggle function) fn)
+    ;; meh_ret (tap-hold-next-release 200 ret (around lctrl (around lalt lshft)))
 
     spc_p1 (tap-hold-next-release 200 spc (layer-toggle priority))
 )
