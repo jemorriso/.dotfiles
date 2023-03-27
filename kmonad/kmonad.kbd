@@ -145,9 +145,9 @@
 (deflayer priority
   _        brdn     brup     lp       mctl     bldn     blup     prev     pp       next     mute     vold     volu
   _        !        @        #        $        %        ^        @as_7    @as_8    @as_9    _        _        _        _
-  _        ~        @as_left @as_up   @as_down @as_rght &        @as_4    @as_5    @as_6    |        _        _        _
-  @as_grv  <        S-9      S-0      >        @as_eq   @as_dash @as_1    @as_2    @as_3    @as_bs   _        _
-  _        [        {        }        ]        +        S--      @as_0    *        _        _        _        _
+  _        <        {        }        >        +        S--      @as_4    @as_5    @as_6    |        _        _        _
+  @as_grv  [        S-9      S-0      ]        @as_eq   @as_dash @as_1    @as_2    @as_3    @as_bs   _        _
+  _        ~        @as_left @as_up   @as_down @as_rght +        S--      @as_0    *        _        _        _
   _        _        _        _                 _                 _        _        _        _        _
 )
 
