@@ -1,0 +1,17 @@
+session_name: asf
+windows:
+- layout: b140,320x70,0,0,3
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: nvim
+  start_directory: /Users/jerry/docs/angstrom
+  window_name: docs
+- focus: 'true'
+  layout: b141,320x70,0,0,4
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: ssh
+  start_directory: /Users/jerry
+  window_name: ssh

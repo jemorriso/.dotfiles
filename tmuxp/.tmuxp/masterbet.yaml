@@ -1,0 +1,18 @@
+session_name: masterbet
+windows:
+- layout: b362,215x70,0,0,5
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: python3.10
+  start_directory: /Users/jerry/docs/masterbet
+  window_name: masterbet
+- focus: 'true'
+  layout: 2826,215x70,0,0{107x70,0,0,6,107x70,108,0,8}
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: nvim
+  - python3.10
+  start_directory: /Users/jerry/source/betting-tools
+  window_name: nvim
