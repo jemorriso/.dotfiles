@@ -14,6 +14,9 @@ return {
     "mg979/vim-visual-multi",
   },
   {
+    "kmonad/kmonad-vim",
+  },
+  {
     "akinsho/toggleterm.nvim",
     config = true,
     keys = { { [[<c-\>]], "<cmd>ToggleTerm<cr>", desc = "toggle terminal" } },
