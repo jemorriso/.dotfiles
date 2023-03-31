@@ -11,6 +11,12 @@ return {
     "jpalardy/vim-slime",
   },
   {
+    "davidgranstrom/scnvim",
+    config = function()
+      require("scnvim").setup({})
+    end,
+  },
+  {
     "mg979/vim-visual-multi",
   },
   {
