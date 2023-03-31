@@ -93,3 +93,5 @@ The way to go is go into each package's `INSTALL_RECEIPT.json` file and change `
 
 Will need to deal with supercollider separately 😁
 
+### Thursday, March 30, 2023
+Had to do `:TSInstall all` and then `:TSUpdate` to get rid of treesitter errors. This did install all treesitter languages but it doesn't matter.
