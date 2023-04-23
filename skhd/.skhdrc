@@ -1,12 +1,22 @@
 # for spaces to be in the correct order, set leftmost to primary display
 
+# 0x21 : left bracket 
+# 0x1E : right bracket
+# 0x31 : space
+# 0x1B : dash
+# 0x2A : backslash
+# 0x2F : comma
+# 0x2B : period
+
 # modes - based on https://github.com/nikhgupta/dotfiles/blob/osx/config/skhd/skhdrc
 :: default : osascript -e 'display notification "DEFAULT" with title "DEFAULT"'
 :: prefix @ : osascript -e 'display notification "PREFIX" with title "PREFIX"'
+# :: vim : osascript -e 'display notification "VIM" with title "VIM"'
 
 default < meh - a ; prefix
-
 prefix < escape ; default
+# vim < f19 ; default
+# default < f19 ; vim
 
 # launch apps with prefix 😍
 prefix < i : open -a iterm; skhd -k 'escape'
@@ -18,16 +28,7 @@ prefix < s : open -a spotify; skhd -k 'escape'
 prefix < t : open -a 'microsoft teams'; skhd -k 'escape'
 prefix < d : open -a datagrip; skhd -k 'escape'
 
-#default < 
-#prefix < 1 : yabai -m space --display 1; skhd -k "escape";
-
-# 0x21 : left bracket 
-# 0x1E : right bracket
-# 0x31 : space
-# 0x1B : dash
-# 0x2A : backslash
-# 0x2F : comma
-# 0x2B : period
+# vim < 0 : skhd -k 'cmd - left'
 
 meh - 1 : yabai -m space --focus 1
 meh - 2 : yabai -m space --focus 2
@@ -69,6 +70,10 @@ meh - down : yabai -m window --warp south
 meh - up : yabai -m window --warp north
 meh - right : yabai -m window --warp east
 
+# don't seem to work
+meh - 0x2F : yabai -m space --move prev
+meh - 0x2B : yabai -m space --move next
+
 # meh - z : superkey
 # meh - c : scoot
 
@@ -82,10 +87,6 @@ hyper - 7 : yabai -m window --space 7; yabai -m space --focus 7
 hyper - 8 : yabai -m window --space 8; yabai -m space --focus 8
 hyper - 9 : yabai -m window --space 9; yabai -m space --focus 9
 hyper - 0 : yabai -m window --space 10; yabai -m space --focus 10
-
-# hyper - x : yabai -m window --display 1; yabai -m display --focus 1
-# hyper - y : yabai -m window --display 2; yabai -m display --focus 2
-# hyper - z : yabai -m window --display 3; yabai -m display --focus 3
 
 hyper - h : yabai -m window --swap west
 hyper - j : yabai -m window --swap south
@@ -108,10 +109,6 @@ ctrl + alt - h : yabai -m window --resize left:-20:0 ; yabai -m window --resize 
 ctrl + alt - j : yabai -m window --resize bottom:0:20 ; yabai -m window --resize top:0:20
 ctrl + alt - k : yabai -m window --resize top:0:-20 ; yabai -m window --resize bottom:0:-20
 ctrl + alt - l : yabai -m window --resize right:20:0 ; yabai -m window --resize left:20:0
-
-ctrl + alt - x : yabai -m space --display 1; yabai -m display --focus 1
-ctrl + alt - y : yabai -m space --display 2; yabai -m display --focus 2
-ctrl + alt - z : yabai -m space --display 3; yabai -m display --focus 3
 
 ctrl + alt - n : yabai -m space --rotate 90
 ctrl + alt - p : yabai -m space --rotate 270
