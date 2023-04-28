@@ -1,28 +1,24 @@
 session_name: tidal
 windows:
-- layout: b13e,320x70,0,0,1
-  options: {}
-  panes:
-  - focus: 'true'
-    shell_command: sclang
-  start_directory: /Users/jerry
-  window_name: sclang
-- layout: b13d,320x70,0,0,0
-  options: {}
-  panes:
+# - layout: b13e,320x70,0,0,1
+#   options: {}
+#   panes:
+#   - focus: 'true'
+#     shell_command: sclang
+#   start_directory: /Users/jerry
+#   window_name: sclang
+- panes:
   - focus: 'true'
     shell_command: nvim
-  start_directory: /Users/jerry/docs
+  start_directory: /Users/jerry/docs/music
   window_name: music-log
 - focus: 'true'
-  layout: 4267,320x70,0,0{160x70,0,0,2,159x70,161,0,3}
-  options: {}
+  layout: even-horizontal
+  start_directory: /Users/jerry/courses/learning-tidalcycles/notes
   panes:
   - focus: 'true'
     shell_command:
-    - cd /Users/jerry/courses/learning-tidalcycles/notes
     - nvim
   - shell_command:
-    - cd /Users/jerry
     - tidal
   window_name: slime

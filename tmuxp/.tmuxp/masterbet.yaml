@@ -7,8 +7,12 @@ windows:
   start_directory: /Users/jerry
   window_name: pgcli
 - panes:
+  - shell_command: nvim
+  start_directory: /Users/jerry/docs/betting
+  window_name: docs
+- panes:
   - shell_command: vd masterbet.csv 
-  start_directory: /Users/jerry/docs/masterbet
+  start_directory: /Users/jerry/docs/betting
   window_name: masterbet
 - focus: 'true'
   layout: even-horizontal
@@ -19,4 +23,4 @@ windows:
     - pyenv activate betting-tools
     - ipython
   start_directory: /Users/jerry/source/betting-tools
-  window_name: nvim
+  window_name: slime
