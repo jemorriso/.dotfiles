@@ -5,5 +5,23 @@
 -- vim.keymap.set("", "<localleader>y", '"+y', { noremap = true, silent = true })
 -- vim.keymap.set("", "<localleader>p", '"+p', { noremap = true, silent = true })
 
-vim.keymap.set("n", "<localleader>d", [[:put =strftime('%A, %B %d, %Y')<cr>kJ]], { noremap = true, silent = true })
-vim.keymap.set("n", "<localleader>t", [[:put =strftime('%T')<cr>kJ]], { noremap = true, silent = true })
+local function map(mode, lhs, rhs, opts)
+  local keys = require("lazy.core.handler").handlers.keys
+  ---@cast keys LazyKeysHandler
+  -- do not create the keymap if a lazy keys handler exists
+  if not keys.active[keys.parse({ lhs, mode = mode }).id] then
+    opts = opts or {}
+    opts.silent = opts.silent ~= false
+    vim.keymap.set(mode, lhs, rhs, opts)
+  end
+end
+
+map("n", "<localleader>j", "<cmd>m .+1<cr>==", { desc = "Move down" })
+map("n", "<localleader>k", "<cmd>m .-2<cr>==", { desc = "Move up" })
+map("i", "<localleader>j", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
+map("i", "<localleader>k", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
+map("v", "<localleader>j", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+map("v", "<localleader>k", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+
+map("n", "<localleader>d", [[:put =strftime('%A, %B %d, %Y')<cr>kJ]], { noremap = true, silent = true })
+map("n", "<localleader>t", [[:put =strftime('%T')<cr>kJ]], { noremap = true, silent = true })
