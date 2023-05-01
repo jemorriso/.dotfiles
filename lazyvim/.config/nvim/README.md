@@ -12,3 +12,13 @@ Note that there is extra `null-ls` config defined in the lazyvim repo, my extra 
 
 (source)[https://www.lazyvim.org/configuration/plugins]
 
+---
+
+## Sunday, April 30, 2023
+Update on above: I use `table.insert` to clean up the null-ls code
+
+Tried to make shortcut using control-alt-... but couldn't get it to work. Not sure if I'm doing something wrong or if it's a limitation of vim / iterm
+
+neither of these work:
+`map("n", "<C-M-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })`
+`map("n", "<C-A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })`
