@@ -1,1 +1,1 @@
-source ~/.dotfiles/fish/config.fish.common
+source ~/.dotfiles/fish/config.common.fish
