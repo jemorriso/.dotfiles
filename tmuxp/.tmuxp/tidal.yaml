@@ -14,7 +14,7 @@ windows:
   window_name: music-log
 - focus: 'true'
   layout: even-horizontal
-  start_directory: /Users/jerry/courses/learning-tidalcycles/notes
+  start_directory: /Users/jerry/docs/courses/learning-tidalcycles
   panes:
   - focus: 'true'
     shell_command:
