@@ -71,4 +71,8 @@ return {
       table.insert(opts.sources, nls.builtins.diagnostics.flake8)
     end,
   },
+  {
+    "kiyoon/jupynium.nvim",
+    build = "pip3 install --user .",
+  },
 }
