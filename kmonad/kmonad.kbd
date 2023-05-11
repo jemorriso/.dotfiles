@@ -185,8 +185,8 @@
     ;; layer-tap
     ;; -------------------------------------------------- 
     ;;z_nf (tap-hold-next-release 200 z (layer-toggle num_func))
-    ret_nf (tap-hold-next-release 200 ret @nf)
-    esc_nf (tap-hold-next-release 200 esc @nf)
+    ret_nf (tap-hold-next-release 300 ret @nf)
+    esc_nf (tap-hold-next-release 300 esc @nf)
   
     ;; dir_i (tap-hold 200 i @s_dir)
     ;; dir_e (tap-hold 200 e @s_dir)
@@ -300,7 +300,7 @@
   _        brdn     brup     lp       mctl     bldn     blup     prev     pp       next     mute     vold     volu
   S-grv    !        @        #        $        %        ^        &        *        S-9      S-0      S--      S-=      _
   _        _        pgup     home     end      pgdn     _        @as_7    @as_8    @as_9    _        S-[      S-]      S-\
-  _        del      left     up       down     rght     _        @as_4    @as_5    @as_6    _        _        _
+  del      _        left     up       down     rght     _        @as_4    @as_5    @as_6    _        _        _
   _        _        _        _        _        _        _        @as_1    @as_2    @as_3    _        @off_p1  _
   _        _        _        _                 _                 @as_0    _        _        _        _
 )
