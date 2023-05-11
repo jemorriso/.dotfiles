@@ -5,7 +5,8 @@ return {
   },
   {
     "tidalcycles/vim-tidal",
-    keys = { { "<localleader>ch", "<cmd>TidalHush<cr>", desc = "hush tidal", silent = false } },
+    -- todo determine why this is seemingly causing vim-tidal to break
+    -- keys = { { "<localleader>ch", "<cmd>TidalHush<cr>", desc = "hush tidal", silent = false } },
   },
   {
     "jpalardy/vim-slime",
