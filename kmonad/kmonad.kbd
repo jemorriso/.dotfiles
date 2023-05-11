@@ -185,8 +185,8 @@
     ;; layer-tap
     ;; -------------------------------------------------- 
     ;;z_nf (tap-hold-next-release 200 z (layer-toggle num_func))
-    ;; ret_nf (tap-hold-next-release 200 ret @nf)
-    ;; esc_nf (tap-hold-next-release 200 esc @nf)
+    ret_nf (tap-hold-next-release 200 ret @nf)
+    esc_nf (tap-hold-next-release 200 esc @nf)
   
     ;; dir_i (tap-hold 200 i @s_dir)
     ;; dir_e (tap-hold 200 e @s_dir)
@@ -205,9 +205,9 @@
     ;; -------------------------------------------------- 
     ;; multi-tap
     ;; -------------------------------------------------- 
-    mt_ret (multi-tap 200 ret @s_nf)
-    mt_esc (multi-tap 200 esc @s_dir)
-
+    ;; mt_ret (multi-tap 200 ret @s_nf)
+    ;; mt_esc (multi-tap 200 esc @s_dir)
+    ;;
     mt_sft (multi-tap 200 @off_sft @on_sft)
 
     ;; doesn't work
@@ -239,7 +239,7 @@
   _        _        @hyp_w   @meh_e   _        _        _        _        @meh_i   @hyp_o   _        @as_ob   @as_cb   @as_bs
   bspc     @ctl_a   @alt_s   @met_d   @sft_f   _        _        @sft_j   @met_k   @alt_l   @ctl_;   @as_'    _
   @sftd    _        _        @nf_c    @dir_v   _        @dir_n   @nf_m    @as_,    @as_.    @as_slsh @on_p1   _
-  @metd    @ctld    @altd    @mt_esc           @spc_p1  @mt_ret  @mehd    @hypd    _        _
+  @metd    @ctld    @s_dir   @esc_nf           @spc_p1  @ret_nf  @s_dir   @hypd    _        _
 )
 
 ;; (deflayer vim
