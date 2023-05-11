@@ -14,5 +14,9 @@ alias lg=lazygit
 
 fish_vi_key_bindings
 
+bind yy fish_clipboard_copy
+bind Y fish_clipboard_copy
+bind p fish_clipboard_paste
+
 zoxide init fish | source
 starship init fish | source
