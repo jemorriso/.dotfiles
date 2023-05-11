@@ -95,3 +95,19 @@ Will need to deal with supercollider separately 😁
 
 ### Thursday, March 30, 2023
 Had to do `:TSInstall all` and then `:TSUpdate` to get rid of treesitter errors. This did install all treesitter languages but it doesn't matter.
+
+### Wednesday, May 10, 2023
+Could not seem to get combinations of 3 modifiers + letter working in neovim, so will need to come up with different keys for skhd, so I can use <C-A-letter> in neovim
+
+Reason I want to do this is because I am using <A-letter> for tmux
+
+Alternatives:
+- <A-C-letter> - **this is actually available in lazyvim / vim**
+- <A-M-letter> - used by macos sometimes
+- <A-S-letter> - best used for tmux as "strong action"
+- <C-M-letter> - used by macos sometimes
+- <C-S-letter> - **this is actually available in lazyvim / vim**
+  - best to avoid this one though, because some terminal emulators don't distinguish between uppercase and lowercase letters, so it's the same as sending <C-letter> which is already used by vim
+
+- <M-S-letter> - used by apps / macos
+where A is option and M is command

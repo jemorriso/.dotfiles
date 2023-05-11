@@ -16,12 +16,12 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
-map("n", "<localleader>j", "<cmd>m .+1<cr>==", { desc = "Move down" })
-map("n", "<localleader>k", "<cmd>m .-2<cr>==", { desc = "Move up" })
-map("i", "<localleader>j", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
-map("i", "<localleader>k", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
-map("v", "<localleader>j", ":m '>+1<cr>gv=gv", { desc = "Move down" })
-map("v", "<localleader>k", ":m '<-2<cr>gv=gv", { desc = "Move up" })
-
 map("n", "<localleader>d", [[:put =strftime('%A, %B %d, %Y')<cr>kJ]], { noremap = true, silent = true })
 map("n", "<localleader>t", [[:put =strftime('%T')<cr>kJ]], { noremap = true, silent = true })
+
+map("n", "<C-A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
+map("n", "<C-A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
+map("i", "<C-A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
+map("i", "<C-A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
+map("v", "<C-A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+map("v", "<C-A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
