@@ -41,6 +41,8 @@ nmap <C-u> <C-u>zz
 
 noremap <leader>r :action ReformatCode<cr>
 
+" insert one character and then go back to normal mode
+nnoremap <leader>a i_<Esc>r
 nnoremap <leader>h <c-w>h
 nnoremap <leader>l <c-w>l
 nnoremap <leader>j <c-w>j
