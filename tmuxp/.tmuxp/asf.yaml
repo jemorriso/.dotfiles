@@ -8,10 +8,10 @@ windows:
   window_name: docs
 # todo: do not expose ip address
 # - panes:
-#   - shell_command: ssh
-#   start_directory: /Users/jerry
-#   window_name: ssh1
+  # - shell_command: ssh
+- start_directory: /Users/jerry
+  window_name: ssh1
 # - panes:
-#   - shell_command: ssh
-#   start_directory: /Users/jerry
-#   window_name: ssh2
+  # - shell_command: ssh
+- start_directory: /Users/jerry
+  window_name: ssh2
