@@ -5,8 +5,8 @@ return {
   },
   {
     "tidalcycles/vim-tidal",
-    -- todo determine why this is seemingly causing vim-tidal to break
-    -- keys = { { "<localleader>ch", "<cmd>TidalHush<cr>", desc = "hush tidal", silent = false } },
+    keys = { { "<localleader>ch", "<cmd>TidalHush<cr>", desc = "hush tidal", silent = false } },
+    lazy = false,
   },
   {
     "jpalardy/vim-slime",
@@ -75,5 +75,9 @@ return {
   {
     "kiyoon/jupynium.nvim",
     build = "pip3 install --user .",
+    keys = {
+      { "<localleader>x", "<cmd>JupyniumExecuteSelectedCells<cr>", desc = "Jupynium execute selected cells" },
+    },
+    lazy = false,
   },
 }
