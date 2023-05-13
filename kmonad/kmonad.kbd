@@ -117,6 +117,7 @@
     ;; C-A-M-S seems to send the modifiers + the 's' key...
     meh (around lctrl (around lalt lshft))
     hyp (around lctrl (around lalt (around lmeta lshft)))
+    ca (around lctrl lalt)
 
     ;; -------------------------------------------------- 
     ;; autoshift keys
@@ -171,6 +172,9 @@
     alt_l (tap-hold 200 l lalt)
     ctl_; (tap-hold 200 ; rctl)
 
+    ca_m (tap-hold 200 m @ca)
+    ca_c (tap-hold 200 c @ca)
+
     ;; hyp_c (tap-hold 200 c @hyp)
     ;; meh_v (tap-hold 200 v @meh)
     ;;
@@ -194,12 +198,12 @@
     ;; nf_w (tap-hold 200 w @nf)
     ;; nf_o (tap-hold 200 o @nf)
 
-    nf_c (tap-hold 200 c @nf)
-    dir_v (tap-hold 200 v @s_dir)
-
-    dir_n (tap-hold 200 n @s_dir)
-    nf_m (tap-hold 200 m @nf)
-
+    ;; nf_c (tap-hold 200 c @nf)
+    ;; dir_v (tap-hold 200 v @s_dir)
+    ;;
+    ;; dir_n (tap-hold 200 n @s_dir)
+    ;; nf_m (tap-hold 200 m @nf)
+    ;;
     spc_p1 (tap-hold-next-release 200 spc @p1)
 
     ;; -------------------------------------------------- 
@@ -238,8 +242,8 @@
   @as_grv  @as_1    @as_2    @as_3    @as_4    @as_5    @as_6    @as_7    @as_8    @as_9    @as_0    @as_dash @as_eq   _
   _        _        @hyp_w   @meh_e   _        _        _        _        @meh_i   @hyp_o   _        @as_ob   @as_cb   @as_bs
   bspc     @ctl_a   @alt_s   @met_d   @sft_f   _        _        @sft_j   @met_k   @alt_l   @ctl_;   @as_'    _
-  @sftd    _        _        @nf_c    @dir_v   _        @dir_n   @nf_m    @as_,    @as_.    @as_slsh @on_p1   _
-  @metd    @ctld    @s_dir   @esc_nf           @spc_p1  @ret_nf  @s_dir   @hypd    _        _
+  @sftd    _        _        @ca_c    _        _        _        @ca_m    @as_,    @as_.    @as_slsh @on_p1   _
+  @s_nf    @s_p1    @s_dir   @esc_nf           @spc_p1  @ret_nf  @s_dir   @s_p1    @s_nf    _
 )
 
 ;; (deflayer vim
