@@ -16,8 +16,8 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
-map("n", "<localleader>d", [[:put =strftime('%A, %B %d, %Y')<cr>kJ]], { noremap = true, silent = true })
-map("n", "<localleader>t", [[:put =strftime('%T')<cr>kJ]], { noremap = true, silent = true })
+map("n", ",d", [[:put =strftime('%A, %B %d, %Y')<cr>kJ]], { desc = "Put date" })
+map("n", ",t", [[:put =strftime('%T')<cr>kJ]], { desc = "Put time" })
 
 map("n", "<C-A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
 map("n", "<C-A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
