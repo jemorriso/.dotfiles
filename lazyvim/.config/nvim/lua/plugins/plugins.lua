@@ -11,9 +11,17 @@ return {
       { "<localleader>tp", "<plug>TidalParagraphSend", desc = "tidal send paragraph", silent = false },
     },
     ft = "tidal",
+    config = function()
+      vim.g.tidal_no_mappings = 1
+      vim.g.tidal_target = "terminal"
+      vim.g.tidal_sc_enable = 1
+    end,
   },
   {
     "jpalardy/vim-slime",
+    config = function()
+      vim.g.slime_target = "tmux"
+    end,
   },
   {
     "davidgranstrom/scnvim",
