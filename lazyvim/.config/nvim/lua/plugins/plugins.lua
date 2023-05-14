@@ -5,8 +5,11 @@ return {
   },
   {
     "tidalcycles/vim-tidal",
-    keys = { { "<localleader>ch", "<cmd>TidalHush<cr>", desc = "hush tidal", silent = false } },
-    lazy = false,
+    keys = {
+      { "<localleader>th", "<cmd>TidalHush<cr>", desc = "hush tidal", silent = false },
+      { "<localleader>th", "<cmd>TidalHush<cr>", desc = "hush tidal", silent = false },
+      { "<localleader>tp", "<plug>TidalParagraphSend", desc = "tidal send paragraph", silent = false },
+    },
   },
   {
     "jpalardy/vim-slime",
@@ -75,9 +78,57 @@ return {
   {
     "kiyoon/jupynium.nvim",
     build = "pip3 install --user .",
+    config = function()
+      local jupynium = require("jupynium")
+      jupynium.setup({
+        use_default_keybindings = false,
+        textobjects = {
+          use_default_keybindings = false,
+        },
+      })
+    end,
     keys = {
-      { "<localleader>x", "<cmd>JupyniumExecuteSelectedCells<cr>", desc = "Jupynium execute selected cells" },
+      { ",x", "<cmd>JupyniumExecuteSelectedCells<cr>", desc = "Jupynium execute selected cells" },
+      { ",s", "o# %%<esc>", desc = "Jupynium split cell below" },
+      { ",S", "O# %%<esc>", desc = "Jupynium split cell above" },
+      -- not needed right now
+      -- {
+      --   ",f",
+      --   "<cmd>JupyniumScrollToCell<cr>",
+      --   desc = "Jupynium focus cell",
+      -- },
+      -- not working
+      -- {
+      --   ",a",
+      --   "<cmd>JupyniumAutoscrollToggle<cr>",
+      --   desc = "Jupynium toggle auto-scroll",
+      -- },
+      {
+        ",o",
+        "<cmd>JupyniumToggleSelectedCellsOutputsScroll<cr>",
+        desc = "Jupynium toggle selected cells auto-scroll",
+      },
+      {
+        ",,t",
+        "<cmd>JupyniumStartAndAttachToServerInTerminal<cr>",
+        desc = "Jupynium start and attach to server in terminal",
+      },
+      {
+        ",,s",
+        "<cmd>JupyniumStartSync<cr>",
+        desc = "Jupynium start syncing",
+      },
+      -- not needed right now
+      -- {
+      --   "<C-A-d>",
+      --   "<cmd>JupyniumScrollDown<cr>",
+      --   desc = "Jupynium scroll down",
+      -- },
+      -- {
+      --   "<C-A-u>",
+      --   "<cmd>JupyniumScrollUp<cr>",
+      --   desc = "Jupynium scroll up",
+      -- },
     },
-    lazy = false,
   },
 }
