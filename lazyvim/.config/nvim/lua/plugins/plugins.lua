@@ -10,6 +10,7 @@ return {
       { "<localleader>th", "<cmd>TidalHush<cr>", desc = "hush tidal", silent = false },
       { "<localleader>tp", "<plug>TidalParagraphSend", desc = "tidal send paragraph", silent = false },
     },
+    ft = "tidal",
   },
   {
     "jpalardy/vim-slime",
@@ -49,12 +50,14 @@ return {
         },
       })
     end,
+    ft = "scd",
   },
   {
     "mg979/vim-visual-multi",
   },
   {
     "kmonad/kmonad-vim",
+    ft = "kbd",
   },
   {
     "akinsho/toggleterm.nvim",
@@ -66,6 +69,7 @@ return {
       size = vim.o.columns * 0.35,
       shade_terminals = false,
     },
+    lazy = false,
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
@@ -87,6 +91,7 @@ return {
         },
       })
     end,
+    ft = { "ipynb", "py" },
     keys = {
       { ",x", "<cmd>JupyniumExecuteSelectedCells<cr>", desc = "Jupynium execute selected cells" },
       { ",s", "o# %%<esc>", desc = "Jupynium split cell below" },
