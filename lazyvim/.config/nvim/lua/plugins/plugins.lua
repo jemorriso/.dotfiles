@@ -93,9 +93,9 @@ return {
     end,
     ft = { "ipynb", "py" },
     keys = {
-      { ",x", "<cmd>JupyniumExecuteSelectedCells<cr>", desc = "Jupynium execute selected cells" },
-      { ",s", "o# %%<esc>", desc = "Jupynium split cell below" },
-      { ",S", "O# %%<esc>", desc = "Jupynium split cell above" },
+      { "<localleader>x", "<cmd>JupyniumExecuteSelectedCells<cr>", desc = "Jupynium execute selected cells" },
+      { "<localleader>s", "o# %%<esc>", desc = "Jupynium split cell below" },
+      { "<localleader>S", "O# %%<esc>", desc = "Jupynium split cell above" },
       -- not needed right now
       -- {
       --   ",f",
@@ -109,17 +109,17 @@ return {
       --   desc = "Jupynium toggle auto-scroll",
       -- },
       {
-        ",o",
+        "<localleader>o",
         "<cmd>JupyniumToggleSelectedCellsOutputsScroll<cr>",
         desc = "Jupynium toggle selected cells auto-scroll",
       },
       {
-        ",,t",
+        "<localleader><localleader>t",
         "<cmd>JupyniumStartAndAttachToServerInTerminal<cr>",
         desc = "Jupynium start and attach to server in terminal",
       },
       {
-        ",,s",
+        "<localleader><localleader>s",
         "<cmd>JupyniumStartSync<cr>",
         desc = "Jupynium start syncing",
       },
