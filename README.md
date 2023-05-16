@@ -111,3 +111,17 @@ Alternatives:
 
 - <M-S-letter> - used by apps / macos
 where A is option and M is command
+
+### Monday, May 15, 2023
+for visidata, for some reason this is an option but it doesn't work in .visidatarc:
+```python
+options.mouse_disable = True
+```
+do this instead:
+
+```python
+options.mouse_interval = 0 # disables the mouse-click
+options.scroll_incr = 0    # disables the scroll wheel
+```
+
+not that I want to disable the mouse but visidata is freezing on mouse click at the moment.
