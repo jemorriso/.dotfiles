@@ -189,8 +189,12 @@
     ;; layer-tap
     ;; -------------------------------------------------- 
     ;;z_nf (tap-hold-next-release 200 z (layer-toggle num_func))
-    ret_nf (tap-hold-next-release 300 ret @nf)
-    esc_nf (tap-hold-next-release 300 esc @nf)
+    ;; ret_nf (tap-hold-next-release 300 ret @nf)
+    ;; esc_nf (tap-hold-next-release 300 esc @nf)
+    ;; ret_dir (tap-hold 200 ret @s_dir)
+    ;; esc_dir (tap-hold 200 esc @s_dir)
+    ret_p1 (tap-hold-next-release 200 ret @p1)
+    esc_p1 (tap-hold-next-release 200 esc @p1)
   
     ;; dir_i (tap-hold 200 i @s_dir)
     ;; dir_e (tap-hold 200 e @s_dir)
@@ -204,7 +208,8 @@
     ;; dir_n (tap-hold 200 n @s_dir)
     ;; nf_m (tap-hold 200 m @nf)
     ;;
-    spc_p1 (tap-hold-next-release 200 spc @p1)
+    ;; spc_p1 (tap-hold-next-release 200 spc @p1)
+    spc_dir (tap-hold-next-release 200 spc @s_dir)
 
     ;; -------------------------------------------------- 
     ;; multi-tap
@@ -243,7 +248,7 @@
   _        _        @hyp_w   @meh_e   _        _        _        _        @meh_i   @hyp_o   _        @as_ob   @as_cb   @as_bs
   bspc     @ctl_a   @alt_s   @met_d   @sft_f   _        _        @sft_j   @met_k   @alt_l   @ctl_;   @as_'    _
   @sftd    _        _        @ca_c    _        _        _        @ca_m    @as_,    @as_.    @as_slsh @on_p1   _
-  @s_nf    @s_p1    @s_dir   @esc_nf           @spc_p1  @ret_nf  @s_dir   @s_p1    @s_nf    _
+  @s_nf    @s_p1    @s_dir   @esc_p1           @spc_dir @ret_p1  @s_dir   @s_p1    @s_nf    _
 )
 
 ;; (deflayer vim
