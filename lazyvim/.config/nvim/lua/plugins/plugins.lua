@@ -153,6 +153,48 @@ return {
         "<cmd>JupyniumStartSync<cr>",
         desc = "Jupynium start syncing",
       },
+      {
+        "[j",
+        "<cmd>lua require'jupynium.textobj'.goto_previous_cell_separator()<cr>",
+        mode = { "n", "x", "o" },
+        desc = "Jupynium go to previous cell",
+      },
+      {
+        "]j",
+        "<cmd>lua require'jupynium.textobj'.goto_next_cell_separator()<cr>",
+        mode = { "n", "x", "o" },
+        desc = "Jupynium go to next cell",
+      },
+      {
+        "<localleader>k",
+        "<cmd>lua require'jupynium.textobj'.goto_current_cell_separator()<cr>",
+        mode = { "n", "x", "o" },
+        desc = "Jupynium go to current cell",
+      },
+      {
+        "aj",
+        "<cmd>lua require'jupynium.textobj'.select_cell(true, false)<cr>",
+        mode = { "x", "o" },
+        desc = "Jupynium select around cell",
+      },
+      {
+        "ij",
+        "<cmd>lua require'jupynium.textobj'.select_cell(false, false)<cr>",
+        mode = { "x", "o" },
+        desc = "Jupynium select inside cell",
+      },
+      {
+        "aJ",
+        "<cmd>lua require'jupynium.textobj'.select_cell(true, true)<cr>",
+        mode = { "x", "o" },
+        desc = "Jupynium select around cell (include next cell separator)",
+      },
+      {
+        "iJ",
+        "<cmd>lua require'jupynium.textobj'.select_cell(false, true)<cr>",
+        mode = { "x", "o" },
+        desc = "Jupynium select inside cell (include next cell separator)",
+      },
       -- not needed right now
       -- {
       --   "<C-A-d>",
