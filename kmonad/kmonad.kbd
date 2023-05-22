@@ -41,50 +41,43 @@
     ;; define qwerty mods for home-row
     ;; i want to be able to use the number keys when holding mods
     ;; -------------------------------------------------- 
-    q_alt (around @qrt lalt)
-    q_ctl (around @qrt lctl)
-    q_met (around @qrt lmet)
-    q_sft (around @qrt lsft)
+    q_a (around @qrt lalt)
+    q_c (around @qrt lctl)
+    q_m (around @qrt lmet)
+    q_s (around @qrt lsft)
 
-    q_sc (around @q_sft lctl)
-    q_sm (around @q_sft lmet)
-    q_sa (around @q_sft lalt)
+    q_ac (around @q_c lalt)
+    q_am (around @q_m lalt)
+    q_as (around @q_s lalt)
+    q_cm (around @q_c lmet)
+    q_cs (around @q_s lctl)
+    q_ms (around @q_s lmet)
 
-    q_ca (around @q_ctl lalt)
-    q_cm (around @q_ctl lmet)
+    q_acm (around @q_ac lmet)
+    q_ams (around @q_as lmet)
+    q_cms (around @q_cs lmet)
+    q_meh (around @q_cs lalt)
 
-    q_ma (around @q_met lalt)
-
-    q_scm (around @q_sc lmet)
-    q_sam (around @q_sa lmet)
-    q_cam (around @q_ca lmet)
-
-    q_meh (around @q_sc lalt)
     q_hyp (around @q_meh lmet)
 
     ;; -------------------------------------------------- 
     ;; define sticky keys with qwerty layer
     ;; -------------------------------------------------- 
-    s_a (sticky-key 500 @q_alt)            ;; a
-    s_c (sticky-key 500 @q_ctl)       ;; c
-    s_m (sticky-key 500 @q_met)           ;; m
-    s_s (sticky-key 500 @q_sft)          ;; s
-
-    s_cs (sticky-key 500 @q_sc)  ;; cs
-    s_ms (sticky-key 500 @q_sm)      ;; ms
-    s_as (sticky-key 500 @q_sa)       ;; as
-
-    s_ac (sticky-key 500 @q_ca)    ;; ac
-    s_cm (sticky-key 500 @q_cm)   ;; cm
-
-    s_am (sticky-key 500 @q_ma)        ;; am
-
-    s_cms (sticky-key 500 @q_scm)    ;; cms
-    s_ams (sticky-key 500 @q_sam)         ;; ams
-    s_acm (sticky-key 500 @q_cam)      ;; acm
-    s_meh (sticky-key 500 @q_meh)            ;; acs
-
-    s_hyp (sticky-key 500 @q_hyp)          ;; acms
+    s_a (sticky-key 500 @q_a)
+    s_ac (sticky-key 500 @q_ac)
+    s_acm (sticky-key 500 @q_acm)
+    s_am (sticky-key 500 @q_am)
+    s_ams (sticky-key 500 @q_ams)
+    s_as (sticky-key 500 @q_as)
+    s_c (sticky-key 500 @q_c)
+    s_cm (sticky-key 500 @q_cm)
+    s_cms (sticky-key 500 @q_cms)
+    s_cs (sticky-key 500 @q_cs)
+    s_hyp (sticky-key 500 @q_hyp)
+    s_m (sticky-key 500 @q_m)
+    s_meh (sticky-key 500 @q_meh)
+    s_ms (sticky-key 500 @q_ms)
+    s_s (sticky-key 500 @q_s)
 
     ;; -------------------------------------------------- 
     ;; autoshift keys
@@ -129,18 +122,18 @@
     meh_i (tap-hold 200 i @q_meh)
     hyp_o (tap-hold 200 o @q_hyp)
 
-    ctl_a (tap-hold 200 a @q_ctl)
-    alt_s (tap-hold 200 s @q_alt)
-    met_d (tap-hold 200 d @q_met)
-    sft_f (tap-hold 200 f @q_sft)
+    ctl_a (tap-hold 200 a @q_c)
+    alt_s (tap-hold 200 s @q_a)
+    met_d (tap-hold 200 d @q_m)
+    sft_f (tap-hold 200 f @q_s)
 
-    sft_j (tap-hold 200 j @q_sft)
-    met_k (tap-hold 200 k @q_met)
-    alt_l (tap-hold 200 l @q_alt)
-    ctl_; (tap-hold 200 ; @q_ctl)
+    sft_j (tap-hold 200 j @q_s)
+    met_k (tap-hold 200 k @q_m)
+    alt_l (tap-hold 200 l @q_a)
+    ctl_; (tap-hold 200 ; @q_c)
 
-    ca_m (tap-hold 200 m @q_ca)
-    ca_c (tap-hold 200 c @q_ca)
+    ca_m (tap-hold 200 m @q_ac)
+    ca_c (tap-hold 200 c @q_ac)
 
     ;; -------------------------------------------------- 
     ;; layer-tap
@@ -178,10 +171,10 @@
 (deflayer priority
   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
   S-grv    !        @        #        $        %        ^        &        *        S-9      S-0      S--      S-=      _
-  _        _        home     pgup     pgdn     end      _        @as_7    @as_8    @as_9    @as_0    S-[      S-]      S-\
+  _        _        home     pgup     pgdn     end      _        @as_7    @as_8    @as_9    _        S-[      S-]      S-\
   del      _        left     up       down     rght     _        @as_4    @as_5    @as_6    _        _        _
   _        _        _        _        _        _        _        @as_1    @as_2    @as_3    _        @off_p1  _
-  _        _        _        ret               ret               ret      _        _        _        _
+  _        _        _        _                 _                 @as_0    _        _        _        _
 )
 
 (deflayer directory
