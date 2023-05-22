@@ -179,10 +179,10 @@
 
 (deflayer directory
   _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        @s_cm    @s_hyp   @s_meh   @s_am    @s_acm   @s_acm   @s_am    @s_meh   @s_hyp   @s_cm    _        _        _
-  _        @s_c     @s_a     @s_m     @s_s     @s_ams   @s_ams   @s_s     @s_m     @s_a     @s_c     _        _
-  _        @s_cs    @s_as    @s_ac    @s_ms    @s_cms   @s_cms   @s_ms    @s_ac    @s_as    @s_cs    _        _
+  _        _        @s_acm   @s_ams   @s_cms   _        _        @s_cms   @s_ams   @s_acm   _        _        _        _
+  _        @s_cm    @s_hyp   @s_meh   @s_am    _        _        @s_am    @s_meh   @s_hyp   @s_cm    _        _        _
+  _        @s_c     @s_a     @s_m     @s_s     _        _        @s_s     @s_m     @s_a     @s_c     _        _
+  _        @s_cs    @s_as    @s_ac    @s_ms    _        _        @s_ms    @s_ac    @s_as    @s_cs    _        _
   _        _        _        C-S-A-a           C-spc             C-S-A-a  _        _        _        _
 )
 
