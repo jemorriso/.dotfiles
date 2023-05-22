@@ -22,35 +22,30 @@
     bas (layer-toggle base)
     dir (layer-toggle directory)
     dirt (layer-toggle directory_toggle)
-    nf (layer-toggle num_func)
     p1 (layer-toggle priority)
     qrt (layer-toggle qwerty)
 
     to_bas (layer-switch base)
     to_dir (layer-switch directory)
     to_dirt (layer-switch directory_toggle)
-    to_nf (layer-switch num_func)
     to_p1 (layer-switch priority)
     to_qrt (layer-switch qwerty)
 
     on_bas (layer-add base)
     on_dir (layer-add directory)
     on_dirt (layer-add directory_toggle)
-    on_nf (layer-add num_func)
     on_p1 (layer-add priority)
     on_qrt (layer-add qwerty)
 
     off_bas (layer-rem base)
     off_dir (layer-rem directory)
     off_dirt (layer-rem directory_toggle)
-    off_nf (layer-rem num_func)
     off_p1 (layer-rem priority)
     off_qrt (layer-rem qwerty)
 
     s_bas (sticky-key 500 @bas)
     s_dir (sticky-key 500 @dir)
     s_dirt (sticky-key 500 @dirt)
-    s_nf (sticky-key 500 @nf)
     s_p1 (sticky-key 500 @p1)
     s_qrt (sticky-key 500 @qrt)
 
@@ -212,7 +207,7 @@
   _        _        @hyp_w   @meh_e   _        _        _        _        @meh_i   @hyp_o   _        @as_ob   @as_cb   @as_bs
   bspc     @ctl_a   @alt_s   @met_d   @sft_f   _        _        @sft_j   @met_k   @alt_l   @ctl_;   @as_'    _
   @s_s     _        _        @ca_c    _        _        _        @ca_m    @as_,    @as_.    @as_slsh @on_p1   _
-  @s_nf    @on_p1   @s_dirt  @s_dir            @spc_p1  @s_dir   @s_dirt  _        _        _
+  _        @on_p1   @s_dirt  @s_dir            @spc_p1  @s_dir   @s_dirt  _        _        _
 )
 
 (deflayer qwerty
@@ -235,7 +230,7 @@
 
 (deflayer directory
   _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        @s_acm   @s_ams   @s_cms   _        _        @s_cms   @s_ams   @s_acm   _        _        _        _
+  _        @s_acm   @s_ams   @s_cms   _        _        _        _        @s_cms   @s_ams   @s_acm   _        _        _
   _        @s_cm    @s_hyp   @s_meh   @s_am    _        _        @s_am    @s_meh   @s_hyp   @s_cm    _        _        _
   _        @s_c     @s_a     @s_m     @s_s     _        _        @s_s     @s_m     @s_a     @s_c     _        _
   _        @s_cs    @s_as    @s_ac    @s_ms    _        _        @s_ms    @s_ac    @s_as    @s_cs    _        _
@@ -244,20 +239,11 @@
 
 (deflayer directory_toggle
   _         _         _         _         _         _         _         _         _         _         _         _         _
-  _         _         @on_acm   @on_ams   @on_cms   _         _         @on_cms   @on_ams   @on_acm   _         _         _         _
+  _         @on_acm   @on_ams   @on_cms   _         _         _         _         @on_cms   @on_ams   @on_acm   _         _         _
   _         @on_cm    @on_hyp   @on_meh   @on_am    _         _         @on_am    @on_meh   @on_hyp   @on_cm    _         _         _
   _         @on_c     @on_a     @on_m     @on_s     _         _         @on_s     @on_m     @on_a     @on_c     _         _
   _         @on_cs    @on_as    @on_ac    @on_ms    _         _         @on_ms    @on_ac    @on_as    @on_cs    _         _
-  _         _         _         C-S-A-a             C-spc               C-S-A-a   _         _         _         _
-)
-
-(deflayer num_func
-  _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12      _
-  _        1        2        3        4        5        6        7        8        9        0        _        _
-  _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        _        _                 _                 _        _        _        _        _
+  _         _         _         _                   _                   _         _         _         _         _
 )
 
 ;; -------------------------------------------------- 
