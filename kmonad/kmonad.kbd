@@ -26,18 +26,33 @@
     p1 (layer-toggle priority)
     qrt (layer-toggle qwerty)
 
+    to_bas (layer-switch base)
+    to_dir (layer-switch directory)
+    to_dirt (layer-switch directory_toggle)
+    to_nf (layer-switch num_func)
+    to_p1 (layer-switch priority)
+    to_qrt (layer-switch qwerty)
+
+    on_bas (layer-add base)
+    on_dir (layer-add directory)
+    on_dirt (layer-add directory_toggle)
+    on_nf (layer-add num_func)
+    on_p1 (layer-add priority)
+    on_qrt (layer-add qwerty)
+
+    off_bas (layer-rem base)
+    off_dir (layer-rem directory)
+    off_dirt (layer-rem directory_toggle)
+    off_nf (layer-rem num_func)
+    off_p1 (layer-rem priority)
+    off_qrt (layer-rem qwerty)
+
     s_bas (sticky-key 500 @bas)
     s_dir (sticky-key 500 @dir)
     s_dirt (sticky-key 500 @dirt)
     s_nf (sticky-key 500 @nf)
     s_p1 (sticky-key 500 @p1)
     s_qrt (sticky-key 500 @qrt)
-
-    to_p1 (layer-switch priority)
-    to_df (layer-switch base)
-
-    on_p1 (layer-add priority)
-    off_p1 (layer-rem priority)
 
     ;; -------------------------------------------------- 
     ;; define mod layer buttons
@@ -206,7 +221,7 @@
   _        q        w        e        r        t        y        u        i        o        p        [        ]        _
   bspc     a        s        d        f        g        h        j        k        l        ;        '        _
   _        z        x        c        v        b        n        m        ,        .        /        _        _
-  _        _        _        esc               _                 ret      _        _        _        _
+  _        _        _        _                 _                 _        _        _        _        _
 )
 
 (deflayer priority
