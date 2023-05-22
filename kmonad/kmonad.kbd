@@ -65,26 +65,26 @@
     ;; -------------------------------------------------- 
     ;; define sticky keys with qwerty layer
     ;; -------------------------------------------------- 
-    altd (sticky-key 500 @q_alt)            ;; a
-    ctld (sticky-key 500 @q_ctl)       ;; c
-    metd (sticky-key 500 @q_met)           ;; m
-    sftd (sticky-key 500 @q_sft)          ;; s
+    s_a (sticky-key 500 @q_alt)            ;; a
+    s_c (sticky-key 500 @q_ctl)       ;; c
+    s_m (sticky-key 500 @q_met)           ;; m
+    s_s (sticky-key 500 @q_sft)          ;; s
 
-    scd (sticky-key 500 @q_sc)  ;; cs
-    smd (sticky-key 500 @q_sm)      ;; ms
-    sad (sticky-key 500 @q_sa)       ;; as
+    s_cs (sticky-key 500 @q_sc)  ;; cs
+    s_ms (sticky-key 500 @q_sm)      ;; ms
+    s_as (sticky-key 500 @q_sa)       ;; as
 
-    cad (sticky-key 500 @q_ca)    ;; ac
-    cmd (sticky-key 500 @q_cm)   ;; cm
+    s_ac (sticky-key 500 @q_ca)    ;; ac
+    s_cm (sticky-key 500 @q_cm)   ;; cm
 
-    mad (sticky-key 500 @q_ma)        ;; am
+    s_am (sticky-key 500 @q_ma)        ;; am
 
-    scmd (sticky-key 500 @q_scm)    ;; cms
-    samd (sticky-key 500 @q_sam)         ;; ams
-    camd (sticky-key 500 @q_cam)      ;; acm
-    mehd (sticky-key 500 @q_meh)            ;; acs
+    s_cms (sticky-key 500 @q_scm)    ;; cms
+    s_ams (sticky-key 500 @q_sam)         ;; ams
+    s_acm (sticky-key 500 @q_cam)      ;; acm
+    s_meh (sticky-key 500 @q_meh)            ;; acs
 
-    hypd (sticky-key 500 @q_hyp)          ;; acms
+    s_hyp (sticky-key 500 @q_hyp)          ;; acms
 
     ;; -------------------------------------------------- 
     ;; autoshift keys
@@ -158,11 +158,11 @@
 
 ;; first defined layer is always the default layer
 (deflayer default
-  _        _        @s_nf    @s_dir   @s_p1    _        _        @s_p1    @s_dir   @s_nf    _        _        _
+  _        brdn     brup     lp       mctl     bldn     blup     prev     pp       next     mute     vold     volu
   @as_grv  _        _        esc      _        _        _        _        _        ret      _        @as_dash @as_eq   _
   _        _        @hyp_w   @meh_e   _        _        _        _        @meh_i   @hyp_o   _        @as_ob   @as_cb   @as_bs
   bspc     @ctl_a   @alt_s   @met_d   @sft_f   _        _        @sft_j   @met_k   @alt_l   @ctl_;   @as_'    _
-  @sftd    _        _        @ca_c    _        _        _        @ca_m    @as_,    @as_.    @as_slsh @on_p1   _
+  @s_s     _        _        @ca_c    _        _        _        @ca_m    @as_,    @as_.    @as_slsh @on_p1   _
   @s_nf    @s_p1    @s_p1    @s_dir            @spc_p1  @s_dir   @s_p1    @s_p1    @s_nf    _
 )
 
@@ -176,20 +176,20 @@
 )
 
 (deflayer priority
-  _        brdn     brup     lp       mctl     bldn     blup     prev     pp       next     mute     vold     volu
+  _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
   S-grv    !        @        #        $        %        ^        &        *        S-9      S-0      S--      S-=      _
-  _        _        home     pgup     pgdn     end      _        @as_7    @as_8    @as_9    _        S-[      S-]      S-\
+  _        _        home     pgup     pgdn     end      _        @as_7    @as_8    @as_9    @as_0    S-[      S-]      S-\
   del      _        left     up       down     rght     _        @as_4    @as_5    @as_6    _        _        _
   _        _        _        _        _        _        _        @as_1    @as_2    @as_3    _        @off_p1  _
-  _        _        _        _                 _                 @as_0    _        _        _        _
+  _        _        _        ret               ret               ret      _        _        _        _
 )
 
 (deflayer directory
   _        _        _        _        _        _        _        _        _        _        _        _        _
   _        _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        @cmd     @hypd    @mehd    @mad     @camd    @camd    @mad     @mehd    @hypd    @cmd     _        _        _
-  _        @ctld    @altd    @metd    @sftd    @samd    @samd    @sftd    @metd    @altd    @ctld    _        _
-  _        @scd     @sad     @smd     @cad     @scmd    @scmd    @cad     @smd     @sad     @scd     _        _
+  _        @s_cm    @s_hyp   @s_meh   @s_am    @s_acm   @s_acm   @s_am    @s_meh   @s_hyp   @s_cm    _        _        _
+  _        @s_c     @s_a     @s_m     @s_s     @s_ams   @s_ams   @s_s     @s_m     @s_a     @s_c     _        _
+  _        @s_cs    @s_as    @s_ac    @s_ms    @s_cms   @s_cms   @s_ms    @s_ac    @s_as    @s_cs    _        _
   _        _        _        C-S-A-a           C-spc             C-S-A-a  _        _        _        _
 )
 
@@ -208,7 +208,7 @@
   S-tab    S-q      S-w      S-e      S-r      S-t      S-y      S-u      S-i      S-o      S-p      S-[      S-]      S-\
   S-bspc   S-a      S-s      S-d      S-f      S-g      S-h      S-j      S-k      S-l      S-;      S-'      S-ret
   @mt_sft  S-z      S-x      S-c      S-v      S-b      S-n      S-m      S-,      S-.      S-/      _        _
-  @smd     @scd     @sad     S-esc             S-spc             S-ret    _        _        _        _
+  @s_ms     @s_cs     @s_as     S-esc             S-spc             S-ret    _        _        _        _
 )
 
 (deflayer blank_dont_use
