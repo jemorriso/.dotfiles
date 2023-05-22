@@ -25,6 +25,7 @@
     nf (layer-toggle num_func)
     p1 (layer-toggle priority)
     qrt (layer-toggle qwerty)
+    qrtm (layer-toggle qwerty_with_modtap)
 
     to_bas (layer-switch base)
     to_dir (layer-switch directory)
@@ -32,6 +33,7 @@
     to_nf (layer-switch num_func)
     to_p1 (layer-switch priority)
     to_qrt (layer-switch qwerty)
+    to_qrtm (layer-switch qwerty_with_modtap)
 
     on_bas (layer-add base)
     on_dir (layer-add directory)
@@ -39,6 +41,7 @@
     on_nf (layer-add num_func)
     on_p1 (layer-add priority)
     on_qrt (layer-add qwerty)
+    on_qrtm (layer-add qwerty_with_modtap)
 
     off_bas (layer-rem base)
     off_dir (layer-rem directory)
@@ -46,6 +49,7 @@
     off_nf (layer-rem num_func)
     off_p1 (layer-rem priority)
     off_qrt (layer-rem qwerty)
+    off_qrtm (layer-rem qwerty_with_modtap)
 
     s_bas (sticky-key 500 @bas)
     s_dir (sticky-key 500 @dir)
@@ -53,6 +57,7 @@
     s_nf (sticky-key 500 @nf)
     s_p1 (sticky-key 500 @p1)
     s_qrt (sticky-key 500 @qrt)
+    s_qrtm (sticky-key 500 @qrtm)
 
     ;; -------------------------------------------------- 
     ;; define mod layer buttons
@@ -96,11 +101,35 @@
     ;; -------------------------------------------------- 
     ;; define qwerty mods for home-row
     ;; i want to be able to use the number keys when holding mods
+    ;; i need the destination layer to have mod-tap because I want to be able to use multiple mods at the same time
     ;; -------------------------------------------------- 
-    q_a (around @qrt lalt)
-    q_c (around @qrt lctl)
-    q_m (around @qrt lmet)
-    q_s (around @qrt lsft)
+    qm_a (around @qrtm lalt)
+    qm_c (around @qrtm lctl)
+    qm_m (around @qrtm lmet)
+    qm_s (around @qrtm lsft)
+
+    qm_ac (around @qm_c lalt)
+    qm_am (around @qm_m lalt)
+    qm_as (around @qm_s lalt)
+    qm_cm (around @qm_c lmet)
+    qm_cs (around @qm_s lctl)
+    qm_ms (around @qm_s lmet)
+
+    qm_acm (around @qm_ac lmet)
+    qm_ams (around @qm_as lmet)
+    qm_cms (around @qm_cs lmet)
+    qm_meh (around @qm_cs lalt)
+
+    qm_hyp (around @qm_meh lmet)
+
+    ;; -------------------------------------------------- 
+    ;; define qwerty mods for sticky keys
+    ;; can't use qwerty_with_modtap because sticky keys don't play nice with multi-use buttons
+    ;; -------------------------------------------------- 
+    q_a (around lalt @qrt)
+    q_c (around lctl @qrt)
+    q_m (around lmet @qrt)
+    q_s (around lsft @qrt)
 
     q_ac (around @q_c lalt)
     q_am (around @q_m lalt)
@@ -172,24 +201,47 @@
     ;; home-row mods / mod-tap using qwerty layer
     ;; -------------------------------------------------- 
 
-    hyp_w (tap-hold 200 w @q_hyp)
-    meh_e (tap-hold 200 e @q_meh)
+    ;; meh (around lctrl (around lalt lshft))
+    ;; hyp (around lctrl (around lalt (around lmeta lshft)))
+    ;; ca (around lctrl lalt)
+    ;;
+    ;; hyp_w (tap-hold 200 w @hyp)
+    ;; meh_e (tap-hold 200 e @meh)
+    ;;
+    ;; meh_i (tap-hold 200 i @meh)
+    ;; hyp_o (tap-hold 200 o @hyp)
 
-    meh_i (tap-hold 200 i @q_meh)
-    hyp_o (tap-hold 200 o @q_hyp)
+    ;; ctl_a (tap-hold 200 a lctl)
+    ;; alt_s (tap-hold 200 s lalt)
+    ;; met_d (tap-hold 200 d lmet)
+    ;; sft_f (tap-hold 200 f lsft)
+    ;;
+    ;; sft_j (tap-hold 200 j rsft)
+    ;; met_k (tap-hold 200 k rmet)
+    ;; alt_l (tap-hold 200 l lalt)
+    ;; ctl_; (tap-hold 200 ; rctl)
 
-    ctl_a (tap-hold 200 a @q_c)
-    alt_s (tap-hold 200 s @q_a)
-    met_d (tap-hold 200 d @q_m)
-    sft_f (tap-hold 200 f @q_s)
+    ;; ca_m (tap-hold 200 m @ca)
+    ;; ca_c (tap-hold 200 c @ca)
 
-    sft_j (tap-hold 200 j @q_s)
-    met_k (tap-hold 200 k @q_m)
-    alt_l (tap-hold 200 l @q_a)
-    ctl_; (tap-hold 200 ; @q_c)
+    hyp_w (tap-hold 200 w @qm_hyp)
+    meh_e (tap-hold 200 e @qm_meh)
 
-    ca_m (tap-hold 200 m @q_ac)
-    ca_c (tap-hold 200 c @q_ac)
+    meh_i (tap-hold 200 i @qm_meh)
+    hyp_o (tap-hold 200 o @qm_hyp)
+
+    ctl_a (tap-hold 200 a @qm_c)
+    alt_s (tap-hold 200 s @qm_a)
+    met_d (tap-hold 200 d @qm_m)
+    sft_f (tap-hold 200 f @qm_s)
+
+    sft_j (tap-hold 200 j @qm_s)
+    met_k (tap-hold 200 k @qm_m)
+    alt_l (tap-hold 200 l @qm_a)
+    ctl_; (tap-hold 200 ; @qm_c)
+
+    ca_m (tap-hold 200 m @qm_ac)
+    ca_c (tap-hold 200 c @qm_ac)
 
     ;; -------------------------------------------------- 
     ;; layer-tap
@@ -212,7 +264,7 @@
   _        _        @hyp_w   @meh_e   _        _        _        _        @meh_i   @hyp_o   _        @as_ob   @as_cb   @as_bs
   bspc     @ctl_a   @alt_s   @met_d   @sft_f   _        _        @sft_j   @met_k   @alt_l   @ctl_;   @as_'    _
   @s_s     _        _        @ca_c    _        _        _        @ca_m    @as_,    @as_.    @as_slsh @on_p1   _
-  @on_nf   @on_p1   @s_dirt  @s_dir            @spc_p1  @s_dir   @s_dirt  _        _        _
+  @on_nf   @on_p1   @s_dirt  @s_dir            @spc_p1           @s_dir   @s_dirt  _        _        _
 )
 
 (deflayer qwerty
@@ -221,8 +273,18 @@
   _        q        w        e        r        t        y        u        i        o        p        [        ]        _
   bspc     a        s        d        f        g        h        j        k        l        ;        '        _
   _        z        x        c        v        b        n        m        ,        .        /        _        _
-  _        _        _        _                 _                 _        _        _        _        _
+  _        _        _        _                 spc               _        _        _        _        _
 )
+
+(deflayer qwerty_with_modtap
+  _        _        _        _        _        _        _        _        _        _        _        _        _
+  grv      1        2        3        4        5        6        7        8        9        0        -        =        _
+  _        q        @hyp_w   @meh_e   r        t        y        u        @meh_i   @hyp_o   p        [        ]        _
+  bspc     @ctl_a   @alt_s   @met_d   @sft_f   g        h        @sft_j   @met_k   @alt_l   @ctl_;   '        _
+  _        z        x        @ca_c    v        b        n        @ca_m    ,        .        /        _        _
+  _        _        _        _                 spc               _        _        _        _        _
+)
+
 
 (deflayer priority
   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
