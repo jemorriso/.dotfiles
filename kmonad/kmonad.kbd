@@ -331,7 +331,7 @@
   S-tab    S-q      S-w      S-e      S-r      S-t      S-y      S-u      S-i      S-o      S-p      S-[      S-]      S-\
   S-bspc   S-a      S-s      S-d      S-f      S-g      S-h      S-j      S-k      S-l      S-;      S-'      S-ret
   @mt_sft  S-z      S-x      S-c      S-v      S-b      S-n      S-m      S-,      S-.      S-/      @off_s   _
-  _        _        _        _                 S-spc             _        _        _        _        _
+  _        _        @off_s   _                 S-spc             _        @off_s   _        _        _
 )
 
 (deflayer l_c
@@ -340,7 +340,7 @@
   C-tab    C-q      C-w      C-e      C-r      C-t      C-y      C-u      C-i      C-o      C-p      C-[      C-]      C-\
   C-bspc   C-a      C-s      C-d      C-f      C-g      C-h      C-j      C-k      C-l      C-;      C-'      C-ret
   _        C-z      C-x      C-c      C-v      C-b      C-n      C-m      C-,      C-.      C-/      @off_c   _
-  _        _        _        _                 C-spc             _        _        _        _        _
+  _        _        @off_c   _                 C-spc             _        @off_c   _        _        _
 )
 
 (deflayer l_m
@@ -349,7 +349,7 @@
   M-tab    M-q      M-w      M-e      M-r      M-t      M-y      M-u      M-i      M-o      M-p      M-[      M-]      M-\
   M-bspc   M-a      M-s      M-d      M-f      M-g      M-h      M-j      M-k      M-l      M-;      M-'      M-ret
   _        M-z      M-x      M-c      M-v      M-b      M-n      M-m      M-,      M-.      M-/      @off_m   _
-  _        _        _        _                 M-spc             _        _        _        _        _
+  _        _        @off_m   _                 M-spc             _        @off_m   _        _        _
 )
 
 (deflayer l_a
@@ -358,7 +358,7 @@
   A-tab    A-q      A-w      A-e      A-r      A-t      A-y      A-u      A-i      A-o      A-p      A-[      A-]      A-\
   A-bspc   A-a      A-s      A-d      A-f      A-g      A-h      A-j      A-k      A-l      A-;      A-'      A-ret
   _        A-z      A-x      A-c      A-v      A-b      A-n      A-m      A-,      A-.      A-/      @off_a   _
-  _        _        _        _                 A-spc             _        _        _        _        _
+  _        _        @off_a   _                 A-spc             _        @off_a   _        _        _
 )
 
 (deflayer l_cs
@@ -367,7 +367,7 @@
   S-C-tab    S-C-q      S-C-w      S-C-e      S-C-r      S-C-t      S-C-y      S-C-u      S-C-i      S-C-o      S-C-p      S-C-[      S-C-]      S-C-\
   S-C-bspc   S-C-a      S-C-s      S-C-d      S-C-f      S-C-g      S-C-h      S-C-j      S-C-k      S-C-l      S-C-;      S-C-'      S-C-ret
   _          S-C-z      S-C-x      S-C-c      S-C-v      S-C-b      S-C-n      S-C-m      S-C-,      S-C-.      S-C-/      @off_cs    _
-  _          _          _          _                     S-C-spc               _          _          _          _          _
+  _          _          @off_cs    _                     S-C-spc               _          @off_cs    _          _          _
 )
 
 (deflayer l_ms
@@ -376,7 +376,7 @@
   S-M-tab    S-M-q      S-M-w      S-M-e      S-M-r      S-M-t      S-M-y      S-M-u      S-M-i      S-M-o      S-M-p      S-M-[      S-M-]      S-M-\
   S-M-bspc   S-M-a      S-M-s      S-M-d      S-M-f      S-M-g      S-M-h      S-M-j      S-M-k      S-M-l      S-M-;      S-M-'      S-M-ret
   _          S-M-z      S-M-x      S-M-c      S-M-v      S-M-b      S-M-n      S-M-m      S-M-,      S-M-.      S-M-/      @off_ms    _
-  _          _          _          _                     S-M-spc               _          _          _          _          _
+  _          _          @off_ms    _                     S-M-spc               _          @off_ms    _          _          _
 )
 
 (deflayer l_as
@@ -385,7 +385,7 @@
   S-A-tab    S-A-q      S-A-w      S-A-e      S-A-r      S-A-t      S-A-y      S-A-u      S-A-i      S-A-o      S-A-p      S-A-[      S-A-]      S-A-\
   S-A-bspc   S-A-a      S-A-s      S-A-d      S-A-f      S-A-g      S-A-h      S-A-j      S-A-k      S-A-l      S-A-;      S-A-'      S-A-ret
   _          S-A-z      S-A-x      S-A-c      S-A-v      S-A-b      S-A-n      S-A-m      S-A-,      S-A-.      S-A-/      @off_as    _
-  _          _          _          _                     S-A-spc               _          _          _          _          _
+  _          _          @off_as    _                     S-A-spc               _          @off_as    _          _          _
 )
 
 (deflayer l_ac
@@ -394,7 +394,7 @@
   C-A-tab    C-A-q      C-A-w      C-A-e      C-A-r      C-A-t      C-A-y      C-A-u      C-A-i      C-A-o      C-A-p      C-A-[      C-A-]      C-A-\
   C-A-bspc   C-A-a      C-A-s      C-A-d      C-A-f      C-A-g      C-A-h      C-A-j      C-A-k      C-A-l      C-A-;      C-A-'      C-A-ret
   _          C-A-z      C-A-x      C-A-c      C-A-v      C-A-b      C-A-n      C-A-m      C-A-,      C-A-.      C-A-/      @off_ac    _
-  _          _          _          _                     C-A-spc               _          _          _          _          _
+  _          _          @off_ac    _                     C-A-spc               _          @off_ac    _          _          _
 )
 
 (deflayer l_cm
@@ -403,7 +403,7 @@
   C-M-tab    C-M-q      C-M-w      C-M-e      C-M-r      C-M-t      C-M-y      C-M-u      C-M-i      C-M-o      C-M-p      C-M-[      C-M-]      C-M-\
   C-M-bspc   C-M-a      C-M-s      C-M-d      C-M-f      C-M-g      C-M-h      C-M-j      C-M-k      C-M-l      C-M-;      C-M-'      C-M-ret
   _          C-M-z      C-M-x      C-M-c      C-M-v      C-M-b      C-M-n      C-M-m      C-M-,      C-M-.      C-M-/      @off_cm    _
-  _          _          _          _                     C-M-spc               _          _          _          _          _
+  _          _          @off_cm    _                     C-M-spc               _          @off_cm    _          _          _
 )
 
 (deflayer l_am
@@ -412,7 +412,7 @@
   M-A-tab    M-A-q      M-A-w      M-A-e      M-A-r      M-A-t      M-A-y      M-A-u      M-A-i      M-A-o      M-A-p      M-A-[      M-A-]      M-A-\
   M-A-bspc   M-A-a      M-A-s      M-A-d      M-A-f      M-A-g      M-A-h      M-A-j      M-A-k      M-A-l      M-A-;      M-A-'      M-A-ret
   _          M-A-z      M-A-x      M-A-c      M-A-v      M-A-b      M-A-n      M-A-m      M-A-,      M-A-.      M-A-/      @off_am    _
-  _          _          _          _                     M-A-spc               _          _          _          _          _
+  _          _          @off_am    _                     M-A-spc               _          @off_am    _          _          _
 )
 
 (deflayer l_acm
@@ -421,7 +421,7 @@
   C-A-M-tab    C-A-M-q      C-A-M-w      C-A-M-e      C-A-M-r      C-A-M-t      C-A-M-y      C-A-M-u      C-A-M-i      C-A-M-o      C-A-M-p      C-A-M-[      C-A-M-]      C-A-M-\
   C-A-M-bspc   C-A-M-a      C-A-M-s      C-A-M-d      C-A-M-f      C-A-M-g      C-A-M-h      C-A-M-j      C-A-M-k      C-A-M-l      C-A-M-;      C-A-M-'      C-A-M-ret
   _            C-A-M-z      C-A-M-x      C-A-M-c      C-A-M-v      C-A-M-b      C-A-M-n      C-A-M-m      C-A-M-,      C-A-M-.      C-A-M-/      @off_acm     _
-  _            _            _            _                         C-A-M-spc                 _            _            _            _            _
+  _            _            @off_acm     _                         C-A-M-spc                 _            @off_acm     _            _            _
 )
 
 (deflayer l_cms
@@ -430,7 +430,7 @@
   S-C-M-tab    S-C-M-q      S-C-M-w      S-C-M-e      S-C-M-r      S-C-M-t      S-C-M-y      S-C-M-u      S-C-M-i      S-C-M-o      S-C-M-p      S-C-M-[      S-C-M-]      S-C-M-\
   S-C-M-bspc   S-C-M-a      S-C-M-s      S-C-M-d      S-C-M-f      S-C-M-g      S-C-M-h      S-C-M-j      S-C-M-k      S-C-M-l      S-C-M-;      S-C-M-'      S-C-M-ret
   _            S-C-M-z      S-C-M-x      S-C-M-c      S-C-M-v      S-C-M-b      S-C-M-n      S-C-M-m      S-C-M-,      S-C-M-.      S-C-M-/      @off_cms     _
-  _            _            _            _                         S-C-M-spc                 _            _            _            _            _
+  _            _            @off_cms     _                         S-C-M-spc                 _            @off_cms     _            _            _
 )
 
 (deflayer l_ams
@@ -439,7 +439,7 @@
   S-A-M-tab    S-A-M-q      S-A-M-w      S-A-M-e      S-A-M-r      S-A-M-t      S-A-M-y      S-A-M-u      S-A-M-i      S-A-M-o      S-A-M-p      S-A-M-[      S-A-M-]      S-A-M-\
   S-A-M-bspc   S-A-M-a      S-A-M-s      S-A-M-d      S-A-M-f      S-A-M-g      S-A-M-h      S-A-M-j      S-A-M-k      S-A-M-l      S-A-M-;      S-A-M-'      S-A-M-ret
   _            S-A-M-z      S-A-M-x      S-A-M-c      S-A-M-v      S-A-M-b      S-A-M-n      S-A-M-m      S-A-M-,      S-A-M-.      S-A-M-/      @off_ams     _
-  _            _            _            _                         S-A-M-spc                 _            _            _            _            _
+  _            _            @off_ams     _                         S-A-M-spc                 _            @off_ams     _            _            _
 )
 
 (deflayer l_meh
@@ -448,7 +448,7 @@
   C-S-A-tab    C-S-A-q      C-S-A-w      C-S-A-e      C-S-A-r      C-S-A-t      C-S-A-y      C-S-A-u      C-S-A-i      C-S-A-o      C-S-A-p      C-S-A-[      C-S-A-]      C-S-A-\
   C-S-A-bspc   C-S-A-a      C-S-A-s      C-S-A-d      C-S-A-f      C-S-A-g      C-S-A-h      C-S-A-j      C-S-A-k      C-S-A-l      C-S-A-;      C-S-A-'      C-S-A-ret
   _            C-S-A-z      C-S-A-x      C-S-A-c      C-S-A-v      C-S-A-b      C-S-A-n      C-S-A-m      C-S-A-,      C-S-A-.      C-S-A-/      @off_meh     _
-  _            _            _            _                         C-S-A-spc                 _            _            _            _            _
+  _            _            @off_meh     _                         C-S-A-spc                 _            @off_meh     _            _            _
 )
 
 (deflayer l_hyp
@@ -457,7 +457,7 @@
   M-C-S-A-tab    M-C-S-A-q      M-C-S-A-w      M-C-S-A-e      M-C-S-A-r      M-C-S-A-t      M-C-S-A-y      M-C-S-A-u      M-C-S-A-i      M-C-S-A-o      M-C-S-A-p      M-C-S-A-[      M-C-S-A-]      M-C-S-A-\
   M-C-S-A-bspc   M-C-S-A-a      M-C-S-A-s      M-C-S-A-d      M-C-S-A-f      M-C-S-A-g      M-C-S-A-h      M-C-S-A-j      M-C-S-A-k      M-C-S-A-l      M-C-S-A-;      M-C-S-A-'      M-C-S-A-ret
   _              M-C-S-A-z      M-C-S-A-x      M-C-S-A-c      M-C-S-A-v      M-C-S-A-b      M-C-S-A-n      M-C-S-A-m      M-C-S-A-,      M-C-S-A-.      M-C-S-A-/      @off_hyp       _
-  _              _              _              _                             M-C-S-A-spc                   _              _              _              _              _
+  _              _              @off_hyp       _                             M-C-S-A-spc                   _              @off_hyp       _              _              _
 )
 
 (deflayer blank_dont_use
