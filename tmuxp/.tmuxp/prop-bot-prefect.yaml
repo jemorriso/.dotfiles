@@ -11,4 +11,4 @@ windows:
     - pyenv activate prop-bot-prefect
     - prefect server start
   start_directory: /Users/jerry/source/prop-bot/dev/prop-bot-prefect
-  window_name: nvim
+  window_name: server
