@@ -121,7 +121,7 @@ return {
         },
       })
     end,
-    ft = { "ipynb", "py" },
+    ft = { "ipynb", "py", "cs" },
     keys = {
       { "<localleader>x", "<cmd>JupyniumExecuteSelectedCells<cr>", desc = "Jupynium execute selected cells" },
       { "<localleader>s", "o# %%<esc>", desc = "Jupynium split cell below" },
