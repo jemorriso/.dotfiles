@@ -237,12 +237,12 @@
 
 ;; first defined layer is always the default layer
 (deflayer base
-  _        brdn     brup     lp       mctl     bldn     blup     prev     pp       next     mute     vold     volu
-  @as_grv  @as_1    @as_2    @as_3    @as_4    @as_5    @as_6    @as_7    @as_8    @as_9     @as_0   @as_dash @as_eq   _
-  _        _        @hyp_w   @meh_e   _        _        _        _        @meh_i   @hyp_o   _        @as_ob   @as_cb   @as_bs
-  bspc     @ctl_a   @alt_s   @met_d   @sft_f   _        _        @sft_j   @met_k   @alt_l   @ctl_;   @as_'    _
-  @s_s     _        _        _        @ca_v    _        _        @ca_m    @as_,    @as_.    @as_slsh @s_dirt  _
-  @on_p1   @s_p1    esc      @s_dir            @spc_p1           @s_dir   ret      _        _        _
+  esc      brdn     brup     lp       mctl     bldn     blup     prev     pp       next     mute     vold     volu
+  @as_grv  @as_1    @as_2    @as_3    @as_4    @as_5    @as_6    @as_7    @as_8    @as_9    @as_0    @as_dash @as_eq   bspc
+  tab      q        @hyp_w   @meh_e   r        t        y        u        @meh_i   @hyp_o   p        @as_ob   @as_cb   @as_bs
+  bspc     @ctl_a   @alt_s   @met_d   @sft_f   g        h        @sft_j   @met_k   @alt_l   @ctl_;   @as_'    '
+  @s_s     z        x        c        @ca_v    b        n        @ca_m    @as_,    @as_.    @as_slsh @s_dirt  up
+  @on_p1   @s_p1    esc      @s_dir            @spc_p1           @s_dir   ret      left     down     rght
 )
 
 (deflayer qwerty
