@@ -4,6 +4,19 @@ return {
     dependencies = { "norcalli/nvim-terminal.lua" },
   },
   {
+    "mfussenegger/nvim-dap-python",
+    config = function()
+      local dappy = require("dap-python")
+      dappy.setup("~/.pyenv/versions/debugpy/bin/python")
+    end,
+  },
+  {
+    "nvim-neotest/neotest",
+    opts = {
+      adapters = { "neotest-python" },
+    },
+  },
+  {
     "tidalcycles/vim-tidal",
     keys = {
       { "<localleader>h", "<cmd>TidalHush<cr>", desc = "hush tidal", silent = false },
