@@ -238,11 +238,11 @@
 ;; first defined layer is always the default layer
 (deflayer base
   _        brdn     brup     lp       mctl     bldn     blup     prev     pp       next     mute     vold     volu
-  @as_grv  _        @s_p1    esc      @s_nf    _        _        @s_nf    ret      @s_p1    _        @as_dash @as_eq   _
+  @as_grv  @as_1    @as_2    @as_3    @as_4    @as_5    @as_6    @as_7    @as_8    @as_9     @as_0   @as_dash @as_eq   _
   _        _        @hyp_w   @meh_e   _        _        _        _        @meh_i   @hyp_o   _        @as_ob   @as_cb   @as_bs
   bspc     @ctl_a   @alt_s   @met_d   @sft_f   _        _        @sft_j   @met_k   @alt_l   @ctl_;   @as_'    _
-  @s_s     _        _        _        @ca_v    _        _        @ca_m    @as_,    @as_.    @as_slsh @on_p1   _
-  @on_nf   @on_p1   @s_dirt  @s_dir            @spc_p1           @s_dir   @s_dirt  _        _        _
+  @s_s     _        _        _        @ca_v    _        _        @ca_m    @as_,    @as_.    @as_slsh @s_dirt  _
+  @on_p1   @s_p1    esc      @s_dir            @spc_p1           @s_dir   ret      _        _        _
 )
 
 (deflayer qwerty
@@ -274,10 +274,10 @@
 )
 
 (deflayer directory
-  _        _        _        _        _        _        _        _        _        _        _        _        _
+  _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
   _        @s_acm   @s_ams   @s_cms   _        _        _        _        @s_cms   @s_ams   @s_acm   _        _        _
-  _        @s_cm    @s_hyp   @s_meh   @s_am    @s_nf    @s_nf    @s_am    @s_meh   @s_hyp   @s_cm    _        _        _
-  _        @s_c     @s_a     @s_m     @s_s     @s_bas   @s_bas   @s_s     @s_m     @s_a     @s_c     _        _
+  ret      @s_cm    @s_hyp   @s_meh   @s_am    @s_nf    @s_nf    @s_am    @s_meh   @s_hyp   @s_cm    ret      _        _
+  esc      @s_c     @s_a     @s_m     @s_s     @s_dirt  @s_dirt  @s_s     @s_m     @s_a     @s_c     esc      _
   _        @s_cs    @s_as    @s_ms    @s_ac    @s_p1    @s_p1    @s_ac    @s_ms    @s_as    @s_cs    _        _
   _        _        _        C-S-A-a           C-spc             C-S-A-a  _        _        _        _
 )
