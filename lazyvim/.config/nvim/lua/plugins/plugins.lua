@@ -122,6 +122,23 @@ return {
       table.insert(opts.sources, nls.builtins.diagnostics.flake8)
     end,
   },
+  -- {
+  --   "williamboman/mason-lspconfig.nvim",
+  --   config = function()
+  --     require("mason-lspconfig").setup({
+  --       ensure_installed = { "lua_ls", "pyright" },
+  --     })
+  --   end,
+  -- },
+  -- {
+  --   "jay-babu/mason-nvim-dap.nvim",
+  --   config = function()
+  --     require("mason-nvim-dap").setup({
+  --       ensure_installed = { "stylua", "jq" },
+  --       handlers = {}, -- sets up dap in the predefined manner
+  --     })
+  --   end,
+  -- },
   {
     "kiyoon/jupynium.nvim",
     build = "pip3 install --user .",
