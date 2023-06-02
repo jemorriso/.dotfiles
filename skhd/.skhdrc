@@ -26,7 +26,7 @@ prefix < g : open -a signal; skhd -k 'escape'
 prefix < r : open -a 'microsoft remote desktop'; skhd -k 'escape'
 prefix < s : open -a spotify; skhd -k 'escape'
 prefix < t : open -a 'microsoft teams'; skhd -k 'escape'
-prefix < d : open -a datagrip; skhd -k 'escape'
+prefix < d : open -a discord; skhd -k 'escape'
 prefix < o : open -a obsidian; skhd -k 'escape'
 
 # vim < 0 : skhd -k 'cmd - left'
