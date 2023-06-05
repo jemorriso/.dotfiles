@@ -19,6 +19,9 @@ end
 map("n", ",d", [[:put =strftime('%A, %B %d, %Y')<cr>kJ]], { desc = "Put date" })
 map("n", ",t", [[:put =strftime('%T')<cr>kJ]], { desc = "Put time" })
 
+map({ "n", "v" }, "<c-d>", "<c-d>zz")
+map({ "n", "v" }, "<c-u>", "<c-u>zz")
+
 map("n", "<C-A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
 map("n", "<C-A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
 map("i", "<C-A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
