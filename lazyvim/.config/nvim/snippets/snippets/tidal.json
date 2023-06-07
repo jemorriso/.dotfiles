@@ -1,0 +1,7 @@
+{
+  "quarter note rests": {
+    "prefix": "qr",
+    "body": ["~ ~ ~ ~"],
+    "description": "quarter note rests!"
+  }
+}

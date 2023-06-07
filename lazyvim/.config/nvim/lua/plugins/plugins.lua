@@ -18,6 +18,14 @@ return {
     },
   },
   {
+    "L3MON4D3/LuaSnip",
+    config = function()
+      require("luasnip.loaders.from_vscode").lazy_load({
+        paths = { "/Users/jerry/.dotfiles/lazyvim/.config/nvim/snippets/" },
+      })
+    end,
+  },
+  {
     "camgraff/telescope-tmux.nvim",
     dependencies = { "norcalli/nvim-terminal.lua" },
   },
