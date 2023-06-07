@@ -276,8 +276,8 @@
 (deflayer directory
   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
   _        @s_acm   @s_ams   @s_cms   _        _        _        _        @s_cms   @s_ams   @s_acm   _        _        _
-  ret      @s_cm    @s_hyp   @s_meh   @s_am    @s_nf    @s_nf    @s_am    @s_meh   @s_hyp   @s_cm    esc      _        _
-  esc      @s_c     @s_a     @s_m     @s_s     @s_dirt  @s_dirt  @s_s     @s_m     @s_a     @s_c     ret      _
+  esc      @s_cm    @s_hyp   @s_meh   @s_am    @s_nf    @s_nf    @s_am    @s_meh   @s_hyp   @s_cm    esc      _        _
+  ret      @s_c     @s_a     @s_m     @s_s     @s_dirt  @s_dirt  @s_s     @s_m     @s_a     @s_c     ret      _
   _        @s_cs    @s_as    @s_ms    @s_ac    @s_p1    @s_p1    @s_ac    @s_ms    @s_as    @s_cs    _        _
   _        _        _        C-S-A-a           @s_p1             C-S-A-a  _        _        _        _
 )
