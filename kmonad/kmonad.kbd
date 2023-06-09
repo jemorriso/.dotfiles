@@ -269,7 +269,7 @@
   S-grv    !        @        #        $        %        ^        &        *        S-9      S-0      S--      S-=      _
   _        _        home     pgup     pgdn     end      _        @as_7    @as_8    @as_9    _        S-[      S-]      S-\
   del      _        left     up       down     rght     _        @as_4    @as_5    @as_6    _        _        _
-  _        _        _        _        _        _        _        @as_1    @as_2    @as_3    _        @off_p1  _
+  _        _        _        _        _        _        _        @as_1    @as_2    @as_3    _        _        _
   _        @off_p1  _        _                 _                 @as_0    _        _        _        _
 )
 
@@ -278,7 +278,7 @@
   _        @s_acm   @s_ams   @s_cms   _        _        _        _        @s_cms   @s_ams   @s_acm   _        _        _
   esc      @s_cm    @s_hyp   @s_meh   @s_am    @s_nf    @s_nf    @s_am    @s_meh   @s_hyp   @s_cm    esc      _        _
   ret      @s_c     @s_a     @s_m     @s_s     @s_dirt  @s_dirt  @s_s     @s_m     @s_a     @s_c     ret      _
-  _        @s_cs    @s_as    @s_ms    @s_ac    @s_p1    @s_p1    @s_ac    @s_ms    @s_as    @s_cs    _        _
+  C-spc    @s_cs    @s_as    @s_ms    @s_ac    @s_p1    @s_p1    @s_ac    @s_ms    @s_as    @s_cs    C-spc    _
   _        _        _        C-S-A-a           @s_p1             C-S-A-a  _        _        _        _
 )
 
