@@ -20,7 +20,7 @@ prefix < escape ; default
 
 # launch apps with prefix 😍
 # prefix < f : open -a 'firefox developer edition'; skhd -k 'escape'
-prefix < a : open -a ableton; skhd -k 'escape'
+prefix < a : open -a 'ableton live 11 trial'; skhd -k 'escape'
 prefix < c : open -a 'google chrome'; skhd -k 'escape'
 prefix < d : open -a discord; skhd -k 'escape'
 prefix < f : open -a firefox; skhd -k 'escape'
