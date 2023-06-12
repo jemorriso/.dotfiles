@@ -251,7 +251,7 @@
   _        q        w        e        r        t        y        u        i        o        p        [        ]        \
   bspc     a        s        d        f        g        h        j        k        l        ;        '        _
   _        z        x        c        v        b        n        m        ,        .        /        _        _
-  _        _        _        _                 spc               _        _        _        _        _
+  _        _        @off_qrt _                 spc               _        @off_qrt _        _        _
 )
 
 (deflayer qwerty_with_modtap
@@ -270,7 +270,7 @@
   _        _        home     pgup     pgdn     end      _        @as_7    @as_8    @as_9    _        S-[      S-]      S-\
   del      _        left     up       down     rght     _        @as_4    @as_5    @as_6    _        _        _
   _        _        _        _        _        _        _        @as_1    @as_2    @as_3    _        _        _
-  _        @off_p1  _        _                 _                 @as_0    _        _        _        _
+  @off_p1  _        @off_p1  _                 _                 @as_0    @off_p1  _        _        _
 )
 
 (deflayer directory
@@ -278,7 +278,7 @@
   _        @s_acm   @s_ams   @s_cms   _        _        _        _        @s_cms   @s_ams   @s_acm   _        _        _
   esc      @s_cm    @s_hyp   @s_meh   @s_am    @s_nf    @s_nf    @s_am    @s_meh   @s_hyp   @s_cm    esc      _        _
   ret      @s_c     @s_a     @s_m     @s_s     @s_dirt  @s_dirt  @s_s     @s_m     @s_a     @s_c     ret      _
-  C-spc    @s_cs    @s_as    @s_ms    @s_ac    @s_p1    @s_p1    @s_ac    @s_ms    @s_as    @s_cs    C-spc    _
+  C-spc    @s_cs    @s_as    @s_ms    @s_ac    @s_qrt   @s_qrt   @s_ac    @s_ms    @s_as    @s_cs    C-spc    _
   _        _        _        C-S-A-a           @s_p1             C-S-A-a  _        _        _        _
 )
 
@@ -287,8 +287,8 @@
   _         @on_acm   @on_ams   @on_cms   _         _         _         _         @on_cms   @on_ams   @on_acm   _         _         _
   _         @on_cm    @on_hyp   @on_meh   @on_am    @on_nf    @on_nf    @on_am    @on_meh   @on_hyp   @on_cm    _         _         _
   _         @on_c     @on_a     @on_m     @on_s     @on_bas   @on_bas   @on_s     @on_m     @on_a     @on_c     _         _
-  _         @on_cs    @on_as    @on_ms    @on_ac    @on_p1    @on_p1    @on_ac    @on_ms    @on_as    @on_cs    _         _
-  _         _         _         _                   _                   _         _         _         _         _
+  _         @on_cs    @on_as    @on_ms    @on_ac    @on_qrt   @on_qrt   @on_ac    @on_ms    @on_as    @on_cs    _         _
+  _         _         _         _                   @on_p1              _         _         _         _         _
 )
 
 (deflayer num_func
@@ -297,7 +297,7 @@
   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12      _
   _        1        2        3        4        5        6        7        8        9        0        _        _
   _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        _        _                 _                 _        _        _        _        _
+  _        _        @off_nf  _                 _                 _        @off_nf  _        _        _
 )
 
 ;; -------------------------------------------------- 
