@@ -26,6 +26,8 @@ set quickscope
 
 set visualbell
 
+set clipboard+=unnamed
+
 " ctrl key always passed to ideavim for all modes
 sethandler a:vim
 
@@ -51,6 +53,10 @@ nnoremap gI :action ReSharperGotoImplementation<cr>
 
 nnoremap ]h :action VcsShowNextChangeMarker<cr>
 nnoremap [h :action VcsShowPrevChangeMarker<cr>
+nnoremap [m :action MethodUp<cr>
+nnoremap ]m :action MethodDown<cr>
+nnoremap ]q :action GotoNextError<cr>
+nnoremap [q :action GotoPreviousError<cr>
 
 nnoremap <leader><leader> :action GotoFile<cr>
 
@@ -58,6 +64,9 @@ nnoremap <leader><leader> :action GotoFile<cr>
 nnoremap <leader>/ :action FindInPath<cr>
 nnoremap <leader>, :action RecentFiles<cr>
 nnoremap <leader>` <c-tab>
+
+nnoremap <leader><tab>[ :action PreviousTab<cr>
+nnoremap <leader><tab>] :action NextTab<cr>
 
 nnoremap <leader>bp :action PinActiveEditorTab<cr>
 nnoremap <leader>bP :action CloseAllUnpinnedEditors<cr>
@@ -81,8 +90,8 @@ nnoremap <leader>ss :action FileStructurePopup<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-map <leader>y "+y
-map <leader>p "+p
+" map <leader>y "+y
+" map <leader>p "+p
 nnoremap <leader>m :action MaximizeEditorInSplit<cr>
 nnoremap <leader>z :action ToggleDistractionFreeMode<cr>
 nnoremap <leader>Z :action ToggleZenMode<cr>
@@ -95,37 +104,37 @@ nnoremap <leader><esc> :action JumpToLastWindow<cr>
 nnoremap gs :action GotoSymbol<cr>
 nnoremap ga :action GotoAction<cr>
 nnoremap gh :action ShowErrorDescription<cr>
-nnoremap g; :action JumpToLastChange<cr>
-nnoremap g, :action JumpToNextChange<cr>
+" nnoremap g; :action JumpToLastChange<cr>
+" nnoremap g, :action JumpToNextChange<cr>
 
 " nnoremap <leader>fb :action ShowBookmarks<cr>
 " nnoremap <leader>fc :action GotoClass<cr>
 " nnoremap <leader>ft :action GotoTest<cr>
-nnoremap <leader>fl :action RecentLocations<cr>
+" nnoremap <leader>fl :action RecentLocations<cr>
 
 nnoremap <leader>gX :action CloseAllEditors<cr>
 nnoremap <leader>go :action CloseAllEditorsButActive<cr>
-nnoremap <leader>gu :action LocalHistory.ShowHistory<cr>
+" nnoremap <leader>gu :action LocalHistory.ShowHistory<cr>
 
 " git blame
-nnoremap <leader>gb :action Annotate<cr>
+" nnoremap <leader>gb :action Annotate<cr>
 nnoremap <leader>gh :action Refactorings.QuickListPopupAction<cr>
 
 nnoremap <leader>ic :source ~/.ideavimrc<cr>
-nnoremap <leader>iw :action EditSourceInNewWindow<cr>
+" nnoremap <leader>iw :action EditSourceInNewWindow<cr>
 nnoremap <leader>ia :action VimFindActionIdAction<cr>
-nnoremap <leader>im :action ToggleBookmark<cr>
+" nnoremap <leader>im :action ToggleBookmark<cr>
 nnoremap <leader>id :action RestartIde<cr>
 " change theme
 nnoremap <leader>it :action ChangeLaf<cr>
 " toggle navbar
-nnoremap <leader>in :action ViewObsoleteNavBarAction<cr>
-nnoremap <leader>ib :action ViewToolButtons<cr>
+" nnoremap <leader>in :action ViewObsoleteNavBarAction<cr>
+" nnoremap <leader>ib :action ViewToolButtons<cr>
 " reload file from disk
 nnoremap <leader>ir :action SynchronizeCurrentFile<cr>
-nnoremap <leader>iv :action ActivateUnitTestsCoverageToolWindow<cr>
-nnoremap <leader>iu :action ActivateUnitTestsToolWindow<cr>
-nnoremap <leader>io :action RiderManageRecentProjects<cr>
+" nnoremap <leader>iv :action ActivateUnitTestsCoverageToolWindow<cr>
+" nnoremap <leader>iu :action ActivateUnitTestsToolWindow<cr>
+" nnoremap <leader>io :action RiderManageRecentProjects<cr>
 
 "debug / run namespace
 noremap \e :action QuickEvaluateExpression<cr>
@@ -152,20 +161,13 @@ nnoremap \\\\B :action RebuildSolutionAction<cr>
 nnoremap \\\\r :action Rerun<cr>
 
 
-nnoremap [m :tabm-1<cr>
-nnoremap ]m :tabm+1<cr>
-nnoremap [b :bprevious<cr>
-nnoremap ]b :bnext<cr>
-nnoremap [t :action PreviousTab<cr>
-nnoremap ]t :action NextTab<cr>
-nnoremap [[ :action MethodUp<cr>
-nnoremap ]] :action MethodDown<cr>
-nnoremap ]e :action GotoNextError<cr>
-
-nnoremap [e :action GotoPreviousError<cr>
+" nnoremap [m :tabm-1<cr>
+" nnoremap ]m :tabm+1<cr>
+" nnoremap [b :bprevious<cr>
+" nnoremap ]b :bnext<cr>
 " https://vim.fandom.com/wiki/Quickly_adding_and_deleting_empty_lines
 " context mark doesn't work in ideavim so use z
-nnoremap ]<space> mzo<esc>`z
-nnoremap [<space> mzO<esc>`z
-nnoremap [d mz:-d<cr>`z
-nnoremap ]d mz:+d<cr>`z
+" nnoremap ]<space> mzo<esc>`z
+" nnoremap [<space> mzO<esc>`z
+" nnoremap [d mz:-d<cr>`z
+" nnoremap ]d mz:+d<cr>`z
