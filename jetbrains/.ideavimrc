@@ -22,7 +22,8 @@ set surround
 set commentary
 set exchange
 set sneak
-set quickscope
+" set quickscope
+set easymotion
 
 set visualbell
 
@@ -58,7 +59,8 @@ nnoremap ]m :action MethodDown<cr>
 nnoremap ]q :action GotoNextError<cr>
 nnoremap [q :action GotoPreviousError<cr>
 
-nnoremap <leader><leader> :action GotoFile<cr>
+" todo
+" nnoremap <leader><leader> :action GotoFile<cr>
 
 " live grep
 nnoremap <leader>/ :action FindInPath<cr>
