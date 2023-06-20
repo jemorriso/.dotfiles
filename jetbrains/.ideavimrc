@@ -1,7 +1,7 @@
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'tommcdo/vim-exchange'
+" Plug 'tommcdo/vim-exchange'
 
 let mapleader = " "
 
@@ -20,7 +20,7 @@ set hlsearch
 
 set surround
 set commentary
-set exchange
+" set exchange
 set sneak
 " set quickscope
 set easymotion
@@ -91,6 +91,13 @@ nnoremap <leader>fr :action RecentFiles<cr>
 nnoremap <leader>ss :action FileStructurePopup<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+map ,f <Plug>(easymotion-f)
+map ,F <Plug>(easymotion-F)
+map ,t <Plug>(easymotion-t)
+map ,T <Plug>(easymotion-T)
+map ,s <Plug>(easymotion-f2)
+map ,S <Plug>(easymotion-F2)
 
 " map <leader>y "+y
 " map <leader>p "+p
