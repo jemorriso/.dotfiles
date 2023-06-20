@@ -1,5 +1,36 @@
 return {
   {
+    "ellisonleao/gruvbox.nvim",
+    opts = {
+      contrast = "hard",
+    },
+    config = function()
+      require("gruvbox").setup({
+        -- this fixes the lighter colored background for signcolumn and around noice popup
+        -- https://github.com/ellisonleao/gruvbox.nvim/issues/230
+        overrides = {
+          SignColumn = { link = "Normal" },
+          -- WhichKey = { link = "Normal" },
+          GruvboxGreenSign = { bg = "" },
+          GruvboxOrangeSign = { bg = "" },
+          GruvboxPurpleSign = { bg = "" },
+          GruvboxYellowSign = { bg = "" },
+          GruvboxRedSign = { bg = "" },
+          GruvboxBlueSign = { bg = "" },
+          GruvboxAquaSign = { bg = "" },
+        },
+      })
+    end,
+    -- version = false,
+    -- commit = "df149bccb19a02c5c2b9fa6ec0716f0c0487feb0",
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "gruvbox",
+    },
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     keys = {
       { "<cr>", desc = "Increment selection" },
@@ -105,7 +136,7 @@ return {
     config = function()
       vim.g.tidal_no_mappings = 1
       vim.g.tidal_target = "terminal"
-      vim.g.tidal_sc_enable = 1
+      -- vim.g.tidal_sc_enable = 1
     end,
   },
   {
@@ -116,6 +147,7 @@ return {
   },
   {
     "davidgranstrom/scnvim",
+    -- ft = "scd",
     config = function()
       local scnvim = require("scnvim")
       local map = scnvim.map
@@ -149,7 +181,6 @@ return {
         },
       })
     end,
-    ft = "scd",
   },
   {
     "mg979/vim-visual-multi",
