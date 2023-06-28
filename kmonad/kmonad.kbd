@@ -103,25 +103,25 @@
     ;; i want to be able to use the number keys when holding mods
     ;; i need the destination layer to have mod-tap because I want to be able to use multiple mods at the same time
     ;; -------------------------------------------------- 
-
-    qm_a (around @qrtm lalt)
-    qm_c (around @qrtm lctl)
-    qm_m (around @qrtm lmet)
-    qm_s (around @qrtm lsft)
-
-    qm_ac (around @qm_c lalt)
-    qm_am (around @qm_m lalt)
-    qm_as (around @qm_s lalt)
-    qm_cm (around @qm_c lmet)
-    qm_cs (around @qm_s lctl)
-    qm_ms (around @qm_s lmet)
-
-    qm_acm (around @qm_ac lmet)
-    qm_ams (around @qm_as lmet)
-    qm_cms (around @qm_cs lmet)
-    qm_meh (around @qm_cs lalt)
-
-    qm_hyp (around @qm_meh lmet)
+    ;;
+    ;; qm_a (around @qrtm lalt)
+    ;; qm_c (around @qrtm lctl)
+    ;; qm_m (around @qrtm lmet)
+    ;; qm_s (around @qrtm lsft)
+    ;;
+    ;; qm_ac (around @qm_c lalt)
+    ;; qm_am (around @qm_m lalt)
+    ;; qm_as (around @qm_s lalt)
+    ;; qm_cm (around @qm_c lmet)
+    ;; qm_cs (around @qm_s lctl)
+    ;; qm_ms (around @qm_s lmet)
+    ;;
+    ;; qm_acm (around @qm_ac lmet)
+    ;; qm_ams (around @qm_as lmet)
+    ;; qm_cms (around @qm_cs lmet)
+    ;; qm_meh (around @qm_cs lalt)
+    ;;
+    ;; qm_hyp (around @qm_meh lmet)
 
     ;; -------------------------------------------------- 
     ;; define qwerty mods for sticky keys
