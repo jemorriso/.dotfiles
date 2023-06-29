@@ -169,17 +169,26 @@
 (deflayer priority
   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
   S-grv    !        @        #        $        %        ^        &        *        S-9      S-0      S--      S-=      _
-  _        _        home     pgup     pgdn     end      _        @as_7    @as_8    @as_9    _        S-[      S-]      S-\
-  del      _        left     up       down     rght     _        @as_4    @as_5    @as_6    _        _        _
-  _        _        _        _        _        _        _        @as_1    @as_2    @as_3    _        _        _
-  @off_p1  _        @off_p1  _                 _                 @as_0    @off_p1  _        _        _
+  _        _        home     pgup     pgdn     end      home     pgup     pgdn     end      _        S-[      S-]      S-\
+  del      _        left     up       down     rght     left     down     up       rght     _        _        _
+  _        _        _        _        _        _        _        _        _        _        _        _        _
+  @off_p1  _        @off_p1  _                 _                 _        @off_p1  _        _        _
 )
+
+;; (deflayer directory
+;;   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
+;;   _        @s_acm   @s_ams   @s_cms   _        _        _        _        @s_cms   @s_ams   @s_acm   _        _        _
+;;   esc      @s_cm    @s_hyp   @s_meh   @s_am    _        _        @s_am    @s_meh   @s_hyp   @s_cm    esc      _        _
+;;   ret      @s_c     @s_a     @s_m     @s_s     _        _        @s_s     @s_m     @s_a     @s_c     ret      _
+;;   C-spc    @s_cs    @s_as    @s_ms    @s_ac    @s_qrt   @s_qrt   @s_ac    @s_ms    @s_as    @s_cs    C-spc    _
+;;   _        _        _        C-S-A-a           @s_p1             C-S-A-a  _        _        _        _
+;; )
 
 (deflayer directory
   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
-  _        @s_acm   @s_ams   @s_cms   _        _        _        _        @s_cms   @s_ams   @s_acm   _        _        _
-  esc      @s_cm    @s_hyp   @s_meh   @s_am    _        _        @s_am    @s_meh   @s_hyp   @s_cm    esc      _        _
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _
+  esc      _        @s_hyp   @s_meh   _        _        _        _        @s_meh   @s_hyp   _        esc      _        _
   ret      @s_c     @s_a     @s_m     @s_s     _        _        @s_s     @s_m     @s_a     @s_c     ret      _
-  C-spc    @s_cs    @s_as    @s_ms    @s_ac    @s_qrt   @s_qrt   @s_ac    @s_ms    @s_as    @s_cs    C-spc    _
+  C-spc    @s_cs    @s_as    @s_ms    _        @s_qrt   @s_qrt   _        @s_ms    @s_as    @s_cs    C-spc    _
   _        _        _        C-S-A-a           @s_p1             C-S-A-a  _        _        _        _
 )
