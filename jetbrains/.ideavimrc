@@ -15,8 +15,8 @@ set scrolloff=3
 set incsearch
 set hlsearch
 
-" set number
-" set relativenumber
+set number
+set relativenumber
 
 set surround
 set commentary
