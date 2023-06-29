@@ -20,13 +20,16 @@ prefix < escape ; default
 
 # launch apps with prefix 😍
 # prefix < f : open -a 'firefox developer edition'; skhd -k 'escape'
-prefix < a : open -a 'ableton live 11 trial'; skhd -k 'escape'
+prefix < a : open -a arc; skhd -k 'escape'
 prefix < c : open -a 'google chrome'; skhd -k 'escape'
 prefix < d : open -a discord; skhd -k 'escape'
 prefix < f : open -a firefox; skhd -k 'escape'
 prefix < g : open -a signal; skhd -k 'escape'
 prefix < i : open -a iterm; skhd -k 'escape'
+prefix < l : open -a 'ableton live 11 trial'; skhd -k 'escape'
+prefix < m : open -a messages; skhd -k 'escape'
 prefix < o : open -a obsidian; skhd -k 'escape'
+prefix < p : open -a preview; skhd -k 'escape'
 prefix < r : open -a 'microsoft remote desktop'; skhd -k 'escape'
 prefix < s : open -a spotify; skhd -k 'escape'
 prefix < t : open -a 'microsoft teams'; skhd -k 'escape'
