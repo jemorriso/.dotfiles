@@ -17,7 +17,8 @@ map U scrollFullPageUp
 map e scrollPageUp
 map E scrollFullPageUp
 
-map s LinkHints.activateModeToOpenInNewForegroundTab
+map t Vomnibar.activateInNewTab
+# map s LinkHints.activateModeToOpenInNewForegroundTab
 
 # global marks on lowercase keys instead of uppercase
 map ` Marks.activateGotoMode swap
@@ -31,8 +32,7 @@ map g. closeOtherTabs
 map zh ScrollToLeft
 map zl ScrollToRight
 
-map t Vomnibar.activateTabSelection
-map T createTab
+map b Vomnibar.activateTabSelection
 
 unmap <a-p>
 unmap <a-f>
