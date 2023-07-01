@@ -107,16 +107,17 @@ return {
   },
   {
     "mfussenegger/nvim-dap-python",
-    config = function()
-      local dappy = require("dap-python")
-      dappy.setup("~/.pyenv/versions/debugpy/bin/python")
-    end,
+  },
+  {
+    "nvim-neotest/neotest-python",
   },
   {
     "nvim-neotest/neotest",
-    opts = {
-      adapters = { "neotest-python" },
-    },
+    config = function()
+      require("neotest").setup({
+        adapters = { require("neotest-python") },
+      })
+    end,
   },
   {
     "tidalcycles/vim-tidal",
