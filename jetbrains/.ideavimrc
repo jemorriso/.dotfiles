@@ -121,7 +121,7 @@ nnoremap gh :action ShowErrorDescription<cr>
 " nnoremap <leader>ft :action GotoTest<cr>
 " nnoremap <leader>fl :action RecentLocations<cr>
 
-nnoremap <leader>gX :action CloseAllEditors<cr>
+nnoremap <leader>gx :action CloseAllEditors<cr>
 nnoremap <leader>go :action CloseAllEditorsButActive<cr>
 " nnoremap <leader>gu :action LocalHistory.ShowHistory<cr>
 
