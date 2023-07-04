@@ -107,7 +107,7 @@ nnoremap <leader>Z :action ToggleZenMode<cr>
 nnoremap <leader>w :action HideAllWindows<cr>
 nnoremap <leader>x :action CloseContent<cr>
 nnoremap <leader><esc> :action JumpToLastWindow<cr>
-" nnoremap <leader>, :action MoveEditorToOppositeTabGroup<cr>
+nnoremap <leader>' :action MoveEditorToOppositeTabGroup<cr>
 
 " noremap gc :action CommentByLineComment<cr>
 nnoremap gs :action GotoSymbol<cr>
