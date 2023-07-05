@@ -93,6 +93,9 @@ nnoremap <leader>fn :action NewElementSamePlace<cr>
 nnoremap <leader>fr :action RecentFiles<cr>
 
 nnoremap <leader>ss :action FileStructurePopup<cr>
+
+nnoremap <leader>ur :nohl<cr>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
