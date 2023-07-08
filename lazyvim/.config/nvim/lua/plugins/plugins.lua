@@ -1,19 +1,30 @@
 return {
   {
-    "Pocco81/auto-save.nvim",
-    config = function()
-      require("auto-save").setup({
-        execution_message = {
-          message = function() -- message to print on save
-            -- return ("AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"))
-            return ""
-          end,
-          dim = 0.18, -- dim the color of `message`
-          cleaning_interval = 1250, -- (milliseconds) automatically clean MsgArea after displaying `message`. See :h MsgArea
+    "nvim-neo-tree/neo-tree.nvim",
+    opts = {
+      filesystem = {
+        filtered_items = {
+          hide_dotfiles = false,
         },
-      })
-    end,
+      },
+    },
   },
+  --{
+  --   "Pocco81/auto-save.nvim",
+  --   config = function()
+  --     require("auto-save").setup({
+  --       debounce_delay = 1000,
+  --       execution_message = {
+  --         message = function() -- message to print on save
+  --           -- return ("AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"))
+  --           return ""
+  --         end,
+  --         dim = 0.18, -- dim the color of `message`
+  --         cleaning_interval = 1250, -- (milliseconds) automatically clean MsgArea after displaying `message`. See :h MsgArea
+  --       },
+  --     })
+  --   end,
+  -- },
   {
     "ellisonleao/gruvbox.nvim",
     opts = {
