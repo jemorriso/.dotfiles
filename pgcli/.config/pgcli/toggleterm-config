@@ -9,4 +9,4 @@ syntax_style = tango
 pager = vd -f csv
 table_format = csv
 
-enable_pager = True
+enable_pager = False
