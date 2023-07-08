@@ -218,13 +218,165 @@ return {
   },
   {
     "akinsho/toggleterm.nvim",
-    config = true,
-    keys = { { [[<c-\>]], "<cmd>ToggleTerm<cr>", desc = "toggle terminal" } },
-    opts = {
-      open_mapping = [[<c-\>]],
-      direction = "vertical",
-      size = vim.o.columns * 0.35,
-      shade_terminals = false,
+    config = function()
+      local tog = require("toggleterm")
+      local Terminal = require("toggleterm.terminal").Terminal
+
+      local pgcli = Terminal:new({
+        cmd = "pgcli --pgclirc /Users/jerry/.dotfiles/pgcli/.config/pgcli/toggleterm-config",
+        -- hidden = true,
+        direction = "vertical",
+        count = 99,
+      })
+      function _pgcli_toggle()
+        pgcli:toggle()
+      end
+
+      local ipython = Terminal:new({
+        cmd = "ipython",
+        -- hidden = true,
+        direction = "vertical",
+        count = 98,
+        -- on_open = function()
+        --   vim.cmd("startinsert!")
+        -- end,
+      })
+      function _ipython_toggle()
+        ipython:toggle()
+      end
+
+      local nnn = Terminal:new({
+        cmd = "n",
+        -- hidden = true,
+        direction = "float",
+        count = 97,
+      })
+      function _nnn_toggle()
+        nnn:toggle()
+      end
+
+      function _toggle_with_size(factor, direction)
+        local f
+        if direction == "vertical" then
+          f = vim.o.columns * factor
+        else
+          f = vim.o.lines * factor
+        end
+
+        vim.cmd(string.format("ToggleTerm size=%s direction=%s", f, direction))
+      end
+
+      -- for some reason it didn't work to have these options specified under 'opts' after I added the above custom terminals, so I moved them in here
+      tog.setup({
+        -- note that the open mapping can also be prefixed!
+        open_mapping = [[<c-\>]],
+        direction = "vertical",
+        size = function(term)
+          if term.direction == "horizontal" then
+            return 15
+          elseif term.direction == "vertical" then
+            return vim.o.columns * 0.4
+          end
+        end,
+        shade_terminals = false,
+        start_in_insert = false,
+        insert_mappings = true,
+        terminal_mappings = true,
+      })
+    end,
+    keys = {
+      { "<localleader>tf", "<cmd>ToggleTerm direction=float<cr>", desc = "float terminal" },
+      { "<localleader>th", "<cmd>ToggleTerm direction=horizontal<cr>", desc = "horizontal terminal" },
+      { "<localleader>tv", "<cmd>ToggleTerm direction=vertical<cr>", desc = "vertical terminal" },
+      { "<localleader>ta", "<cmd>ToggleTerm direction=tab<cr>", desc = "vertical terminal" },
+      { "<localleader>t1", "<cmd>lua _toggle_with_size(0.25, 'vertical')<cr>", desc = "vertical terminal 0.25" },
+      { "<localleader>t2", "<cmd>lua _toggle_with_size(0.5, 'vertical')<cr>", desc = "vertical terminal 0.5" },
+      { "<localleader>t3", "<cmd>lua _toggle_with_size(0.75, 'vertical')<cr>", desc = "vertical terminal 0.75" },
+      { "<localleader>t4", "<cmd>lua _toggle_with_size(1, 'vertical')<cr>", desc = "vertical terminal 1" },
+      { "<localleader>th1", "<cmd>lua _toggle_with_size(0.25, 'horizontal')<cr>", desc = "horizontal terminal 0.25" },
+      { "<localleader>th2", "<cmd>lua _toggle_with_size(0.5, 'horizontal')<cr>", desc = "horizontal terminal 0.5" },
+      { "<localleader>th3", "<cmd>lua _toggle_with_size(0.75, 'horizontal')<cr>", desc = "horizontal terminal 0.75" },
+      { "<localleader>th4", "<cmd>lua _toggle_with_size(1, 'horizontal')<cr>", desc = "horizontal terminal 1" },
+      -- { "<localleader>t2", "<cmd>ToggleTerm size=100<cr>", desc = "terminal size 100" },
+      -- { "<localleader>t3", "<cmd>ToggleTerm size=150<cr>", desc = "terminal size 150" },
+      -- { "<localleader>t4", "<cmd>ToggleTerm size=200<cr>", desc = "terminal size 200" },
+      { "<c-a-1>", "<cmd>1ToggleTerm<cr>", desc = "toggle terminal 1" },
+      { "<c-a-2>", "<cmd>2ToggleTerm<cr>", desc = "toggle terminal 2" },
+      { "<c-a-3>", "<cmd>3ToggleTerm<cr>", desc = "toggle terminal 3" },
+      { "<c-a-p>", "<cmd>lua _pgcli_toggle()<cr>", desc = "pgcli toggle" },
+      { "<c-a-i>", "<cmd>lua _ipython_toggle()<cr>", desc = "ipython toggle" },
+      { "<c-a-n>", "<cmd>lua _nnn_toggle()<cr>", desc = "nnn toggle" },
+      { "<localleader>ll", "<cmd>ToggleTermSendCurrentLine<cr>", desc = "send current line to terminal 1" },
+      { "<localleader>l1", "<cmd>ToggleTermSendCurrentLine 1<cr>", desc = "send current line to terminal 1" },
+      { "<localleader>l2", "<cmd>ToggleTermSendCurrentLine 2<cr>", desc = "send current line to terminal 2" },
+      { "<localleader>l3", "<cmd>ToggleTermSendCurrentLine 3<cr>", desc = "send current line to terminal 3" },
+      { "<localleader>li", "<cmd>ToggleTermSendCurrentLine 98<cr>", desc = "send current line to ipython" },
+      { "<localleader>lp", "<cmd>ToggleTermSendCurrentLine 99<cr>", desc = "send current line to pgcli" },
+      { "<localleader>ln", "<cmd>ToggleTermSendCurrentLine 97<cr>", desc = "send current line to nnn" },
+      { "<localleader>vv", "<cmd>ToggleTermSendVisualLines<cr>", desc = "send visual lines to terminal 1", mode = "v" },
+      {
+        "<localleader>v1",
+        "<cmd>ToggleTermSendVisualLines 1<cr>",
+        desc = "send visual lines to terminal 1",
+        mode = "v",
+      },
+      {
+        "<localleader>v2",
+        "<cmd>ToggleTermSendVisualLines 2<cr>",
+        desc = "send visual lines to terminal 2",
+        mode = "v",
+      },
+      {
+        "<localleader>v3",
+        "<cmd>ToggleTermSendVisualLines 3<cr>",
+        desc = "send visual lines to terminal 3",
+        mode = "v",
+      },
+      { "<localleader>vi", "<cmd>ToggleTermSendVisualLines 98<cr>", desc = "send visual lines to ipython", mode = "v" },
+      { "<localleader>vp", "<cmd>ToggleTermSendVisualLines 99<cr>", desc = "send visual lines to pgcli", mode = "v" },
+      { "<localleader>vn", "<cmd>ToggleTermSendVisualLines 97<cr>", desc = "send visual lines to nnn", mode = "v" },
+      {
+        "<localleader>ss",
+        "<cmd>ToggleTermSendVisualSelection<cr>",
+        desc = "send visual selection to terminal 1",
+        mode = "v",
+      },
+      {
+        "<localleader>s1",
+        "<cmd>ToggleTermSendVisualSelection 1<cr>",
+        desc = "send visual selection to terminal 1",
+        mode = "v",
+      },
+      {
+        "<localleader>s2",
+        "<cmd>ToggleTermSendVisualSelection 2<cr>",
+        desc = "send visual selection to terminal 2",
+        mode = "v",
+      },
+      {
+        "<localleader>s3",
+        "<cmd>ToggleTermSendVisualSelection 3<cr>",
+        desc = "send visual selection to terminal 3",
+        mode = "v",
+      },
+      {
+        "<localleader>si",
+        "<cmd>ToggleTermSendVisualSelection 98<cr>",
+        desc = "send visual selection to ipython",
+        mode = "v",
+      },
+      {
+        "<localleader>sp",
+        "<cmd>ToggleTermSendVisualSelection 99<cr>",
+        desc = "send visual selection to pgcli",
+        mode = "v",
+      },
+      {
+        "<localleader>sn",
+        "<cmd>ToggleTermSendVisualSelection 97<cr>",
+        desc = "send visual selection to nnn",
+        mode = "v",
+      },
     },
     lazy = false,
   },
@@ -232,8 +384,12 @@ return {
     "jose-elias-alvarez/null-ls.nvim",
     opts = function(_, opts)
       local nls = require("null-ls")
-      table.insert(opts.sources, nls.builtins.formatting.black)
       table.insert(opts.sources, nls.builtins.diagnostics.flake8)
+      table.insert(opts.sources, nls.builtins.formatting.black)
+      -- table.insert(opts.sources, nls.builtins.diagnostics.sqlfluff.with({ extra_args = { "--dialect", "postgres" } }))
+      -- table.insert(opts.sources, nls.builtins.formatting.sqlfluff.with({ extra_args = { "--dialect", "postgres" } }))
+      -- table.insert(opts.sources, nls.builtins.diagnostics.sqlfluff)
+      -- table.insert(opts.sources, nls.builtins.formatting.sqlfluff)
     end,
   },
   -- {
