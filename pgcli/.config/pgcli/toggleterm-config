@@ -4,7 +4,7 @@ multi_line = True
 
 prompt = '\d 💣\n'
 
-syntax_style = tango
+syntax_style = native
 
 pager = vd -f csv
 table_format = csv
