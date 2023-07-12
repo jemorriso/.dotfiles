@@ -87,6 +87,7 @@ nnoremap <leader>td :action RiderUnitTestDebugContextAction<cr>
 nnoremap <leader>tr :action RiderUnitTestRunContextSplitAction<cr>
 nnoremap <leader>tS :action RiderUnitTestSessionAbortAction<cr>
 
+nnoremap <leader><space> :action GotoFile<cr>
 nnoremap <leader>ff :action GotoFile<cr>
 " add new file to directory of current file
 nnoremap <leader>fn :action NewElementSamePlace<cr>
