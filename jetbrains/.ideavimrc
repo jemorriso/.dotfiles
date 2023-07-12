@@ -85,7 +85,7 @@ nnoremap <leader>db :action ToggleLineBreakpoint<cr>
 
 nnoremap <leader>td :action RiderUnitTestDebugContextAction<cr>
 nnoremap <leader>tr :action RiderUnitTestRunContextSplitAction<cr>
-nnoremap <leader>ts :action Stop<cr>
+nnoremap <leader>tS :action RiderUnitTestSessionAbortAction<cr>
 
 nnoremap <leader>ff :action GotoFile<cr>
 " add new file to directory of current file
