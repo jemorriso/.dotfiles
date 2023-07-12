@@ -56,8 +56,8 @@ nnoremap ]h :action VcsShowNextChangeMarker<cr>
 nnoremap [h :action VcsShowPrevChangeMarker<cr>
 nnoremap [m :action MethodUp<cr>
 nnoremap ]m :action MethodDown<cr>
-nnoremap ]q :action GotoNextError<cr>
-nnoremap [q :action GotoPreviousError<cr>
+nnoremap ]e :action GotoNextError<cr>
+nnoremap [e :action GotoPreviousError<cr>
 
 " todo
 " nnoremap <leader><leader> :action GotoFile<cr>
@@ -80,7 +80,7 @@ nnoremap <leader>dC :action RunToCursor<cr>
 nnoremap <leader>dp :action Pause<cr>
 nnoremap <leader>dc :action Play<cr>
 nnoremap <leader>dt :action Stop<cr>
-nnoremap <leader>dl :action RiderUnitTestRepeatPreviousRunAction<cr>
+" nnoremap <leader>dl :action RiderUnitTestRepeatPreviousRunAction<cr>
 nnoremap <leader>db :action ToggleLineBreakpoint<cr>
 
 nnoremap <leader>td :action RiderUnitTestDebugContextAction<cr>
