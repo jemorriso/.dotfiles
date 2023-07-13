@@ -41,8 +41,8 @@ map K :action QuickJavaDoc<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " mapped to lazyvim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <c-o> <Action>(Back)<cr>
-nmap <c-i> <Action>(Forward)<cr>
+" nmap <c-o> <Action>(Back)<cr>
+" nmap <c-i> <Action>(Forward)<cr>
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 nnoremap <c-j> <c-w>j
@@ -80,7 +80,9 @@ nnoremap <leader>dC :action RunToCursor<cr>
 nnoremap <leader>dp :action Pause<cr>
 nnoremap <leader>dc :action Play<cr>
 nnoremap <leader>dt :action Stop<cr>
-" nnoremap <leader>dl :action RiderUnitTestRepeatPreviousRunAction<cr>
+
+" not an exact match
+nnoremap <leader>dl :action RiderUnitTestRepeatPreviousRunAction<cr>
 nnoremap <leader>db :action ToggleLineBreakpoint<cr>
 
 nnoremap <leader>td :action RiderUnitTestDebugContextAction<cr>
