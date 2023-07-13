@@ -142,7 +142,7 @@
   tab      q        @hyp_w   @meh_e   r        t        y        u        @meh_i   @hyp_o   p        @as_ob   @as_cb   @as_bs
   bspc     @ctl_a   @alt_s   @met_d   @sft_f   g        h        @sft_j   @met_k   @alt_l   @ctl_;   @as_'    ret
   @s_s     z        x        c        v        b        n        m        @as_,    @as_.    @as_slsh @s_s     up
-  @on_p1   @s_p1    esc      @s_dir            @spc_p1           @s_dir   ret      left     down     rght
+  @on_qrt  ret      esc      @s_dir            @spc_p1           @s_dir   ret      left     down     rght
 )
 
 (deflayer qwerty
@@ -151,7 +151,7 @@
   _        q        w        e        r        t        y        u        i        o        p        [        ]        \
   bspc     a        s        d        f        g        h        j        k        l        ;        '        _
   _        z        x        c        v        b        n        m        ,        .        /        _        _
-  _        _        @off_qrt _                 spc               _        @off_qrt _        _        _
+  @off_qrt lctl     lalt     lmet              spc               @meh     @hyp      _        _        _
 )
 
 (deflayer priority
@@ -160,7 +160,7 @@
   _        _        home     pgup     pgdn     end      home     pgup     pgdn     end      _        S-[      S-]      S-\
   del      _        left     up       down     rght     left     down     up       rght     _        _        _
   _        _        _        _        _        _        _        _        _        _        _        _        _
-  @off_p1  _        @off_p1  _                 _                 _        @off_p1  _        _        _
+  _        _        _        _                 _                 _        _        _        _        _
 )
 
 ;; (deflayer directory
@@ -175,7 +175,7 @@
 (deflayer directory
   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
   _        _        _        _        _        _        _        _        _        _        _        _        _        _
-  esc      _        @s_hyp   @s_meh   _        _        _        _        @s_meh   @s_hyp   _        esc      _        _
+  esc      @s_ac    @s_hyp   @s_meh   _        _        _        _        @s_meh   @s_hyp   @s_ac    esc      _        _
   ret      @s_c     @s_a     @s_m     @s_s     _        _        @s_s     @s_m     @s_a     @s_c     ret      _
   C-spc    @s_cs    @s_as    @s_ms    _        @s_qrt   @s_qrt   _        @s_ms    @s_as    @s_cs    C-spc    _
   _        _        _        C-S-A-a           @s_p1             C-S-A-a  _        _        _        _
