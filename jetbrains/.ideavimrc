@@ -35,8 +35,10 @@ sethandler a:vim
 map Y y$
 map K :action QuickJavaDoc<cr>
 
-" nmap <C-d> <C-d>zz
-" nmap <C-u> <C-u>zz
+map <C-d> <C-d>zz
+map <C-u> <C-u>zz
+map n nzz
+map N Nzz
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " mapped to lazyvim
