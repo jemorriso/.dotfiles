@@ -43,8 +43,8 @@ map N Nzz
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " mapped to lazyvim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" nmap <c-o> <Action>(Back)<cr>
-" nmap <c-i> <Action>(Forward)<cr>
+nmap <c-o> <Action>(Back)<cr>
+nmap <c-i> <Action>(Forward)<cr>
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 nnoremap <c-j> <c-w>j
