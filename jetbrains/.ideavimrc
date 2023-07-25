@@ -43,6 +43,8 @@ map <C-u> <C-u>zz
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " mapped to lazyvim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map s <Plug>(easymotion-sn)
+
 nmap <c-o> <Action>(Back)<cr>
 nmap <c-i> <Action>(Forward)<cr>
 nnoremap <c-h> <c-w>h
@@ -109,7 +111,7 @@ map ,f <Plug>(easymotion-f)
 map ,F <Plug>(easymotion-F)
 map ,t <Plug>(easymotion-t)
 map ,T <Plug>(easymotion-T)
-map ,s <Plug>(easymotion-sn)
+map ,/ <Plug>(easymotion-sn)
 " map ,s <Plug>(easymotion-f2)
 " map ,S <Plug>(easymotion-F2)
 
