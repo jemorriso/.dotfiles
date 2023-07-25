@@ -21,7 +21,7 @@ set relativenumber
 set surround
 set commentary
 " set exchange
-set sneak
+" set sneak
 " set quickscope
 set easymotion
 
