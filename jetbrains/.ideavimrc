@@ -27,7 +27,7 @@ set easymotion
 
 set visualbell
 
-set clipboard+=unnamed
+" set clipboard+=unnamed
 
 " ctrl key always passed to ideavim for all modes
 sethandler a:vim
@@ -37,8 +37,8 @@ map K :action QuickJavaDoc<cr>
 
 map <C-d> <C-d>zz
 map <C-u> <C-u>zz
-map n nzz
-map N Nzz
+" map n nzz
+" map N Nzz
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " mapped to lazyvim
@@ -72,6 +72,7 @@ nnoremap <leader>` <c-tab>
 nnoremap <leader><tab>[ :action PreviousTab<cr>
 nnoremap <leader><tab>] :action NextTab<cr>
 
+nnoremap <leader>bd :action CloseContent<cr>
 nnoremap <leader>bp :action PinActiveEditorTab<cr>
 nnoremap <leader>bP :action CloseAllUnpinnedEditors<cr>
 
@@ -108,16 +109,17 @@ map ,f <Plug>(easymotion-f)
 map ,F <Plug>(easymotion-F)
 map ,t <Plug>(easymotion-t)
 map ,T <Plug>(easymotion-T)
-map ,s <Plug>(easymotion-f2)
-map ,S <Plug>(easymotion-F2)
+map ,s <Plug>(easymotion-sn)
+" map ,s <Plug>(easymotion-f2)
+" map ,S <Plug>(easymotion-F2)
 
-" map <leader>y "+y
-" map <leader>p "+p
+" map ,y "+y
+" map ,p "+p
+
 nnoremap <leader>m :action MaximizeEditorInSplit<cr>
 nnoremap <leader>z :action ToggleDistractionFreeMode<cr>
 nnoremap <leader>Z :action ToggleZenMode<cr>
 nnoremap <leader>w :action HideAllWindows<cr>
-nnoremap <leader>x :action CloseContent<cr>
 nnoremap <leader><esc> :action JumpToLastWindow<cr>
 nnoremap <leader>' :action MoveEditorToOppositeTabGroup<cr>
 
