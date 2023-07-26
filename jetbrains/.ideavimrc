@@ -40,6 +40,9 @@ map <C-u> <C-u>zz
 " map n nzz
 " map N Nzz
 
+nnoremap <cr> :action EditorSelectWord<cr>
+nnoremap <bs> :action EditorUnSelectWord<cr>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " mapped to lazyvim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -117,6 +120,8 @@ map ,/ <Plug>(easymotion-sn)
 
 " map ,y "+y
 " map ,p "+p
+
+nnoremap ,<esc> :nohl<cr>
 
 nnoremap <leader>m :action MaximizeEditorInSplit<cr>
 nnoremap <leader>z :action ToggleDistractionFreeMode<cr>
