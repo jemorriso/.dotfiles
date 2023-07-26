@@ -40,8 +40,8 @@ map <C-u> <C-u>zz
 " map n nzz
 " map N Nzz
 
-nnoremap <cr> :action EditorSelectWord<cr>
-nnoremap <bs> :action EditorUnSelectWord<cr>
+noremap <cr> :action EditorSelectWord<cr>
+noremap <bs> :action EditorUnSelectWord<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " mapped to lazyvim
