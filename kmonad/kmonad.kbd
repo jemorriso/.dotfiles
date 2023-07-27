@@ -136,7 +136,8 @@
     ;; -------------------------------------------------- 
     ;; layer-tap
     ;; -------------------------------------------------- 
-    spc_p1 (tap-hold-next-release 200 spc @p1)
+    ;; spc_p1 (tap-hold-next-release 200 spc @p1)
+    spc_shot (tap-hold-next-release 200 spc @shot)
 
     ;; -------------------------------------------------- 
     ;; special keys
@@ -166,7 +167,7 @@
   tab      q        @hyp_w   @meh_e   r        t        y        u        @meh_i   @hyp_o   p        @as_ob   @as_cb   @as_bs
   esc      @ctl_a   @alt_s   @met_d   @sft_f   g        h        @sft_j   @met_k   @alt_l   @ctl_;   @as_'    ret
   @s_s     z        x        c        v        b        n        m        @as_,    @as_.    @as_slsh @s_s     up
-  @on_qrt  lctl     lalt     @s_shot           @spc_p1           @s_shot  lalt     left     down     rght
+  @on_qrt  lctl     @s_dir   @s_shot           @spc_shot         @s_shot  @s_dir   left     down     rght
 )
 
 (deflayer qwerty
@@ -178,6 +179,7 @@
   @off_qrt lctl     lalt     lmet              spc               @meh     @hyp      _        _        _
 )
 
+;; currently unused
 (deflayer priority
   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
   S-grv    !        @        #        $        %        ^        &        *        S-9      S-0      S--      S-=      _
@@ -189,18 +191,27 @@
 
 (deflayer directory
   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
-  _        @s_acm   @s_ams   @s_cms   _        _        _        _        @s_cms   @s_ams   @s_acm   _        _        _
-  esc      @s_cm    @s_hyp   @s_meh   @s_am    _        _        @s_am    @s_meh   @s_hyp   @s_cm    esc      _        _
-  ret      @s_c     @s_a     @s_m     @s_s     _        _        @s_s     @s_m     @s_a     @s_c     ret      _
-  C-spc    @s_cs    @s_as    @s_ms    @s_ac    @s_qrt   @s_qrt   @s_ac    @s_ms    @s_as    @s_cs    C-spc    _
-  _        _        _        C-S-A-a           @s_p1             C-S-A-a  _        _        _        _
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _
+  _        _        @s_ac    @s_am    _        _        _        _        @s_am    @s_ac    _        _        _        _
+  _        @s_cs    @s_as    @s_ms    @s_cm    _        _        @s_cm    @s_ms    @s_as    @s_cs    _        _
+  _        _        @s_acm   @s_ams   @s_cms   _        _        @s_cms   @s_ams   @s_acm   _        _        _
+  _        _        _        _                 _                 _        _        _        _        _
 )
+
+;; (deflayer directory
+;;   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
+;;   _        @s_acm   @s_ams   @s_cms   _        _        _        _        @s_cms   @s_ams   @s_acm   _        _        _
+;;   esc      @s_cm    @s_hyp   @s_meh   @s_am    _        _        @s_am    @s_meh   @s_hyp   @s_cm    esc      _        _
+;;   ret      @s_c     @s_a     @s_m     @s_s     _        _        @s_s     @s_m     @s_a     @s_c     ret      _
+;;   C-spc    @s_cs    @s_as    @s_ms    @s_ac    @s_qrt   @s_qrt   @s_ac    @s_ms    @s_as    @s_cs    C-spc    _
+;;   _        _        _        C-S-A-a           @s_p1             C-S-A-a  _        _        _        _
+;; )
 
 (deflayer oneshot
   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
-  _        _        _        _        _        _        _        _        _        _        _        _        _        _
-  @hr_s    _        @s_hyp   @s_meh   _        _        _        _        @s_meh   @s_hyp   _        @sc_free _        _
-  @hr_c    @s_c     @s_a     @s_m     @s_s     _        _        @s_s     @s_m     @s_a     @s_c     @sc_grid _
-  @hr_/    _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        _        @prefix           @ray              @prefix  _        _        _        _
+  S-grv    !        @        #        $        %        ^        &        *        S-9      S-0      S--      S-=      del
+  @hr_s    _        @s_hyp   @s_meh   @ray     _        _        _        @s_meh   @s_hyp   _        S-[      S-]      S-\
+  @hr_c    @s_c     @s_a     @s_m     @s_s     _        _        @s_s     @s_m     @s_a     @s_c     _        _
+  @hr_/    _        left     up       down     right    home     pgup     pgdn     end      _        _        _
+  _        _        _        @prefix           @s_dir            @prefix  @sc_grid @sc_free _        _
 )
