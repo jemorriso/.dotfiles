@@ -27,11 +27,13 @@
 
     on_bas (layer-add base)
     on_dir (layer-add directory)
+    on_shot (layer-add oneshot)
     on_p1 (layer-add priority)
     on_qrt (layer-add qwerty)
 
     off_bas (layer-rem base)
     off_dir (layer-rem directory)
+    off_shot (layer-rem oneshot)
     off_p1 (layer-rem priority)
     off_qrt (layer-rem qwerty)
 
@@ -164,7 +166,7 @@
   tab      q        @hyp_w   @meh_e   r        t        y        u        @meh_i   @hyp_o   p        @as_ob   @as_cb   @as_bs
   esc      @ctl_a   @alt_s   @met_d   @sft_f   g        h        @sft_j   @met_k   @alt_l   @ctl_;   @as_'    ret
   @s_s     z        x        c        v        b        n        m        @as_,    @as_.    @as_slsh @s_s     up
-  _        lctl     lalt     @s_shot           @spc_p1           @s_shot  lalt     left     down     rght
+  @on_qrt  lctl     lalt     @s_shot           @spc_p1           @s_shot  lalt     left     down     rght
 )
 
 (deflayer qwerty
@@ -173,7 +175,7 @@
   _        q        w        e        r        t        y        u        i        o        p        [        ]        \
   esc      a        s        d        f        g        h        j        k        l        ;        '        _
   _        z        x        c        v        b        n        m        ,        .        /        _        _
-  _        lctl     lalt     lmet              spc               @meh     @hyp      _        _        _
+  @off_qrt lctl     lalt     lmet              spc               @meh     @hyp      _        _        _
 )
 
 (deflayer priority
