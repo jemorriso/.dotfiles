@@ -21,6 +21,7 @@
     ;; -------------------------------------------------- 
     bas (layer-toggle base)
     dir (layer-toggle directory)
+    shot (layer-toggle oneshot)
     p1 (layer-toggle priority)
     qrt (layer-toggle qwerty)
 
@@ -36,6 +37,7 @@
 
     s_bas (sticky-key 500 @bas)
     s_dir (sticky-key 500 @dir)
+    s_shot (sticky-key 500 @shot)
     s_p1 (sticky-key 500 @p1)
     s_qrt (sticky-key 500 @qrt)
 
@@ -133,6 +135,26 @@
     ;; layer-tap
     ;; -------------------------------------------------- 
     spc_p1 (tap-hold-next-release 200 spc @p1)
+
+    ;; -------------------------------------------------- 
+    ;; special keys
+    ;; -------------------------------------------------- 
+    prefix (around @meh a)
+
+    ;; homerow click
+    hr_c (around @meh r)
+    ;; homerow search
+    hr_/ (around @meh r)
+    ;; homerow scroll
+    hr_s (around @hyp r)
+
+    ;; scoot grid
+    sc_grid (around @meh c)
+    ;; scoot freestyle
+    sc_free (around @hyp c)
+
+    ;; raycast
+    ray (around lalt spc)
 )
 
 ;; first defined layer is always the default layer
@@ -140,18 +162,18 @@
   esc      brdn     brup     lp       mctl     bldn     blup     prev     pp       next     mute     vold     volu
   @as_grv  @as_1    @as_2    @as_3    @as_4    @as_5    @as_6    @as_7    @as_8    @as_9    @as_0    @as_dash @as_eq   bspc
   tab      q        @hyp_w   @meh_e   r        t        y        u        @meh_i   @hyp_o   p        @as_ob   @as_cb   @as_bs
-  bspc     @ctl_a   @alt_s   @met_d   @sft_f   g        h        @sft_j   @met_k   @alt_l   @ctl_;   @as_'    ret
+  esc      @ctl_a   @alt_s   @met_d   @sft_f   g        h        @sft_j   @met_k   @alt_l   @ctl_;   @as_'    ret
   @s_s     z        x        c        v        b        n        m        @as_,    @as_.    @as_slsh @s_s     up
-  @on_qrt  ret      esc      @s_dir            @spc_p1           @s_dir   ret      left     down     rght
+  _        lctl     lalt     @s_shot           @spc_p1           @s_shot  lalt     left     down     rght
 )
 
 (deflayer qwerty
   _        _        _        _        _        _        _        _        _        _        _        _        _
   grv      1        2        3        4        5        6        7        8        9        0        -        =        _
   _        q        w        e        r        t        y        u        i        o        p        [        ]        \
-  bspc     a        s        d        f        g        h        j        k        l        ;        '        _
+  esc      a        s        d        f        g        h        j        k        l        ;        '        _
   _        z        x        c        v        b        n        m        ,        .        /        _        _
-  @off_qrt lctl     lalt     lmet              spc               @meh     @hyp      _        _        _
+  _        lctl     lalt     lmet              spc               @meh     @hyp      _        _        _
 )
 
 (deflayer priority
@@ -163,20 +185,20 @@
   _        _        _        _                 _                 _        _        _        _        _
 )
 
-;; (deflayer directory
-;;   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
-;;   _        @s_acm   @s_ams   @s_cms   _        _        _        _        @s_cms   @s_ams   @s_acm   _        _        _
-;;   esc      @s_cm    @s_hyp   @s_meh   @s_am    _        _        @s_am    @s_meh   @s_hyp   @s_cm    esc      _        _
-;;   ret      @s_c     @s_a     @s_m     @s_s     _        _        @s_s     @s_m     @s_a     @s_c     ret      _
-;;   C-spc    @s_cs    @s_as    @s_ms    @s_ac    @s_qrt   @s_qrt   @s_ac    @s_ms    @s_as    @s_cs    C-spc    _
-;;   _        _        _        C-S-A-a           @s_p1             C-S-A-a  _        _        _        _
-;; )
-
 (deflayer directory
   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
-  _        _        _        _        _        _        _        _        _        _        _        _        _        _
-  esc      @s_ac    @s_hyp   @s_meh   _        _        _        _        @s_meh   @s_hyp   @s_ac    esc      _        _
+  _        @s_acm   @s_ams   @s_cms   _        _        _        _        @s_cms   @s_ams   @s_acm   _        _        _
+  esc      @s_cm    @s_hyp   @s_meh   @s_am    _        _        @s_am    @s_meh   @s_hyp   @s_cm    esc      _        _
   ret      @s_c     @s_a     @s_m     @s_s     _        _        @s_s     @s_m     @s_a     @s_c     ret      _
-  C-spc    @s_cs    @s_as    @s_ms    _        @s_qrt   @s_qrt   _        @s_ms    @s_as    @s_cs    C-spc    _
+  C-spc    @s_cs    @s_as    @s_ms    @s_ac    @s_qrt   @s_qrt   @s_ac    @s_ms    @s_as    @s_cs    C-spc    _
   _        _        _        C-S-A-a           @s_p1             C-S-A-a  _        _        _        _
+)
+
+(deflayer oneshot
+  _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _
+  @hr_s    _        @s_hyp   @s_meh   _        _        _        _        @s_meh   @s_hyp   _        @sc_free _        _
+  @hr_c    @s_c     @s_a     @s_m     @s_s     _        _        @s_s     @s_m     @s_a     @s_c     @sc_grid _
+  @hr_/    _        _        _        _        _        _        _        _        _        _        _        _
+  _        _        _        @prefix           @ray              @prefix  _        _        _        _
 )
