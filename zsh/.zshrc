@@ -58,6 +58,10 @@ n ()
     }
 }
 
+# https://github.com/bitwarden/cli/issues/102
+bwu() {
+  export BW_SESSION=$(bw unlock --raw $1)
+}
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
