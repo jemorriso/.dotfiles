@@ -26,6 +26,7 @@ prefix < d : open -a discord; skhd -k 'escape'
 prefix < f : open -a firefox; skhd -k 'escape'
 prefix < g : open -a signal; skhd -k 'escape'
 prefix < i : open -a iterm; skhd -k 'escape'
+prefix < i : open -a kitty; skhd -k 'escape'
 prefix < l : open -a 'ableton live 11 suite'; skhd -k 'escape'
 prefix < m : open -a messages; skhd -k 'escape'
 prefix < o : open -a obsidian; skhd -k 'escape'
@@ -34,8 +35,12 @@ prefix < r : open -a 'microsoft remote desktop'; skhd -k 'escape'
 prefix < s : open -a spotify; skhd -k 'escape'
 prefix < t : open -a 'microsoft teams'; skhd -k 'escape'
 prefix < w : open -a wezterm; skhd -k 'escape'
+# prefix < w : open -a warp; skhd -k 'escape'
 
 # vim < 0 : skhd -k 'cmd - left'
+
+# meh - r: homerow
+# meh -c: scoot
 
 meh - 1 : yabai -m space --focus 1
 meh - 2 : yabai -m space --focus 2
@@ -80,9 +85,6 @@ meh - right : yabai -m window --warp east
 # don't seem to work
 meh - 0x2F : yabai -m space --move prev
 meh - 0x2B : yabai -m space --move next
-
-# meh - z : superkey
-# meh - c : scoot
 
 hyper - 1 : yabai -m window --space 1; yabai -m space --focus 1
 hyper - 2 : yabai -m window --space 2; yabai -m space --focus 2
