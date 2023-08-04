@@ -1,4 +1,9 @@
-# using this .zshrc for warp
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
+
+path+=('/Users/jerry/.local/bin')
+
+bindkey -v
 
 export EDITOR="nvim"
 
@@ -12,6 +17,15 @@ alias lg="lazygit"
 eval "$(zoxide init zsh)"
 
 source ${HOME}/.ghcup/env
+
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+eval "$(starship init zsh)"
 
 n ()
 {
@@ -43,3 +57,9 @@ n ()
         rm -f "$NNN_TMPFILE" > /dev/null
     }
 }
+
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
