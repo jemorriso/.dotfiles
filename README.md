@@ -157,3 +157,11 @@ tempfile=$(mktemp) \
   && tic -x -o ~/.terminfo $tempfile \
   && rm $tempfile
 ```
+
+### Thursday, August 03, 2023
+
+#### tmux neovim undercurl
+
+I did [this](https://gist.github.com/bbqtd/a4ac060d6f6b9ea6fe3aabe735aa9d95) again to make sure I have the latest ncurses descriptions
+
+copied the config [here](https://ryantravitz.com/blog/2023-02-18-pull-of-the-undercurl/) and then it worked
