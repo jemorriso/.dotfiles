@@ -10,6 +10,8 @@ set -gx NNN_PLUG 'm:mocq;z:autojump;p:preview-tui'
 # for some reason macos curl stopped working
 set -gx HOMEBREW_FORCE_BREWED_CURL 1
 
+set -g fish_greeting
+
 alias lg=lazygit
 
 fish_vi_key_bindings
