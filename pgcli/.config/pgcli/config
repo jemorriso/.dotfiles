@@ -10,3 +10,5 @@ pager = vd -f csv
 table_format = csv
 
 enable_pager = True
+
+row_limit = 10000

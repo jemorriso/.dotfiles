@@ -7,6 +7,6 @@ prompt = '\d 💣\n'
 syntax_style = native
 
 pager = vd -f csv
-table_format = csv
+#table_format = csv
 
 enable_pager = False
