@@ -16,6 +16,12 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
+local function notify(action)
+  return function()
+    require("vscode-neovim").notify(action)
+  end
+end
+
 map("n", ",d", [[:put =strftime('%A, %B %d, %Y')<cr>kJ]], { desc = "Put date" })
 map("n", ",t", [[:put =strftime('%T')<cr>kJ]], { desc = "Put time" })
 
@@ -28,3 +34,7 @@ map("i", "<C-A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
 map("i", "<C-A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
 map("v", "<C-A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 map("v", "<C-A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+
+-- vscode actions
+map("n", "<leader>cf", notify("editor.action.formatDocument"))
+map("x", "<leader>cf", notify("editor.action.formatSelection"))
