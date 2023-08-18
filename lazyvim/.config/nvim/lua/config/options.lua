@@ -4,9 +4,6 @@
 
 -- vim.opt.background = "light"
 
-vim.opt.number = true
-vim.opt.relativenumber = true
-
 vim.opt.cmdheight = 1
 
 vim.g.maplocalleader = [[;]]

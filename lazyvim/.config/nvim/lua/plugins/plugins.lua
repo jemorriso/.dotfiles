@@ -129,17 +129,17 @@ return {
   {
     "mfussenegger/nvim-dap-python",
   },
-  {
-    "nvim-neotest/neotest-python",
-  },
-  {
-    "nvim-neotest/neotest",
-    config = function()
-      require("neotest").setup({
-        adapters = { require("neotest-python") },
-      })
-    end,
-  },
+--  {
+--    "nvim-neotest/neotest-python",
+--  },
+--  {
+--    "nvim-neotest/neotest",
+--    config = function()
+--      require("neotest").setup({
+--        adapters = { require("neotest-python") },
+--      })
+--    end,
+--  },
   {
     "tidalcycles/vim-tidal",
     keys = {
