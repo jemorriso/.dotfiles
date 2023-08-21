@@ -20,28 +20,32 @@
     ;; define layer toggles and sticky layers
     ;; -------------------------------------------------- 
     bas (layer-toggle base)
-    dir (layer-toggle directory)
+    ;; dir (layer-toggle directory)
     shot (layer-toggle oneshot)
     p1 (layer-toggle priority)
     qrt (layer-toggle qwerty)
+    wrp (layer-toggle warpd)
 
     on_bas (layer-add base)
-    on_dir (layer-add directory)
+    ;; on_dir (layer-add directory)
     on_shot (layer-add oneshot)
     on_p1 (layer-add priority)
     on_qrt (layer-add qwerty)
+    on_wrp (layer-add warpd)
 
     off_bas (layer-rem base)
-    off_dir (layer-rem directory)
+    ;; off_dir (layer-rem directory)
     off_shot (layer-rem oneshot)
     off_p1 (layer-rem priority)
     off_qrt (layer-rem qwerty)
+    off_wrp (layer-rem warpd)
 
     s_bas (sticky-key 500 @bas)
-    s_dir (sticky-key 500 @dir)
+    ;; s_dir (sticky-key 500 @dir)
     s_shot (sticky-key 500 @shot)
     s_p1 (sticky-key 500 @p1)
     s_qrt (sticky-key 500 @qrt)
+    s_wrp (sticky-key 500 @wrp)
 
     ;; -------------------------------------------------- 
     ;; define qwerty mods for sticky keys
@@ -136,8 +140,8 @@
     ;; -------------------------------------------------- 
     ;; layer-tap
     ;; -------------------------------------------------- 
-    ;; spc_p1 (tap-hold-next-release 200 spc @p1)
-    spc_shot (tap-hold-next-release 200 spc @shot)
+    spc_p1 (tap-hold-next-release 200 spc @p1)
+    ;; spc_shot (tap-hold-next-release 200 spc @shot)
 
     ;; -------------------------------------------------- 
     ;; special keys
@@ -147,14 +151,13 @@
     ;; homerow click
     hr_c (around @meh r)
     ;; homerow search
-    hr_/ (around @meh r)
+    hr_/ (around @meh /)
     ;; homerow scroll
     hr_s (around @hyp r)
 
-    ;; scoot grid
-    sc_grid (around @meh c)
-    ;; scoot freestyle
-    sc_free (around @hyp c)
+    ;; warpd
+    warp (around @on_wrp (around @meh w))
+    wrp_esc (around @off_wrp esc)
 
     ;; raycast
     ray (around lalt spc)
@@ -162,12 +165,12 @@
 
 ;; first defined layer is always the default layer
 (deflayer base
-  esc      brdn     brup     lp       mctl     bldn     blup     prev     pp       next     mute     vold     volu
+  esc      brdn     brup     C-up     M-spc    C-f5     A-f6     prev     pp       next     mute     vold     volu
   @as_grv  @as_1    @as_2    @as_3    @as_4    @as_5    @as_6    @as_7    @as_8    @as_9    @as_0    @as_dash @as_eq   bspc
   tab      q        @hyp_w   @meh_e   r        t        y        u        @meh_i   @hyp_o   p        @as_ob   @as_cb   @as_bs
   esc      @ctl_a   @alt_s   @met_d   @sft_f   g        h        @sft_j   @met_k   @alt_l   @ctl_;   @as_'    ret
   @s_s     z        x        c        v        b        n        m        @as_,    @as_.    @as_slsh @s_s     up
-  @on_qrt  lctl     @s_dir   @s_shot           @spc_shot         @s_shot  @s_dir   left     down     rght
+  @on_qrt  lctl     @warp    @s_shot           @spc_p1           @s_shot  @hr_c    left     down     rght
 )
 
 (deflayer qwerty
@@ -179,24 +182,32 @@
   @off_qrt lctl     lalt     lmet              spc               @meh     @hyp      _        _        _
 )
 
-;; currently unused
+(deflayer warpd
+  _        _        _        _        _        _        _        _        _        _        _        _        _
+  grv      1        2        3        4        5        6        7        8        9        0        -        =        _
+  _        q        w        e        r        t        y        u        i        o        p        [        ]        \
+  @wrp_esc a        s        d        f        g        h        j        k        l        ;        '        _
+  _        z        x        c        v        b        n        m        ,        .        /        _        _
+  @off_qrt lctl     @wrp_esc lmet              spc               @meh     @hyp      _        _        _
+)
+
 (deflayer priority
   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
   S-grv    !        @        #        $        %        ^        &        *        S-9      S-0      S--      S-=      _
-  _        _        home     pgup     pgdn     end      home     pgup     pgdn     end      _        S-[      S-]      S-\
-  del      _        left     up       down     rght     left     down     up       rght     _        _        _
+  _        _        home     pgup     pgdn     end      home     pgdn     pgup     end      _        S-[      S-]      S-\
+  @off_p1  _        left     up       down     rght     left     down     up       rght     _        _        _
   _        _        _        _        _        _        _        _        _        _        _        _        _
   _        _        _        _                 _                 _        _        _        _        _
 )
 
-(deflayer directory
-  _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
-  _        _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        @s_ac    @s_am    _        _        _        _        @s_am    @s_ac    _        _        _        _
-  _        @s_cs    @s_as    @s_ms    @s_cm    _        _        @s_cm    @s_ms    @s_as    @s_cs    _        _
-  _        _        @s_acm   @s_ams   @s_cms   _        _        @s_cms   @s_ams   @s_acm   _        _        _
-  _        _        _        _                 _                 _        _        _        _        _
-)
+;; (deflayer directory
+;;   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
+;;   _        _        _        _        _        _        _        _        _        _        _        _        _        _
+;;   _        _        @s_ac    @s_am    _        _        _        _        @s_am    @s_ac    _        _        _        _
+;;   _        @s_cs    @s_as    @s_ms    @s_cm    _        _        @s_cm    @s_ms    @s_as    @s_cs    _        _
+;;   _        _        @s_acm   @s_ams   @s_cms   _        _        @s_cms   @s_ams   @s_acm   _        _        _
+;;   _        _        _        _                 _                 _        _        _        _        _
+;; )
 
 ;; (deflayer directory
 ;;   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
@@ -210,8 +221,8 @@
 (deflayer oneshot
   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
   S-grv    !        @        #        $        %        ^        &        *        S-9      S-0      S--      S-=      del
-  @hr_s    _        @s_hyp   @s_meh   @ray     _        _        _        @s_meh   @s_hyp   _        S-[      S-]      S-\
-  @hr_c    @s_c     @s_a     @s_m     @s_s     _        _        @s_s     @s_m     @s_a     @s_c     _        _
-  @hr_/    _        left     up       down     right    home     pgup     pgdn     end      _        _        _
-  _        _        _        @prefix           @s_dir            @prefix  @sc_grid @sc_free _        _
+  _        @s_ac    @s_hyp   @s_meh   @s_cm    @s_acm   @s_acm   @s_cm    @s_meh   @s_hyp   @s_ac    S-[      S-]      S-\
+  @s_p1    @s_c     @s_a     @s_m     @s_s     @s_cms   @s_cms   @s_s     @s_m     @s_a     @s_c     @s_p1    _
+  _        @s_cs    @s_as    @s_ms    @s_am    @s_ams   @s_ams   @s_am    @s_ms    @s_as    @s_cs    _        _
+  _        _        @on_p1   @prefix           @ray              @prefix  @on_p1   _        _        _
 )
