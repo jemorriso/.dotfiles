@@ -91,29 +91,29 @@
     ;; -------------------------------------------------- 
     ;; autoshift keys
     ;; -------------------------------------------------- 
-    as_grv (tap-hold-next-release 200 grv ~)
-    as_1 (tap-hold-next-release 200 1 !)
-    as_2 (tap-hold-next-release 200 2 @)
-    as_3 (tap-hold-next-release 200 3 #)
-    as_4 (tap-hold-next-release 200 4 $)
-    as_5 (tap-hold-next-release 200 5 %)
-    as_6 (tap-hold-next-release 200 6 ^)
-    as_7 (tap-hold-next-release 200 7 &)
-    as_8 (tap-hold-next-release 200 8 *)
-    as_9 (tap-hold-next-release 200 9 S-9)
-    as_0 (tap-hold-next-release 200 0 S-0)
-    as_dash (tap-hold-next-release 200 - S--)
-    as_eq (tap-hold-next-release 200 = +)
+    as_grv (tap-hold-next-release 150 grv ~)
+    as_1 (tap-hold-next-release 150 1 !)
+    as_2 (tap-hold-next-release 150 2 @)
+    as_3 (tap-hold-next-release 150 3 #)
+    as_4 (tap-hold-next-release 150 4 $)
+    as_5 (tap-hold-next-release 150 5 %)
+    as_6 (tap-hold-next-release 150 6 ^)
+    as_7 (tap-hold-next-release 150 7 &)
+    as_8 (tap-hold-next-release 150 8 *)
+    as_9 (tap-hold-next-release 150 9 S-9)
+    as_0 (tap-hold-next-release 150 0 S-0)
+    as_dash (tap-hold-next-release 150 - S--)
+    as_eq (tap-hold-next-release 150 = +)
 
-    as_ob (tap-hold-next-release 200 [ S-[)
-    as_cb (tap-hold-next-release 200 ] S-])
-    as_bs (tap-hold-next-release 200 \ |)
+    as_ob (tap-hold-next-release 150 [ S-[)
+    as_cb (tap-hold-next-release 150 ] S-])
+    as_bs (tap-hold-next-release 150 \ |)
 
-    as_' (tap-hold-next-release 200 ' ")
+    as_' (tap-hold-next-release 150 ' ")
 
-    as_, (tap-hold-next-release 200 , <)
-    as_. (tap-hold-next-release 200 . >)
-    as_slsh (tap-hold-next-release 200 / ?)
+    as_, (tap-hold-next-release 150 , <)
+    as_. (tap-hold-next-release 150 . >)
+    as_slsh (tap-hold-next-release 150 / ?)
 
     ;; -------------------------------------------------- 
     ;; home-row mods / mod-tap using qwerty layer
@@ -136,6 +136,10 @@
 
     meh_i (tap-hold 200 i @meh)
     hyp_o (tap-hold 200 o @hyp)
+
+    ;; for alt-tab
+    ;; alt_b (tap-hold 200 b lalt)
+    alt_v (tap-hold 200 v lalt)
 
     ;; -------------------------------------------------- 
     ;; layer-tap
@@ -169,7 +173,7 @@
   @as_grv  @as_1    @as_2    @as_3    @as_4    @as_5    @as_6    @as_7    @as_8    @as_9    @as_0    @as_dash @as_eq   bspc
   tab      q        @hyp_w   @meh_e   r        t        y        u        @meh_i   @hyp_o   p        @as_ob   @as_cb   @as_bs
   esc      @ctl_a   @alt_s   @met_d   @sft_f   g        h        @sft_j   @met_k   @alt_l   @ctl_;   @as_'    ret
-  @s_s     z        x        c        v        b        n        m        @as_,    @as_.    @as_slsh @s_s     up
+  @s_s     z        x        c        @alt_v   b        n        m        @as_,    @as_.    @as_slsh @s_s     up
   @on_qrt  lctl     @warp    @s_shot           @spc_p1           @s_shot  @hr_c    left     down     rght
 )
 
