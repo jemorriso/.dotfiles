@@ -10,7 +10,7 @@ export EDITOR="nvim"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 export NNN_TRASH=1
-export NNN_OPTS="Hda"
+export NNN_OPTS="HdaA"
 
 alias lg="lazygit"
 
