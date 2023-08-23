@@ -3,6 +3,8 @@
 
 path+=('/Users/jerry/.local/bin')
 
+setopt share_history
+
 bindkey -v
 
 export EDITOR="nvim"
@@ -26,6 +28,9 @@ command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
 eval "$(starship init zsh)"
+
+# for kitty tab titles
+precmd () {print -Pn "\e]0;%1d\a"}
 
 n ()
 {
