@@ -10,30 +10,30 @@
 
 # modes - based on https://github.com/nikhgupta/dotfiles/blob/osx/config/skhd/skhdrc
 # :: default : osascript -e 'display notification "DEFAULT" with title "DEFAULT"'
-# :: prefix @ : osascript -e 'display notification "PREFIX" with title "PREFIX"'
+# :: launcher @ : osascript -e 'display notification "PREFIX" with title "PREFIX"'
 :: default
-:: prefix @
+:: launcher @
 
-default < meh - a ; prefix
-prefix < escape ; default
+default < meh - a ; launcher
+launcher < escape ; default
 
-# launch apps with prefix 😍
-prefix < a : open -a arc; skhd -k 'escape'
-prefix < c : open -a 'google chrome'; skhd -k 'escape'
-prefix < d : open -a discord; skhd -k 'escape'
-prefix < f : open -a finder; skhd -k 'escape'
-prefix < g : open -a signal; skhd -k 'escape'
-prefix < i : open -a iterm; skhd -k 'escape'
-prefix < k : open -a kitty; skhd -k 'escape'
-prefix < l : open -a 'ableton live 11 suite'; skhd -k 'escape'
-prefix < m : open -a messages; skhd -k 'escape'
-prefix < o : open -a obsidian; skhd -k 'escape'
-prefix < p : open -a preview; skhd -k 'escape'
-prefix < r : open -a 'microsoft remote desktop'; skhd -k 'escape'
-prefix < s : open -a spotify; skhd -k 'escape'
-prefix < t : open -a 'microsoft teams'; skhd -k 'escape'
-prefix < w : open -a wezterm; skhd -k 'escape'
-prefix < x : open -a firefox; skhd -k 'escape'
+# launch apps with launcher 😍
+launcher < a : open -a arc; skhd -k 'escape'
+launcher < c : open -a 'google chrome'; skhd -k 'escape'
+launcher < d : open -a discord; skhd -k 'escape'
+launcher < f : open -a finder; skhd -k 'escape'
+launcher < g : open -a signal; skhd -k 'escape'
+launcher < i : open -a iterm; skhd -k 'escape'
+launcher < k : open -a kitty; skhd -k 'escape'
+launcher < l : open -a 'ableton live 11 suite'; skhd -k 'escape'
+launcher < m : open -a messages; skhd -k 'escape'
+launcher < o : open -a obsidian; skhd -k 'escape'
+launcher < p : open -a preview; skhd -k 'escape'
+launcher < r : open -a 'microsoft remote desktop'; skhd -k 'escape'
+launcher < s : open -a spotify; skhd -k 'escape'
+launcher < t : open -a 'microsoft teams'; skhd -k 'escape'
+launcher < w : open -a wezterm; skhd -k 'escape'
+launcher < x : open -a firefox; skhd -k 'escape'
 
 # meh - r: homerow
 # meh - w: warp
