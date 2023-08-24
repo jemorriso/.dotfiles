@@ -5,12 +5,17 @@ sudo yabai --load-sa
 yabai -m config layout stack
 
 # yabai -m config focus_follows_mouse autofocus
-yabai -m config mouse_follows_focus on
+# yabai -m config mouse_follows_focus on
 
 yabai -m config mouse_modifier meh
 yabai -m config mouse_action1 resize
 yabai -m config mouse_action2 move
 yabai -m config mouse_drop_action swap
+
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Raycast$" manage=off
+yabai -m rule --add app="^Hidden Bar$" manage=off
+yabai -m rule --add app="^Wally$" manage=off
 
 yabai -m signal --add event=mission_control_exit action='echo "refresh" | nc -U /tmp/yabai-indicator.socket'
 yabai -m signal --add event=display_added action='echo "refresh" | nc -U /tmp/yabai-indicator.socket'
