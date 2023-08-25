@@ -140,6 +140,8 @@
     ;; for alt-tab
     ;; alt_b (tap-hold 200 b lalt)
     alt_v (tap-hold 200 v lalt)
+    ;; for ctl-tab
+    ctl_c (tap-hold 200 c lctl)
 
     ;; -------------------------------------------------- 
     ;; layer-tap
@@ -173,7 +175,7 @@
   @as_grv  @as_1    @as_2    @as_3    @as_4    @as_5    @as_6    @as_7    @as_8    @as_9    @as_0    @as_dash @as_eq   bspc
   tab      q        @hyp_w   @meh_e   r        t        y        u        @meh_i   @hyp_o   p        @as_ob   @as_cb   @as_bs
   esc      @ctl_a   @alt_s   @met_d   @sft_f   g        h        @sft_j   @met_k   @alt_l   @ctl_;   @as_'    ret
-  @s_s     z        x        c        @alt_v   b        n        m        @as_,    @as_.    @as_slsh @s_s     up
+  @s_s     z        x        @ctl_c   @alt_v   b        n        m        @as_,    @as_.    @as_slsh @s_s     up
   @on_qrt  lctl     @warp    @s_shot           @spc_p1           @s_shot  @hr_c    left     down     rght
 )
 
@@ -192,7 +194,7 @@
   _        q        w        e        r        t        y        u        i        o        p        [        ]        \
   @wrp_esc a        s        d        f        g        h        j        k        l        ;        '        _
   _        z        x        c        v        b        n        m        ,        .        /        _        _
-  @off_qrt lctl     @wrp_esc lmet              spc               @meh     @hyp      _        _        _
+  _        lctl     @wrp_esc lmet              spc               @meh     @hyp      _        _        _
 )
 
 (deflayer priority
