@@ -59,6 +59,12 @@ meh - f : yabai -m window --toggle zoom-fullscreen
 meh - d : yabai -m window --focus stack.next || yabai -m window --focus stack.first
 meh - u : yabai -m window --focus stack.prev || yabai -m window --focus stack.last
 
+meh - n : "/Users/jerry/.dotfiles/yabai/bin/cycle_app.sh" --focus next
+meh - p : "/Users/jerry/.dotfiles/yabai/bin/cycle_app.sh" --focus prev
+
+hyper - n : "/Users/jerry/.dotfiles/yabai/bin/cycle_all_windows.sh" --focus next
+hyper - p : "/Users/jerry/.dotfiles/yabai/bin/cycle_all_windows.sh" --focus prev
+
 meh - t : yabai -m space --layout bsp
 meh - s : yabai -m space --layout stack
 meh - 0x31 : yabai -m space --layout float
@@ -129,3 +135,7 @@ ctrl + alt + cmd - 0x31 : yabai -m space --balance
 
 # ctrl + alt + cmd - 0x1B : yabai -m space --balance x-axis
 # ctrl + alt + cmd - 0x2A : yabai -m space --balance y-axis
+
+# window focus prev / next don't work unless in BSP mode
+# meh - n : yabai -m window --focus next
+# meh - p : yabai -m window --focus prev
