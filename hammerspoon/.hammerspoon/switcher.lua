@@ -3,6 +3,7 @@
 local obj = {}
 obj.__index = obj
 
+-- using defaultFilter because the app filter doesn't work across spaces from what I've seen
 theWindows = hs.window.filter.new()
 theWindows:setDefaultFilter({})
 theWindows:setSortOrder(hs.window.filter.sortByFocusedLast)
