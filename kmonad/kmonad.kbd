@@ -20,31 +20,39 @@
     ;; define layer toggles and sticky layers
     ;; -------------------------------------------------- 
     bas (layer-toggle base)
+    cbas (layer-toggle base_colemak)
     ;; dir (layer-toggle directory)
     shot (layer-toggle oneshot)
     p1 (layer-toggle priority)
     qrt (layer-toggle qwerty)
+    col (layer-toggle colemak)
     wrp (layer-toggle warpd)
 
     on_bas (layer-add base)
+    on_cbas (layer-add base_colemak)
     ;; on_dir (layer-add directory)
     on_shot (layer-add oneshot)
     on_p1 (layer-add priority)
     on_qrt (layer-add qwerty)
+    on_col (layer-add colemak)
     on_wrp (layer-add warpd)
 
     off_bas (layer-rem base)
+    off_cbas (layer-rem base_colemak)
     ;; off_dir (layer-rem directory)
     off_shot (layer-rem oneshot)
     off_p1 (layer-rem priority)
     off_qrt (layer-rem qwerty)
+    off_col (layer-rem colemak)
     off_wrp (layer-rem warpd)
 
     s_bas (sticky-key 500 @bas)
+    s_cbas (sticky-key 500 @cbas)
     ;; s_dir (sticky-key 500 @dir)
     s_shot (sticky-key 500 @shot)
     s_p1 (sticky-key 500 @p1)
     s_qrt (sticky-key 500 @qrt)
+    s_col (sticky-key 500 @col)
     s_wrp (sticky-key 500 @wrp)
 
     ;; -------------------------------------------------- 
@@ -70,6 +78,28 @@
     q_hyp (around @q_meh lmet)
 
     ;; -------------------------------------------------- 
+    ;; define colemak mods for sticky keys
+    ;; -------------------------------------------------- 
+    c_a (around lalt @col)
+    c_c (around lctl @col)
+    c_m (around lmet @col)
+    c_s (around lsft @col)
+
+    c_ac (around @c_c lalt)
+    c_am (around @c_m lalt)
+    c_as (around @c_s lalt)
+    c_cm (around @c_c lmet)
+    c_cs (around @c_s lctl)
+    c_ms (around @c_s lmet)
+
+    c_acm (around @c_ac lmet)
+    c_ams (around @c_as lmet)
+    c_cms (around @c_cs lmet)
+    c_meh (around @c_cs lalt)
+
+    c_hyp (around @c_meh lmet)
+
+    ;; -------------------------------------------------- 
     ;; define sticky keys with qwerty layer
     ;; -------------------------------------------------- 
     s_a (sticky-key 500 @q_a)
@@ -87,6 +117,25 @@
     s_meh (sticky-key 500 @q_meh)
     s_ms (sticky-key 500 @q_ms)
     s_s (sticky-key 500 @q_s)
+
+    ;; -------------------------------------------------- 
+    ;; define sticky keys with colemak layer
+    ;; -------------------------------------------------- 
+    sc_a (sticky-key 500 @c_a)
+    sc_ac (sticky-key 500 @c_ac)
+    sc_acm (sticky-key 500 @c_acm)
+    sc_am (sticky-key 500 @c_am)
+    sc_ams (sticky-key 500 @c_ams)
+    sc_as (sticky-key 500 @c_as)
+    sc_c (sticky-key 500 @c_c)
+    sc_cm (sticky-key 500 @c_cm)
+    sc_cms (sticky-key 500 @c_cms)
+    sc_cs (sticky-key 500 @c_cs)
+    sc_hyp (sticky-key 500 @c_hyp)
+    sc_m (sticky-key 500 @c_m)
+    sc_meh (sticky-key 500 @c_meh)
+    sc_ms (sticky-key 500 @c_ms)
+    sc_s (sticky-key 500 @c_s)
 
     ;; -------------------------------------------------- 
     ;; autoshift keys
@@ -110,17 +159,21 @@
     as_bs (tap-hold-next-release 150 \ |)
 
     as_' (tap-hold-next-release 150 ' ")
+    as_; (tap-hold-next-release 150 ; :)
 
     as_, (tap-hold-next-release 150 , <)
     as_. (tap-hold-next-release 150 . >)
     as_slsh (tap-hold-next-release 150 / ?)
 
     ;; -------------------------------------------------- 
-    ;; home-row mods / mod-tap using qwerty layer
+    ;; home-row mods / mod-tap
     ;; -------------------------------------------------- 
     meh (around lsft (around lctl lalt))
     hyp (around lmet @meh)
 
+    ;; -------------------------------------------------- 
+    ;; home-row mods / mod-tap for qwerty
+    ;; -------------------------------------------------- 
     ctl_a (tap-hold 200 a lctl)
     alt_s (tap-hold 200 s lalt)
     met_d (tap-hold 200 d lmet)
@@ -138,10 +191,33 @@
     hyp_o (tap-hold 200 o @hyp)
 
     ;; for alt-tab
-    ;; alt_b (tap-hold 200 b lalt)
     alt_v (tap-hold 200 v lalt)
     ;; for ctl-tab
     ctl_c (tap-hold 200 c lctl)
+
+    ;; -------------------------------------------------- 
+    ;; home-row mods / mod-tap for colemak
+    ;; -------------------------------------------------- 
+    ;; ctl_a (tap-hold 200 a lctl)
+    alt_r (tap-hold 200 r lalt)
+    met_s (tap-hold 200 s lmet)
+    sft_t (tap-hold 200 t lsft)
+
+    sft_n (tap-hold 200 n lsft)
+    met_e (tap-hold 200 e lmet)
+    alt_i (tap-hold 200 i lalt)
+    ctl_o (tap-hold 200 o lctl)
+
+    ;; hyp_w (tap-hold 200 w @hyp)
+    meh_f (tap-hold 200 f @meh)
+
+    meh_u (tap-hold 200 u @meh)
+    hyp_y (tap-hold 200 y @hyp)
+
+    ;; for alt-tab
+    alt_d (tap-hold 200 d lalt)
+    ;; for ctl-tab
+    ;; ctl_c (tap-hold 200 c lctl)
 
     ;; -------------------------------------------------- 
     ;; layer-tap
@@ -162,7 +238,7 @@
     hr_s (around @hyp r)
 
     ;; warpd
-    warp (around @on_wrp (around @meh w))
+    warp (around @on_wrp (around lmet (around lalt c)))
     wrp_esc (around @off_wrp esc)
 
     ;; raycast
@@ -170,6 +246,24 @@
 )
 
 ;; first defined layer is always the default layer
+(deflayer base_colemak
+  esc      brdn     brup     C-up     M-spc    C-f5     A-f6     prev     pp       next     mute     vold     volu
+  @as_grv  @as_1    @as_2    @as_3    @as_4    @as_5    @as_6    @as_7    @as_8    @as_9    @as_0    @as_dash @as_eq   bspc
+  tab      q        @hyp_w   @meh_f   p        b        j        l        @meh_u   @hyp_y   @as_'    @as_ob   @as_cb   @as_bs
+  esc      @ctl_a   @alt_r   @met_s   @sft_t   g        m        @sft_n   @met_e   @alt_i   @ctl_o   @as_;    ret
+  @s_s     z        x        @ctl_c   @alt_d   v        k        h        @as_,    @as_.    @as_slsh @s_s     up
+  @on_col  lctl     @warp    @s_shot           @spc_p1           @s_shot  @hr_c    left     down     rght
+)
+
+(deflayer colemak
+  _        _        _        _        _        _        _        _        _        _        _        _        _
+  grv      1        2        3        4        5        6        7        8        9        0        -        =        _
+  _        q        w        f        p        b        j        l        u        y        '        [        ]        \
+  esc      a        r        s        t        g        m        n        e        i        o        ;        _
+  _        z        x        c        d        v        k        h        ,        .        /        _        _
+  @off_col lctl     lalt     lmet              spc               @meh     @hyp     _        _        _
+)
+
 (deflayer base
   esc      brdn     brup     C-up     M-spc    C-f5     A-f6     prev     pp       next     mute     vold     volu
   @as_grv  @as_1    @as_2    @as_3    @as_4    @as_5    @as_6    @as_7    @as_8    @as_9    @as_0    @as_dash @as_eq   bspc
