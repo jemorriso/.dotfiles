@@ -19,23 +19,32 @@
     ;; -------------------------------------------------- 
     ;; define layer toggles and sticky layers
     ;; -------------------------------------------------- 
-    bas (layer-toggle base)
-    shot (layer-toggle oneshot)
-    p1 (layer-toggle priority)
-    col (layer-toggle colemak)
-    wrp (layer-toggle warpd)
+    lt_bas (layer-toggle base)
+    lt_nav (layer-toggle nav)
+    ;; lt_warp (layer-toggle warp)
+    lt_med (layer-toggle media)
+    lt_num (layer-toggle num)
+    lt_sym (layer-toggle sym)
+    lt_fun (layer-toggle fun)
+    lt_col (layer-toggle colemak)
+    lt_shot (layer-toggle oneshot)
+    ;;
 
-    on_bas (layer-add base)
-    on_shot (layer-add oneshot)
-    on_p1 (layer-add priority)
-    on_col (layer-add colemak)
-    on_wrp (layer-add warpd)
-
-    off_bas (layer-rem base)
-    off_shot (layer-rem oneshot)
-    off_p1 (layer-rem priority)
-    off_col (layer-rem colemak)
-    off_wrp (layer-rem warpd)
+    on_warp (layer-add warp)
+    off_warp (layer-rem warp)
+    to_warp (around @on_warp (around lmet (around lalt c)))
+    warp_esc (around @off_warp esc)
+    ;; on_bas (layer-add base)
+    ;; on_shot (layer-add oneshot)
+    ;; on_p1 (layer-add priority)
+    ;; on_col (layer-add colemak)
+    ;; on_wrp (layer-add warp)
+    ;;
+    ;; off_bas (layer-rem base)
+    ;; off_shot (layer-rem oneshot)
+    ;; off_p1 (layer-rem priority)
+    ;; off_col (layer-rem colemak)
+    ;; off_wrp (layer-rem warp)
     ;;
     ;; s_bas (sticky-key 500 @bas)
     ;; s_cbas (sticky-key 500 @cbas)
@@ -49,10 +58,10 @@
     ;; -------------------------------------------------- 
     ;; define colemak mods for sticky keys
     ;; -------------------------------------------------- 
-    c_a (around lalt @col)
-    c_c (around lctl @col)
-    c_m (around lmet @col)
-    c_s (around lsft @col)
+    c_a (around lalt @lt_col)
+    c_c (around lctl @lt_col)
+    c_m (around lmet @lt_col)
+    c_s (around lsft @lt_col)
 
     c_ac (around @c_c lalt)
     c_am (around @c_m lalt)
@@ -71,21 +80,21 @@
     ;; -------------------------------------------------- 
     ;; define sticky keys with colemak layer
     ;; -------------------------------------------------- 
-    sc_a (sticky-key 500 @c_a)
-    sc_ac (sticky-key 500 @c_ac)
-    sc_acm (sticky-key 500 @c_acm)
-    sc_am (sticky-key 500 @c_am)
-    sc_ams (sticky-key 500 @c_ams)
-    sc_as (sticky-key 500 @c_as)
-    sc_c (sticky-key 500 @c_c)
-    sc_cm (sticky-key 500 @c_cm)
-    sc_cms (sticky-key 500 @c_cms)
-    sc_cs (sticky-key 500 @c_cs)
-    sc_hyp (sticky-key 500 @c_hyp)
-    sc_m (sticky-key 500 @c_m)
-    sc_meh (sticky-key 500 @c_meh)
-    sc_ms (sticky-key 500 @c_ms)
-    sc_s (sticky-key 500 @c_s)
+    s_a (sticky-key 500 @c_a)
+    s_ac (sticky-key 500 @c_ac)
+    s_acm (sticky-key 500 @c_acm)
+    s_am (sticky-key 500 @c_am)
+    s_ams (sticky-key 500 @c_ams)
+    s_as (sticky-key 500 @c_as)
+    s_c (sticky-key 500 @c_c)
+    s_cm (sticky-key 500 @c_cm)
+    s_cms (sticky-key 500 @c_cms)
+    s_cs (sticky-key 500 @c_cs)
+    s_hyp (sticky-key 500 @c_hyp)
+    s_m (sticky-key 500 @c_m)
+    s_meh (sticky-key 500 @c_meh)
+    s_ms (sticky-key 500 @c_ms)
+    s_s (sticky-key 500 @c_s)
 
     ;; -------------------------------------------------- 
     ;; home-row mods / mod-tap
@@ -99,9 +108,11 @@
     ctl_a (tap-hold 200 a lctl)
     alt_r (tap-hold 200 r lalt)
     met_s (tap-hold 200 s lmet)
-    sft_t (tap-hold 200 t lsft)
+    ;; sft_t (tap-hold 200 t lsft)
+    sft_t (tap-hold-next-release 200 t lsft)
 
-    sft_n (tap-hold 200 n lsft)
+    ;; sft_n (tap-hold 200 n lsft)
+    sft_n (tap-hold-next-release 200 n lsft)
     met_e (tap-hold 200 e lmet)
     alt_i (tap-hold 200 i lalt)
     ctl_o (tap-hold 200 o lctl)
@@ -115,8 +126,13 @@
     ;; -------------------------------------------------- 
     ;; layer-tap
     ;; -------------------------------------------------- 
-    spc_p1 (tap-hold-next-release 200 spc @p1)
-    ;; spc_shot (tap-hold-next-release 200 spc @shot)
+    esc_med (tap-hold-next-release 200 esc @lt_med)
+    spc_nav (tap-hold-next-release 200 spc @lt_nav)
+    ret_warp (tap-hold-next-release 200 ret @to_warp)
+
+    tab_sym (tap-hold-next-release 200 tab @lt_sym)
+    bspc_num (tap-hold-next-release 200 bspc @lt_num)
+    del_fun (tap-hold-next-release 200 del @lt_fun)
 
     ;; -------------------------------------------------- 
     ;; special keys
@@ -131,55 +147,420 @@
     hr_s (around @hyp r)
 
     ;; warpd
-    warp (around @on_wrp (around lmet (around lalt c)))
-    wrp_esc (around @off_wrp esc)
+    ;; warp (around @on_wrp (around lmet (around lalt c)))
+    ;; wrp_esc (around @off_wrp esc)
 
     ;; raycast
     ray (around lalt spc)
 )
 
 ;; first defined layer is always the default layer
-(deflayer colemak
-  XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-  XX       XX       q        @hyp_t   @meh_w   p        b        XX       j        l        @meh_u   @hyp_y   '        XX
-  XX       @ctl_a   @alt_r   @met_s   @sft_t   g        XX       XX       m        @sft_n   @met_e   @alt_i   @ctl_o   XX
+(deflayer base
+  esc      brdn     brup     C-up     M-spc    C-f5     A-f6     prev     pp       next     mute     vold     volu
+  XX       q        @hyp_w   @meh_f   p        b        XX       XX       j        l        @meh_u   @hyp_y   '        XX
+  @ctl_a   @alt_r   @met_s   @sft_t   g        XX       XX       XX       m        @sft_n   @met_e   @alt_i   @ctl_o   XX
   z        x        c        d        v        XX       XX       XX       k        h        ,        .        /
-  XX       XX       esc      spc      ret      XX       XX       tab      bspc     del      XX       XX       XX
+  XX       XX       @esc_med @spc_nav ret      XX       XX       @tab_sym @bspc_num @del_fun XX      XX       XX
+  XX       XX       XX       XX                XX                XX       XX       XX       XX       XX
+)
+
+(deflayer nav
+  XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
+  XX       XX       @hyp     @meh     XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
+  lctl     lalt     lmet     lsft     XX       XX       XX       XX       left     down     up       rght     XX       XX
+  XX       XX       XX       XX       XX       XX       XX       XX       home     pgdn     pgup     end      XX       
+  XX       XX       _        _        _        XX       XX       _        _        _        XX       XX       XX
+  XX       XX       XX       XX                XX                XX       XX       XX       XX       XX
+)
+
+(deflayer warp
+  XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
+  XX       _        w        f        _        _        XX       XX       _        _        u        y        _        XX
+  a        r        s        t        _        XX       XX       XX       _        n        e        i        o        XX
+  _        _        _        _        _        XX       XX       XX       _        _        _        _        _
+  XX       XX       @warp_esc _       _        XX       XX       _        _        _        XX       XX       XX
+  XX       XX       XX       XX                XX                XX       XX       XX       XX       XX
+)
+
+(deflayer media
+  XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
+  XX       XX       @hyp     @meh     XX       XX       XX       XX       _        _        _        _        _        XX
+  lctl     lalt     lmet     lsft     XX       XX       XX       XX       prev     vold     volu     next     _        XX
+  _        XX       XX       XX       XX       XX       XX       XX       _        _        _        _        _
+  XX       XX       _        _        _        XX       XX       _        pp       mute     XX       XX       XX
+  XX       XX       XX       XX                XX                XX       XX       XX       XX       XX
+)
+
+(deflayer num
+  XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
+  XX       [        7        8        9        ]        XX       XX       XX       XX       @meh     @hyp     XX       XX
+  ;        4        5        6        =        XX       XX       XX       XX       lsft     lmet     lalt     lctl     XX
+  `        1        2        3        \        XX       XX       XX       XX       XX       XX       XX       XX
+  XX       XX       .        0        -        XX       XX       _        _        _        XX       XX       XX
+  XX       XX       XX       XX                XX                XX       XX       XX       XX       XX
+)
+
+(deflayer sym
+  XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
+  XX       S-[      S-7      S-8      S-9      S-]      XX       XX       XX       XX       @meh     @hyp     XX       XX
+  S-;      S-4      S-5      S-6      S-=      XX       XX       XX       XX       lsft     lmet     lalt     lctl     XX
+  S-`      S-1      S-2      S-3      S-\      XX       XX       XX       XX       XX       XX       XX       XX
+  XX       XX       S-.      S-0      S--      XX       XX       _        _        _        XX       XX       XX
+  XX       XX       XX       XX                XX                XX       XX       XX       XX       XX
+)
+
+(deflayer fun
+  XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
+  XX       f12      f7       f8       f9       _        XX       XX       XX       XX       @meh     @hyp     XX       XX
+  f11      f4       f5       f6       _        XX       XX       XX       XX       lsft     lmet     lalt     lctl     XX
+  f10      f1       f2       f3       _        XX       XX       XX       XX       XX       XX       XX       XX
+  XX       XX       _        _        _        XX       XX       _        _        _        XX       XX       XX
   XX       XX       XX       XX                XX                XX       XX       XX       XX       XX
 )
 
 (deflayer colemak
   XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-  XX       XX       q        w        f        p        b        XX       j        l        u        y        '        XX
-  XX       a        r        s        t        g        XX       XX       m        n        e        i        o        XX
+  XX       q        w        f        p        b        XX       XX       j        l        u        y        '        XX
+  a        r        s        t        g        XX       XX       XX       m        n        e        i        o        XX
   z        x        c        d        v        XX       XX       XX       k        h        ,        .        /
   XX       XX       esc      spc      ret      XX       XX       tab      bspc     del      XX       XX       XX
   XX       XX       XX       XX                XX                XX       XX       XX       XX       XX
 )
 
-(deflayer warpd
-  _        _        _        _        _        _        _        _        _        _        _        _        _
-  grv      1        2        3        4        5        6        7        8        9        0        -        =        _
-  _        q        w        e        r        t        y        u        i        o        p        [        ]        \
-  @wrp_esc a        s        d        f        g        h        j        k        l        ;        '        _
-  _        z        x        c        v        b        n        m        ,        .        /        _        _
-  _        lctl     @wrp_esc lmet              spc               @meh     @hyp      _        _        _
-)
-
-(deflayer priority
-  _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
-  S-grv    !        @        #        $        %        ^        &        *        S-9      S-0      S--      S-=      _
-  _        _        home     pgup     pgdn     end      home     pgdn     pgup     end      _        S-[      S-]      S-\
-  @off_p1  _        left     up       down     rght     left     down     up       rght     _        _        _
-  _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        _        _                 _                 _        _        _        _        _
-)
 
 (deflayer oneshot
-  _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
-  S-grv    !        @        #        $        %        ^        &        *        S-9      S-0      S--      S-=      del
-  _        @s_ac    @s_hyp   @s_meh   @s_cm    @s_acm   @s_acm   @s_cm    @s_meh   @s_hyp   @s_ac    S-[      S-]      S-\
-  @s_p1    @s_c     @s_a     @s_m     @s_s     @s_cms   @s_cms   @s_s     @s_m     @s_a     @s_c     @s_p1    _
-  _        @s_cs    @s_as    @s_ms    @s_am    @s_ams   @s_ams   @s_am    @s_ms    @s_as    @s_cs    _        _
-  _        _        @on_p1   @prefix           @ray              @prefix  @on_p1   _        _        _
+  XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
+  XX       @s_ac    @s_hyp   @s_meh   @s_cm    @s_acm   XX       XX       @s_acm   @s_cm    @s_meh   @s_hyp   @s_ac    XX
+  @s_c     @s_a     @s_m     @s_s     @s_cms   XX       XX       XX       @s_cms   @s_s     @s_m     @s_a     @s_c     XX
+  @s_cs    @s_as    @s_ms    @s_am    @s_ams   XX       XX       XX       @s_ams   @s_am    @s_ms    @s_as    @s_cs
+  XX       XX       _        _        _        XX       XX       _        _        _        XX       XX       XX
+  XX       XX       XX       XX                XX                XX       XX       XX       XX       XX
 )
+;; modified from `kmonad/keymap/template/apple.kbd`
+;;
+;; (defcfg
+;;   input (iokit-name)
+;;   output (kext)
+;;   fallthrough true
+;; )
+;;
+;; (defsrc
+;;   esc      f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
+;;   grv      1        2        3        4        5        6        7        8        9        0        -        =        bspc
+;;   tab      q        w        e        r        t        y        u        i        o        p        [        ]        \
+;;   caps     a        s        d        f        g        h        j        k        l        ;        '        ret
+;;   lsft     z        x        c        v        b        n        m        ,        .        /        rsft     up
+;;   fn       lctl     lalt     lmet              spc               rmet     ralt     left     down     rght
+;; )
+;;
+;; (defalias 
+;;     ;; -------------------------------------------------- 
+;;     ;; define layer toggles and sticky layers
+;;     ;; -------------------------------------------------- 
+;;     bas (layer-toggle base)
+;;     cbas (layer-toggle base_colemak)
+;;     ;; dir (layer-toggle directory)
+;;     shot (layer-toggle oneshot)
+;;     p1 (layer-toggle priority)
+;;     qrt (layer-toggle qwerty)
+;;     col (layer-toggle colemak)
+;;     wrp (layer-toggle warpd)
+;;
+;;     on_bas (layer-add base)
+;;     on_cbas (layer-add base_colemak)
+;;     ;; on_dir (layer-add directory)
+;;     on_shot (layer-add oneshot)
+;;     on_p1 (layer-add priority)
+;;     on_qrt (layer-add qwerty)
+;;     on_col (layer-add colemak)
+;;     on_wrp (layer-add warpd)
+;;
+;;     off_bas (layer-rem base)
+;;     off_cbas (layer-rem base_colemak)
+;;     ;; off_dir (layer-rem directory)
+;;     off_shot (layer-rem oneshot)
+;;     off_p1 (layer-rem priority)
+;;     off_qrt (layer-rem qwerty)
+;;     off_col (layer-rem colemak)
+;;     off_wrp (layer-rem warpd)
+;;
+;;     s_bas (sticky-key 500 @bas)
+;;     s_cbas (sticky-key 500 @cbas)
+;;     ;; s_dir (sticky-key 500 @dir)
+;;     s_shot (sticky-key 500 @shot)
+;;     s_p1 (sticky-key 500 @p1)
+;;     s_qrt (sticky-key 500 @qrt)
+;;     s_col (sticky-key 500 @col)
+;;     s_wrp (sticky-key 500 @wrp)
+;;
+;;     ;; -------------------------------------------------- 
+;;     ;; define qwerty mods for sticky keys
+;;     ;; -------------------------------------------------- 
+;;     q_a (around lalt @qrt)
+;;     q_c (around lctl @qrt)
+;;     q_m (around lmet @qrt)
+;;     q_s (around lsft @qrt)
+;;
+;;     q_ac (around @q_c lalt)
+;;     q_am (around @q_m lalt)
+;;     q_as (around @q_s lalt)
+;;     q_cm (around @q_c lmet)
+;;     q_cs (around @q_s lctl)
+;;     q_ms (around @q_s lmet)
+;;
+;;     q_acm (around @q_ac lmet)
+;;     q_ams (around @q_as lmet)
+;;     q_cms (around @q_cs lmet)
+;;     q_meh (around @q_cs lalt)
+;;
+;;     q_hyp (around @q_meh lmet)
+;;
+;;     ;; -------------------------------------------------- 
+;;     ;; define colemak mods for sticky keys
+;;     ;; -------------------------------------------------- 
+;;     c_a (around lalt @col)
+;;     c_c (around lctl @col)
+;;     c_m (around lmet @col)
+;;     c_s (around lsft @col)
+;;
+;;     c_ac (around @c_c lalt)
+;;     c_am (around @c_m lalt)
+;;     c_as (around @c_s lalt)
+;;     c_cm (around @c_c lmet)
+;;     c_cs (around @c_s lctl)
+;;     c_ms (around @c_s lmet)
+;;
+;;     c_acm (around @c_ac lmet)
+;;     c_ams (around @c_as lmet)
+;;     c_cms (around @c_cs lmet)
+;;     c_meh (around @c_cs lalt)
+;;
+;;     c_hyp (around @c_meh lmet)
+;;
+;;     ;; -------------------------------------------------- 
+;;     ;; define sticky keys with qwerty layer
+;;     ;; -------------------------------------------------- 
+;;     s_a (sticky-key 500 @q_a)
+;;     s_ac (sticky-key 500 @q_ac)
+;;     s_acm (sticky-key 500 @q_acm)
+;;     s_am (sticky-key 500 @q_am)
+;;     s_ams (sticky-key 500 @q_ams)
+;;     s_as (sticky-key 500 @q_as)
+;;     s_c (sticky-key 500 @q_c)
+;;     s_cm (sticky-key 500 @q_cm)
+;;     s_cms (sticky-key 500 @q_cms)
+;;     s_cs (sticky-key 500 @q_cs)
+;;     s_hyp (sticky-key 500 @q_hyp)
+;;     s_m (sticky-key 500 @q_m)
+;;     s_meh (sticky-key 500 @q_meh)
+;;     s_ms (sticky-key 500 @q_ms)
+;;     s_s (sticky-key 500 @q_s)
+;;
+;;     ;; -------------------------------------------------- 
+;;     ;; define sticky keys with colemak layer
+;;     ;; -------------------------------------------------- 
+;;     sc_a (sticky-key 500 @c_a)
+;;     sc_ac (sticky-key 500 @c_ac)
+;;     sc_acm (sticky-key 500 @c_acm)
+;;     sc_am (sticky-key 500 @c_am)
+;;     sc_ams (sticky-key 500 @c_ams)
+;;     sc_as (sticky-key 500 @c_as)
+;;     sc_c (sticky-key 500 @c_c)
+;;     sc_cm (sticky-key 500 @c_cm)
+;;     sc_cms (sticky-key 500 @c_cms)
+;;     sc_cs (sticky-key 500 @c_cs)
+;;     sc_hyp (sticky-key 500 @c_hyp)
+;;     sc_m (sticky-key 500 @c_m)
+;;     sc_meh (sticky-key 500 @c_meh)
+;;     sc_ms (sticky-key 500 @c_ms)
+;;     sc_s (sticky-key 500 @c_s)
+;;
+;;     ;; -------------------------------------------------- 
+;;     ;; autoshift keys
+;;     ;; -------------------------------------------------- 
+;;     as_grv (tap-hold-next-release 150 grv ~)
+;;     as_1 (tap-hold-next-release 150 1 !)
+;;     as_2 (tap-hold-next-release 150 2 @)
+;;     as_3 (tap-hold-next-release 150 3 #)
+;;     as_4 (tap-hold-next-release 150 4 $)
+;;     as_5 (tap-hold-next-release 150 5 %)
+;;     as_6 (tap-hold-next-release 150 6 ^)
+;;     as_7 (tap-hold-next-release 150 7 &)
+;;     as_8 (tap-hold-next-release 150 8 *)
+;;     as_9 (tap-hold-next-release 150 9 S-9)
+;;     as_0 (tap-hold-next-release 150 0 S-0)
+;;     as_dash (tap-hold-next-release 150 - S--)
+;;     as_eq (tap-hold-next-release 150 = +)
+;;
+;;     as_ob (tap-hold-next-release 150 [ S-[)
+;;     as_cb (tap-hold-next-release 150 ] S-])
+;;     as_bs (tap-hold-next-release 150 \ |)
+;;
+;;     as_' (tap-hold-next-release 150 ' ")
+;;     as_; (tap-hold-next-release 150 ; :)
+;;
+;;     as_, (tap-hold-next-release 150 , <)
+;;     as_. (tap-hold-next-release 150 . >)
+;;     as_slsh (tap-hold-next-release 150 / ?)
+;;
+;;     ;; -------------------------------------------------- 
+;;     ;; home-row mods / mod-tap
+;;     ;; -------------------------------------------------- 
+;;     meh (around lsft (around lctl lalt))
+;;     hyp (around lmet @meh)
+;;
+;;     ;; -------------------------------------------------- 
+;;     ;; home-row mods / mod-tap for qwerty
+;;     ;; -------------------------------------------------- 
+;;     ctl_a (tap-hold 200 a lctl)
+;;     alt_s (tap-hold 200 s lalt)
+;;     met_d (tap-hold 200 d lmet)
+;;     sft_f (tap-hold 200 f lsft)
+;;
+;;     sft_j (tap-hold 200 j lsft)
+;;     met_k (tap-hold 200 k lmet)
+;;     alt_l (tap-hold 200 l lalt)
+;;     ctl_; (tap-hold 200 ; lctl)
+;;
+;;     hyp_w (tap-hold 200 w @hyp)
+;;     meh_e (tap-hold 200 e @meh)
+;;
+;;     meh_i (tap-hold 200 i @meh)
+;;     hyp_o (tap-hold 200 o @hyp)
+;;
+;;     ;; for alt-tab
+;;     alt_v (tap-hold 200 v lalt)
+;;     ;; for ctl-tab
+;;     ctl_c (tap-hold 200 c lctl)
+;;
+;;     ;; -------------------------------------------------- 
+;;     ;; home-row mods / mod-tap for colemak
+;;     ;; -------------------------------------------------- 
+;;     ;; ctl_a (tap-hold 200 a lctl)
+;;     alt_r (tap-hold 200 r lalt)
+;;     met_s (tap-hold 200 s lmet)
+;;     sft_t (tap-hold 200 t lsft)
+;;
+;;     sft_n (tap-hold 200 n lsft)
+;;     met_e (tap-hold 200 e lmet)
+;;     alt_i (tap-hold 200 i lalt)
+;;     ctl_o (tap-hold 200 o lctl)
+;;
+;;     ;; hyp_w (tap-hold 200 w @hyp)
+;;     meh_f (tap-hold 200 f @meh)
+;;
+;;     meh_u (tap-hold 200 u @meh)
+;;     hyp_y (tap-hold 200 y @hyp)
+;;
+;;     ;; for alt-tab
+;;     alt_d (tap-hold 200 d lalt)
+;;     ;; for ctl-tab
+;;     ;; ctl_c (tap-hold 200 c lctl)
+;;
+;;     ;; -------------------------------------------------- 
+;;     ;; layer-tap
+;;     ;; -------------------------------------------------- 
+;;     spc_p1 (tap-hold-next-release 200 spc @p1)
+;;     ;; spc_shot (tap-hold-next-release 200 spc @shot)
+;;
+;;     ;; -------------------------------------------------- 
+;;     ;; special keys
+;;     ;; -------------------------------------------------- 
+;;     prefix (around @meh a)
+;;
+;;     ;; homerow click
+;;     hr_c (around @meh r)
+;;     ;; homerow search
+;;     hr_/ (around @meh /)
+;;     ;; homerow scroll
+;;     hr_s (around @hyp r)
+;;
+;;     ;; warpd
+;;     warp (around @on_wrp (around lmet (around lalt c)))
+;;     wrp_esc (around @off_wrp esc)
+;;
+;;     ;; raycast
+;;     ray (around lalt spc)
+;; )
+;;
+;; ;; first defined layer is always the default layer
+;; (deflayer base_colemak
+;;   esc      brdn     brup     C-up     M-spc    C-f5     A-f6     prev     pp       next     mute     vold     volu
+;;   @as_grv  @as_1    @as_2    @as_3    @as_4    @as_5    @as_6    @as_7    @as_8    @as_9    @as_0    @as_dash @as_eq   bspc
+;;   tab      q        @hyp_w   @meh_f   p        b        j        l        @meh_u   @hyp_y   @as_'    @as_ob   @as_cb   @as_bs
+;;   esc      @ctl_a   @alt_r   @met_s   @sft_t   g        m        @sft_n   @met_e   @alt_i   @ctl_o   @as_;    ret
+;;   @s_s     z        x        @ctl_c   @alt_d   v        k        h        @as_,    @as_.    @as_slsh @s_s     up
+;;   @on_col  lctl     @warp    @s_shot           @spc_p1           @s_shot  @hr_c    left     down     rght
+;; )
+;;
+;; (deflayer colemak
+;;   _        _        _        _        _        _        _        _        _        _        _        _        _
+;;   grv      1        2        3        4        5        6        7        8        9        0        -        =        _
+;;   _        q        w        f        p        b        j        l        u        y        '        [        ]        \
+;;   esc      a        r        s        t        g        m        n        e        i        o        ;        _
+;;   _        z        x        c        d        v        k        h        ,        .        /        _        _
+;;   @off_col lctl     lalt     lmet              spc               @meh     @hyp     _        _        _
+;; )
+;;
+;; (deflayer base
+;;   esc      brdn     brup     C-up     M-spc    C-f5     A-f6     prev     pp       next     mute     vold     volu
+;;   @as_grv  @as_1    @as_2    @as_3    @as_4    @as_5    @as_6    @as_7    @as_8    @as_9    @as_0    @as_dash @as_eq   bspc
+;;   tab      q        @hyp_w   @meh_e   r        t        y        u        @meh_i   @hyp_o   p        @as_ob   @as_cb   @as_bs
+;;   esc      @ctl_a   @alt_s   @met_d   @sft_f   g        h        @sft_j   @met_k   @alt_l   @ctl_;   @as_'    ret
+;;   @s_s     z        x        @ctl_c   @alt_v   b        n        m        @as_,    @as_.    @as_slsh @s_s     up
+;;   @on_qrt  lctl     @warp    @s_shot           @spc_p1           @s_shot  @hr_c    left     down     rght
+;; )
+;;
+;; (deflayer qwerty
+;;   _        _        _        _        _        _        _        _        _        _        _        _        _
+;;   grv      1        2        3        4        5        6        7        8        9        0        -        =        _
+;;   _        q        w        e        r        t        y        u        i        o        p        [        ]        \
+;;   esc      a        s        d        f        g        h        j        k        l        ;        '        _
+;;   _        z        x        c        v        b        n        m        ,        .        /        _        _
+;;   @off_qrt lctl     lalt     lmet              spc               @meh     @hyp      _        _        _
+;; )
+;;
+;; (deflayer warpd
+;;   _        _        _        _        _        _        _        _        _        _        _        _        _
+;;   grv      1        2        3        4        5        6        7        8        9        0        -        =        _
+;;   _        q        w        e        r        t        y        u        i        o        p        [        ]        \
+;;   @wrp_esc a        s        d        f        g        h        j        k        l        ;        '        _
+;;   _        z        x        c        v        b        n        m        ,        .        /        _        _
+;;   _        lctl     @wrp_esc lmet              spc               @meh     @hyp      _        _        _
+;; )
+;;
+;; (deflayer priority
+;;   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
+;;   S-grv    !        @        #        $        %        ^        &        *        S-9      S-0      S--      S-=      _
+;;   _        _        home     pgup     pgdn     end      home     pgdn     pgup     end      _        S-[      S-]      S-\
+;;   @off_p1  _        left     up       down     rght     left     down     up       rght     _        _        _
+;;   _        _        _        _        _        _        _        _        _        _        _        _        _
+;;   _        _        _        _                 _                 _        _        _        _        _
+;; )
+;;
+;; ;; (deflayer directory
+;; ;;   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
+;; ;;   _        _        _        _        _        _        _        _        _        _        _        _        _        _
+;; ;;   _        _        @s_ac    @s_am    _        _        _        _        @s_am    @s_ac    _        _        _        _
+;; ;;   _        @s_cs    @s_as    @s_ms    @s_cm    _        _        @s_cm    @s_ms    @s_as    @s_cs    _        _
+;; ;;   _        _        @s_acm   @s_ams   @s_cms   _        _        @s_cms   @s_ams   @s_acm   _        _        _
+;; ;;   _        _        _        _                 _                 _        _        _        _        _
+;; ;; )
+;;
+;; ;; (deflayer directory
+;; ;;   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
+;; ;;   _        @s_acm   @s_ams   @s_cms   _        _        _        _        @s_cms   @s_ams   @s_acm   _        _        _
+;; ;;   esc      @s_cm    @s_hyp   @s_meh   @s_am    _        _        @s_am    @s_meh   @s_hyp   @s_cm    esc      _        _
+;; ;;   ret      @s_c     @s_a     @s_m     @s_s     _        _        @s_s     @s_m     @s_a     @s_c     ret      _
+;; ;;   C-spc    @s_cs    @s_as    @s_ms    @s_ac    @s_qrt   @s_qrt   @s_ac    @s_ms    @s_as    @s_cs    C-spc    _
+;; ;;   _        _        _        C-S-A-a           @s_p1             C-S-A-a  _        _        _        _
+;; ;; )
+;;
+;; (deflayer oneshot
+;;   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
+;;   S-grv    !        @        #        $        %        ^        &        *        S-9      S-0      S--      S-=      del
+;;   _        @s_ac    @s_hyp   @s_meh   @s_cm    @s_acm   @s_acm   @s_cm    @s_meh   @s_hyp   @s_ac    S-[      S-]      S-\
+;;   @s_p1    @s_c     @s_a     @s_m     @s_s     @s_cms   @s_cms   @s_s     @s_m     @s_a     @s_c     @s_p1    _
+;;   _        @s_cs    @s_as    @s_ms    @s_am    @s_ams   @s_ams   @s_am    @s_ms    @s_as    @s_cs    _        _
+;;   _        _        @on_p1   @prefix           @ray              @prefix  @on_p1   _        _        _
+;; )
