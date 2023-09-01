@@ -1,5 +1,19 @@
-scroll_down: r
-scroll_up: e
+left: m
+down: n
+up: e
+right: i
+
+buttons: backspace delete space
+##oneshot_buttons: [backspace tab delete]
+
+scroll_down: h
+scroll_up: ,
+
+grid_up: f
+grid_left: r
+grid_down: s
+grid_right: t
+grid_keys: l u n e
 
 speed: 500
 max_speed: 5000
@@ -7,5 +21,6 @@ acceleration: 8000
 decelerator_speed: 150
 
 scroll_speed: 1500
+scroll_speed: 750
 scroll_acceleration: 2500
 scroll_max_speed: 10000
