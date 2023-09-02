@@ -21,7 +21,8 @@
     ;; -------------------------------------------------- 
     lt_bas (layer-toggle base)
     lt_nav (layer-toggle nav)
-    ;; lt_warp (layer-toggle warp)
+    ;; lt_warp (tap-macro-release (around (layer-toggle warp) (around lmet (around lalt c))) esc)
+    ;; lt_warp (around (layer-toggle warp) (around lmet (around lalt c)))
     lt_med (layer-toggle media)
     lt_num (layer-toggle num)
     lt_sym (layer-toggle sym)
@@ -129,6 +130,7 @@
     esc_med (tap-hold-next-release 200 esc @lt_med)
     spc_nav (tap-hold-next-release 200 spc @lt_nav)
     ret_warp (tap-hold-next-release 200 ret @to_warp)
+    ;; ret_warp (tap-hold-next-release 200 ret @lt_warp)
 
     tab_sym (tap-hold-next-release 200 tab @lt_sym)
     bspc_num (tap-hold-next-release 200 bspc @lt_num)
@@ -160,7 +162,7 @@
   XX       q        @hyp_w   @meh_f   p        b        XX       XX       j        l        @meh_u   @hyp_y   '        XX
   @ctl_a   @alt_r   @met_s   @sft_t   g        XX       XX       XX       m        @sft_n   @met_e   @alt_i   @ctl_o   XX
   z        x        c        d        v        XX       XX       XX       k        h        ,        .        /
-  XX       XX       @esc_med @spc_nav ret      XX       XX       @tab_sym @bspc_num @del_fun XX      XX       XX
+  XX       XX       @esc_med @spc_nav @ret_warp XX      XX       @tab_sym @bspc_num @del_fun XX      XX       XX
   XX       XX       XX       XX                XX                XX       XX       XX       XX       XX
 )
 
@@ -178,7 +180,7 @@
   XX       _        w        f        _        _        XX       XX       _        _        u        y        _        XX
   a        r        s        t        _        XX       XX       XX       _        n        e        i        o        XX
   _        _        _        _        _        XX       XX       XX       _        _        _        _        _
-  XX       XX       @warp_esc _       _        XX       XX       _        _        _        XX       XX       XX
+  XX       XX       @warp_esc _       @warp_esc XX      XX       _        _        _        XX       XX       XX
   XX       XX       XX       XX                XX                XX       XX       XX       XX       XX
 )
 
@@ -205,7 +207,7 @@
   XX       S-[      S-7      S-8      S-9      S-]      XX       XX       XX       XX       @meh     @hyp     XX       XX
   S-;      S-4      S-5      S-6      S-=      XX       XX       XX       XX       lsft     lmet     lalt     lctl     XX
   S-`      S-1      S-2      S-3      S-\      XX       XX       XX       XX       XX       XX       XX       XX
-  XX       XX       S-.      S-0      S--      XX       XX       _        _        _        XX       XX       XX
+  XX       XX       S-9      S-0      S--      XX       XX       _        _        _        XX       XX       XX
   XX       XX       XX       XX                XX                XX       XX       XX       XX       XX
 )
 
