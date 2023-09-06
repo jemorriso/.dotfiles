@@ -131,82 +131,82 @@
 ;; first defined layer is always the default layer
 (deflayer base
   esc      brdn     brup     C-up     M-spc    C-f5     A-f6     prev     pp       next     mute     vold     volu
-  XX       q        @hyp_w   @meh_f   p        b        XX       XX       j        l        @meh_u   @hyp_y   '        XX
-  @ctl_a   @alt_r   @met_s   @sft_t   g        XX       XX       XX       m        @sft_n   @met_e   @alt_i   @ctl_o   XX
-  z        x        c        d        v        XX       XX       XX       k        h        ,        .        /
-  XX       XX       @esc_med @spc_nav @tab_warp XX      XX       @ret_sym @bspc_num @del_fun XX      XX       XX
+  XX       XX       q        @hyp_w   @meh_f   p        b        j        l        @meh_u   @hyp_y   ;        XX       XX
+  XX       @ctl_a   @alt_r   @met_s   @sft_t   g        XX       m        @sft_n   @met_e   @alt_i   @ctl_o   '        XX
+  XX       z        x        c        d        v        XX       k        h        ,        .        /        XX
+  XX       XX       XX       @esc_med @spc_nav @tab_warp @ret_sym @bspc_num @del_fun XX      XX       XX      XX
   XX       XX       XX       XX                XX                XX       XX       XX       XX       XX
 )
 
 (deflayer nav
   XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-  XX       XX       @hyp     @meh     XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-  lctl     lalt     lmet     lsft     XX       XX       XX       XX       left     down     up       rght     XX       XX
-  XX       XX       XX       XX       XX       XX       XX       XX       home     pgdn     pgup     end      XX       
-  XX       XX       _        _        _        XX       XX       _        _        _        XX       XX       XX
+  XX       XX       XX       @hyp     @meh     XX       XX       XX       XX       XX       XX       XX       XX       XX
+  XX       lctl     lalt     lmet     lsft     XX       XX       left     down     up       rght     XX       XX       XX
+  XX       XX       XX       XX       XX       XX       XX       home     pgdn     pgup     end      XX       XX
+  XX       XX       XX       _        _        _        _        _        _        XX       XX       XX       XX
   XX       XX       XX       XX                XX                XX       XX       XX       XX       XX
 )
 
 (deflayer warp
   XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-  XX       _        w        f        _        _        XX       XX       _        _        u        y        _        XX
-  a        r        s        t        _        XX       XX       XX       _        n        e        i        o        XX
-  _        _        _        _        _        XX       XX       XX       _        _        _        _        _
-  XX       XX       @warp_esc _       @warp_esc XX      XX       spc      _        _        XX       XX       XX
+  XX       XX       _        w        f        _        _        _        _        u        y        _        XX       XX
+  XX       a        r        s        t        _        XX       _        n        e        i        o        XX       XX
+  XX       _        _        _        _        _        XX       _        _        _        _        _        XX
+  XX       XX       XX       @warp_esc _       @warp_esc spc      _        _        XX       XX       XX      XX
   XX       XX       XX       XX                XX                XX       XX       XX       XX       XX
 )
 
 (deflayer media
   XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-  XX       XX       @hyp     @meh     XX       XX       XX       XX       _        _        _        _        _        XX
-  lctl     lalt     lmet     lsft     XX       XX       XX       XX       prev     vold     volu     next     _        XX
-  _        XX       XX       XX       XX       XX       XX       XX       _        _        _        _        _
-  XX       XX       _        _        _        XX       XX       _        pp       mute     XX       XX       XX
+  XX       XX       XX       @hyp     @meh     XX       XX       _        _        _        _        _        XX       XX
+  XX       lctl     lalt     lmet     lsft     XX       XX       prev     vold     volu     next     _        XX       XX
+  XX       _        XX       XX       XX       XX       XX       _        _        _        _        _        XX
+  XX       XX       XX       _        _        _        _        pp       mute     XX       XX       XX       XX
   XX       XX       XX       XX                XX                XX       XX       XX       XX       XX
 )
 
 (deflayer num
   XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-  XX       [        7        8        9        ]        XX       XX       XX       XX       @meh     @hyp     XX       XX
-  ;        4        5        6        =        XX       XX       XX       XX       lsft     lmet     lalt     lctl     XX
-  `        1        2        3        \        XX       XX       XX       XX       XX       XX       XX       XX
-  XX       XX       .        0        -        XX       XX       _        _        _        XX       XX       XX
+  XX       XX       [        7        8        9        ]        XX       XX       @meh     @hyp     XX       XX       XX
+  XX       '        4        5        6        =        XX       XX       lsft     lmet     lalt     lctl     XX       XX
+  XX       `        1        2        3        \        XX       XX       XX       XX       XX       XX       XX
+  XX       XX       XX       .        0        -        _        _        _        XX       XX       XX       XX
   XX       XX       XX       XX                XX                XX       XX       XX       XX       XX
 )
 
 (deflayer sym
   XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-  XX       S-[      S-7      S-8      S-9      S-]      XX       XX       XX       XX       @meh     @hyp     XX       XX
-  S-;      S-4      S-5      S-6      S-=      XX       XX       XX       XX       lsft     lmet     lalt     lctl     XX
-  S-`      S-1      S-2      S-3      S-\      XX       XX       XX       XX       XX       XX       XX       XX
-  XX       XX       S-9      S-0      S--      XX       XX       _        _        _        XX       XX       XX
+  XX       XX       S-[      S-7      S-8      S-9      S-]      XX       XX       @meh     @hyp     XX       XX       XX
+  XX       S-'      S-4      S-5      S-6      S-=      XX       XX       lsft     lmet     lalt     lctl     XX       XX
+  XX       S-`      S-1      S-2      S-3      S-\      XX       XX       XX       XX       XX       XX       XX
+  XX       XX       XX       S-9      S-0      S--      _        _        _        XX       XX       XX       XX
   XX       XX       XX       XX                XX                XX       XX       XX       XX       XX
 )
 
 (deflayer fun
   XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-  XX       f12      f7       f8       f9       _        XX       XX       XX       XX       @meh     @hyp     XX       XX
-  f11      f4       f5       f6       _        XX       XX       XX       XX       lsft     lmet     lalt     lctl     XX
-  f10      f1       f2       f3       _        XX       XX       XX       XX       XX       XX       XX       XX
-  XX       XX       _        _        _        XX       XX       _        _        _        XX       XX       XX
+  XX       XX       f12      f7       f8       f9       _        XX       XX       @meh     @hyp     XX       XX       XX
+  f4       f5       f6       _        XX       XX       XX       XX       lsft     lmet     lalt     lctl     XX       XX
+  XX       f10      f1       f2       f3       _        XX       XX       XX       XX       XX       XX       XX
+  XX       XX       XX       _        _        _        _        _        _        XX       XX       XX       XX
   XX       XX       XX       XX                XX                XX       XX       XX       XX       XX
 )
 
 (deflayer colemak
   XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-  XX       q        w        f        p        b        XX       XX       j        l        u        y        '        XX
-  a        r        s        t        g        XX       XX       XX       m        n        e        i        o        XX
-  z        x        c        d        v        XX       XX       XX       k        h        ,        .        /
-  XX       XX       esc      spc      tab      XX       XX       ret      bspc     del      XX       XX       XX
+  XX       XX       q        w        f        p        b        j        l        u        y        '        XX       XX
+  XX       a        r        s        t        g        XX       m        n        e        i        o        XX       XX
+  XX       z        x        c        d        v        XX       k        h        ,        .        /        XX 
+  XX       XX       XX       esc      spc      tab      ret      bspc     del      XX       XX       XX       XX
   XX       XX       XX       XX                XX                XX       XX       XX       XX       XX
 )
 
 
 (deflayer oneshot
   XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-  XX       @s_ac    @s_hyp   @s_meh   @s_cm    @s_acm   XX       XX       @s_acm   @s_cm    @s_meh   @s_hyp   @s_ac    XX
-  @s_c     @s_a     @s_m     @s_s     @s_cms   XX       XX       XX       @s_cms   @s_s     @s_m     @s_a     @s_c     XX
-  @s_cs    @s_as    @s_ms    @s_am    @s_ams   XX       XX       XX       @s_ams   @s_am    @s_ms    @s_as    @s_cs
-  XX       XX       _        _        _        XX       XX       _        _        _        XX       XX       XX
+  XX       XX       @s_ac    @s_hyp   @s_meh   @s_cm    @s_acm   @s_acm   @s_cm    @s_meh   @s_hyp   @s_ac    XX       XX
+  XX       @s_c     @s_a     @s_m     @s_s     @s_cms   XX       @s_cms   @s_s     @s_m     @s_a     @s_c     XX       XX
+  XX       @s_cs    @s_as    @s_ms    @s_am    @s_ams   XX       @s_ams   @s_am    @s_ms    @s_as    @s_cs    XX
+  XX       XX       XX       _        _        _        _        _        _        XX       XX       XX       XX
   XX       XX       XX       XX                XX                XX       XX       XX       XX       XX
 )
