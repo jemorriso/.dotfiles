@@ -1,6 +1,4 @@
 options.confirm_overwrite = False
-options.mouse_interval = 0 # disables the mouse-click
-options.scroll_incr = 0    # disables the scroll wheel
 options.quitguard = True
 options.disp_float_fmt = '%.05f'
 
