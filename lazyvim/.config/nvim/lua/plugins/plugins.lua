@@ -1,4 +1,7 @@
 return {
+  {
+    "fladson/vim-kitty",
+  },
   -- {
   --   "glacambre/firenvim",
   --   -- Lazy load firenvim
@@ -63,7 +66,8 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox",
+      colorscheme = "tokyonight-storm",
+      -- colorscheme = "gruvbox",
     },
   },
   {
@@ -129,17 +133,17 @@ return {
   {
     "mfussenegger/nvim-dap-python",
   },
---  {
---    "nvim-neotest/neotest-python",
---  },
---  {
---    "nvim-neotest/neotest",
---    config = function()
---      require("neotest").setup({
---        adapters = { require("neotest-python") },
---      })
---    end,
---  },
+  {
+    "nvim-neotest/neotest-python",
+  },
+  {
+    "nvim-neotest/neotest",
+    config = function()
+      require("neotest").setup({
+        adapters = { require("neotest-python") },
+      })
+    end,
+  },
   {
     "tidalcycles/vim-tidal",
     keys = {
@@ -259,7 +263,7 @@ return {
       local nnn = Terminal:new({
         cmd = "n",
         -- hidden = true,
-        direction = "float",
+        -- direction = "float",
         count = 97,
       })
       function _nnn_toggle()
