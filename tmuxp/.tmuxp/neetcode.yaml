@@ -1,6 +1,0 @@
-session_name: neetcode
-windows:
-- panes:
-  - shell_command: nvim
-  start_directory: /Users/jerry/docs/neetcode
-  window_name: nvim
