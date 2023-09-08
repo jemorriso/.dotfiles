@@ -1,0 +1,17 @@
+session_name: asf
+windows:
+- focus: 'true'
+  panes:
+  - focus: 'true'
+    shell_command: nvim
+  start_directory: /Users/jerry/docs/angstrom
+  window_name: docs
+# todo: do not expose ip address
+# - panes:
+  # - shell_command: ssh
+- start_directory: /Users/jerry
+  window_name: ssh1
+# - panes:
+  # - shell_command: ssh
+- start_directory: /Users/jerry
+  window_name: ssh2

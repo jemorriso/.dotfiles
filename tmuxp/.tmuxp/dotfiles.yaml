@@ -1,0 +1,11 @@
+session_name: dotfiles
+windows:
+- focus: 'true'
+  panes:
+  - shell_command: nvim
+  start_directory: /Users/jerry/.dotfiles
+  window_name: nvim
+- panes:
+  - shell_command: lg
+  start_directory: /Users/jerry/.dotfiles
+  window_name: lazygit

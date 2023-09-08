@@ -1,0 +1,26 @@
+session_name: masterbet
+windows:
+- panes:
+  - shell_command: 
+      - pgcli -d prop_bot
+      - select * from public.nhl_player_props_latest_edge order by playnow_edge desc;
+  start_directory: /Users/jerry
+  window_name: pgcli
+- panes:
+  - shell_command: nvim
+  start_directory: /Users/jerry/docs/betting
+  window_name: docs
+- panes:
+  - shell_command: vd masterbet.csv 
+  start_directory: /Users/jerry/docs/betting
+  window_name: masterbet
+- focus: 'true'
+  layout: even-horizontal
+  panes:
+  - focus: 'true'
+    shell_command: nvim
+  - shell_command:
+    - pyenv activate betting-tools
+    - ipython
+  start_directory: /Users/jerry/source/betting-tools
+  window_name: slime

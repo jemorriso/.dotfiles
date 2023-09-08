@@ -1,0 +1,15 @@
+session_name: prop-bot-dagster
+windows:
+- focus: 'true'
+  panes:
+  - shell_command: 
+    - pyenv activate prop-bot-dagster
+    - nvim
+  start_directory: /Users/jerry/source/prop-bot/dev/prop-bot-dagster
+  window_name: source
+- panes:
+  - shell_command: 
+    - pyenv activate prop-bot-dagster
+    - dagster dev
+  start_directory: /Users/jerry/source/prop-bot/dev/prop-bot-dagster/prop-bot
+  window_name: dagster dev

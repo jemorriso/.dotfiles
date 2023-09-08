@@ -1,0 +1,14 @@
+session_name: prop-bot-prefect
+windows:
+- panes:
+  - shell_command:
+    - pyenv activate prop-bot-prefect
+    - nvim
+  start_directory: /Users/jerry/source/prop-bot/dev/prop-bot-prefect
+  window_name: nvim
+- panes:
+  - shell_command:
+    - pyenv activate prop-bot-prefect
+    - prefect server start
+  start_directory: /Users/jerry/source/prop-bot/dev/prop-bot-prefect
+  window_name: server

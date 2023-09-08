@@ -1,0 +1,24 @@
+session_name: tidal
+windows:
+# - layout: b13e,320x70,0,0,1
+#   options: {}
+#   panes:
+#   - focus: 'true'
+#     shell_command: sclang
+#   start_directory: /Users/jerry
+#   window_name: sclang
+- panes:
+  - focus: 'true'
+    shell_command: nvim
+  start_directory: /Users/jerry/docs/music
+  window_name: music-log
+- focus: 'true'
+  layout: even-horizontal
+  start_directory: /Users/jerry/docs/courses/learning-tidalcycles
+  panes:
+  - focus: 'true'
+    shell_command:
+    - nvim
+  - shell_command:
+    - tidal
+  window_name: slime
