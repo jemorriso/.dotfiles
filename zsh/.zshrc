@@ -76,7 +76,8 @@ bwu() {
   export BW_SESSION=$(bw unlock --raw $1)
 }
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# so that zsh-vi-mode does not overwrite fzf keybindings
+zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
