@@ -18,7 +18,7 @@ vim:shouldDimScreenInNormalMode(false)
 vim:shouldShowAlertInNormalMode(true)
 vim:setAlertFont("Courier New")
 -- vim:enterWithSequence("kj")
-vim:bindHotKeys({ enter = { { "ctrl", "alt" }, "i" } })
+vim:bindHotKeys({ enter = { { "ctrl", "alt" }, "escape" } })
 vim:enableBetaFeature("block_cursor_overlay")
 
 --------------------------------
