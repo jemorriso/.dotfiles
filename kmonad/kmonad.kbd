@@ -135,7 +135,7 @@
   XX       @ctl_a   @alt_r   @met_s   @sft_t   g        XX       m        @sft_n   @met_e   @alt_i   @ctl_o   '        XX
   XX       z        x        c        d        v        XX       k        h        ,        .        /        XX
   XX       XX       XX       @esc_med @spc_nav @tab_warp @ret_sym @bspc_num @del_fun XX      XX       XX      XX
-  XX       XX       XX       XX                XX                XX       XX       XX       XX       XX
+  XX       XX       XX       XX                rmet              XX       XX       XX       XX       XX
 )
 
 (deflayer nav
