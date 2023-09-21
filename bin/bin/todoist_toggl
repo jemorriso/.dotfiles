@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# using these tools:
+# https://github.com/auhau/toggl-cli
+# https://github.com/sachaos/todoist
+
+task=$(/opt/homebrew/Cellar/todoist/0.20.0/bin/todoist list | fzf --ansi)
+
+if [ $? -ne 0 ]; then
+	echo "User pressed Escape"
+	exit
+fi
+
+project=$(echo $task | ggrep -oP '#\w+' | sed 's/#//')
+
+description=$(echo $task | ggrep -oP '(?<=#)\S+\s*\K.*')
+description=$(echo "$description" | sed 's/^@[^[:space:]]* //')
+
+toggl stop
+
+toggl start -o $project "$description"
+if [ $? -eq 0 ]; then
+	echo "started task '$description' in project '$project'"
+fi
