@@ -49,6 +49,7 @@ unmap K
 unmap g0
 unmap g$
 unmap X
+unmap x
 unmap W
 unmap <<
 unmap >>
