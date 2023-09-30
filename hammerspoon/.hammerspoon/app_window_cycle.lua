@@ -5,73 +5,67 @@
 --
 -- still has problems if window in non-visible space
 --
-local lastTapTimeApp = 0
-local lastIndexApp = 1
-local allWindowsApp = nil
-local tapThresholdApp = 0.8
-local lastAppName = nil
+local lastTapTime = 0
+local lastIndex = 1
+local allWindows = nil
+local tapThreshold = 0.8
+local lastName = nil
 
-local meh = { "ctrl", "shift", "alt" }
 local hyper = { "ctrl", "shift", "alt", "cmd" }
 
-windowFilterApp = hs.window.filter.new():setDefaultFilter({})
+windowFilter = hs.window.filter.new():setDefaultFilter({})
 
 hs.hotkey.bind(hyper, "n", function()
-	cycleWindowsApp(1)
+	cycleWindows(1)
 end)
 
 hs.hotkey.bind(hyper, "p", function()
-	cycleWindowsApp(-1)
+	cycleWindows(-1)
 end)
 
 function getWindows(appName)
-	local currentAppWindows = {}
-	local savedWindows = windowFilterApp:getWindows()
+	local currentWindows = {}
+	local savedWindows = windowFilter:getWindows()
 	for _, v in ipairs(savedWindows) do
 		if v:application():name() == appName then
-			table.insert(currentAppWindows, v)
+			table.insert(currentWindows, v)
 		end
 	end
 
-	return currentAppWindows
+	return currentWindows
 end
 
-function cycleWindowsApp(direction)
+function cycleWindows(direction)
 	local keyTime = hs.timer.secondsSinceEpoch()
 	local currentWin = hs.window.focusedWindow()
-	local currentApp = currentWin:application()
-	local currentAppName = currentApp:name()
-	print(currentAppName)
+	local current = currentWin:application()
+	local currentName = current:name()
+	print(currentName)
 	-- new sequence
-	if
-		keyTime - lastTapTimeApp > tapThresholdApp
-		or lastAppName == nil
-		or windowFilterApp == nil
-		or lastAppName ~= currentAppName
-	then
-		lastIndexApp = 1
-		windowFilterApp = hs.window.filter.new()
-		-- windowFilterApp:setAppFilter(currentAppName)
-		-- allWindowsApp = windowFilterApp:getWindows()
-		allWindowsApp = getWindows(currentAppName)
-		lastAppName = currentAppName
+	if keyTime - lastTapTime > tapThreshold or lastName == nil or windowFilter == nil or lastName ~= currentName then
+		lastIndex = 1
+		windowFilter = hs.window.filter.new()
+		-- windowFilter:setFilter(currentName)
+		-- allWindows = windowFilter:getWindows()
+		allWindows = getWindows(currentName)
+		lastName = currentName
 
 		print("------")
-		for _, v in ipairs(allWindowsApp) do
+		for _, v in ipairs(allWindows) do
 			print(v:application():name())
 		end
 		print("------")
 	end
 
-	lastIndexApp = lastIndexApp + direction
-	-- print(lastIndexApp)
-	if lastIndexApp > #allWindowsApp then
-		lastIndexApp = 1
-	elseif lastIndexApp < 1 then
-		lastIndexApp = #allWindowsApp
+	lastIndex = lastIndex + direction
+	-- print(lastIndex)
+	if lastIndex > #allWindows then
+		lastIndex = 1
+	elseif lastIndex < 1 then
+		lastIndex = #allWindows
 	end
-	print(lastIndexApp)
-	allWindowsApp[lastIndexApp]:focus()
+	print(lastIndex)
+	allWindows[lastIndex]:focus()
 
-	lastTapTimeApp = keyTime
+	lastTapTime = keyTime
 end
