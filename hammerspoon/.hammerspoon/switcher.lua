@@ -58,40 +58,10 @@ function obj:switchWindow(onlyCurrentApp)
 	end
 end
 
-function obj:previousWindow(onlyCurrentApp)
-	local windowChoices = obj:list_window_choices(onlyCurrentApp)
-	if #windowChoices == 0 then
-		-- if onlyCurrentApp then
-		-- 	hs.alert.show("no other window for this application ")
-		-- else
-		-- 	hs.alert.show("no other window available ")
-		-- end
-		return
-	end
-	local v = windowChoices[1]["win"]
-	if v then
-		v:focus()
-	end
-end
-
-local meh = { "ctrl", "shift", "alt" }
-local hyper = { "ctrl", "shift", "alt", "cmd" }
-
 -- cycles through all widows of the frontmost app.
 function switcherfunc()
 	return obj:switchWindow(true)
 end
-
--- Alt-tab replacement to go to last window
-hs.hotkey.bind(meh, "b", function()
-	obj:previousWindow(false)
-end)
-
-hs.hotkey.bind(hyper, "b", function()
-	obj:previousWindow(true)
-end)
-
--- return obj
 
 --  function to either open apps or switch through them using switcher
 function openswitch(name)
