@@ -4,14 +4,14 @@
 # https://github.com/auhau/toggl-cli
 # https://github.com/sachaos/todoist
 
-task=$(/opt/homebrew/Cellar/todoist/0.20.0/bin/todoist list | fzf --ansi)
+task=$(/opt/homebrew/Cellar/todoist/0.20.0/bin/todoist list -f '#betting | #errands | #exercise | #inbox | #music | #project | #reading | #sleeping | #work | #workflow' | fzf --ansi)
 
 if [ $? -ne 0 ]; then
 	echo "User pressed Escape"
 	exit
 fi
 
-project=$(echo $task | ggrep -oP '#\w+' | sed 's/#//')
+project=$(echo $task | ggrep -oP '#[[:alpha:]]+' | sed 's/#//')
 
 description=$(echo $task | ggrep -oP '(?<=#)\S+\s*\K.*')
 description=$(echo "$description" | sed 's/^@[^[:space:]]* //')
