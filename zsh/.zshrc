@@ -2,6 +2,7 @@
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 
 path+=('/Users/jerry/.local/bin')
+path+=('/Users/jerry/bin')
 path+=('/opt/homebrew/Cellar/todoist/0.20.0/bin')
 
 setopt share_history
@@ -42,7 +43,6 @@ command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
 eval "$(starship init zsh)"
-
 
 # for kitty tab titles
 precmd () {print -Pn "\e]0;%1d\a"}
