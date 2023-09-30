@@ -7,7 +7,6 @@ local allWindows = nil
 local tapThreshold = 0.8
 
 local meh = { "ctrl", "shift", "alt" }
-local hyper = { "ctrl", "shift", "alt", "cmd" }
 
 -- include invisible windows by using {} as defaultFilter
 -- seems to be a bit buggy when including spaces that aren't visible but good enough

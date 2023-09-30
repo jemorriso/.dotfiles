@@ -104,61 +104,32 @@ function openswitch(name)
 	end
 end
 
--- local meh = { "ctrl", "shift", "alt" }
--- local hyper = { "ctrl", "shift", "alt", "cmd" }
+local mods = { "ctrl", "shift", "cmd" }
 
-k = hs.hotkey.modal.new(meh, "a")
--- function k:entered()
--- 	hs.alert("Entered mode")
--- end
--- function k:exited()
--- 	hs.alert("Exited mode")
--- end
-k:bind("", "escape", function()
-	k:exit()
-end)
-
-k:bind("", "a", function()
+hs.hotkey.bind(mods, "a", function()
 	openswitch("Arc")()
-	k:exit()
 end)
 
-k:bind("", "f", function()
+hs.hotkey.bind(mods, "f", function()
 	openswitch("Finder")()
-	k:exit()
 end)
 
-k:bind("", "k", function()
+hs.hotkey.bind(mods, "k", function()
 	openswitch("kitty")()
-	k:exit()
 end)
 
-k:bind("", "m", function()
+hs.hotkey.bind(mods, "m", function()
 	openswitch("Messages")()
-	k:exit()
 end)
 
-k:bind("", "o", function()
+hs.hotkey.bind(mods, "o", function()
 	openswitch("Obsidian")()
-	k:exit()
 end)
 
-k:bind("", "p", function()
+hs.hotkey.bind(mods, "p", function()
 	openswitch("Preview")()
-	k:exit()
 end)
 
-k:bind("", "s", function()
+hs.hotkey.bind(mods, "s", function()
 	openswitch("Spotify")()
-	k:exit()
-end)
-
-k:bind("", "w", function()
-	openswitch("WezTerm")()
-	k:exit()
-end)
-
-k:bind("", "f", function()
-	openswitch("Firefox")()
-	k:exit()
 end)

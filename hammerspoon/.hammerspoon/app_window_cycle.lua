@@ -50,11 +50,11 @@ function cycleWindows(direction)
 		allWindows = getWindows(currentName)
 		lastName = currentName
 
-		print("------")
-		for _, v in ipairs(allWindows) do
-			print(v:application():name())
-		end
-		print("------")
+		-- print("------")
+		-- for _, v in ipairs(allWindows) do
+		-- 	print(v:application():name())
+		-- end
+		-- print("------")
 	end
 
 	lastIndex = lastIndex + direction
