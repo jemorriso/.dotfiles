@@ -33,8 +33,9 @@ return {
     },
     opts = {
       dir = "/Users/jerry/Documents/docs", -- no need to call 'vim.fn.expand' here
-
-      -- see below for full list of options 👇
+    },
+    keys = {
+      { "<localleader>f", "<cmd>ObsidianFollowLink<cr>", desc = "obsidian follow link" },
     },
   },
   {
@@ -435,7 +436,7 @@ return {
     lazy = false,
   },
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     opts = function(_, opts)
       local nls = require("null-ls")
       table.insert(opts.sources, nls.builtins.diagnostics.ruff)
