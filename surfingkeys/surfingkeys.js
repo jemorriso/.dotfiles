@@ -535,7 +535,6 @@ api.unmap("X"); // restore closed tab
 api.unmap("E"); // go one tab left
 api.unmap("R"); // go one tab right
 api.unmap("B"); // go one back in tab history
-api.unmap("F"); // go one forward in tab history
 api.unmap("gt"); // go to first tab
 api.unmap("gT"); // go to last tab
 api.unmap("gp"); // go to playing tab
