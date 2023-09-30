@@ -2,31 +2,31 @@
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
-yabai -m config layout stack
+yabai -m config layout float
 
-yabai -m config focus_follows_mouse autofocus
+# yabai -m config focus_follows_mouse autofocus
 yabai -m config mouse_follows_focus on
 
-yabai -m config mouse_modifier meh
-yabai -m config mouse_action1 resize
-yabai -m config mouse_action2 move
-yabai -m config mouse_drop_action swap
+# yabai -m config mouse_modifier meh
+# yabai -m config mouse_action1 resize
+# yabai -m config mouse_action2 move
+# yabai -m config mouse_drop_action swap
+#
+# yabai -m rule --add app="^System Settings$" manage=off
+# yabai -m rule --add app="^Raycast$" manage=off
+# yabai -m rule --add app="^Hidden Bar$" manage=off
+# yabai -m rule --add app="^Wally$" manage=off
+#
+# # for arc browser PiP: https://github.com/koekeishiya/yabai/issues/1669
+# yabai -m rule --add subrole="^AXSystemDialog$" manage=off mouse_follows_focus=off
 
-yabai -m rule --add app="^System Settings$" manage=off
-yabai -m rule --add app="^Raycast$" manage=off
-yabai -m rule --add app="^Hidden Bar$" manage=off
-yabai -m rule --add app="^Wally$" manage=off
-
-# for arc browser PiP: https://github.com/koekeishiya/yabai/issues/1669
-yabai -m rule --add subrole="^AXSystemDialog$" manage=off mouse_follows_focus=off
-
-yabai -m signal --add event=mission_control_exit action='echo "refresh" | nc -U /tmp/yabai-indicator.socket'
-yabai -m signal --add event=display_added action='echo "refresh" | nc -U /tmp/yabai-indicator.socket'
-yabai -m signal --add event=display_removed action='echo "refresh" | nc -U /tmp/yabai-indicator.socket'
-yabai -m signal --add event=window_created action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
-yabai -m signal --add event=window_destroyed action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
-yabai -m signal --add event=window_focused action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
-yabai -m signal --add event=window_moved action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
-yabai -m signal --add event=window_resized action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
-yabai -m signal --add event=window_minimized action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
-yabai -m signal --add event=window_deminimized action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+# yabai -m signal --add event=mission_control_exit action='echo "refresh" | nc -U /tmp/yabai-indicator.socket'
+# yabai -m signal --add event=display_added action='echo "refresh" | nc -U /tmp/yabai-indicator.socket'
+# yabai -m signal --add event=display_removed action='echo "refresh" | nc -U /tmp/yabai-indicator.socket'
+# yabai -m signal --add event=window_created action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+# yabai -m signal --add event=window_destroyed action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+# yabai -m signal --add event=window_focused action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+# yabai -m signal --add event=window_moved action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+# yabai -m signal --add event=window_resized action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+# yabai -m signal --add event=window_minimized action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
+# yabai -m signal --add event=window_deminimized action='echo "refresh windows" | nc -U /tmp/yabai-indicator.socket'
