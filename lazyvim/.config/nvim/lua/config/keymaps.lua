@@ -28,3 +28,11 @@ map("i", "<C-A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
 map("i", "<C-A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
 map("v", "<C-A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 map("v", "<C-A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+
+map("n", "<C-left>", "<C-w>h", { desc = "Go to left window", remap = true })
+map("n", "<C-down>", "<C-w>j", { desc = "Go to lower window", remap = true })
+map("n", "<C-up>", "<C-w>k", { desc = "Go to upper window", remap = true })
+map("n", "<C-right>", "<C-w>l", { desc = "Go to right window", remap = true })
+
+map("n", "<S-left>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
+map("n", "<S-right>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })

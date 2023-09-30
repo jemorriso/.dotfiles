@@ -2,8 +2,11 @@
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 
 path+=('/Users/jerry/.local/bin')
+path+=('/Users/jerry/bin')
+path+=('/opt/homebrew/Cellar/todoist/0.20.0/bin')
 
 setopt share_history
+setopt hist_ignore_space
 
 bindkey -v
 
@@ -75,13 +78,14 @@ n ()
     }
 }
 
-# https://github.com/bitwarden/cli/issues/102
-bwu() {
-  export BW_SESSION=$(bw unlock --raw $1)
-}
-
 # so that zsh-vi-mode does not overwrite fzf keybindings
 zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
+
+# so that zsh-vi-mode does not overwrite vi-forward-word
+zvm_after_lazy_keybindings ()
+{
+  bindkey '^w' vi-forward-word
+}
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

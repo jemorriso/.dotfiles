@@ -3,8 +3,9 @@ down: n
 up: e
 right: i
 
-buttons: backspace delete space
-##oneshot_buttons: [backspace tab delete]
+buttons: backspace delete kpenter
+
+decelerator: space
 
 scroll_down: h
 scroll_up: ,
@@ -14,6 +15,8 @@ grid_left: r
 grid_down: s
 grid_right: t
 grid_keys: l u n e
+
+screen_chars: neioarst
 
 speed: 500
 max_speed: 5000

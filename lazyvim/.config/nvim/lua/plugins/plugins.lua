@@ -1,5 +1,22 @@
 return {
   {
+    "jackMort/ChatGPT.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("chatgpt").setup({
+        -- api_key_cmd = "op read op://Personal/OpenAI/credential",
+      })
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    keys = {
+      { "<localleader>c", "<cmd>ChatGPT<cr>", desc = "toggle chatgpt" },
+    },
+  },
+  {
     "epwalsh/obsidian.nvim",
     lazy = true,
     event = {
@@ -16,8 +33,9 @@ return {
     },
     opts = {
       dir = "/Users/jerry/Documents/docs", -- no need to call 'vim.fn.expand' here
-
-      -- see below for full list of options 👇
+    },
+    keys = {
+      { "<localleader>f", "<cmd>ObsidianFollowLink<cr>", desc = "obsidian follow link" },
     },
   },
   {
@@ -418,7 +436,7 @@ return {
     lazy = false,
   },
   {
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     opts = function(_, opts)
       local nls = require("null-ls")
       table.insert(opts.sources, nls.builtins.diagnostics.ruff)
