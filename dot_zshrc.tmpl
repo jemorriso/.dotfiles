@@ -1,22 +1,8 @@
+{{ if eq .chezmoi.os "darwin" }}
+# darwin
 path+=('/Users/jerry/.local/bin')
 path+=('/Users/jerry/bin')
 path+=('/opt/homebrew/Cellar/todoist/0.20.0/bin')
-
-setopt share_history
-setopt hist_ignore_space
-
-bindkey -v
-
-export EDITOR="nvim"
-
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-
-export NNN_TRASH=1
-export NNN_OPTS="HdaA"
-
-alias lg="lazygit"
-
-eval "$(zoxide init zsh)"
 
 source ${HOME}/.ghcup/env
 
@@ -34,6 +20,39 @@ source /Users/jerry/Aloxaf/fzf-tab/fzf-tab.plugin.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
+# so that zsh-vi-mode does not overwrite fzf keybindings
+zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
+
+# so that zsh-vi-mode does not overwrite vi-forward-word
+zvm_after_lazy_keybindings ()
+{
+  bindkey '^w' vi-forward-word
+}
+
+{{ else if eq .chezmoi.os "linux" }}
+# linux
+path+=('/home/jerry/.local/bin')
+
+{{ else }}
+# other operating system
+{{ end }}
+
+setopt share_history
+setopt hist_ignore_space
+
+bindkey -v
+
+export EDITOR="nvim"
+
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+export NNN_TRASH=1
+export NNN_OPTS="HdaA"
+
+alias lg="lazygit"
+
+eval "$(zoxide init zsh)"
 
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
@@ -73,13 +92,4 @@ n ()
         . "$NNN_TMPFILE"
         rm -f "$NNN_TMPFILE" > /dev/null
     }
-}
-
-# so that zsh-vi-mode does not overwrite fzf keybindings
-zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
-
-# so that zsh-vi-mode does not overwrite vi-forward-word
-zvm_after_lazy_keybindings ()
-{
-  bindkey '^w' vi-forward-word
 }
