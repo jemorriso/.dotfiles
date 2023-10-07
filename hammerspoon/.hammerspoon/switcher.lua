@@ -41,6 +41,41 @@ function obj:list_window_choices(onlyCurrentApp)
 	return windowChoices
 end
 
+-- TODO add switcher for other windows
+-- function obj:list_other_window_choices()
+-- 	local windowChoices = {}
+-- 	local currentWin = hs.window.focusedWindow()
+-- 	for i, w in ipairs(obj.currentWindows) do
+-- 		if w ~= currentWin then
+-- 			local app = w:application()
+-- 			local appImage = nil
+-- 			local appName = "(none)"
+-- 			if app then
+-- 				appName = app:name()
+-- 				appImage = hs.image.imageFromAppBundle(w:application():bundleID())
+-- 			end
+--       local forbiddenNames = {"Arc", "kitty", "Preview"}
+--       local found = false
+--       for _, forbiddenName in ipairs(forbiddenNames) do
+--         if appName == forbiddenName then
+--           found = true
+--           break
+--         end
+--       end
+--       if not found then
+--         table.insert(windowChoices, {
+--                   text = w:title() .. "--" .. appName,
+--                   subText = appName,
+--                   uuid = i,
+--                   image = appImage,
+--                   win = w,
+--                 })
+--       end
+-- 		end
+-- 	end
+-- 	return windowChoices
+-- end
+
 function obj:switchWindow(onlyCurrentApp)
 	local windowChoices = obj:list_window_choices(onlyCurrentApp)
 	if #windowChoices == 0 then
@@ -102,4 +137,8 @@ end)
 
 hs.hotkey.bind(mods, "s", function()
 	openswitch("Spotify")()
+end)
+
+hs.hotkey.bind(mods, "t", function()
+	openswitch("Todoist")()
 end)

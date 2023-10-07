@@ -13,19 +13,20 @@ local lastName = nil
 
 local hyper = { "ctrl", "shift", "alt", "cmd" }
 
-windowFilter = hs.window.filter.new():setDefaultFilter({})
+appWindowFilter = hs.window.filter.new():setDefaultFilter({})
 
-hs.hotkey.bind(hyper, "n", function()
-	cycleWindows(1)
-end)
+-- TODO leaving unbound for now because it's just cmd+`
+-- hs.hotkey.bind(hyper, "n", function()
+-- 	cycleAppWindows(1)
+-- end)
+--
+-- hs.hotkey.bind(hyper, "p", function()
+-- 	cycleAppWindows(-1)
+-- end)
 
-hs.hotkey.bind(hyper, "p", function()
-	cycleWindows(-1)
-end)
-
-function getWindows(appName)
+function getAppWindows(appName)
 	local currentWindows = {}
-	local savedWindows = windowFilter:getWindows()
+	local savedWindows = appWindowFilter:getWindows()
 	for _, v in ipairs(savedWindows) do
 		if v:application():name() == appName then
 			table.insert(currentWindows, v)
@@ -35,26 +36,26 @@ function getWindows(appName)
 	return currentWindows
 end
 
-function cycleWindows(direction)
+function cycleAppWindows(direction)
 	local keyTime = hs.timer.secondsSinceEpoch()
 	local currentWin = hs.window.focusedWindow()
 	local current = currentWin:application()
 	local currentName = current:name()
 	print(currentName)
 	-- new sequence
-	if keyTime - lastTapTime > tapThreshold or lastName == nil or windowFilter == nil or lastName ~= currentName then
+	if keyTime - lastTapTime > tapThreshold or lastName == nil or appWindowFilter == nil or lastName ~= currentName then
 		lastIndex = 1
-		windowFilter = hs.window.filter.new()
+		appWindowFilter = hs.window.filter.new()
 		-- windowFilter:setFilter(currentName)
 		-- allWindows = windowFilter:getWindows()
-		allWindows = getWindows(currentName)
+		allWindows = getAppWindows(currentName)
 		lastName = currentName
 
-		-- print("------")
-		-- for _, v in ipairs(allWindows) do
-		-- 	print(v:application():name())
-		-- end
-		-- print("------")
+		print("------")
+		for _, v in ipairs(allWindows) do
+			print(v:application():name())
+		end
+		print("------")
 	end
 
 	lastIndex = lastIndex + direction

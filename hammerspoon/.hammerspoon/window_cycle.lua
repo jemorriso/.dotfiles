@@ -4,7 +4,7 @@
 local lastTapTime = 0
 local lastIndex = 1
 local allWindows = nil
-local tapThreshold = 0.8
+local tapThreshold = 0.6
 
 local meh = { "ctrl", "shift", "alt" }
 
@@ -13,13 +13,17 @@ local meh = { "ctrl", "shift", "alt" }
 windowFilter = hs.window.filter.new():setDefaultFilter({})
 -- windowFilter.forceRefreshOnSpaceChange = true
 
-hs.hotkey.bind(meh, "n", function()
+hs.hotkey.bind(meh, "delete", function()
 	cycleWindows(1)
 end)
 
-hs.hotkey.bind(meh, "p", function()
-	cycleWindows(-1)
+hs.hotkey.bind(meh, "forwarddelete", function()
+	cycleWindows(1)
 end)
+
+-- hs.hotkey.bind(meh, "p", function()
+--   cycleWindows(-1)
+-- end)
 
 function cycleWindows(direction)
 	local keyTime = hs.timer.secondsSinceEpoch()
