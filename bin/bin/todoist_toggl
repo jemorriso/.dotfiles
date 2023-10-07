@@ -4,7 +4,10 @@
 # https://github.com/auhau/toggl-cli
 # https://github.com/sachaos/todoist
 
-task=$(/opt/homebrew/Cellar/todoist/0.20.0/bin/todoist list -f '#betting | #errands | #exercise | #inbox | #music | #project | #reading | #sleeping | #work | #workflow' | fzf --ansi)
+/opt/homebrew/Cellar/todoist/0.20.0/bin/todoist sync
+
+# task=$(/opt/homebrew/Cellar/todoist/0.20.0/bin/todoist list -f '#betting | #errands | #exercise | #friends | #health-and-wellness | #inbox | #music | #project | #project-management | #reading | #sleeping | #tasks | #work | #workflow' | fzf --ansi)
+task=$(/opt/homebrew/Cellar/todoist/0.20.0/bin/todoist list -f '#betting | #errands | #exercise | #friends | #inbox | #music | #project | #reading | #sleeping | #tasks | #work | #workflow' | fzf --ansi)
 
 if [ $? -ne 0 ]; then
 	echo "User pressed Escape"
