@@ -277,6 +277,10 @@ return {
   },
   {
     "mg979/vim-visual-multi",
+    keys = {
+      { "<C-A-down>", "<plug>(VM-Add-Cursor-Down)", desc = "foo", silent = false },
+      { "<C-A-up>", "<plug>(VM-Add-Cursor-Up)", desc = "foo", silent = false },
+    },
   },
   {
     "kmonad/kmonad-vim",
