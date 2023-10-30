@@ -451,18 +451,6 @@ return {
     },
     lazy = false,
   },
-  {
-    "nvimtools/none-ls.nvim",
-    opts = function(_, opts)
-      local nls = require("null-ls")
-      table.insert(opts.sources, nls.builtins.diagnostics.ruff)
-      table.insert(opts.sources, nls.builtins.formatting.black)
-      -- table.insert(opts.sources, nls.builtins.diagnostics.sqlfluff.with({ extra_args = { "--dialect", "postgres" } }))
-      -- table.insert(opts.sources, nls.builtins.formatting.sqlfluff.with({ extra_args = { "--dialect", "postgres" } }))
-      -- table.insert(opts.sources, nls.builtins.diagnostics.sqlfluff)
-      -- table.insert(opts.sources, nls.builtins.formatting.sqlfluff)
-    end,
-  },
   -- {
   --   "williamboman/mason-lspconfig.nvim",
   --   config = function()
