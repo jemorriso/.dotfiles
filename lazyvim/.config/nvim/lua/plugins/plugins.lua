@@ -1,5 +1,17 @@
 return {
   {
+    "zbirenbaum/copilot.lua",
+    opts = {
+      suggestion = { enabled = true },
+      panel = { enabled = true },
+      filetypes = {
+        markdown = true,
+        help = true,
+        python = true,
+      },
+    },
+  },
+  {
     "jackMort/ChatGPT.nvim",
     event = "VeryLazy",
     config = function()
