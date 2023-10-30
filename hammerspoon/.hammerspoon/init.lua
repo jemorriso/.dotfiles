@@ -25,6 +25,6 @@ vim:enableBetaFeature("block_cursor_overlay")
 -- SWITCHERS
 --------------------------------
 
-require("window_cycle")
+-- require("window_cycle")
 -- require("app_window_cycle")
-require("switcher")
+-- require("switcher")
