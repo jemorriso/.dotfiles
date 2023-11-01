@@ -33,6 +33,12 @@
     to_warp (around @on_warp (around lmet (around lalt c)))
     warp_esc (around @off_warp esc)
 
+    on_alt_tab (layer-add alt_tab)
+    off_alt_tab (layer-rem alt_tab)
+    at_bspc (around @on_alt_tab (around lmet bspc))
+    at_esc (around @off_alt_tab esc)
+    at_off (around @off_alt_tab spc)
+
     ;; -------------------------------------------------- 
     ;; define colemak mods for sticky keys
     ;; -------------------------------------------------- 
@@ -135,7 +141,7 @@
   tab      q        @hyp_w   @meh_f   p        b        j        l        @meh_u   @hyp_y   ;        [        ]        \
   bspc     @ctl_a   @alt_r   @met_s   @sft_t   g        m        @sft_n   @met_e   @alt_i   @ctl_o   '        ret
   @to_warp z        x        c        d        v        k        h        ,        .        /        rsft     up
-  fn       lctl     lalt     esc               @spc_nav          @s_s     ret      left     down     rght
+  fn       lctl     @at_bspc esc               @spc_nav          @s_s     ret      left     down     rght
 )
 ;; (deflayer base
 ;;   esc      brdn     brup     C-up     M-spc    C-f5     A-f6     prev     pp       next     mute     vold     volu
@@ -173,6 +179,15 @@
   XX       XX       XX       @warp_esc         spc               kprt     bspc     del      XX       XX
 )
 
+(deflayer alt_tab
+  @at_esc  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off
+  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off
+  @at_off  q        w        f        @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  left     rght     @at_off  @at_off
+  @at_esc  @at_off  @at_off  s        @at_off  @at_off  left     down     up       rght     left     rght     @at_off
+  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off
+  @at_off  @at_off  right    @at_esc           right             left     @at_off  @at_off  @at_off  @at_off
+)
+
 ;; (deflayer media
 ;;   XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
 ;;   XX       XX       XX       @hyp     @meh     XX       XX       _        _        _        _        _        XX       XX
@@ -201,12 +216,12 @@
 ;; )
 
 (deflayer colemak
-  XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-  XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-  XX       q        w        f        p        b        j        l        u        y        ;        XX       XX       XX
-  XX       a        r        s        t        g        m        n        e        i        o        '        XX
-  XX       z        x        c        d        v        k        h        ,        .        /        XX       XX
-  XX       XX       XX       XX                XX                XX       XX       XX       XX       XX
+  _        _        _        _        _        _        _        _        _        _        _        _        _
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _
+  _        q        w        f        p        b        j        l        u        y        ;        _        _        _
+  _        a        r        s        t        g        m        n        e        i        o        '        _
+  _        z        x        c        d        v        k        h        ,        .        /        _        _
+  _        _        _        _                 _                 _        _        _        _        _
 )
 
 ;;
