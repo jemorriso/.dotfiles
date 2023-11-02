@@ -20,18 +20,19 @@
     ;; define layer toggles and sticky layers
     ;; -------------------------------------------------- 
     ;; lt_bas (layer-toggle base)
-    lt_nav (layer-toggle nav_simple)
-    lt_num (layer-toggle num)
+    lt_spc (layer-toggle space)
+    lt_nav (layer-toggle nav)
+    ;; lt_num (layer-toggle num)
     ;; lt_med (layer-toggle media)
     ;; lt_sym (layer-toggle sym)
     ;; lt_fun (layer-toggle fun)
     lt_col (layer-toggle colemak)
     ;; lt_shot (layer-toggle oneshot)
 
-    on_nav (layer-add nav)
-    off_nav (layer-rem nav)
-    on_num (layer-add num)
-    off_num (layer-rem num)
+    ;; on_nav (layer-add nav)
+    ;; off_nav (layer-rem nav)
+    ;; on_num (layer-add num)
+    ;; off_num (layer-rem num)
 
     on_warp (layer-add warp)
     off_warp (layer-rem warp)
@@ -113,10 +114,32 @@
     hyp_y (tap-hold 200 y @hyp)
 
     ;; -------------------------------------------------- 
+    ;; home-row mods / mod-tap for space layer
+    ;; -------------------------------------------------- 
+    ctl_0 (tap-hold-next-release 200 0 lctl)
+    alt_4 (tap-hold-next-release 200 4 lalt)
+    met_5 (tap-hold-next-release 200 5 lmet)
+    sft_6 (tap-hold-next-release 200 6 lsft)
+
+    sft_down (tap-hold-next-release 200 down lsft)
+    met_up (tap-hold-next-release 200 up lmet)
+    alt_right (tap-hold-next-release 200 right lalt)
+    ctl_bslash (tap-hold-next-release 200 \ lctl)
+
+    hyp_7 (tap-hold-next-release 200 7 @hyp)
+    meh_8 (tap-hold-next-release 200 8 @meh)
+
+    meh_pgup (tap-hold-next-release 200 pgup @meh)
+    hyp_end (tap-hold-next-release 200 end @hyp)
+
+    ;; -------------------------------------------------- 
     ;; layer-tap
     ;; -------------------------------------------------- 
+    spc_spc (tap-hold-next-release 200 spc @lt_spc)
+    c_nav (tap-hold-next-release 200 c @lt_nav)
+
+    ret_s_spc (tap-hold-next-release 200 ret (around lsft @lt_spc))
     ;; esc_med (tap-hold-next-release 200 esc @lt_med)
-    spc_nav (tap-hold-next-release 200 spc @lt_nav)
     ;; tab_warp (tap-hold-next-release 200 tab @to_warp)
 
     ;; ret_sym (tap-hold-next-release 200 ret @lt_sym)
@@ -144,80 +167,80 @@
     ;; -------------------------------------------------- 
     ;; nav
     ;; -------------------------------------------------- 
-    nav_esc (around @off_nav esc)
-    nav_tab (around @off_nav tab)
-    nav_bspc (around @off_nav bspc)
-    nav_spc (around @off_nav spc)
-    nav_ret (around @off_nav ret)
-
-    nav_home (around @off_nav home)
-    nav_end (around @off_nav end)
-
-    nav_q (around @off_nav q)
-    nav_w (tap-hold-next-release 200 (around @off_nav w) @hyp)
-    nav_f (tap-hold-next-release 200 (around @off_nav f) @meh)
-    nav_p (around @off_nav p)
-    nav_b (around @off_nav b)
-    ;; nav_j (around @off_nav j)
-    ;; nav_l (around @off_nav l)
-    nav_semi (around @off_nav ;)
-
-    nav_a (tap-hold-next-release 200 (around @off_nav a) lctl)
-    nav_r (tap-hold-next-release 200 (around @off_nav r) lalt)
-    nav_s (tap-hold-next-release 200 (around @off_nav s) lmet)
-    nav_t (tap-hold-next-release 200 (around @off_nav t) lsft)
-    nav_g (around @off_nav g)
-    ;; nav_m (around @off_nav m)
-    ;; nav_n (tap-hold 200 (around @off_nav t) lsft)
-    ;; nav_s (tap-hold 200 (around @off_nav s) lmet)
-    ;; nav_r (tap-hold 200 (around @off_nav a) lalt)
-    ;; nav_a (tap-hold 200 (around @off_nav a) lctl)
-    nav_o (around @off_nav o)
-    nav_quote (around @off_nav ')
-
-    nav_z (around @off_nav z)
-    nav_x (around @off_nav x)
-    nav_c (around @off_nav c)
-    nav_d (around @off_nav d)
-    nav_v (around @off_nav v)
-    nav_k (around @off_nav k)
-    nav_h (around @off_nav h)
-    nav_comma (around @off_nav ,)
-    nav_dot (around @off_nav .)
-    nav_slash (around @off_nav /)
-
-    ;; -------------------------------------------------- 
-    ;; num
-    ;; -------------------------------------------------- 
-    num_esc (around @off_num esc)
-    num_tab (around @off_num tab)
-    num_bspc (around @off_num bspc)
-    num_spc (around @off_num spc)
-    num_ret (around @off_num ret)
-
-    num_q (around @off_num q)
-    num_b (around @off_num b)
-    num_j (around @off_num j)
-    num_l (around @off_num l)
-    num_u (tap-hold-next-release 200 (around @off_num u) @meh)
-    num_y (tap-hold-next-release 200 (around @off_num y) @hyp)
-    num_semi (around @off_num ;)
-
-    num_g (around @off_num g)
-    num_m (around @off_num m)
-    num_n (tap-hold-next-release 200 (around @off_num n) lsft)
-    num_e (tap-hold-next-release 200 (around @off_num e) lmet)
-    num_i (tap-hold-next-release 200 (around @off_num i) lalt)
-    num_o (tap-hold-next-release 200 (around @off_num o) lctl)
-    num_quote (around @off_num ')
-
-    num_z (around @off_num z)
-    num_v (around @off_num v)
-    num_k (around @off_num k)
-    num_h (around @off_num h)
-    num_comma (around @off_num ,)
-    num_dot (around @off_num .)
-    num_slash (around @off_num /)
+    ;; nav_esc (around @off_nav esc)
+    ;; nav_tab (around @off_nav tab)
+    ;; nav_bspc (around @off_nav bspc)
+    ;; nav_spc (around @off_nav spc)
+    ;; nav_ret (around @off_nav ret)
+    ;;
+    ;; nav_home (around @off_nav home)
+    ;; nav_end (around @off_nav end)
+    ;;
+    ;; nav_q (around @off_nav q)
+    ;; nav_w (tap-hold-next-release 200 (around @off_nav w) @hyp)
+    ;; nav_f (tap-hold-next-release 200 (around @off_nav f) @meh)
+    ;; nav_p (around @off_nav p)
+    ;; nav_b (around @off_nav b)
+    ;; ;; nav_j (around @off_nav j)
+    ;; ;; nav_l (around @off_nav l)
+    ;; nav_semi (around @off_nav ;)
+    ;;
+    ;; nav_a (tap-hold-next-release 200 (around @off_nav a) lctl)
+    ;; nav_r (tap-hold-next-release 200 (around @off_nav r) lalt)
+    ;; nav_s (tap-hold-next-release 200 (around @off_nav s) lmet)
+    ;; nav_t (tap-hold-next-release 200 (around @off_nav t) lsft)
+    ;; nav_g (around @off_nav g)
+    ;; ;; nav_m (around @off_nav m)
+    ;; ;; nav_n (tap-hold 200 (around @off_nav t) lsft)
+    ;; ;; nav_s (tap-hold 200 (around @off_nav s) lmet)
+    ;; ;; nav_r (tap-hold 200 (around @off_nav a) lalt)
+    ;; ;; nav_a (tap-hold 200 (around @off_nav a) lctl)
+    ;; nav_o (around @off_nav o)
+    ;; nav_quote (around @off_nav ')
+    ;;
+    ;; nav_z (around @off_nav z)
+    ;; nav_x (around @off_nav x)
+    ;; nav_c (around @off_nav c)
+    ;; nav_d (around @off_nav d)
+    ;; nav_v (around @off_nav v)
+    ;; nav_k (around @off_nav k)
+    ;; nav_h (around @off_nav h)
+    ;; nav_comma (around @off_nav ,)
+    ;; nav_dot (around @off_nav .)
+    ;; nav_slash (around @off_nav /)
+    ;;
+    ;; ;; -------------------------------------------------- 
+    ;; ;; num
+    ;; ;; -------------------------------------------------- 
+    ;; num_esc (around @off_num esc)
+    ;; num_tab (around @off_num tab)
+    ;; num_bspc (around @off_num bspc)
+    ;; num_spc (around @off_num spc)
+    ;; num_ret (around @off_num ret)
+    ;;
+    ;; num_q (around @off_num q)
+    ;; num_b (around @off_num b)
+    ;; num_j (around @off_num j)
+    ;; num_l (around @off_num l)
+    ;; num_u (tap-hold-next-release 200 (around @off_num u) @meh)
+    ;; num_y (tap-hold-next-release 200 (around @off_num y) @hyp)
+    ;; num_semi (around @off_num ;)
+    ;;
+    ;; num_g (around @off_num g)
+    ;; num_m (around @off_num m)
+    ;; num_n (tap-hold-next-release 200 (around @off_num n) lsft)
+    ;; num_e (tap-hold-next-release 200 (around @off_num e) lmet)
+    ;; num_i (tap-hold-next-release 200 (around @off_num i) lalt)
+    ;; num_o (tap-hold-next-release 200 (around @off_num o) lctl)
+    ;; num_quote (around @off_num ')
+    ;;
+    ;; num_z (around @off_num z)
+    ;; num_v (around @off_num v)
+    ;; num_k (around @off_num k)
+    ;; num_h (around @off_num h)
+    ;; num_comma (around @off_num ,)
+    ;; num_dot (around @off_num .)
+    ;; num_slash (around @off_num /)
 )
 
 ;; first defined layer is always the default layer
@@ -226,44 +249,45 @@
   grv      1        2        3        4        5        6        7        8        9        0        -        =        bspc
   tab      q        @hyp_w   @meh_f   p        b        j        l        @meh_u   @hyp_y   ;        [        ]        \
   bspc     @ctl_a   @alt_r   @met_s   @sft_t   g        m        @sft_n   @met_e   @alt_i   @ctl_o   '        ret
-  @to_warp z        x        c        d        v        k        h        ,        .        /        rmet     up
-  @on_nav  rmet     @at_bspc esc               @spc_nav          @s_s     ret      rmet     down     rght
+  esc      z        x        @c_nav   d        v        k        h        ,        .        /        rmet     up
+  rmet     @to_warp @at_bspc @ret_s_spc        @spc_spc          @s_s     rmet     left     down     rght
 )
-;; (deflayer base
-;;   esc      brdn     brup     C-up     M-spc    C-f5     A-f6     prev     pp       next     mute     vold     volu
-;;   XX       XX       q        @hyp_w   @meh_f   p        b        j        l        @meh_u   @hyp_y   ;        XX       XX
-;;   XX       @ctl_a   @alt_r   @met_s   @sft_t   g        XX       m        @sft_n   @met_e   @alt_i   @ctl_o   '        XX
-;;   XX       z        x        c        d        v        XX       k        h        ,        .        /        XX
-;;   XX       XX       XX       @esc_med @spc_nav @tab_warp @ret_sym @bspc_num @del_fun XX      XX       XX      XX
-;;   XX       XX       XX       XX                rmet              XX       XX       XX       XX       XX
-;; )
 
-(deflayer nav_simple
-  XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX      
-  XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX      
-  XX          XX          @hyp        @meh        XX          XX          home        pgdn        pgup        end         XX          XX          XX          XX      
-  XX          lctl        lalt        lmet        lsft        XX          left        down        up          rght        XX          XX          XX      
-  XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX      
-  XX          XX          XX          XX                      XX                      XX          XX          XX          XX          XX      
+(deflayer space
+  _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
+  S-grv    S-1      S-2      S-3      S-4      S-5      S-6      S-7      S-8      S-9      S-0      S--      S-=      del
+  [        ]        @hyp_7   @meh_8   9        _        home     pgdn   @meh_pgup @hyp_end  S-;      S-[      S-]      S-\
+  9        @ctl_0   @alt_4   @met_5   @sft_6   _        left @sft_down @met_up @alt_right @ctl_bslash S-'     S-ret
+  del      grv      1        2        3        _        =        -        S-,      S-.      S-/      _        _
+  _        _        _        _                 @spc_spc          lsft     _        _        _        _
 )
 
 (deflayer nav
-  @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav
-  @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav
-  @nav_tab    @nav_q      @nav_w      @nav_f      @nav_p      @nav_b      @nav_home   pgdn        pgup        @nav_end    @nav_semi   @off_nav    @off_nav    @off_nav
-  @nav_bspc   @nav_a      @nav_r      @nav_s      @nav_t      @nav_g      left        down        up          rght        @nav_o      @nav_quote  @off_nav
-  @off_nav    @nav_z      @nav_x      @nav_c      @nav_d      @nav_v      @nav_k      @nav_h      @nav_comma  @nav_dot    @nav_slash  @off_nav    @off_nav
-  @off_nav    @off_nav    @off_nav    @nav_esc                @nav_spc                @off_nav    @nav_ret    @off_nav    @off_nav    @off_nav
+  XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX
+  XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX
+  XX          XX          @hyp        @meh        XX          XX          home        pgdn        pgup        end         XX          XX          XX          XX
+  XX          lctl        lalt        lmet        lsft        XX          left        down        up          rght        XX          XX          XX
+  XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX
+  XX          XX          XX          XX                      XX                      XX          XX          XX          XX          XX
 )
-
-(deflayer num
-  @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num
-  @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num
-  @nav_tab    @nav_q      7           8           9           @nav_b      @nav_home   pgdn        pgup        @nav_end    @nav_semi   @off_num    @off_num    @off_num
-  @nav_bspc   0           4           5           6           @nav_g      left        down        up          rght        @nav_o      @nav_quote  @off_num
-  @off_num    @nav_z      1           2           3           @nav_v      @nav_k      @nav_h      @nav_comma  @nav_dot    @nav_slash  @off_num    @off_num
-  @off_num    @off_num    @off_num    @nav_esc                @nav_spc                @off_num    @nav_ret    @off_num    @off_num    @off_num
-)
+;;
+;; (deflayer nav
+;;   @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav
+;;   @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav
+;;   @nav_tab    @nav_q      @nav_w      @nav_f      @nav_p      @nav_b      @nav_home   pgdn        pgup        @nav_end    @nav_semi   @off_nav    @off_nav    @off_nav
+;;   @nav_bspc   @nav_a      @nav_r      @nav_s      @nav_t      @nav_g      left        down        up          rght        @nav_o      @nav_quote  @off_nav
+;;   @off_nav    @nav_z      @nav_x      @nav_c      @nav_d      @nav_v      @nav_k      @nav_h      @nav_comma  @nav_dot    @nav_slash  @off_nav    @off_nav
+;;   @off_nav    @off_nav    @off_nav    @nav_esc                @nav_spc                @off_nav    @nav_ret    @off_nav    @off_nav    @off_nav
+;; )
+;;
+;; (deflayer num
+;;   @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num
+;;   @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num
+;;   @nav_tab    @nav_q      7           8           9           @nav_b      @nav_home   pgdn        pgup        @nav_end    @nav_semi   @off_num    @off_num    @off_num
+;;   @nav_bspc   0           4           5           6           @nav_g      left        down        up          rght        @nav_o      @nav_quote  @off_num
+;;   @off_num    @nav_z      1           2           3           @nav_v      @nav_k      @nav_h      @nav_comma  @nav_dot    @nav_slash  @off_num    @off_num
+;;   @off_num    @off_num    @off_num    @nav_esc                @nav_spc                @off_num    @nav_ret    @off_num    @off_num    @off_num
+;; )
 ;; (deflayer num
 ;;   XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
 ;;   XX       XX       [        7        8        9        ]        XX       XX       @meh     @hyp     XX       XX       XX
@@ -277,9 +301,9 @@
   XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
   XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
   XX       _        _        _        _        _        _        _        _        _        _        XX       XX       XX
-  XX       _        _        _        _        _        _        n        e        i        _        XX       XX
+  spc      _        _        _        _        _        _        n        e        i        _        XX       XX
   @warp_esc _       _        _        _        _        _        _        _        _        _        _        XX
-  XX       XX       XX       @warp_esc         spc               kprt     bspc     del      XX       XX
+  XX      @warp_esc XX       _                 bspc              kprt     del      XX       XX       XX
 )
 
 (deflayer alt_tab
@@ -287,8 +311,8 @@
   @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off
   @at_off  q        w        f        @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  left     rght     @at_off  @at_off
   @at_esc  @at_off  @at_off  s        @at_off  @at_off  left     down     up       rght     left     rght     @at_off
-  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off
-  @at_off  @at_off  right    @at_esc           @at_off           left     right    @at_off  @at_off  @at_off
+  @at_esc  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off
+  @at_off  @at_off  right    @at_off           @at_off           left     @at_off  @at_off  @at_off  @at_off
 )
 
 ;; (deflayer media
