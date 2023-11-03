@@ -129,8 +129,8 @@
     hyp_7 (tap-hold-next-release 200 7 @hyp)
     meh_8 (tap-hold-next-release 200 8 @meh)
 
-    meh_pgup (tap-hold-next-release 200 pgup @meh)
-    hyp_end (tap-hold-next-release 200 end @hyp)
+    meh_lbrc (tap-hold-next-release 200 S-[ @meh)
+    hyp_rbrc (tap-hold-next-release 200 S-] @hyp)
 
     ;; -------------------------------------------------- 
     ;; layer-tap
@@ -248,17 +248,17 @@
   esc      brdn     brup     C-up     M-spc    C-f5     A-f6     prev     pp       next     mute     vold     volu
   grv      1        2        3        4        5        6        7        8        9        0        -        =        bspc
   tab      q        @hyp_w   @meh_f   p        b        j        l        @meh_u   @hyp_y   ;        [        ]        \
-  bspc     @ctl_a   @alt_r   @met_s   @sft_t   g        m        @sft_n   @met_e   @alt_i   @ctl_o   '        ret
+  bspc     @ctl_a   @alt_r   @met_s   @sft_t   g        m        @sft_n   @met_e   @alt_i   @ctl_o   '        @at_bspc
   esc      z        x        @c_nav   d        v        k        h        ,        .        /        rmet     up
-  rmet     @to_warp @at_bspc @ret_s_spc        @spc_spc          @s_s     rmet     left     down     rght
+  rmet     @to_warp @at_bspc @ret_s_spc        @spc_spc          @s_s     f19      left     down     rght
 )
 
 (deflayer space
   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
-  S-grv    S-1      S-2      S-3      S-4      S-5      S-6      S-7      S-8      S-9      S-0      S--      S-=      del
-  [        ]        @hyp_7   @meh_8   9        _        home     pgdn   @meh_pgup @hyp_end  S-;      S-[      S-]      S-\
-  9        @ctl_0   @alt_4   @met_5   @sft_6   _        left @sft_down @met_up @alt_right @ctl_bslash S-'     S-ret
-  del      grv      1        2        3        _        =        -        S-,      S-.      S-/      _        _
+  _        _        _        _        _        _        _        _        _        S-9      S-0      _        _        _
+  _        grv      @hyp_7   @meh_8   9        home     end      [     @meh_lbrc @hyp_rbrc  ]        _        _        _
+  del      @ctl_0   @alt_4   @met_5   @sft_6   pgup     left @sft_down @met_up @alt_right   lctl     _        _
+  _        _        1        2        3        pgdn     =        -        S-,      S-.      \        _        _
   _        _        _        _                 @spc_spc          lsft     _        _        _        _
 )
 
@@ -309,8 +309,8 @@
 (deflayer alt_tab
   @at_esc  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off
   @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off
-  @at_off  q        w        f        @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  left     rght     @at_off  @at_off
-  @at_esc  @at_off  @at_off  s        @at_off  @at_off  left     down     up       rght     left     rght     @at_off
+  @at_off  q        w        f        @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off
+  @at_esc  @at_off  @at_off  s        @at_off  @at_off  left     down     up       rght     left     left     right  
   @at_esc  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off
   @at_off  @at_off  right    @at_off           @at_off           left     @at_off  @at_off  @at_off  @at_off
 )
