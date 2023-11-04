@@ -124,15 +124,15 @@
     meh_lbrc (tap-hold-next-release 200 S-[ @meh)
     hyp_rbrc (tap-hold-next-release 200 S-] @hyp)
 )
+;; (deflayer space
+;;   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
+;;   _        _        _        _        _        _        _        _        _        S-9      S-0      _        _        _
+;;   _        grv      @hyp_7   @meh_8   9        home     end      [     @meh_lbrc @hyp_rbrc  ]        _        _        _
+;;   del      @ctl_0   @alt_4   @met_5   @sft_6   pgup     left @sft_down @met_up @alt_right   lctl     _        _
+;;   _        _        1        2        3        pgdn     =        -        S-,      S-.      \        _        _
+;;   _        _        _        @s_s_spc          @spc_spc          @s_s_spc _        _        _        _
+;; )
 (deflayer space
-  _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
-  _        _        _        _        _        _        _        _        _        S-9      S-0      _        _        _
-  _        grv      @hyp_7   @meh_8   9        home     end      [     @meh_lbrc @hyp_rbrc  ]        _        _        _
-  del      @ctl_0   @alt_4   @met_5   @sft_6   pgup     left @sft_down @met_up @alt_right   lctl     _        _
-  _        _        1        2        3        pgdn     =        -        S-,      S-.      \        _        _
-  _        _        _        @s_s_spc          @spc_spc          @s_s_spc _        _        _        _
-)
-(deflayer space_new
   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
   _        !        @        #        $        %        ^        &        *        S-9      S-0      _        _        _
   ~        grv      @hyp_7   @meh_8   9        _        _        [     @meh_lbrc @hyp_rbrc  ]        home     end      _
