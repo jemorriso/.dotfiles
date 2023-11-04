@@ -86,17 +86,15 @@
     ;; raycast
     ;; ray (around lalt spc)
 )
-
 ;; first defined layer is always the default layer
 (deflayer base
   _        brdn     brup     C-up     M-spc    C-f5     A-f6     prev     pp       next     mute     vold     volu
-  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
-  tab      q        @hyp_w   @meh_f   p        b        j        l        @meh_u   @hyp_y   ;        @on_num  _        _        
-  bspc     @ctl_a   @alt_r   @met_s   @sft_t   g        m        @sft_n   @met_e   @alt_i   @ctl_o   '        @at_bspc
-  esc      z        x        @c_nav   d        v        k        h        ,        .        /        _        _        
-  @s_spc   @to_warp @at_bspc @ret_s_spc        @spc_spc          @s_s     f19      _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _
+  tab      q        @hyp_w   @meh_f   p        b        j        l        @meh_u   @hyp_y   ;        @s_spc   @on_num  _
+  bspc     @ctl_a   @alt_r   @met_s   @sft_t   g        m        @sft_n   @met_e   @alt_i   @ctl_o   '        _
+  esc      z        x        @c_nav   d        v        k        h        ,        .        /        _        _
+  _        @to_warp @at_bspc @ret_s_spc        @spc_spc          @s_s     f19      _        _        _
 )
-
 ;; this layer is needed for sticky keys to work on any mod-tap keys
 (deflayer colemak
   _        _        _        _        _        _        _        _        _        _        _        _        _
@@ -118,7 +116,7 @@
     sft_down (tap-hold-next-release 200 down lsft)
     met_up (tap-hold-next-release 200 up lmet)
     alt_right (tap-hold-next-release 200 right lalt)
-    ctl_bslash (tap-hold-next-release 200 \ lctl)
+    ctl_pipe (tap-hold-next-release 200 | lctl)
 
     hyp_7 (tap-hold-next-release 200 7 @hyp)
     meh_8 (tap-hold-next-release 200 8 @meh)
@@ -132,17 +130,24 @@
   _        grv      @hyp_7   @meh_8   9        home     end      [     @meh_lbrc @hyp_rbrc  ]        _        _        _
   del      @ctl_0   @alt_4   @met_5   @sft_6   pgup     left @sft_down @met_up @alt_right   lctl     _        _
   _        _        1        2        3        pgdn     =        -        S-,      S-.      \        _        _
-  _        _        _        _                 @spc_spc          @s_s_spc _        _        _        _
+  _        _        _        @s_s_spc          @spc_spc          @s_s_spc _        _        _        _
 )
-
+(deflayer space_new
+  _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
+  _        !        @        #        $        %        ^        &        *        S-9      S-0      _        _        _
+  ~        grv      @hyp_7   @meh_8   9        _        _        [     @meh_lbrc @hyp_rbrc  ]        home     end      _
+  del      @ctl_0   @alt_4   @met_5   @sft_6   =        left @sft_down @met_up @alt_right @ctl_pipe  pgdn     pgup
+  _        _        1        2        3        +        S--      -        S-,      S-.      \        _        _
+  _        _        _        @s_s_spc          @spc_spc          @s_s_spc _        _        _        _
+)
 ;; this layer is needed for sticky keys to work on any mod-tap keys
 (deflayer sticky_space
   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
-  _        _        _        _        _        _        _        _        _        S-9      S-0      _        _        _
-  _        grv      7        8        9        home     end      [        S-[      S-]      ]        _        _        _
-  del      0        4        5        6        pgup     left     down     up       right    lctl     _        _
-  _        _        1        2        3        pgdn     =        -        S-,      S-.      \        _        _
-  _        _        _        _                 @spc_spc          @s_s_spc _        _        _        _
+  _        !        @        #        $        %        ^        &        *        S-9      S-0      _        _        _
+  ~        grv      7        8        9        _        _        [        S-[      S-]      ]        home     end      _
+  del      0        4        5        6        =        left     down     up       right    |        pgdn     pgup
+  _        _        1        2        3        +        S--      -        S-,      S-.      \        _        _
+  _        _        _        @s_s_spc          @spc_spc          @s_s_spc _        _        _        _
 )
 
 (deflayer nav
@@ -211,8 +216,19 @@
     num_left (around @off_num left)
     num_right (around @off_num right)
 
+    num_excl (around @off_num !)
+    num_at (around @off_num @)
+    num_hash (around @off_num #)
+    num_dllr (around @off_num $)
+    num_perc (around @off_num %)
+    num_caret (around @off_num ^)
+    num_ampr (around @off_num &)
+    num_star (around @off_num *)
+
+    num_tild (around @off_num ~)
     num_grv (around @off_num grv)
     num_bslash (around @off_num \\)
+    num_pipe (around @off_num |)
 )
 (deflayer smart_num
   @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num
@@ -223,11 +239,11 @@
   @off_num    @off_num    @off_num    @num_ret                @num_spc                @dumb_s_s   @off_num    @off_num    @off_num    @off_num
 )
 (deflayer smart_num_space
-  _        _        _        _        _        _        _        _        _        _        _        _        _        
-  _        _        _        _        _        _        _        _        _        S-9      S-0      _        _        _
-  _        @num_grv _        _        _       @num_home @num_end [        S-[      S-]      ]        _        _        _
-  del      _        _        _        _    @num_pgup @num_left @num_down @num_up @num_right lctl     _        _
-  _        _        _        _        _       @num_pgdn =        -        S-,      S-.   @num_bslash _        _
+  _        _        _        _        _        _        _        _        _        _        _        _        _
+  _ @num_excl @num_at @num_hash @num_dllr @num_perc @num_caret @num_ampr @num_star S-9      S-0      _        _        _
+  @num_tild @num_grv _       _        _        _        _        [        S-[      S-]      ]       @num_home @num_end _
+  del      _        _        _        _        =   @num_left @num_down @num_up @num_right @num_pipe @num_pgup @num_pgdn
+  _        _        _        _        _        +        S--      -        S-,      S-.   @num_bslash _        _
   _        _        _        _                 _                 _        _        _        _        _
 )
 
