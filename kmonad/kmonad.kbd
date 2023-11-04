@@ -21,7 +21,9 @@
     ;; -------------------------------------------------- 
     ;; lt_bas (layer-toggle base)
     lt_spc (layer-toggle space)
+    lt_s_spc (layer-toggle sticky_space)
     lt_nav (layer-toggle nav)
+    lt_sn_spc (layer-toggle smart_num_space)
     ;; lt_num (layer-toggle num)
     ;; lt_med (layer-toggle media)
     ;; lt_sym (layer-toggle sym)
@@ -31,8 +33,8 @@
 
     ;; on_nav (layer-add nav)
     ;; off_nav (layer-rem nav)
-    ;; on_num (layer-add num)
-    ;; off_num (layer-rem num)
+    on_num (layer-add smart_num)
+    off_num (layer-rem smart_num)
 
     on_warp (layer-add warp)
     off_warp (layer-rem warp)
@@ -45,8 +47,18 @@
     at_esc (around @off_alt_tab esc)
     at_off (around @off_alt_tab spc)
 
+    s_spc (sticky-key 500 @lt_s_spc)
+    s_s_spc (sticky-key 500 (around lsft @lt_s_spc))
+    sn_s_spc (sticky-key 500 @lt_sn_spc)
+
+    ;; used by smart_num as that layer does not have sticky keys, and we want shift to operate directly on the smart_num layer
+    dumb_s_s (sticky-key 500 lsft)
+
+    ;; s_spc (around-next-timeout 500 @lt_spc XX)
+    
     ;; -------------------------------------------------- 
-    ;; define colemak mods for sticky keys
+    ;; define colemak mods for sticky keys - sticky keys do no work with mod-tap
+    ;; if don't use colemak layer, then sticky shift on @ctl_a does not produce 'A'
     ;; -------------------------------------------------- 
     c_a (around lalt @lt_col)
     c_c (around lctl @lt_col)
@@ -113,24 +125,6 @@
     meh_u (tap-hold 200 u @meh)
     hyp_y (tap-hold 200 y @hyp)
 
-    ;; -------------------------------------------------- 
-    ;; home-row mods / mod-tap for space layer
-    ;; -------------------------------------------------- 
-    ctl_0 (tap-hold-next-release 200 0 lctl)
-    alt_4 (tap-hold-next-release 200 4 lalt)
-    met_5 (tap-hold-next-release 200 5 lmet)
-    sft_6 (tap-hold-next-release 200 6 lsft)
-
-    sft_down (tap-hold-next-release 200 down lsft)
-    met_up (tap-hold-next-release 200 up lmet)
-    alt_right (tap-hold-next-release 200 right lalt)
-    ctl_bslash (tap-hold-next-release 200 \ lctl)
-
-    hyp_7 (tap-hold-next-release 200 7 @hyp)
-    meh_8 (tap-hold-next-release 200 8 @meh)
-
-    meh_lbrc (tap-hold-next-release 200 S-[ @meh)
-    hyp_rbrc (tap-hold-next-release 200 S-] @hyp)
 
     ;; -------------------------------------------------- 
     ;; layer-tap
@@ -160,106 +154,65 @@
 
     ;; raycast
     ;; ray (around lalt spc)
-
-    ;; -------------------------------------------------- 
-    ;; smart layer aliases
-    ;; -------------------------------------------------- 
-    ;; -------------------------------------------------- 
-    ;; nav
-    ;; -------------------------------------------------- 
-    ;; nav_esc (around @off_nav esc)
-    ;; nav_tab (around @off_nav tab)
-    ;; nav_bspc (around @off_nav bspc)
-    ;; nav_spc (around @off_nav spc)
-    ;; nav_ret (around @off_nav ret)
-    ;;
-    ;; nav_home (around @off_nav home)
-    ;; nav_end (around @off_nav end)
-    ;;
-    ;; nav_q (around @off_nav q)
-    ;; nav_w (tap-hold-next-release 200 (around @off_nav w) @hyp)
-    ;; nav_f (tap-hold-next-release 200 (around @off_nav f) @meh)
-    ;; nav_p (around @off_nav p)
-    ;; nav_b (around @off_nav b)
-    ;; ;; nav_j (around @off_nav j)
-    ;; ;; nav_l (around @off_nav l)
-    ;; nav_semi (around @off_nav ;)
-    ;;
-    ;; nav_a (tap-hold-next-release 200 (around @off_nav a) lctl)
-    ;; nav_r (tap-hold-next-release 200 (around @off_nav r) lalt)
-    ;; nav_s (tap-hold-next-release 200 (around @off_nav s) lmet)
-    ;; nav_t (tap-hold-next-release 200 (around @off_nav t) lsft)
-    ;; nav_g (around @off_nav g)
-    ;; ;; nav_m (around @off_nav m)
-    ;; ;; nav_n (tap-hold 200 (around @off_nav t) lsft)
-    ;; ;; nav_s (tap-hold 200 (around @off_nav s) lmet)
-    ;; ;; nav_r (tap-hold 200 (around @off_nav a) lalt)
-    ;; ;; nav_a (tap-hold 200 (around @off_nav a) lctl)
-    ;; nav_o (around @off_nav o)
-    ;; nav_quote (around @off_nav ')
-    ;;
-    ;; nav_z (around @off_nav z)
-    ;; nav_x (around @off_nav x)
-    ;; nav_c (around @off_nav c)
-    ;; nav_d (around @off_nav d)
-    ;; nav_v (around @off_nav v)
-    ;; nav_k (around @off_nav k)
-    ;; nav_h (around @off_nav h)
-    ;; nav_comma (around @off_nav ,)
-    ;; nav_dot (around @off_nav .)
-    ;; nav_slash (around @off_nav /)
-    ;;
-    ;; ;; -------------------------------------------------- 
-    ;; ;; num
-    ;; ;; -------------------------------------------------- 
-    ;; num_esc (around @off_num esc)
-    ;; num_tab (around @off_num tab)
-    ;; num_bspc (around @off_num bspc)
-    ;; num_spc (around @off_num spc)
-    ;; num_ret (around @off_num ret)
-    ;;
-    ;; num_q (around @off_num q)
-    ;; num_b (around @off_num b)
-    ;; num_j (around @off_num j)
-    ;; num_l (around @off_num l)
-    ;; num_u (tap-hold-next-release 200 (around @off_num u) @meh)
-    ;; num_y (tap-hold-next-release 200 (around @off_num y) @hyp)
-    ;; num_semi (around @off_num ;)
-    ;;
-    ;; num_g (around @off_num g)
-    ;; num_m (around @off_num m)
-    ;; num_n (tap-hold-next-release 200 (around @off_num n) lsft)
-    ;; num_e (tap-hold-next-release 200 (around @off_num e) lmet)
-    ;; num_i (tap-hold-next-release 200 (around @off_num i) lalt)
-    ;; num_o (tap-hold-next-release 200 (around @off_num o) lctl)
-    ;; num_quote (around @off_num ')
-    ;;
-    ;; num_z (around @off_num z)
-    ;; num_v (around @off_num v)
-    ;; num_k (around @off_num k)
-    ;; num_h (around @off_num h)
-    ;; num_comma (around @off_num ,)
-    ;; num_dot (around @off_num .)
-    ;; num_slash (around @off_num /)
 )
 
 ;; first defined layer is always the default layer
 (deflayer base
-  esc      brdn     brup     C-up     M-spc    C-f5     A-f6     prev     pp       next     mute     vold     volu
-  grv      1        2        3        4        5        6        7        8        9        0        -        =        bspc
-  tab      q        @hyp_w   @meh_f   p        b        j        l        @meh_u   @hyp_y   ;        [        ]        \
+  _        brdn     brup     C-up     M-spc    C-f5     A-f6     prev     pp       next     mute     vold     volu
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  tab      q        @hyp_w   @meh_f   p        b        j        l        @meh_u   @hyp_y   ;        @on_num  _        _        
   bspc     @ctl_a   @alt_r   @met_s   @sft_t   g        m        @sft_n   @met_e   @alt_i   @ctl_o   '        @at_bspc
-  esc      z        x        @c_nav   d        v        k        h        ,        .        /        rmet     up
-  rmet     @to_warp @at_bspc @ret_s_spc        @spc_spc          @s_s     f19      left     down     rght
+  esc      z        x        @c_nav   d        v        k        h        ,        .        /        _        _        
+  @s_spc   @to_warp @at_bspc @ret_s_spc        @spc_spc          @s_s     f19      _        _        _        
 )
 
+;; this layer is needed for sticky keys to work on any mod-tap keys
+(deflayer colemak
+  _        _        _        _        _        _        _        _        _        _        _        _        _
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _
+  _        q        w        f        p        b        j        l        u        y        ;        _        _        _
+  _        a        r        s        t        g        m        n        e        i        o        '        _
+  _        z        x        c        d        v        k        h        ,        .        /        _        _
+  _        _        _        _                 _                 _        _        _        _        _
+)
+
+(defalias
+    ;; -------------------------------------------------- 
+    ;; home-row mods / mod-tap for space layer
+    ;; -------------------------------------------------- 
+    ctl_0 (tap-hold-next-release 200 0 lctl)
+    alt_4 (tap-hold-next-release 200 4 lalt)
+    met_5 (tap-hold-next-release 200 5 lmet)
+    sft_6 (tap-hold-next-release 200 6 lsft)
+
+    sft_down (tap-hold-next-release 200 down lsft)
+    met_up (tap-hold-next-release 200 up lmet)
+    alt_right (tap-hold-next-release 200 right lalt)
+    ctl_bslash (tap-hold-next-release 200 \ lctl)
+
+    hyp_7 (tap-hold-next-release 200 7 @hyp)
+    meh_8 (tap-hold-next-release 200 8 @meh)
+
+    meh_lbrc (tap-hold-next-release 200 S-[ @meh)
+    hyp_rbrc (tap-hold-next-release 200 S-] @hyp)
+)
 (deflayer space
   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
   _        _        _        _        _        _        _        _        _        S-9      S-0      _        _        _
   _        grv      @hyp_7   @meh_8   9        home     end      [     @meh_lbrc @hyp_rbrc  ]        _        _        _
   del      @ctl_0   @alt_4   @met_5   @sft_6   pgup     left @sft_down @met_up @alt_right   lctl     _        _
   _        _        1        2        3        pgdn     =        -        S-,      S-.      \        _        _
-  _        _        _        _                 @spc_spc          lsft     _        _        _        _
+  _        _        _        _                 @spc_spc          @s_s_spc _        _        _        _
+)
+
+;; this layer is needed for sticky keys to work on any mod-tap keys
+(deflayer sticky_space
+  _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
+  _        _        _        _        _        _        _        _        _        S-9      S-0      _        _        _
+  _        grv      7        8        9        home     end      [        S-[      S-]      ]        _        _        _
+  del      0        4        5        6        pgup     left     down     up       right    lctl     _        _
+  _        _        1        2        3        pgdn     =        -        S-,      S-.      \        _        _
+  _        _        _        _                 @spc_spc          @s_s_spc _        _        _        _
 )
 
 (deflayer nav
@@ -270,7 +223,7 @@
   XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX
   XX          XX          XX          XX                      XX                      XX          XX          XX          XX          XX
 )
-;;
+
 ;; (deflayer nav
 ;;   @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav
 ;;   @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav
@@ -279,23 +232,66 @@
 ;;   @off_nav    @nav_z      @nav_x      @nav_c      @nav_d      @nav_v      @nav_k      @nav_h      @nav_comma  @nav_dot    @nav_slash  @off_nav    @off_nav
 ;;   @off_nav    @off_nav    @off_nav    @nav_esc                @nav_spc                @off_nav    @nav_ret    @off_nav    @off_nav    @off_nav
 ;; )
-;;
-;; (deflayer num
-;;   @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num
-;;   @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num
-;;   @nav_tab    @nav_q      7           8           9           @nav_b      @nav_home   pgdn        pgup        @nav_end    @nav_semi   @off_num    @off_num    @off_num
-;;   @nav_bspc   0           4           5           6           @nav_g      left        down        up          rght        @nav_o      @nav_quote  @off_num
-;;   @off_num    @nav_z      1           2           3           @nav_v      @nav_k      @nav_h      @nav_comma  @nav_dot    @nav_slash  @off_num    @off_num
-;;   @off_num    @off_num    @off_num    @nav_esc                @nav_spc                @off_num    @nav_ret    @off_num    @off_num    @off_num
-;; )
-;; (deflayer num
-;;   XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-;;   XX       XX       [        7        8        9        ]        XX       XX       @meh     @hyp     XX       XX       XX
-;;   XX       '        4        5        6        =        XX       XX       lsft     lmet     lalt     lctl     XX       XX
-;;   XX       `        1        2        3        \        XX       XX       XX       XX       XX       XX       XX
-;;   XX       XX       XX       .        0        -        _        _        _        XX       XX       XX       XX
-;;   XX       XX       XX       XX                XX                XX       XX       XX       XX       XX
-;; )
+
+(defalias
+    num_esc (around @off_num esc)
+    num_tab (around @off_num tab)
+    ;; num_bspc (around @off_num bspc)
+    num_spc (tap-hold-next-release 200 (around @off_num spc) @lt_sn_spc)
+    num_ret (around @off_num ret)
+
+    num_q (around @off_num q)
+    num_b (around @off_num b)
+    num_j (around @off_num j)
+    num_l (around @off_num l)
+    num_u (tap-hold-next-release 200 (around @off_num u) @meh)
+    num_y (tap-hold-next-release 200 (around @off_num y) @hyp)
+    ;; num_semi (around @off_num ;)
+
+    num_g (around @off_num g)
+    num_m (around @off_num m)
+    num_n (tap-hold-next-release 200 (around @off_num n) lsft)
+    num_e (tap-hold-next-release 200 (around @off_num e) lmet)
+    num_i (tap-hold-next-release 200 (around @off_num i) lalt)
+    num_o (tap-hold-next-release 200 (around @off_num o) lctl)
+    num_quote (around @off_num ')
+
+    num_z (around @off_num z)
+    num_v (around @off_num v)
+    num_k (around @off_num k)
+    num_h (around @off_num h)
+    ;; num_comma (around @off_num ,)
+    ;; num_dot (around @off_num .)
+    ;; num_slash (around @off_num /)
+
+    num_home (around @off_num home)
+    num_end (around @off_num end)
+    num_pgup (around @off_num pgup)
+    num_pgdn (around @off_num pgdn)
+    num_down (around @off_num down)
+    num_up (around @off_num up)
+    num_left (around @off_num left)
+    num_right (around @off_num right)
+
+    num_grv (around @off_num grv)
+    num_bslash (around @off_num \)
+)
+(deflayer smart_num
+  @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num
+  @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num
+  @num_tab    @num_q      7           8           9           @num_b      @num_j      @num_l      @num_u      @num_y      ;           @off_num    @off_num    @off_num
+  bspc        0           4           5           6           @num_g      @num_m      @num_n      @num_e      @num_i      @num_o      @num_quote  @off_num
+  @num_esc    @num_z      1           2           3           @num_v      @num_k      @num_h      ,           .           /           @off_num    @off_num
+  @off_num    @off_num    @off_num    @num_ret                @num_spc                @dumb_s_s   @off_num    @off_num    @off_num    @off_num
+)
+(deflayer smart_num_space
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        S-9      S-0      _        _        _
+  _        @num_grv _        _        _       @num_home @num_end [        S-[      S-]      ]        _        _        _
+  del      _        _        _        _    @num_pgup @num_left @num_down @num_up @num_right lctl     _        _
+  _        _        _        _        _       @num_pgdn =        -        S-,      S-.   @num_bslash _        _
+  _        _        _        _                 _                 _        _        _        _        _
+)
 
 (deflayer warp
   XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
@@ -315,43 +311,6 @@
   @at_off  @at_off  right    @at_off           @at_off           left     @at_off  @at_off  @at_off  @at_off
 )
 
-;; (deflayer media
-;;   XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-;;   XX       XX       XX       @hyp     @meh     XX       XX       _        _        _        _        _        XX       XX
-;;   XX       lctl     lalt     lmet     lsft     XX       XX       prev     vold     volu     next     _        XX       XX
-;;   XX       _        XX       XX       XX       XX       XX       _        _        _        _        _        XX
-;;   XX       XX       XX       _        _        _        _        pp       mute     XX       XX       XX       XX
-;;   XX       XX       XX       XX                XX                XX       XX       XX       XX       XX
-;; )
-
-;; (deflayer sym
-;;   XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-;;   XX       XX       S-[      S-7      S-8      S-9      S-]      XX       XX       @meh     @hyp     XX       XX       XX
-;;   XX       S-'      S-4      S-5      S-6      S-=      XX       XX       lsft     lmet     lalt     lctl     XX       XX
-;;   XX       S-`      S-1      S-2      S-3      S-\      XX       XX       XX       XX       XX       XX       XX
-;;   XX       XX       XX       S-9      S-0      S--      _        _        _        XX       XX       XX       XX
-;;   XX       XX       XX       XX                XX                XX       XX       XX       XX       XX
-;; )
-
-;; (deflayer fun
-;;   XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-;;   XX       XX       f12      f7       f8       f9       _        XX       XX       @meh     @hyp     XX       XX       XX
-;;   f4       f5       f6       _        XX       XX       XX       XX       lsft     lmet     lalt     lctl     XX       XX
-;;   XX       f10      f1       f2       f3       _        XX       XX       XX       XX       XX       XX       XX
-;;   XX       XX       XX       _        _        _        _        _        _        XX       XX       XX       XX
-;;   XX       XX       XX       XX                XX                XX       XX       XX       XX       XX
-;; )
-
-(deflayer colemak
-  _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        q        w        f        p        b        j        l        u        y        ;        _        _        _
-  _        a        r        s        t        g        m        n        e        i        o        '        _
-  _        z        x        c        d        v        k        h        ,        .        /        _        _
-  _        _        _        _                 _                 _        _        _        _        _
-)
-
-;;
 ;; (deflayer oneshot
 ;;   XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
 ;;   XX       XX       @s_ac    @s_hyp   @s_meh   @s_cm    @s_acm   @s_acm   @s_cm    @s_meh   @s_hyp   @s_ac    XX       XX
