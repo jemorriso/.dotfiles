@@ -19,84 +19,24 @@
     ;; -------------------------------------------------- 
     ;; define layer toggles and sticky layers
     ;; -------------------------------------------------- 
-    ;; lt_bas (layer-toggle base)
     lt_spc (layer-toggle space)
     lt_s_spc (layer-toggle sticky_space)
     lt_nav (layer-toggle nav)
-    lt_sn_spc (layer-toggle smart_num_space)
-    ;; lt_num (layer-toggle num)
-    ;; lt_med (layer-toggle media)
-    ;; lt_sym (layer-toggle sym)
-    ;; lt_fun (layer-toggle fun)
     lt_col (layer-toggle colemak)
-    ;; lt_shot (layer-toggle oneshot)
 
-    ;; on_nav (layer-add nav)
-    ;; off_nav (layer-rem nav)
     on_num (layer-add smart_num)
-    off_num (layer-rem smart_num)
 
     on_warp (layer-add warp)
-    off_warp (layer-rem warp)
     to_warp (around @on_warp (around lmet (around lalt c)))
-    warp_esc (around @off_warp esc)
 
     on_alt_tab (layer-add alt_tab)
-    off_alt_tab (layer-rem alt_tab)
     at_bspc (around @on_alt_tab (around lmet bspc))
-    at_esc (around @off_alt_tab esc)
-    at_off (around @off_alt_tab spc)
 
-    s_spc (sticky-key 500 @lt_s_spc)
-    s_s_spc (sticky-key 500 (around lsft @lt_s_spc))
-    sn_s_spc (sticky-key 500 @lt_sn_spc)
-
-    ;; used by smart_num as that layer does not have sticky keys, and we want shift to operate directly on the smart_num layer
-    dumb_s_s (sticky-key 500 lsft)
-
-    ;; s_spc (around-next-timeout 500 @lt_spc XX)
-    
-    ;; -------------------------------------------------- 
     ;; define colemak mods for sticky keys - sticky keys do no work with mod-tap
     ;; if don't use colemak layer, then sticky shift on @ctl_a does not produce 'A'
-    ;; -------------------------------------------------- 
-    c_a (around lalt @lt_col)
-    c_c (around lctl @lt_col)
-    c_m (around lmet @lt_col)
-    c_s (around lsft @lt_col)
+    s_s (sticky-key 500 (around lsft @lt_col))
 
-    c_ac (around @c_c lalt)
-    c_am (around @c_m lalt)
-    c_as (around @c_s lalt)
-    c_cm (around @c_c lmet)
-    c_cs (around @c_s lctl)
-    c_ms (around @c_s lmet)
-
-    c_acm (around @c_ac lmet)
-    c_ams (around @c_as lmet)
-    c_cms (around @c_cs lmet)
-    c_meh (around @c_cs lalt)
-
-    c_hyp (around @c_meh lmet)
-
-    ;; -------------------------------------------------- 
-    ;; define sticky keys with colemak layer
-    ;; -------------------------------------------------- 
-    s_a (sticky-key 500 @c_a)
-    s_ac (sticky-key 500 @c_ac)
-    s_acm (sticky-key 500 @c_acm)
-    s_am (sticky-key 500 @c_am)
-    s_ams (sticky-key 500 @c_ams)
-    s_as (sticky-key 500 @c_as)
-    s_c (sticky-key 500 @c_c)
-    s_cm (sticky-key 500 @c_cm)
-    s_cms (sticky-key 500 @c_cms)
-    s_cs (sticky-key 500 @c_cs)
-    s_hyp (sticky-key 500 @c_hyp)
-    s_m (sticky-key 500 @c_m)
-    s_meh (sticky-key 500 @c_meh)
-    s_ms (sticky-key 500 @c_ms)
-    s_s (sticky-key 500 @c_s)
+    s_spc (sticky-key 500 @lt_s_spc)
 
     ;; -------------------------------------------------- 
     ;; home-row mods / mod-tap
@@ -110,11 +50,9 @@
     ctl_a (tap-hold 200 a lctl)
     alt_r (tap-hold 200 r lalt)
     met_s (tap-hold 200 s lmet)
-    ;; sft_t (tap-hold 200 t lsft)
-    sft_t (tap-hold-next-release 200 t lsft)
+    sft_t (tap-hold 200 t lsft)
 
-    ;; sft_n (tap-hold 200 n lsft)
-    sft_n (tap-hold-next-release 200 n lsft)
+    sft_n (tap-hold 200 n lsft)
     met_e (tap-hold 200 e lmet)
     alt_i (tap-hold 200 i lalt)
     ctl_o (tap-hold 200 o lctl)
@@ -125,7 +63,6 @@
     meh_u (tap-hold 200 u @meh)
     hyp_y (tap-hold 200 y @hyp)
 
-
     ;; -------------------------------------------------- 
     ;; layer-tap
     ;; -------------------------------------------------- 
@@ -133,12 +70,6 @@
     c_nav (tap-hold-next-release 200 c @lt_nav)
 
     ret_s_spc (tap-hold-next-release 200 ret (around lsft @lt_spc))
-    ;; esc_med (tap-hold-next-release 200 esc @lt_med)
-    ;; tab_warp (tap-hold-next-release 200 tab @to_warp)
-
-    ;; ret_sym (tap-hold-next-release 200 ret @lt_sym)
-    ;; bspc_num (tap-hold-next-release 200 bspc @lt_num)
-    ;; del_fun (tap-hold-next-release 200 del @lt_fun)
 
     ;; -------------------------------------------------- 
     ;; special keys
@@ -177,9 +108,8 @@
 )
 
 (defalias
-    ;; -------------------------------------------------- 
-    ;; home-row mods / mod-tap for space layer
-    ;; -------------------------------------------------- 
+    s_s_spc (sticky-key 500 (around lsft @lt_s_spc))
+
     ctl_0 (tap-hold-next-release 200 0 lctl)
     alt_4 (tap-hold-next-release 200 4 lalt)
     met_5 (tap-hold-next-release 200 5 lmet)
@@ -224,7 +154,7 @@
   XX          XX          XX          XX                      XX                      XX          XX          XX          XX          XX
 )
 
-;; (deflayer nav
+;; (deflayer smart_nav
 ;;   @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav
 ;;   @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav
 ;;   @nav_tab    @nav_q      @nav_w      @nav_f      @nav_p      @nav_b      @nav_home   pgdn        pgup        @nav_end    @nav_semi   @off_nav    @off_nav    @off_nav
@@ -234,6 +164,14 @@
 ;; )
 
 (defalias
+    ;; used by smart_num as that layer does not have sticky keys, and we want shift to operate directly on the smart_num layer
+    dumb_s_s (sticky-key 500 lsft)
+
+    lt_sn_spc (layer-toggle smart_num_space)
+    ;; sn_s_spc (sticky-key 500 @lt_sn_spc)
+
+    off_num (layer-rem smart_num)
+
     num_esc (around @off_num esc)
     num_tab (around @off_num tab)
     ;; num_bspc (around @off_num bspc)
@@ -274,7 +212,7 @@
     num_right (around @off_num right)
 
     num_grv (around @off_num grv)
-    num_bslash (around @off_num \)
+    num_bslash (around @off_num \\)
 )
 (deflayer smart_num
   @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num
@@ -293,6 +231,10 @@
   _        _        _        _                 _                 _        _        _        _        _
 )
 
+(defalias
+    off_warp (layer-rem warp)
+    warp_esc (around @off_warp esc)
+)
 (deflayer warp
   XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
   XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
@@ -302,6 +244,11 @@
   XX      @warp_esc XX       _                 bspc              kprt     del      XX       XX       XX
 )
 
+(defalias
+    off_alt_tab (layer-rem alt_tab)
+    at_esc (around @off_alt_tab esc)
+    at_off (around @off_alt_tab spc)
+)
 (deflayer alt_tab
   @at_esc  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off
   @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off
@@ -311,6 +258,49 @@
   @at_off  @at_off  right    @at_off           @at_off           left     @at_off  @at_off  @at_off  @at_off
 )
 
+;; (defalias
+;;     ;; -------------------------------------------------- 
+;;     ;; define colemak mods for sticky keys - sticky keys do no work with mod-tap
+;;     ;; if don't use colemak layer, then sticky shift on @ctl_a does not produce 'A'
+;;     ;; -------------------------------------------------- 
+;;     c_a (around lalt @lt_col)
+;;     c_c (around lctl @lt_col)
+;;     c_m (around lmet @lt_col)
+;;     c_s (around lsft @lt_col)
+;;
+;;     c_ac (around @c_c lalt)
+;;     c_am (around @c_m lalt)
+;;     c_as (around @c_s lalt)
+;;     c_cm (around @c_c lmet)
+;;     c_cs (around @c_s lctl)
+;;     c_ms (around @c_s lmet)
+;;
+;;     c_acm (around @c_ac lmet)
+;;     c_ams (around @c_as lmet)
+;;     c_cms (around @c_cs lmet)
+;;     c_meh (around @c_cs lalt)
+;;
+;;     c_hyp (around @c_meh lmet)
+;;
+;;     ;; -------------------------------------------------- 
+;;     ;; define sticky keys with colemak layer
+;;     ;; -------------------------------------------------- 
+;;     s_a (sticky-key 500 @c_a)
+;;     s_ac (sticky-key 500 @c_ac)
+;;     s_acm (sticky-key 500 @c_acm)
+;;     s_am (sticky-key 500 @c_am)
+;;     s_ams (sticky-key 500 @c_ams)
+;;     s_as (sticky-key 500 @c_as)
+;;     s_c (sticky-key 500 @c_c)
+;;     s_cm (sticky-key 500 @c_cm)
+;;     s_cms (sticky-key 500 @c_cms)
+;;     s_cs (sticky-key 500 @c_cs)
+;;     s_hyp (sticky-key 500 @c_hyp)
+;;     s_m (sticky-key 500 @c_m)
+;;     s_meh (sticky-key 500 @c_meh)
+;;     s_ms (sticky-key 500 @c_ms)
+;;     s_s (sticky-key 500 @c_s)
+;; )
 ;; (deflayer oneshot
 ;;   XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
 ;;   XX       XX       @s_ac    @s_hyp   @s_meh   @s_cm    @s_acm   @s_acm   @s_cm    @s_meh   @s_hyp   @s_ac    XX       XX
