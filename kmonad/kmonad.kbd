@@ -90,7 +90,7 @@
 (deflayer base
   _        brdn     brup     C-up     M-spc    C-f5     A-f6     prev     pp       next     mute     vold     volu
   _        _        _        _        _        _        _        _        _        _        _        _        _        _
-  tab      q        @hyp_w   @meh_f   p        b        XX       j        l        @meh_u   @hyp_y   '        ;   @on_num
+  tab      q        @hyp_w   @meh_f   p        b        XX       j        l        @meh_u   @hyp_y   ;        '   @on_num
   bspc     @ctl_a   @alt_r   @met_s   @sft_t   g        XX       m        @sft_n   @met_e   @alt_i   @ctl_o   ret
   esc      x        c        d        v        z        /        k        h        ,        .        _        _
   _        @to_warp @at_bspc @ret_s_spc        @spc_spc          @s_s     f19      _        _        _
@@ -99,7 +99,7 @@
 (deflayer colemak
   _        _        _        _        _        _        _        _        _        _        _        _        _
   _        _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        q        w        f        p        b        XX       j        l        u        y        '        ;        _
+  _        q        w        f        p        b        XX       j        l        u        y        ;        '        _
   _        a        r        s        t        g        XX       m        n        e        i        o        ret
   _        x        c        d        v        z        /        k        h        ,        .        _        _
   _        _        _        _                 _                 _        _        _        _        _
@@ -233,7 +233,7 @@
 (deflayer smart_num
   @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num
   @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num
-  @num_tab    @num_q      7           8           9           @num_b      XX          @num_j      @num_l      @num_u      @num_y      @num_quote  ;           @off_num
+  @num_tab    @num_q      7           8           9           @num_b      XX          @num_j      @num_l      @num_u      @num_y      ;           @num_quote  @off_num
   bspc        0           4           5           6           @num_g      XX          @num_m      @num_n      @num_e      @num_i      @num_o      @num_ret
   @num_esc    1           2           3           @num_v      @num_z      /           @num_k      @num_h      ,           .           @off_num    @off_num
   @off_num    @off_num    @off_num    @num_ret                @num_spc                @dumb_s_s   @off_num    @off_num    @off_num    @off_num
