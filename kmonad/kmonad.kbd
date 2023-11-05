@@ -92,7 +92,7 @@
   _        _        _        _        _        _        _        _        _        _        _        _        _        _
   tab      q        @hyp_w   @meh_f   p        b        XX       j        l        @meh_u   @hyp_y   ;        @on_num  _
   bspc     @ctl_a   @alt_r   @met_s   @sft_t   g        XX       m        @sft_n   @met_e   @alt_i   @ctl_o   '
-  esc      x        c        d        v        z        /        k        h        ,        .        _        _
+  esc      x        c        d        v        z        /        k        h        ,        .        f18      _
   _        @to_warp @at_bspc @s_spc            @spc_spc          @s_s     ret      _        _        _
 )
 ;; this layer is needed for sticky keys to work on any mod-tap keys
@@ -240,7 +240,7 @@
 )
 (deflayer smart_num_space
   _        _        _        _        _        _        _        _        _        _        _        _        _
-  _ @num_excl @num_at @num_hash @num_dllr @num_perc     XX   @num_caret @num_ampr  *        S-9      S-0      _        _        _
+  _ @num_excl @num_at @num_hash @num_dllr @num_perc     XX   @num_caret @num_ampr  *        S-9      S-0      _        _
   @num_tild @num_grv _       _        _        _        XX       _        [        S-[      S-]      ]       @num_home @num_end
   del      _        _        _        _        =        XX   @num_left @num_down @num_up @num_right @num_pipe @num_pgup
   _        _        _        _        +        _     @num_bslash S--      -        S-,      S-.     @num_pgdn _

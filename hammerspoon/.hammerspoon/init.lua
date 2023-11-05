@@ -84,3 +84,21 @@ end)
 -- require("window_cycle")
 -- require("app_window_cycle")
 -- require("switcher")
+
+local savedKey = nil
+
+-- Event handler to capture key presses
+local keyDownEvent = hs.eventtap.new({ hs.eventtap.event.types.keyDown }, function(event)
+	if event:getKeyCode() == 79 then -- Check for F18
+		if savedKey then
+			savedKey:post()
+			return true
+		end
+	else
+		savedKey = event:copy()
+		-- hs.printf("Saved Key: %s, KeyCode: %d", savedKey:getCharacters(), savedKey:getKeyCode())
+	end
+end)
+
+-- Start the event handler
+keyDownEvent:start()
