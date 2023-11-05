@@ -134,7 +134,7 @@
 ;; )
 (deflayer space
   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
-  _        !        @        #        $        %        XX       ^        &        *        S-9      S-0      _        _
+  _        !        @        #        $        %        ^        &        *        S-9      S-0      _        _        _
   ~        grv      @hyp_7   @meh_8   9        _        XX       _        [     @meh_lbrc @hyp_rbrc  ]        home     end
   del      @ctl_0   @alt_4   @met_5   @sft_6   =        XX       left @sft_down @met_up @alt_right @ctl_pipe  pgup
   _        1        2        3        +        _        \        S--      -        S-,      S-.      pgdn     _
@@ -143,7 +143,7 @@
 ;; this layer is needed for sticky keys to work on any mod-tap keys
 (deflayer sticky_space
   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
-  _        !        @        #        $        %        XX       ^        &        *        S-9      S-0      _        _
+  _        !        @        #        $        %        ^        &        *        S-9      S-0      _        _       _
   ~        grv      7        8        9        _        XX       _        [        S-[      S-]      ]        home     end
   del      0        4        5        6        =        XX       left     down     up       right    |        pgup
   _        1        2        3        +        _        \        S--      -        S-,      S-.      pgdn     _
@@ -240,7 +240,7 @@
 )
 (deflayer smart_num_space
   _        _        _        _        _        _        _        _        _        _        _        _        _
-  _     @num_excl @num_at @num_hash @num_dllr @num_perc XX   @num_caret @num_ampr  *        S-9      S-0      _        _
+  _ @num_excl @num_at @num_hash @num_dllr @num_perc @num_caret @num_ampr  *        S-9      S-0      _        _        _
   @num_tild @num_grv _       _        _        _        XX       _        [        S-[      S-]      ]       @num_home @num_end
   del      _        _        _        _        =        XX   @num_left @num_down @num_up @num_right @num_pipe @num_pgup
   _        _        _        _        +        _     @num_bslash S--      -        S-,      S-.     @num_pgdn _
