@@ -92,7 +92,7 @@
   _        _        _        _        _        _        _        _        _        _        _        _        _        _
   tab      q        @hyp_w   @meh_f   p        b        j        l        @meh_u   @hyp_y   ;        @s_spc   @on_num  _
   bspc     @ctl_a   @alt_r   @met_s   @sft_t   g        m        @sft_n   @met_e   @alt_i   @ctl_o   '        _
-  esc      z        x        @c_nav   d        v        k        h        ,        .        /        _        _
+  esc      x        @c_nav   d        v        z        k        h        ,        .        /        _        _
   _        @to_warp @at_bspc @ret_s_spc        @spc_spc          @s_s     f19      _        _        _
 )
 ;; this layer is needed for sticky keys to work on any mod-tap keys
