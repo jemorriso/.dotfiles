@@ -433,6 +433,10 @@ settings.theme = `
 
 api.Hints.setCharacters("arstgoienmqwfpbyuljzxcdvhk");
 
+api.mapkey("b", "Choose a tab with omnibar", function () {
+  api.Front.openOmnibar({ type: "Tabs" });
+});
+
 api.map("zf", "cf");
 api.unmap("cf");
 
