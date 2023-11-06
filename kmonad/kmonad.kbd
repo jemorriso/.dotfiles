@@ -20,11 +20,17 @@
     ;; define layer toggles and sticky layers
     ;; -------------------------------------------------- 
     lt_spc (layer-toggle space)
-    lt_s_spc (layer-toggle sticky_space)
+    ;; lt_s_spc always uses space layer because keys fall through
+    lt_s_spc (around @lt_spc (layer-toggle sticky_space))
     ;; lt_nav (layer-toggle nav)
-    lt_col (layer-toggle colemak)
+    lt_sbase (layer-toggle sticky_base)
+    lt_sym_row (layer-toggle symbol_row)
+
+    on_cw (layer-add caps_word)
 
     on_num (layer-add smart_num)
+    ;; on_nav (layer-add smart_nav) TODO
+    on_nav XX
 
     on_warp (layer-add warp)
     to_warp (around @on_warp (around lmet (around lalt c)))
@@ -32,11 +38,18 @@
     on_alt_tab (layer-add alt_tab)
     at_bspc (around @on_alt_tab (around lmet bspc))
 
-    ;; define colemak mods for sticky keys - sticky keys do no work with mod-tap
-    ;; if don't use colemak layer, then sticky shift on @ctl_a does not produce 'A'
-    s_s (sticky-key 500 (around lsft @lt_col))
+    ;; used by layers that don't have homerow mods, and we want shift to operate directly on the layer
+    dumb_s_s (sticky-key 500 lsft)
+
+    ;; define sticky_shift mods for sticky keys - sticky keys do no work with mod-tap
+    ;; if don't use sticky_base layer, then sticky shift on @ctl_a does not produce 'A'
+    ;; also, keep the symbol row, so this is a fake sticky shift
+    s_s (sticky-key 500 (around lsft (around @lt_sym_row @lt_sbase)))
 
     s_spc (sticky-key 500 @lt_s_spc)
+
+    ;; we need to use the layer toggle even when we are already on the layer in order to chain sticky keys, otherwise the first sticky key that took us to the layer wears off and we go back to the previous layer
+    s_s_spc (sticky-key 500 (around lsft @lt_s_spc))
 
     ;; -------------------------------------------------- 
     ;; home-row mods / mod-tap
@@ -74,39 +87,83 @@
     ;; -------------------------------------------------- 
     ;; special keys
     ;; -------------------------------------------------- 
-    ;; prefix (around @meh a)
-
     ;; homerow click
-    ;; hr_c (around @meh r)
+    hr_c (around @meh r)
+
     ;; homerow search
-    ;; hr_/ (around @meh /)
+    hr_/ (around @meh /)
     ;; homerow scroll
-    ;; hr_s (around @hyp r)
+    hr_s (around @hyp r)
 
     ;; raycast
-    ;; ray (around lalt spc)
+    ray (around lmet spc)
 )
 ;; first defined layer is always the default layer
 (deflayer base
-  _        brdn     brup     C-up     M-spc    C-f5     A-f6     prev     pp       next     mute     vold     volu
-  _        _        _        _        _        _        _        _        _        _        _        _        _        _
-  tab      q        @hyp_w   @meh_f   p        b        XX       j        l        @meh_u   @hyp_y   ;        @on_num  _
+  XX       brdn     brup     C-up     M-spc    C-f5     A-f6     prev     pp       next     mute     vold     volu
+  XX       XX       @hr_/    @hr_c    XX       XX       XX       XX       XX       XX       @at_bspc XX       @on_num  @on_nav
+  tab      q        @hyp_w   @meh_f   p        b        XX       j        l        @meh_u   @hyp_y   ;        @to_warp @hr_s
   bspc     @ctl_a   @alt_r   @met_s   @sft_t   g        XX       m        @sft_n   @met_e   @alt_i   @ctl_o   '
-  esc      x        c        d        v        z        /        k        h        ,        .        f18      _
-  _        @to_warp @at_bspc @s_spc            @spc_spc          @s_s     ret      _        _        _
+  esc      x        c        d        v        z        /        k        h        ,        .        XX       XX
+  XX       f18      f19      @s_spc            @spc_spc          @s_s     ret      @s_s_spc XX       XX
 )
 ;; this layer is needed for sticky keys to work on any mod-tap keys
-(deflayer colemak
+;; (deflayer sticky_base
+;;   _        _        _        _        _        _        _        _        _        _        _        _        _
+;;   _        !        @        #        $        %        XX       ^        &        *        S-9      S-0      _        _
+;;   _        q        w        f        p        b        XX       j        l        u        y        ;        _        _
+;;   _        a        r        s        t        g        XX       m        n        e        i        o        '
+;;   _        x        c        d        v        z        /        k        h        ,        .        _        _
+;;   _        _        _        _                 _                 _        _        _        _        _
+;; )
+(deflayer sticky_base
   _        _        _        _        _        _        _        _        _        _        _        _        _
   _        _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        q        w        f        p        b        XX       j        l        u        y        ;        _        _
-  _        a        r        s        t        g        XX       m        n        e        i        o        '
-  _        x        c        d        v        z        /        k        h        ,        .        _        _
+  _        _        w        f        _        _        _        _        _        u        y        _        _        _
+  _        a        r        s        t        _        _        _        n        e        i        o        _
+  _        _        _        _        _        _        _        _        _        _        _        _        _
+  _        _        _        _                 _                 @on_cw   _        _        _        _
+)
+(deflayer symbol_row
+  _        _        _        _        _        _        _        _        _        _        _        _        _
+  _        !        @        #        $        %        XX       ^        &        *        S-9      S-0      _        _
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _
+  _        _        _        _        _        _        _        _        _        _        _        _        _
+  _        _        _        _        _        _        _        _        _        _        _        _        _
   _        _        _        _                 _                 _        _        _        _        _
+)
+(defalias
+    off_cw (layer-rem caps_word)
+
+    ;; fallthrough
+    lt_cw_spc (around @lt_s_spc (layer-toggle caps_word_space))
+    cw_spc (tap-hold-next-release 200 (around @off_cw spc) @lt_cw_spc)
+
+    cw_s_spc (sticky-key 500 @lt_cw_spc)
+    ;; do 'around @off_cw' because we really only need to shift the number keys, and we want to turn off caps word only on shifted numbers
+    cw_s_s_spc (sticky-key 500 (around lsft (around @off_cw @lt_cw_spc)))
+
+    cw_esc (around @off_cw esc)
+    cw_tab (around @off_cw tab)
+    cw_ret (around @off_cw ret)
+
+    cw_semi (around @off_cw ;)
+    cw_quote (around @off_cw ')
+    cw_comma (around @off_cw ,)
+    cw_dot (around @off_cw .)
+    cw_slash (around @off_cw /)
+)
+;; all characters other than a-z, 0-9, -, _, bspc, and del go back to base layer
+(deflayer caps_word
+  XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       
+  XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX      
+  @cw_tab  S-q      S-w      S-f      S-p      S-b      XX       S-j      S-l      S-u      S-y      @cw_semi XX       XX      
+  bspc     S-a      S-r      S-s      S-t      S-g      XX       S-m      S-n      S-e      S-i      S-o      @cw_quote
+  @cw_esc  S-x      S-c      S-d      S-v      S-z     @cw_slash S-k      S-h      @cw_comma @cw_dot XX       XX
+  XX       XX       XX       @cw_s_spc         @cw_spc           @off_cw  ret      @cw_s_s_spc XX    XX
 )
 
 (defalias
-    s_s_spc (sticky-key 500 (around lsft @lt_s_spc))
 
     ctl_0 (tap-hold-next-release 200 0 lctl)
     alt_4 (tap-hold-next-release 200 4 lalt)
@@ -134,31 +191,76 @@
 ;;   _        _        _        @s_s_spc          @spc_spc          @s_s_spc _        _        _        _
 ;; )
 (deflayer space
-  _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
-  _        !        @        #        $        %        XX       ^        &        *        S-9      S-0      _        _
-  ~        grv      @hyp_7   @meh_8   9        _        XX       _        [     @meh_lbrc @hyp_rbrc  ]        home     end
-  del      @ctl_0   @alt_4   @met_5   @sft_6   _        |        left @sft_down @met_up @alt_right @ctl_equal pgup
-  _        1        2        3        S--      _        \        +        -        S-,      S-.      pgdn     _
-  _        _        _        @s_s_spc          @spc_spc          @s_s_spc _        _        _        _
+  XX       f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
+  XX       !        @        #        $        %        XX       ^        &        *        S-9      S-0      XX       XX
+  ~        grv      @hyp_7   @meh_8   9        XX       XX       XX       [     @meh_lbrc @hyp_rbrc  ]        home     end
+  del      @ctl_0   @alt_4   @met_5   @sft_6   XX       |        left @sft_down @met_up @alt_right @ctl_equal pgup
+  XX       1        2        3        S--      XX       \        +        -        S-,      S-.      pgdn     XX
+  XX       XX       XX       @s_s_spc          @spc_spc          @s_s_spc XX       XX       XX       XX
 )
 ;; this layer is needed for sticky keys to work on any mod-tap keys
-(deflayer sticky_space
-  _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
-  _        !        @        #        $        %        XX       ^        &        *        S-9      S-0      _        _
-  ~        grv      7        8        9        _        XX       _        [        S-[      S-]      ]        home     end
-  del      0        4        5        6        _        |        left     down     up       right    =        pgup
-  _        1        2        3        S--      _        \        +        -        S-,      S-.      pgdn     _
-  _        _        _        @s_s_spc          @spc_spc          @s_s_spc _        _        _        _
-)
-
-;; (deflayer nav
-;;   XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX
-;;   XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX
-;;   XX          XX          @hyp        @meh        XX          XX          home        pgdn        pgup        end         XX          XX          XX          XX
-;;   XX          lctl        lalt        lmet        lsft        XX          left        down        up          rght        XX          XX          XX
-;;   XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX
-;;   XX          XX          XX          XX                      XX                      XX          XX          XX          XX          XX
+;; (deflayer sticky_space
+;;   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
+;;   _        !        @        #        $        %        XX       ^        &        *        S-9      S-0      _        _
+;;   ~        grv      7        8        9        _        XX       _        [        S-[      S-]      ]        home     end
+;;   del      0        4        5        6        _        |        left     down     up       right    =        pgup
+;;   _        1        2        3        S--      _        \        +        -        S-,      S-.      pgdn     _
+;;   _        _        _        @s_s_spc          @ray              @s_s_spc _        _        _        _
 ;; )
+(deflayer sticky_space
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _
+  ~        _        7        8        _        _        _        _        _        S-[      S-]      _        _        _        
+  _        0        4        5        6        _        _        _        down     up       right    =        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _
+  _        _        _        _                 @ray              _        _        _        _        _
+)
+(defalias
+    cw_home (around @off_cw home)
+    cw_end (around @off_cw end)
+    cw_pgup (around @off_cw pgup)
+    cw_pgdn (around @off_cw pgdn)
+    cw_down (around @off_cw down)
+    cw_up (around @off_cw up)
+    cw_left (around @off_cw left)
+    cw_right (around @off_cw right)
+
+    cw_excl (around @off_cw !)
+    cw_at (around @off_cw @)
+    cw_hash (around @off_cw #)
+    cw_dllr (around @off_cw $)
+    cw_perc (around @off_cw %)
+    cw_caret (around @off_cw ^)
+    cw_ampr (around @off_cw &)
+    cw_star (around @off_cw *)
+
+    cw_lpar (around @off_cw S-9)
+    cw_rpar (around @off_cw S-0)
+    cw_lbkt (around @off_cw [)
+    cw_rbkt (around @off_cw ])
+    cw_lbrc (around @off_cw {)
+    cw_rbrc (around @off_cw })
+    cw_lt (around @off_cw <)
+    cw_gt (around @off_cw >)
+
+    cw_plus (around @off_cw +)
+    cw_equal (around @off_cw =)
+
+    cw_tild (around @off_cw ~)
+    cw_grv (around @off_cw grv)
+    cw_bslash (around @off_cw \\)
+    cw_pipe (around @off_cw |)
+)
+;; all characters other than a-z, 0-9, -, _, bspc, and del go back to base layer
+;; top row special characters are all shifted numbers - for convenience, these all go back to base layer too, but this is a divergence from how I did smart num (all shifted characters behave like their unshifted counterparts)
+(deflayer caps_word_space
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        @cw_excl @cw_at   @cw_hash @cw_dllr @cw_perc _       @cw_caret @cw_ampr @cw_star @cw_lpar @cw_rpar _        _        
+  @cw_tild @cw_grv  _        _        _        _        _        _        @cw_lbkt @cw_lbrc @cw_rbrc @cw_rbkt @cw_home @cw_end
+  _        _        _        _        _        _        @cw_pipe @cw_left @cw_down @cw_up @cw_right @cw_equal @cw_pgup
+  _        1        2        3        S--      _        @cw_bslash @cw_plus -      @cw_lt   @cw_gt   @cw_pgdn _        
+  _        _        _        @cw_s_s_spc       @spc_spc          @off_cw  _        _        _        _        
+)
 
 ;; (deflayer smart_nav
 ;;   @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav
@@ -170,11 +272,9 @@
 ;; )
 
 (defalias
-    ;; used by smart_num as that layer does not have sticky keys, and we want shift to operate directly on the smart_num layer
-    dumb_s_s (sticky-key 500 lsft)
 
     lt_sn_spc (layer-toggle smart_num_space)
-    ;; sn_s_spc (sticky-key 500 @lt_sn_spc)
+    sn_s_spc (sticky-key 500 @lt_sn_spc)
 
     off_num (layer-rem smart_num)
 
@@ -237,14 +337,14 @@
   @num_tab    @num_q      7           8           9           @num_b      XX          @num_j      @num_l      @num_u      @num_y      ;           @off_num    @off_num
   bspc        0           4           5           6           @num_g      XX          @num_m      @num_n      @num_e      @num_i      @num_o      @num_quote
   @num_esc    1           2           3           @num_v      @num_z      /           @num_k      @num_h      ,           .           @off_num    @off_num
-  @off_num    @off_num    @off_num    @off_num                @num_spc                @dumb_s_s   @num_ret    @off_num    @off_num    @off_num
+  @off_num    @off_num    @off_num    @sn_s_spc               @num_spc                @dumb_s_s   @num_ret    @off_num    @off_num    @off_num
 )
 (deflayer smart_num_space
   _        _        _        _        _        _        _        _        _        _        _        _        _
-  _ @num_excl @num_at @num_hash @num_dllr @num_perc     XX   @num_caret @num_ampr  *        S-9      S-0      _        _
-  @num_tild @num_grv _       _        _        _        XX       _        [        S-[      S-]      ]       @num_home @num_end
-  del      _        _        _        _        _   @num_pipe @num_left @num_down @num_up @num_right  =        @num_pgup
-  _        _        _        _        S--      _     @num_bslash +        -        S-,      S-.     @num_pgdn _
+  _     @num_excl @num_at @num_hash @num_dllr @num_perc XX    @num_caret @num_ampr *        S-9      S-0      _        _
+  @num_tild @num_grv @num_ampr *      S-9      _        XX       _        [        S-[      S-]      ]       @num_home @num_end
+  del      S-0  @num_dllr @num_perc @num_caret _    @num_pipe @num_left @num_down @num_up @num_right =        @num_pgup
+  _   @num_excl @num_at @num_hash S-- _     @num_bslash +        -        S-,      S-.     @num_pgdn _
   _        _        _        _                 _                 _        _        _        _        _
 )
 
@@ -258,11 +358,12 @@
 (deflayer warp
   XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
   XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-  XX       _        _        _        _        _        XX       _        _        _        _        XX       XX       XX
+  XX       _        _        _        _        _        XX       _        _        _        _        XX       @warp_esc @warp_esc
   @warp_esc _       _        _        _        _        XX       _        n        e        i        _        @on_wb
   @warp_esc _       _        _        _        _        XX       _        _        _        _        @on_wb   XX
   XX      @warp_esc XX       _                 spc               bspc     kprt     del      XX       XX
 )
+;; this layer is for quickly typing and then jumping back into warp
 (deflayer warp_base
   _        _        _        _        _        _        _        _        _        _        _        _        _        
   _        _        _        _        _        _        _        _        _        _        _        _        _        _
@@ -279,11 +380,11 @@
 )
 (deflayer alt_tab
   @at_esc  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off
-  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off
+  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  right    left     @at_off  @at_off
   @at_off  q        w        f        @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off
   @at_esc  @at_off  @at_off  s        @at_off  @at_off  @at_off  left     down     up       rght     @at_off  @at_off
   @at_esc  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off  @at_off
-  @at_off  @at_off  right    @at_off           @at_off           left     @at_off  @at_off  @at_off  @at_off
+  @at_off  @at_off  @at_off  @at_off           @at_off           @at_off  @at_off  @at_off  @at_off  @at_off
 )
 
 ;; (defalias
