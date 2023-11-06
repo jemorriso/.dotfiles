@@ -22,9 +22,10 @@
 
     on_cw (layer-add caps_word)
     on_num (layer-add smart_num)
-    on_nav (layer-add smart_nav)
+    ;; on_nav (layer-add smart_nav)
 
     an_nav (around-next (layer-toggle smart_nav))
+    an_num (around-next (layer-toggle smart_num))
 
     on_warp (layer-add warp)
     to_warp (around @on_warp (around lmet (around lalt c)))
@@ -97,9 +98,9 @@
 ;; first defined layer is always the default layer
 (deflayer base
   XX       brdn     brup     C-up     M-spc    C-f5     A-f6     prev     pp       next     mute     vold     volu
-  XX       XX       @hr_/    @hr_c    XX       XX       XX       XX       XX       XX       @at_bspc @an_nav  @on_num  XX
+  XX       XX       @hr_/    @hr_c    XX       XX       XX       XX       XX       XX       @at_bspc @an_nav  XX       @on_num
   tab      q        @hyp_w   @meh_f   p        b        XX       j        l        @meh_u   @hyp_y   ;        @to_warp @hr_s
-  bspc     @ctl_a   @alt_r   @met_s   @sft_t   g        XX       m        @sft_n   @met_e   @alt_i   @ctl_o   '
+  bspc     @ctl_a   @alt_r   @met_s   @sft_t   g        f18      m        @sft_n   @met_e   @alt_i   @ctl_o   '
   esc      x        c        d        v        z        /        k        h        ,        .        XX       XX
   XX       f18      f19      @s_spc            @spc_spc          @s_s     ret      @s_s_spc XX       XX
 )
@@ -179,10 +180,10 @@
   XX       XX       XX       @s_s_spc          XX                @s_s_spc XX       XX       XX       XX
 )
 (deflayer sticky_space
-  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _
   _        _        _        _        _        _        _        _        _        _        _        _        _        _
-  ~        _        7        8        _        _        _        _        _        S-[      S-]      _        _        _        
-  _        0        4        5        6        _        _        _        down     up       right    =        _        
+  ~        _        7        8        _        _        _        _        _        S-[      S-]      _        _        _
+  _        0        4        5        6        _        _        _        down     up       right    =        _
   _        _        _        _        _        _        _        _        _        _        _        _        _
   _        _        _        _                 @ray              _        _        _        _        _
 )
@@ -233,50 +234,6 @@
   _        _        _        @cw_s_s_spc       XX                @cw_s_s_spc       _        _        _        _
 )
 
-;; (defalias
-;;     off_num (layer-rem smart_num)
-;;
-;;     ;; fallthrough
-;;     lt_sn_spc (around @lt_s_spc (layer-toggle smart_num_space))
-;;     sn_s_spc (sticky-key 500 @lt_sn_spc)
-;;
-;;     ;; do 'around @off_num' because we really only need to shift the number keys, and we want to turn off caps word on shifted numbers
-;;     sn_s_s_spc (sticky-key 500 (around lsft (around @off_num @lt_sn_spc)))
-;;
-;;     num_esc (around @off_num esc)
-;;     num_tab (around @off_num tab)
-;;     num_spc (tap-hold-next-release 200 (around @off_num spc) @lt_sn_spc)
-;;     num_ret (around @off_num ret)
-;;
-;;     num_q (around @off_num q)
-;;     num_b (around @off_num b)
-;;     num_j (around @off_num j)
-;;     num_l (around @off_num l)
-;;     num_u (tap-hold-next-release 200 (around @off_num u) @meh)
-;;     num_y (tap-hold-next-release 200 (around @off_num y) @hyp)
-;;
-;;     num_g (around @off_num g)
-;;     num_m (around @off_num m)
-;;     num_n (tap-hold-next-release 200 (around @off_num n) lsft)
-;;     num_e (tap-hold-next-release 200 (around @off_num e) lmet)
-;;     num_i (tap-hold-next-release 200 (around @off_num i) lalt)
-;;     num_o (tap-hold-next-release 200 (around @off_num o) lctl)
-;;     num_quote (around @off_num ')
-;;
-;;     num_z (around @off_num z)
-;;     num_v (around @off_num v)
-;;     num_k (around @off_num k)
-;;     num_h (around @off_num h)
-;; )
-;; (deflayer smart_nav
-;;   XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX
-;;   XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          @off_nav    @off_nav    @off_nav
-;;   @nav_tab    @nav_q      @nav_w      @nav_f      @nav_p      @nav_b      XX          @nav_home   pgdn        pgup        @nav_end    @nav_semi   @off_nav    @off_nav
-;;   @nav_bspc   @nav_a      @nav_r      @nav_s      @nav_t      @nav_g      XX          left        down        up          rght        @nav_o      @nav_quote
-;;   @nav_esc    @nav_z      @nav_x      @nav_c      @nav_d      @nav_v      @nav_k      @nav_h      @nav_comma  @nav_dot    @nav_slash  @off_nav    @off_nav
-;;   @off_nav    @off_nav    @off_nav    TODO                    @nav_spc                TODO        @nav_ret    TODO        @off_nav    @off_nav
-;; )
-
 (defalias
   nav_left (around @an_nav left)
   nav_right (around @an_nav right)
@@ -296,88 +253,70 @@
 )
 (deflayer smart_nav
   _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        _        _        _        _        _        _        _        _      @nav_lpar @nav_rpar _      _
-  _        _        _        _        _        _        _        _        _      @nav_lbrc @nav_rbrc _        _        _
+  _        _        _        _        _        _        _        _        _        _      @nav_lpar @nav_rpar _       _
+  _        _        _        _        _        _        _        _        _      @nav_lbrc @nav_rbrc _        home    end
   _        _        _        _        _        _        _     @nav_left @nav_down @nav_up @nav_right _        @nav_pgup
   _        _        _        _        _        _        _        _    @nav_ctl_d @nav_ctl_u _       @nav_pgdn _
   _        _        _        _                 _                 _        _        _        _        _
 )
 
-
 (defalias
-    off_num (layer-rem smart_num)
+  ;; fallthrough
+  num_spc (tap-hold-next-release 200 spc (around @lt_spc (layer-toggle smart_num_space)))
 
-    ;; fallthrough
-    lt_sn_spc (around @lt_s_spc (layer-toggle smart_num_space))
-    sn_s_spc (sticky-key 500 @lt_sn_spc)
+  num_0 (around @an_num 0)
+  num_1 (around @an_num 1)
+  num_2 (around @an_num 2)
+  num_3 (around @an_num 3)
+  num_4 (around @an_num 4)
+  num_5 (around @an_num 5)
+  num_6 (around @an_num 6)
+  num_7 (around @an_num 7)
+  num_8 (around @an_num 8)
+  num_9 (around @an_num 9)
 
-    ;; do 'around @off_num' because we really only need to shift the number keys, and we want to turn off caps word on shifted numbers
-    sn_s_s_spc (sticky-key 500 (around lsft (around @off_num @lt_sn_spc)))
+  num_bspc (around @an_num bspc)
+  num_slash (around @an_num /)
+  num_comma (around @an_num ,)
+  num_dot (around @an_num .)
+  num_semi (around @an_num ;)
 
-    num_esc (around @off_num esc)
-    num_tab (around @off_num tab)
-    num_spc (tap-hold-next-release 200 (around @off_num spc) @lt_sn_spc)
-    num_ret (around @off_num ret)
-
-    num_q (around @off_num q)
-    num_b (around @off_num b)
-    num_j (around @off_num j)
-    num_l (around @off_num l)
-    num_u (tap-hold-next-release 200 (around @off_num u) @meh)
-    num_y (tap-hold-next-release 200 (around @off_num y) @hyp)
-
-    num_g (around @off_num g)
-    num_m (around @off_num m)
-    num_n (tap-hold-next-release 200 (around @off_num n) lsft)
-    num_e (tap-hold-next-release 200 (around @off_num e) lmet)
-    num_i (tap-hold-next-release 200 (around @off_num i) lalt)
-    num_o (tap-hold-next-release 200 (around @off_num o) lctl)
-    num_quote (around @off_num ')
-
-    num_z (around @off_num z)
-    num_v (around @off_num v)
-    num_k (around @off_num k)
-    num_h (around @off_num h)
 )
+;; all characters other than 0-9, -, +, *, /, _, =, ?, (, ), [, ], {, }, <, >, bspc, and del go back to base layer
 (deflayer smart_num
-  XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX
-  XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          @off_num    @off_num
-  @num_tab    @num_q      7           8           9           @num_b      XX          @num_j      @num_l      @num_u      @num_y      ;           @off_num    @off_num
-  bspc        0           4           5           6           @num_g      XX          @num_m      @num_n      @num_e      @num_i      @num_o      @num_quote
-  @num_esc    1           2           3           @num_v      @num_z      /           @num_k      @num_h      ,           .           XX          XX
-  XX          XX          XX          @sn_s_spc               @num_spc                @dumb_s_s   @num_ret    @sn_s_s_spc XX          XX
+  _        _        _        _        _        _        _        _        _        _        _        _        _
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _
+  _        _        @num_7   @num_8   @num_9   _        _        _        _        _        _        @num_semi _       _
+  _        @num_0   @num_4   @num_5   @num_6   _        _        _        _        _        _        _        _
+  _        @num_1   @num_2   @num_3   _        _        @num_slash _      _        @num_comma @num_dot _      _
+  _        _        _        _                 @num_spc          _        _        _        _        _
 )
 (defalias
-    num_home (around @off_num home)
-    num_end (around @off_num end)
-    num_pgup (around @off_num pgup)
-    num_pgdn (around @off_num pgdn)
-    num_down (around @off_num down)
-    num_up (around @off_num up)
-    num_left (around @off_num left)
-    num_right (around @off_num right)
+  num_del (around @an_num del)
 
-    num_excl (around @off_num !)
-    num_at (around @off_num @)
-    num_hash (around @off_num #)
-    num_dllr (around @off_num $)
-    num_perc (around @off_num %)
-    num_caret (around @off_num ^)
-    num_ampr (around @off_num &)
-    num_star (around @off_num *)
+  num_minus (around @an_num -)
+  num_unds (around @an_num S--)
+  num_equal (around @an_num =)
+  num_plus (around @an_num +)
 
-    num_tild (around @off_num ~)
-    num_grv (around @off_num grv)
-    num_bslash (around @off_num \\)
-    num_pipe (around @off_num |)
+  num_lpar (around @an_num S-9)
+  num_rpar (around @an_num S-0)
+  num_lbrc (around @an_num {)
+  num_rbrc (around @an_num })
+  num_lbkt (around @an_num [)
+  num_rbkt (around @an_num ])
+  num_lt (around @an_num <)
+  num_gt (around @an_num >)
+
+  num_star (around @an_num *)
 )
 (deflayer smart_num_space
   _        _        _        _        _        _        _        _        _        _        _        _        _
-  _     @num_excl @num_at @num_hash @num_dllr @num_perc _     @num_caret @num_ampr _        _        _        _        _
-  @num_tild @num_grv _       _        _        _        _        _        _        _        _        _       @num_home @num_end
-  _        _        _        _        _        _    @num_pipe @num_left @num_down @num_up @num_right _        @num_pgup
-  _        _        _        _        _        _     @num_bslash _        _        _        _       @num_pgdn _
-  _        _        _        @sn_s_s_spc       XX                @sn_s_s_spc       _        _        _        _
+  _        _        _        _        _        _        _        _        _        @num_star @num_lpar @num_rpar _     _
+  _        _        _        _        _        _        _        _        @num_lbkt @num_lbrc @num_rbrc @num_rbkt _    _
+  @num_del _        _        _        _        _        _        _        _        _        _        @num_equal _
+  _        _        _        _        @num_unds _       _        @num_plus @num_minus @num_lt @num_gt _       _
+  _        _        _        _                 _                 _        _        _        _        _
 )
 
 (defalias
