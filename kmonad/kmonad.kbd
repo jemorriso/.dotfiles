@@ -41,9 +41,9 @@
     lt_sym (layer-toggle symbols)
     lt_num (layer-toggle num_pad)
     lt_nav (layer-toggle nav_keys)
-    lt_special (layer-toggle special_keys)
-    lt_dead (layer-toggle dead_keys)
-    lt_s_spc (around @lt_fun (around @lt_sym_row (around @lt_sym (around @lt_num (around @lt_nav (around @lt_special @lt_dead))))))
+    lt_sp_spec (layer-toggle space_special_keys)
+    lt_sp_dead (layer-toggle space_dead_keys)
+    lt_s_spc (around @lt_fun (around @lt_sym_row (around @lt_sym (around @lt_num (around @lt_nav (around @lt_sp_spec @lt_sp_dead))))))
     lt_spc (around @lt_s_spc (layer-toggle space))
     s_spc (sticky-key 500 @lt_s_spc)
 
@@ -113,6 +113,66 @@
   esc      x        c        d        v        z        /        k        h        ,        .        XX       XX
   XX       f18      f19      @s_spc            @spc_spc          @s_s     ret      @s_s_spc XX       XX
 )
+(deflayer empty
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _                 _                 _        _        _        _        _        
+)
+(deflayer colemak_wide_angle
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        q        w        f        p        b        _        j        l        u        y        ;        _        _        
+  _        a        r        s        t        g        _        m        n        e        i        o        '
+  _        x        c        d        v        z        /        k        h        ,        .        _        _        
+  _        _        _        _                 _                 _        _        _        _        _        
+)
+;; TODO i was going to use these layers to factor out base layer components
+;; but not sure how it will work with all layers added together acting as the base layer
+;; (deflayer spacing_keys
+;;   _        _        _        _        _        _        _        _        _        _        _        _        _        
+;;   _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+;;   tab      _        _        _        _        _        _        _        _        _        _        _        _        _        
+;;   bspc     _        _        _        _        _        _        _        _        _        _        _        _        
+;;   esc      _        _        _        _        _        _        _        _        _        _        _        _        
+;;   _        _        _        _                 spc               _        ret      _        _        _        
+;; )
+;; (deflayer mac_keys
+;;   _        brdn     brup     C-up     M-spc    C-f5     A-f6     prev     pp       next     mute     vold     volu
+;;   _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+;;   _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+;;   _        _        _        _        _        _        _        _        _        _        _        _        _        
+;;   _        _        _        _        _        _        _        _        _        _        _        _        _        
+;;   _        _        _        _                 _                 _        _        _        _        _        
+;; )
+;; (deflayer base_special_keys
+;;   _        _        _        _        _        _        _        _        _        _        _        _        _        
+;;   _        _        @hr_/    @hr_c    _        _        _        _        _        _        @at_bspc @an_nav  _        @on_num
+;;   _        _        _        _        _        _        _        _        _        _        _        _        @to_warp @hr_s
+;;   _        @ctl_a   @alt_r   @met_s   @sft_t   _        _        _        @sft_n   @met_e   @alt_i   @ctl_o   _        
+;;   _        _        _        _        _        _        f18      _        _        _        _        _        _        
+;;   _        _        _        _        _        _        _        _        _        _        _        _        _        
+;;   _        f18      f19      @s_spc            @spc_spc          @s_s     _        @s_s_spc _        _        
+;; )
+;; (deflayer base_home_row_mods
+;;   _        _        _        _        _        _        _        _        _        _        _        _        _        
+;;   _        _        _        _        _        _        _        _        _        _        _        _        _        _       
+;;   _        _        @hyp_w   @meh_f   _        _        _        _        _        @meh_u   @hyp_y   _        _        _       
+;;   _        @ctl_a   @alt_r   @met_s   @sft_t   _        _        _        @sft_n   @met_e   @alt_i   @ctl_o   _        
+;;   _        _        _        _        _        _        _        _        _        _        _        _        _        
+;;   _        _        _        _        _        _        _        _        _        _        _        _        _        
+;;   _        _        _        _                 _                 _        _        _        _        _        
+;; )
+;; (deflayer base_dead_keys
+;;   XX       _        _        _        _        _        _        _        _        _        _        _        _        
+;;   XX       XX       _        _        XX       XX       XX       XX       XX       XX       _        _        XX       _        
+;;   _        _        _        _        _        _        XX       _        _        _        _        _        _        _        
+;;   _        _        _        _        _        _        _        _        _        _        _        _        _        
+;;   _        _        _        _        _        _        _        _        _        _        _        XX       XX       
+;;   XX       _        _        _                 _                 _        _        _        XX       XX       
+;; )
 ;; this layer is needed for sticky keys to work on any mod-tap keys
 (deflayer sticky_base
   _        _        _        _        _        _        _        _        _        _        _        _        _
@@ -162,7 +222,7 @@
   _        _        _        _        _        _        _        _        _        _        _        pgdn     _ 
   _        _        _        _                 _                 _        _        _        _        _ 
 )
-(deflayer special_keys
+(deflayer space_special_keys
   _        _        _        _        _        _        _        _        _        _        _        _        _ 
   _        _        _        _        _        _        _        _        _        _        _        _        _        _ 
   _        _        _        _        _        _        _        _        _        _        _        _        _        _        
@@ -170,13 +230,29 @@
   _        _        _        _        _        _        _        _        _        _        _        _        _ 
   _        _        _        @s_s_spc          @ray              @s_s_spc _        _        _        _
 )
-(deflayer dead_keys
+(deflayer space_dead_keys
   XX       _        _        _        _        _        _        _        _        _        _        _        _        
   XX       _        _        _        _        _        XX       _        _        _        _        _        XX       XX
   _        _        _        _        _        XX       XX       XX       _        _        _        _        _        _     
   _        _        _        _        _        XX       _        _        _        _        _        _        _    
   XX       _        _        _        _        XX       _        _        _        _        _        _        XX
   XX       XX       XX       _                 XX                _        XX       XX       XX       XX
+)
+(deflayer space_left_hrm
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        @hyp_7   @meh_8   _        _        _        _        _        _        _        _        _        _     
+  _        @ctl_0   @alt_4   @met_5   @sft_6   _        _        _        _        _        _        _        _    
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _                 _                 _        _        _        _        _        
+)
+(deflayer space_right_hrm
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _     @meh_lbrc @hyp_rbrc  _        _        _     
+  _        _        _        _        _        _        _        _    @sft_down @met_up @alt_right @ctl_equal _    
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _                 _                 _        _        _        _        _        
 )
 (defalias
     ctl_0 (tap-hold-next-release 200 0 lctl)
@@ -308,11 +384,24 @@
 )
 
 (defalias
-  ;; fallthrough
-  lt_sn_spc (around @lt_spc (layer-toggle smart_num_space))
-  lt_sn_s_spc (around @lt_s_spc (layer-toggle smart_num_space))
+  ;; don't need number layer for smart num space
+  lt_sn_s_spc (around @lt_fun 
+            (around @lt_sym_row 
+            (around @lt_sym 
+            (around @lt_nav 
+            (around @lt_sp_spec 
+            (around @lt_sp_dead
+            (layer-toggle smart_num_space)))))))
+  ;; lt_sn_spc (around @lt_sn_s_spc (layer-toggle space_right_hrm))
 
-  num_spc (tap-hold-next-release 200 spc (around @lt_spc (layer-toggle smart_num_space)))
+  ;; lt_spc (around @lt_sn_spc (layer-toggle space))
+  ;; fallthrough
+  ;; lt_sn_spc (around @lt_spc (layer-toggle smart_num_space))
+  ;; lt_sn_s_spc (around @lt_s_spc (layer-toggle smart_num_space))
+
+  ;; no homerow mods on smart num space. It gets too complicated and no benefit, since we already have homerow mods on smart num
+  num_spc (tap-hold-next-release 200 spc @lt_sn_s_spc)
+  ;; num_spc (tap-hold-next-release 200 spc (around @lt_spc (layer-toggle smart_num_space)))
 
   num_s_spc (sticky-key 500 (around @an_num @lt_sn_s_spc))
 
@@ -337,14 +426,6 @@
   num_dot (around @an_num .)
   num_semi (around @an_num ;)
 
-)
-(deflayer smart_num_space_shifted
-  _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        _        @num_star @num_lpar _      _        _        _        _        _        _        _        _
-  _        @num_rpar _       _        _        _        _        _        _        _        _        _        _
-  _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        _        _                 _                 _        _        _        _        _
 )
 ;; all characters other than 0-9, -, +, *, /, _, =, ?, (, ), [, ], {, }, <, >, bspc, and del go back to base layer
 (deflayer smart_num
@@ -383,6 +464,14 @@
   _        _        _        _        _        _        _        _        @num_lbkt @num_lbrc @num_rbrc @num_rbkt _    _
   @num_del _        _        _        _        _        _        _        _        _        _        @num_equal _
   _        _        _        _        @num_unds _       _        @num_plus @num_minus @num_lt @num_gt _       _
+  _        _        _        _                 _                 _        _        _        _        _
+)
+(deflayer smart_num_space_shifted
+  _        _        _        _        _        _        _        _        _        _        _        _        _
+  _        _        _        _        _        _        _        _        _        @num_star @num_lpar @num_rpar _     _
+  _        _        _        @num_star @num_lpar _      _        _        _        _        _        _        _        _
+  _        @num_rpar _       _        _        _        _        _        _        _        _        _        _
+  _        _        _        _        _        _        _        _        _        _        _        _        _
   _        _        _        _                 _                 _        _        _        _        _
 )
 
