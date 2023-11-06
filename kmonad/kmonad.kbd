@@ -15,22 +15,16 @@
   fn       lctl     lalt     lmet              spc               rmet     ralt     left     down     rght
 )
 
-(defalias 
+(defalias
     ;; -------------------------------------------------- 
     ;; define layer toggles and sticky layers
     ;; -------------------------------------------------- 
-    lt_spc (layer-toggle space)
-    ;; lt_s_spc always uses space layer because keys fall through
-    lt_s_spc (around @lt_spc (layer-toggle sticky_space))
-    ;; lt_nav (layer-toggle nav)
-    lt_sbase (layer-toggle sticky_base)
-    lt_sym_row (layer-toggle symbol_row)
 
     on_cw (layer-add caps_word)
-
     on_num (layer-add smart_num)
-    ;; on_nav (layer-add smart_nav) TODO
-    on_nav XX
+    on_nav (layer-add smart_nav)
+
+    an_nav (around-next (layer-toggle smart_nav))
 
     on_warp (layer-add warp)
     to_warp (around @on_warp (around lmet (around lalt c)))
@@ -38,18 +32,23 @@
     on_alt_tab (layer-add alt_tab)
     at_bspc (around @on_alt_tab (around lmet bspc))
 
-    ;; used by layers that don't have homerow mods, and we want shift to operate directly on the layer
-    dumb_s_s (sticky-key 500 lsft)
-
-    ;; define sticky_shift mods for sticky keys - sticky keys do no work with mod-tap
+    ;; define sticky_shift mods for sticky keys - sticky keys do not work with mod-tap
     ;; if don't use sticky_base layer, then sticky shift on @ctl_a does not produce 'A'
-    ;; also, keep the symbol row, so this is a fake sticky shift
+    ;; also, keep the symbol row, so s_s differs from a true shift
+    lt_sbase (layer-toggle sticky_base)
+    lt_sym_row (layer-toggle symbol_row)
     s_s (sticky-key 500 (around lsft (around @lt_sym_row @lt_sbase)))
 
+    ;; lt_s_spc always uses space layer because keys fall through
+    lt_spc (layer-toggle space)
+    lt_s_spc (around @lt_spc (layer-toggle sticky_space))
     s_spc (sticky-key 500 @lt_s_spc)
 
     ;; we need to use the layer toggle even when we are already on the layer in order to chain sticky keys, otherwise the first sticky key that took us to the layer wears off and we go back to the previous layer
     s_s_spc (sticky-key 500 (around lsft @lt_s_spc))
+
+    ;; used by layers that don't have homerow mods, and we want shift to operate directly on the layer
+    dumb_s_s (sticky-key 500 lsft)
 
     ;; -------------------------------------------------- 
     ;; home-row mods / mod-tap
@@ -57,9 +56,6 @@
     meh (around lsft (around lctl lalt))
     hyp (around lmet @meh)
 
-    ;; -------------------------------------------------- 
-    ;; home-row mods / mod-tap for colemak
-    ;; -------------------------------------------------- 
     ctl_a (tap-hold 200 a lctl)
     alt_r (tap-hold 200 r lalt)
     met_s (tap-hold 200 s lmet)
@@ -101,21 +97,13 @@
 ;; first defined layer is always the default layer
 (deflayer base
   XX       brdn     brup     C-up     M-spc    C-f5     A-f6     prev     pp       next     mute     vold     volu
-  XX       XX       @hr_/    @hr_c    XX       XX       XX       XX       XX       XX       @at_bspc XX       @on_num  @on_nav
+  XX       XX       @hr_/    @hr_c    XX       XX       XX       XX       XX       XX       @at_bspc @an_nav  @on_num  XX
   tab      q        @hyp_w   @meh_f   p        b        XX       j        l        @meh_u   @hyp_y   ;        @to_warp @hr_s
   bspc     @ctl_a   @alt_r   @met_s   @sft_t   g        XX       m        @sft_n   @met_e   @alt_i   @ctl_o   '
   esc      x        c        d        v        z        /        k        h        ,        .        XX       XX
   XX       f18      f19      @s_spc            @spc_spc          @s_s     ret      @s_s_spc XX       XX
 )
 ;; this layer is needed for sticky keys to work on any mod-tap keys
-;; (deflayer sticky_base
-;;   _        _        _        _        _        _        _        _        _        _        _        _        _
-;;   _        !        @        #        $        %        XX       ^        &        *        S-9      S-0      _        _
-;;   _        q        w        f        p        b        XX       j        l        u        y        ;        _        _
-;;   _        a        r        s        t        g        XX       m        n        e        i        o        '
-;;   _        x        c        d        v        z        /        k        h        ,        .        _        _
-;;   _        _        _        _                 _                 _        _        _        _        _
-;; )
 (deflayer sticky_base
   _        _        _        _        _        _        _        _        _        _        _        _        _
   _        _        _        _        _        _        _        _        _        _        _        _        _        _
@@ -140,6 +128,7 @@
     cw_spc (tap-hold-next-release 200 (around @off_cw spc) @lt_cw_spc)
 
     cw_s_spc (sticky-key 500 @lt_cw_spc)
+
     ;; do 'around @off_cw' because we really only need to shift the number keys, and we want to turn off caps word only on shifted numbers
     cw_s_s_spc (sticky-key 500 (around lsft (around @off_cw @lt_cw_spc)))
 
@@ -173,7 +162,6 @@
     sft_down (tap-hold-next-release 200 down lsft)
     met_up (tap-hold-next-release 200 up lmet)
     alt_right (tap-hold-next-release 200 right lalt)
-    ;; ctl_pipe (tap-hold-next-release 200 | lctl)
     ctl_equal (tap-hold-next-release 200 = lctl)
 
     hyp_7 (tap-hold-next-release 200 7 @hyp)
@@ -182,31 +170,14 @@
     meh_lbrc (tap-hold-next-release 200 S-[ @meh)
     hyp_rbrc (tap-hold-next-release 200 S-] @hyp)
 )
-;; (deflayer space
-;;   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
-;;   _        _        _        _        _        _        _        _        _        S-9      S-0      _        _        _
-;;   _        grv      @hyp_7   @meh_8   9        home     end      [     @meh_lbrc @hyp_rbrc  ]        _        _        _
-;;   del      @ctl_0   @alt_4   @met_5   @sft_6   pgup     left @sft_down @met_up @alt_right   lctl     _        _
-;;   _        _        1        2        3        pgdn     =        -        S-,      S-.      \        _        _
-;;   _        _        _        @s_s_spc          @spc_spc          @s_s_spc _        _        _        _
-;; )
 (deflayer space
   XX       f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
   XX       !        @        #        $        %        XX       ^        &        *        S-9      S-0      XX       XX
   ~        grv      @hyp_7   @meh_8   9        XX       XX       XX       [     @meh_lbrc @hyp_rbrc  ]        home     end
   del      @ctl_0   @alt_4   @met_5   @sft_6   XX       |        left @sft_down @met_up @alt_right @ctl_equal pgup
   XX       1        2        3        S--      XX       \        +        -        S-,      S-.      pgdn     XX
-  XX       XX       XX       @s_s_spc          @spc_spc          @s_s_spc XX       XX       XX       XX
+  XX       XX       XX       @s_s_spc          XX                @s_s_spc XX       XX       XX       XX
 )
-;; this layer is needed for sticky keys to work on any mod-tap keys
-;; (deflayer sticky_space
-;;   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
-;;   _        !        @        #        $        %        XX       ^        &        *        S-9      S-0      _        _
-;;   ~        grv      7        8        9        _        XX       _        [        S-[      S-]      ]        home     end
-;;   del      0        4        5        6        _        |        left     down     up       right    =        pgup
-;;   _        1        2        3        S--      _        \        +        -        S-,      S-.      pgdn     _
-;;   _        _        _        @s_s_spc          @ray              @s_s_spc _        _        _        _
-;; )
 (deflayer sticky_space
   _        _        _        _        _        _        _        _        _        _        _        _        _        
   _        _        _        _        _        _        _        _        _        _        _        _        _        _
@@ -254,33 +225,97 @@
 ;; all characters other than a-z, 0-9, -, _, bspc, and del go back to base layer
 ;; top row special characters are all shifted numbers - for convenience, these all go back to base layer too, but this is a divergence from how I did smart num (all shifted characters behave like their unshifted counterparts)
 (deflayer caps_word_space
-  _        _        _        _        _        _        _        _        _        _        _        _        _        
-  _        @cw_excl @cw_at   @cw_hash @cw_dllr @cw_perc _       @cw_caret @cw_ampr @cw_star @cw_lpar @cw_rpar _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _
+  _        @cw_excl @cw_at   @cw_hash @cw_dllr @cw_perc _       @cw_caret @cw_ampr @cw_star @cw_lpar @cw_rpar _        _
   @cw_tild @cw_grv  _        _        _        _        _        _        @cw_lbkt @cw_lbrc @cw_rbrc @cw_rbkt @cw_home @cw_end
   _        _        _        _        _        _        @cw_pipe @cw_left @cw_down @cw_up @cw_right @cw_equal @cw_pgup
-  _        1        2        3        S--      _        @cw_bslash @cw_plus -      @cw_lt   @cw_gt   @cw_pgdn _        
-  _        _        _        @cw_s_s_spc       @spc_spc          @off_cw  _        _        _        _        
+  _        1        2        3        S--      _        @cw_bslash @cw_plus -      @cw_lt   @cw_gt   @cw_pgdn _
+  _        _        _        @cw_s_s_spc       XX                @cw_s_s_spc       _        _        _        _
 )
 
+;; (defalias
+;;     off_num (layer-rem smart_num)
+;;
+;;     ;; fallthrough
+;;     lt_sn_spc (around @lt_s_spc (layer-toggle smart_num_space))
+;;     sn_s_spc (sticky-key 500 @lt_sn_spc)
+;;
+;;     ;; do 'around @off_num' because we really only need to shift the number keys, and we want to turn off caps word on shifted numbers
+;;     sn_s_s_spc (sticky-key 500 (around lsft (around @off_num @lt_sn_spc)))
+;;
+;;     num_esc (around @off_num esc)
+;;     num_tab (around @off_num tab)
+;;     num_spc (tap-hold-next-release 200 (around @off_num spc) @lt_sn_spc)
+;;     num_ret (around @off_num ret)
+;;
+;;     num_q (around @off_num q)
+;;     num_b (around @off_num b)
+;;     num_j (around @off_num j)
+;;     num_l (around @off_num l)
+;;     num_u (tap-hold-next-release 200 (around @off_num u) @meh)
+;;     num_y (tap-hold-next-release 200 (around @off_num y) @hyp)
+;;
+;;     num_g (around @off_num g)
+;;     num_m (around @off_num m)
+;;     num_n (tap-hold-next-release 200 (around @off_num n) lsft)
+;;     num_e (tap-hold-next-release 200 (around @off_num e) lmet)
+;;     num_i (tap-hold-next-release 200 (around @off_num i) lalt)
+;;     num_o (tap-hold-next-release 200 (around @off_num o) lctl)
+;;     num_quote (around @off_num ')
+;;
+;;     num_z (around @off_num z)
+;;     num_v (around @off_num v)
+;;     num_k (around @off_num k)
+;;     num_h (around @off_num h)
+;; )
 ;; (deflayer smart_nav
-;;   @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav
-;;   @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav    @off_nav
-;;   @nav_tab    @nav_q      @nav_w      @nav_f      @nav_p      @nav_b      @nav_home   pgdn        pgup        @nav_end    @nav_semi   @off_nav    @off_nav    @off_nav
-;;   @nav_bspc   @nav_a      @nav_r      @nav_s      @nav_t      @nav_g      left        down        up          rght        @nav_o      @nav_quote  @off_nav
-;;   @off_nav    @nav_z      @nav_x      @nav_c      @nav_d      @nav_v      @nav_k      @nav_h      @nav_comma  @nav_dot    @nav_slash  @off_nav    @off_nav
-;;   @off_nav    @off_nav    @off_nav    @nav_esc                @nav_spc                @off_nav    @nav_ret    @off_nav    @off_nav    @off_nav
+;;   XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX
+;;   XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          @off_nav    @off_nav    @off_nav
+;;   @nav_tab    @nav_q      @nav_w      @nav_f      @nav_p      @nav_b      XX          @nav_home   pgdn        pgup        @nav_end    @nav_semi   @off_nav    @off_nav
+;;   @nav_bspc   @nav_a      @nav_r      @nav_s      @nav_t      @nav_g      XX          left        down        up          rght        @nav_o      @nav_quote
+;;   @nav_esc    @nav_z      @nav_x      @nav_c      @nav_d      @nav_v      @nav_k      @nav_h      @nav_comma  @nav_dot    @nav_slash  @off_nav    @off_nav
+;;   @off_nav    @off_nav    @off_nav    TODO                    @nav_spc                TODO        @nav_ret    TODO        @off_nav    @off_nav
 ;; )
 
 (defalias
+  nav_left (around @an_nav left)
+  nav_right (around @an_nav right)
+  nav_down (around @an_nav down)
+  nav_up (around @an_nav up)
 
-    lt_sn_spc (layer-toggle smart_num_space)
+  nav_pgup (around @an_nav pgup)
+  nav_pgdn (around @an_nav pgdn)
+
+  nav_lbrc (around @an_nav {)
+  nav_rbrc (around @an_nav })
+  nav_lpar (around @an_nav S-9)
+  nav_rpar (around @an_nav S-0)
+
+  nav_ctl_d (around @an_nav C-d)
+  nav_ctl_u (around @an_nav C-u)
+)
+(deflayer smart_nav
+  _        _        _        _        _        _        _        _        _        _        _        _        _
+  _        _        _        _        _        _        _        _        _        _      @nav_lpar @nav_rpar _      _
+  _        _        _        _        _        _        _        _        _      @nav_lbrc @nav_rbrc _        _        _
+  _        _        _        _        _        _        _     @nav_left @nav_down @nav_up @nav_right _        @nav_pgup
+  _        _        _        _        _        _        _        _    @nav_ctl_d @nav_ctl_u _       @nav_pgdn _
+  _        _        _        _                 _                 _        _        _        _        _
+)
+
+
+(defalias
+    off_num (layer-rem smart_num)
+
+    ;; fallthrough
+    lt_sn_spc (around @lt_s_spc (layer-toggle smart_num_space))
     sn_s_spc (sticky-key 500 @lt_sn_spc)
 
-    off_num (layer-rem smart_num)
+    ;; do 'around @off_num' because we really only need to shift the number keys, and we want to turn off caps word on shifted numbers
+    sn_s_s_spc (sticky-key 500 (around lsft (around @off_num @lt_sn_spc)))
 
     num_esc (around @off_num esc)
     num_tab (around @off_num tab)
-    ;; num_bspc (around @off_num bspc)
     num_spc (tap-hold-next-release 200 (around @off_num spc) @lt_sn_spc)
     num_ret (around @off_num ret)
 
@@ -290,7 +325,6 @@
     num_l (around @off_num l)
     num_u (tap-hold-next-release 200 (around @off_num u) @meh)
     num_y (tap-hold-next-release 200 (around @off_num y) @hyp)
-    ;; num_semi (around @off_num ;)
 
     num_g (around @off_num g)
     num_m (around @off_num m)
@@ -304,10 +338,16 @@
     num_v (around @off_num v)
     num_k (around @off_num k)
     num_h (around @off_num h)
-    ;; num_comma (around @off_num ,)
-    ;; num_dot (around @off_num .)
-    ;; num_slash (around @off_num /)
-
+)
+(deflayer smart_num
+  XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX
+  XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          XX          @off_num    @off_num
+  @num_tab    @num_q      7           8           9           @num_b      XX          @num_j      @num_l      @num_u      @num_y      ;           @off_num    @off_num
+  bspc        0           4           5           6           @num_g      XX          @num_m      @num_n      @num_e      @num_i      @num_o      @num_quote
+  @num_esc    1           2           3           @num_v      @num_z      /           @num_k      @num_h      ,           .           XX          XX
+  XX          XX          XX          @sn_s_spc               @num_spc                @dumb_s_s   @num_ret    @sn_s_s_spc XX          XX
+)
+(defalias
     num_home (around @off_num home)
     num_end (around @off_num end)
     num_pgup (around @off_num pgup)
@@ -331,21 +371,13 @@
     num_bslash (around @off_num \\)
     num_pipe (around @off_num |)
 )
-(deflayer smart_num
-  @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num
-  @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num
-  @num_tab    @num_q      7           8           9           @num_b      XX          @num_j      @num_l      @num_u      @num_y      ;           @off_num    @off_num
-  bspc        0           4           5           6           @num_g      XX          @num_m      @num_n      @num_e      @num_i      @num_o      @num_quote
-  @num_esc    1           2           3           @num_v      @num_z      /           @num_k      @num_h      ,           .           @off_num    @off_num
-  @off_num    @off_num    @off_num    @sn_s_spc               @num_spc                @dumb_s_s   @num_ret    @off_num    @off_num    @off_num
-)
 (deflayer smart_num_space
   _        _        _        _        _        _        _        _        _        _        _        _        _
-  _     @num_excl @num_at @num_hash @num_dllr @num_perc XX    @num_caret @num_ampr *        S-9      S-0      _        _
-  @num_tild @num_grv @num_ampr *      S-9      _        XX       _        [        S-[      S-]      ]       @num_home @num_end
-  del      S-0  @num_dllr @num_perc @num_caret _    @num_pipe @num_left @num_down @num_up @num_right =        @num_pgup
-  _   @num_excl @num_at @num_hash S-- _     @num_bslash +        -        S-,      S-.     @num_pgdn _
-  _        _        _        _                 _                 _        _        _        _        _
+  _     @num_excl @num_at @num_hash @num_dllr @num_perc _     @num_caret @num_ampr _        _        _        _        _
+  @num_tild @num_grv _       _        _        _        _        _        _        _        _        _       @num_home @num_end
+  _        _        _        _        _        _    @num_pipe @num_left @num_down @num_up @num_right _        @num_pgup
+  _        _        _        _        _        _     @num_bslash _        _        _        _       @num_pgdn _
+  _        _        _        @sn_s_s_spc       XX                @sn_s_s_spc       _        _        _        _
 )
 
 (defalias
@@ -357,7 +389,7 @@
 )
 (deflayer warp
   XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-  XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
+  XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       @warp_esc @warp_esc
   XX       _        _        _        _        _        XX       _        _        _        _        XX       @warp_esc @warp_esc
   @warp_esc _       _        _        _        _        XX       _        n        e        i        _        @on_wb
   @warp_esc _       _        _        _        _        XX       _        _        _        _        @on_wb   XX
@@ -365,11 +397,11 @@
 )
 ;; this layer is for quickly typing and then jumping back into warp
 (deflayer warp_base
-  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _
   _        _        _        _        _        _        _        _        _        _        _        _        _        _
   _        _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        _        _        _        _        _        _        _        _        _        _        _        
-  _        _        _        _        _        _        _        _        _        _        _        @off_wb  _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _
+  _        _        _        _        _        _        _        _        _        _        _        @off_wb  _
   _        _        _        _                 _                 _        _        _        _        _
 )
 
