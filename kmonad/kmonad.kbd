@@ -20,12 +20,13 @@
     ;; define layer toggles and sticky layers
     ;; -------------------------------------------------- 
 
-    on_cw (layer-add caps_word)
-    on_num (layer-add smart_num)
+    ;; on_cw (layer-add caps_word)
+    ;; on_num (layer-add smart_num)
     ;; on_nav (layer-add smart_nav)
 
     an_nav (around-next (layer-toggle smart_nav))
     an_num (around-next (layer-toggle smart_num))
+    an_cw (around-next (layer-toggle caps_word))
 
     on_warp (layer-add warp)
     to_warp (around @on_warp (around lmet (around lalt c)))
@@ -118,7 +119,7 @@
 ;; first defined layer is always the default layer
 (deflayer base
   XX       brdn     brup     C-up     M-spc    C-f5     A-f6     prev     pp       next     mute     vold     volu
-  XX       XX       @hr_/    @hr_c    XX       XX       XX       XX       XX       XX       @at_bspc @an_nav  XX       @on_num
+  XX       XX       @hr_/    @hr_c    XX       XX       XX       XX       XX       XX       @at_bspc @an_nav  XX       @an_num
   tab      q        @hyp_w   @meh_f   p        b        XX       j        l        @meh_u   @hyp_y   ;        @to_warp @hr_s
   bspc     @ctl_a   @alt_r   @met_s   @sft_t   g        f18      m        @sft_n   @met_e   @alt_i   @ctl_o   '
   esc      x        c        d        v        z        /        k        h        ,        .        XX       XX
@@ -190,7 +191,7 @@
   _        _        _        _        _        _        _        _        _        _        _        _        _        _
   _        _        _        _        _        _        _        _        _        _        _        _        _
   _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        _        _                 _                 @on_cw   _        _        _        _
+  _        _        _        _                 _                 @an_cw   _        _        _        _
 )
 (deflayer function_keys
   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
@@ -282,120 +283,99 @@
   _        _        _        _        _        _        _        _        _        _        _        _        _        
   _        _        _        _                 _                 _        _        _        _        _        
 )
-;; (deflayer space
-;;   XX       _        _        _        _        _        _        _        _        _        _        _        _        
-;;   XX       _        _        _        _        _        XX       _        _        _        _        _        XX       XX
-;;   _        _        @hyp_7   @meh_8   _        XX       XX       XX       _     @meh_lbrc @hyp_rbrc  _        _        _     
-;;   del      @ctl_0   @alt_4   @met_5   @sft_6   XX       _        _    @sft_down @met_up @alt_right @ctl_equal _    
-;;   XX       _        _        _        _        XX       _        _        _        _        _        _        XX
-;;   XX       XX       XX       _                 XX                _        XX       XX       XX       XX
-;; )
-;; (defalias
-;;     off_cw (layer-rem caps_word)
-;;
-;;     ;; fallthrough
-;;     lt_cw_spc (around @lt_s_spc (layer-toggle caps_word_space))
-;;     cw_spc (tap-hold-next-release 200 (around @off_cw spc) @lt_cw_spc)
-;;
-;;     cw_s_spc (sticky-key 500 @lt_cw_spc)
-;;
-;;     ;; do 'around @off_cw' because we really only need to shift the number keys, and we want to turn off caps word only on shifted numbers
-;;     cw_s_s_spc (sticky-key 500 (around lsft (around @off_cw @lt_cw_spc)))
-;;
-;;     cw_esc (around @off_cw esc)
-;;     cw_tab (around @off_cw tab)
-;;     cw_ret (around @off_cw ret)
-;;
-;;     cw_semi (around @off_cw ;)
-;;     cw_quote (around @off_cw ')
-;;     cw_comma (around @off_cw ,)
-;;     cw_dot (around @off_cw .)
-;;     cw_slash (around @off_cw /)
-;; )
-;; ;; all characters other than a-z, 0-9, -, _, bspc, and del go back to base layer
-;; (deflayer caps_word
-;;   XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       
-;;   XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX      
-;;   @cw_tab  S-q      S-w      S-f      S-p      S-b      XX       S-j      S-l      S-u      S-y      @cw_semi XX       XX      
-;;   bspc     S-a      S-r      S-s      S-t      S-g      XX       S-m      S-n      S-e      S-i      S-o      @cw_quote
-;;   @cw_esc  S-x      S-c      S-d      S-v      S-z     @cw_slash S-k      S-h      @cw_comma @cw_dot XX       XX
-;;   XX       XX       XX       @cw_s_spc         @cw_spc           @off_cw  ret      @cw_s_s_spc XX    XX
-;; )
+
 (defalias
-    off_cw (layer-rem caps_word)
+  ;; no homerow mods needed on caps word space layer
+  lt_cw_s_spc (around @lt_s_spc (layer-toggle caps_word_space))
 
-    ;; fallthrough
-    lt_cw_spc (around @lt_s_spc (layer-toggle caps_word_space))
-    cw_spc (tap-hold-next-release 200 (around @off_cw spc) @lt_cw_spc)
+  ;; doesn't work for hold for some reason
+  ;; cw_spc (tap-hold-next-release 200 spc @lt_cw_s_spc)
 
-    cw_s_spc (sticky-key 500 @lt_cw_spc)
+  ;; doesn't work at all for some reason
+  ;; cw_s_spc (sticky-key 500 (around @an_cw @lt_cw_s_spc))
 
-    ;; do 'around @off_cw' because we really only need to shift the number keys, and we want to turn off caps word only on shifted numbers
-    cw_s_s_spc (sticky-key 500 (around lsft (around @off_cw @lt_cw_spc)))
+  ;; doesn't work for hold for some reason
+  cw_s_spc (sticky-key 500 @lt_cw_s_spc)
 
-    cw_esc (around @off_cw esc)
-    cw_tab (around @off_cw tab)
-    cw_ret (around @off_cw ret)
+  cw_a (around @an_cw S-a)
+  cw_b (around @an_cw S-b)
+  cw_c (around @an_cw S-c)
+  cw_d (around @an_cw S-d)
+  cw_e (around @an_cw S-e)
+  cw_f (around @an_cw S-f)
+  cw_g (around @an_cw S-g)
+  cw_h (around @an_cw S-h)
+  cw_i (around @an_cw S-i)
+  cw_j (around @an_cw S-j)
+  cw_k (around @an_cw S-k)
+  cw_l (around @an_cw S-l)
+  cw_m (around @an_cw S-m)
+  cw_n (around @an_cw S-n)
+  cw_o (around @an_cw S-o)
+  cw_p (around @an_cw S-p)
+  cw_q (around @an_cw S-q)
+  cw_r (around @an_cw S-r)
+  cw_s (around @an_cw S-s)
+  cw_t (around @an_cw S-t)
+  cw_u (around @an_cw S-u)
+  cw_v (around @an_cw S-v)
+  cw_w (around @an_cw S-w)
+  cw_x (around @an_cw S-x)
+  cw_y (around @an_cw S-y)
+  cw_z (around @an_cw S-z)
 
-    cw_semi (around @off_cw ;)
-    cw_quote (around @off_cw ')
-    cw_comma (around @off_cw ,)
-    cw_dot (around @off_cw .)
-    cw_slash (around @off_cw /)
+  cw_bspc (around @an_cw bspc)
 )
 ;; all characters other than a-z, 0-9, -, _, bspc, and del go back to base layer
 (deflayer caps_word
-  XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       
-  XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX      
-  @cw_tab  S-q      S-w      S-f      S-p      S-b      XX       S-j      S-l      S-u      S-y      @cw_semi XX       XX      
-  bspc     S-a      S-r      S-s      S-t      S-g      XX       S-m      S-n      S-e      S-i      S-o      @cw_quote
-  @cw_esc  S-x      S-c      S-d      S-v      S-z     @cw_slash S-k      S-h      @cw_comma @cw_dot XX       XX
-  XX       XX       XX       @cw_s_spc         @cw_spc           @off_cw  ret      @cw_s_s_spc XX    XX
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        @cw_q    @cw_w    @cw_f    @cw_p    @cw_b    _        @cw_j    @cw_l    @cw_u    @cw_y    _        _        _        
+  @cw_bspc @cw_a    @cw_r    @cw_s    @cw_t    @cw_g    _        @cw_m    @cw_n    @cw_e    @cw_i    @cw_o    _        
+  _        @cw_x    @cw_c    @cw_d    @cw_v    @cw_z    _        @cw_k    @cw_h    _        _        _        _        
+  _        _        _        @cw_s_spc         _                 _        _        _        _        _
 )
+;; TODO note this works but not really what i want
+;; (defalias
+;;   an_cw_spc (around-next (layer-toggle caps_word_space))
+;;
+;;   cw_0 (around @an_cw (around @an_cw_spc 0))
+;;   cw_1 (around @an_cw (around @an_cw_spc 1))
+;;   cw_2 (around @an_cw (around @an_cw_spc 2))
+;;   cw_3 (around @an_cw (around @an_cw_spc 3))
+;;   cw_4 (around @an_cw (around @an_cw_spc 4))
+;;   cw_5 (around @an_cw (around @an_cw_spc 5))
+;;   cw_6 (around @an_cw (around @an_cw_spc 6))
+;;   cw_7 (around @an_cw (around @an_cw_spc 7))
+;;   cw_8 (around @an_cw (around @an_cw_spc 8))
+;;   cw_9 (around @an_cw (around @an_cw_spc 9))
+;;   cw_minus (around @an_cw (around @an_cw_spc -))
+;;   cw_unds (around @an_cw (around @an_cw_spc \_))
+;;   cw_del (around @an_cw (around @an_cw_spc del))
+;; )
+;; for some reason this behaves differently to smart num, can't hold down cw_s_spc or cw_spc and repeat this layer
 (defalias
-    cw_home (around @off_cw home)
-    cw_end (around @off_cw end)
-    cw_pgup (around @off_cw pgup)
-    cw_pgdn (around @off_cw pgdn)
-    cw_down (around @off_cw down)
-    cw_up (around @off_cw up)
-    cw_left (around @off_cw left)
-    cw_right (around @off_cw right)
-
-    cw_excl (around @off_cw !)
-    cw_at (around @off_cw @)
-    cw_hash (around @off_cw #)
-    cw_dllr (around @off_cw $)
-    cw_perc (around @off_cw %)
-    cw_caret (around @off_cw ^)
-    cw_ampr (around @off_cw &)
-    cw_star (around @off_cw *)
-
-    cw_lpar (around @off_cw \( )
-    cw_rpar (around @off_cw \) )
-    cw_lbkt (around @off_cw [)
-    cw_rbkt (around @off_cw ])
-    cw_lbrc (around @off_cw {)
-    cw_rbrc (around @off_cw })
-    cw_lt (around @off_cw <)
-    cw_gt (around @off_cw >)
-
-    cw_plus (around @off_cw +)
-    cw_equal (around @off_cw =)
-
-    cw_tild (around @off_cw ~)
-    cw_grv (around @off_cw grv)
-    cw_bslash (around @off_cw \\)
-    cw_pipe (around @off_cw |)
+  cw_0 (around @an_cw 0)
+  cw_1 (around @an_cw 1)
+  cw_2 (around @an_cw 2)
+  cw_3 (around @an_cw 3)
+  cw_4 (around @an_cw 4)
+  cw_5 (around @an_cw 5)
+  cw_6 (around @an_cw 6)
+  cw_7 (around @an_cw 7)
+  cw_8 (around @an_cw 8)
+  cw_9 (around @an_cw 9)
+  cw_minus (around @an_cw -)
+  cw_unds (around @an_cw \_)
+  cw_del (around @an_cw del)
 )
-;; all characters other than a-z, 0-9, -, _, bspc, and del go back to base layer
 (deflayer caps_word_space
-  _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        @cw_excl @cw_at   @cw_hash @cw_dllr @cw_perc _       @cw_caret @cw_ampr @cw_star @cw_lpar @cw_rpar _        _
-  @cw_tild @cw_grv  _        _        _        _        _        _        @cw_lbkt @cw_lbrc @cw_rbrc @cw_rbkt @cw_home @cw_end
-  _        _        _        _        _        _        @cw_pipe @cw_left @cw_down @cw_up @cw_right @cw_equal @cw_pgup
-  _        1        2        3        \_       _        @cw_bslash @cw_plus -      @cw_lt   @cw_gt   @cw_pgdn _
-  _        _        _        @cw_s_s_spc       XX                @cw_s_s_spc       _        _        _        _
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        @cw_7    @cw_8    @cw_9    _        _        _        _        _        _        _        _        _        
+  @cw_del  @cw_0    @cw_4    @cw_5    @cw_6    _        _        _        _        _        _        _        _        
+  _        @cw_1    @cw_2    @cw_3    @cw_unds _        _        _        @cw_minus _       _        _        _        
+  _        _        _        _                 _                 _        _        _        _        _        
 )
 
 (defalias
@@ -426,11 +406,11 @@
 
 (defalias
   ;; don't need number layer for smart num space
-  lt_sn_s_spc (around @lt_fun 
-            (around @lt_sym_row 
-            (around @lt_sym 
-            (around @lt_nav 
-            (around @lt_sp_spec 
+  lt_sn_s_spc (around @lt_fun
+            (around @lt_sym_row
+            (around @lt_sym
+            (around @lt_nav
+            (around @lt_sp_spec
             (around @lt_sp_dead
             (layer-toggle smart_num_space)))))))
 
