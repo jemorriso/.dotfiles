@@ -33,17 +33,26 @@
     on_alt_tab (layer-add alt_tab)
     at_bspc (around @on_alt_tab (around lmet bspc))
 
+    ;; lt_s_spc always uses space layer because keys fall through
+    ;; lt_spc (layer-toggle space)
+    ;; lt_s_spc (around @lt_spc (layer-toggle sticky_space))
+    lt_fun (layer-toggle function_keys)
+    lt_sym_row (layer-toggle symbol_row)
+    lt_sym (layer-toggle symbols)
+    lt_num (layer-toggle num_pad)
+    lt_nav (layer-toggle nav_keys)
+    lt_special (layer-toggle special_keys)
+    lt_dead (layer-toggle dead_keys)
+    lt_s_spc (around @lt_fun (around @lt_sym_row (around @lt_sym (around @lt_num (around @lt_nav (around @lt_special @lt_dead))))))
+    lt_spc (around @lt_s_spc (layer-toggle space))
+    s_spc (sticky-key 500 @lt_s_spc)
+
     ;; define sticky_shift mods for sticky keys - sticky keys do not work with mod-tap
     ;; if don't use sticky_base layer, then sticky shift on @ctl_a does not produce 'A'
     ;; also, keep the symbol row, so s_s differs from a true shift
     lt_sbase (layer-toggle sticky_base)
-    lt_sym_row (layer-toggle symbol_row)
     s_s (sticky-key 500 (around lsft (around @lt_sym_row @lt_sbase)))
 
-    ;; lt_s_spc always uses space layer because keys fall through
-    lt_spc (layer-toggle space)
-    lt_s_spc (around @lt_spc (layer-toggle sticky_space))
-    s_spc (sticky-key 500 @lt_s_spc)
 
     ;; we need to use the layer toggle even when we are already on the layer in order to chain sticky keys, otherwise the first sticky key that took us to the layer wears off and we go back to the previous layer
     s_s_spc (sticky-key 500 (around lsft @lt_s_spc))
@@ -113,13 +122,86 @@
   _        _        _        _        _        _        _        _        _        _        _        _        _
   _        _        _        _                 _                 @on_cw   _        _        _        _
 )
+(deflayer function_keys
+  _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _ 
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _ 
+  _        _        _        _        _        _        _        _        _        _        _        _        _ 
+  _        _        _        _        _        _        _        _        _        _        _        _        _ 
+  _        _        _        _                 _                 _        _        _        _        _ 
+)
 (deflayer symbol_row
-  _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        !        @        #        $        %        XX       ^        &        *        S-9      S-0      _        _
-  _        _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        _        _                 _                 _        _        _        _        _
+  _        _        _        _        _        _        _        _        _        _        _        _        _ 
+  _        !        @        #        $        %        _        ^        &        *        S-9      S-0      _        _ 
+  ~        grv      _        _        _        _        _        _        _        _        _        _        _        _ 
+  _        _        _        _        _        _        _        _        _        _        _        _        _ 
+  _        _        _        _        _        _        _        _        _        _        _        _        _ 
+  _        _        _        _                 _                 _        _        _        _        _ 
+)
+(deflayer symbols
+  _        _        _        _        _        _        _        _        _        _        _        _        _ 
+  _        _        _        _        _        _        _        _        _        _        S-9      S-0      _        _ 
+  _        _        _        _        _        _        _        _        [        {        }        ]        _        _ 
+  _        _        _        _        _        _        |        _        _        _        _        =        _ 
+  _        _        _        _        S--      _        \        +        -        S-,      S-.      _        _ 
+  _        _        _        _                 _                 _        _        _        _        _ 
+)
+(deflayer num_pad
+  _        _        _        _        _        _        _        _        _        _        _        _        _ 
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _ 
+  _        _        7        8        9        _        _        _        _        _        _        _        _        _ 
+  _        0        4        5        6        _        _        _        _        _        _        _        _ 
+  _        1        2        3        _        _        _        _        _        _        _        _        _ 
+  _        _        _        _                 _                 _        _        _        _        _ 
+)
+(deflayer nav_keys
+  _        _        _        _        _        _        _        _        _        _        _        _        _ 
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _ 
+  _        _        _        _        _        _        _        _        _        _        _        _        home     end
+  del      _        _        _        _        _        _        left     down     up       right    _        pgup
+  _        _        _        _        _        _        _        _        _        _        _        pgdn     _ 
+  _        _        _        _                 _                 _        _        _        _        _ 
+)
+(deflayer special_keys
+  _        _        _        _        _        _        _        _        _        _        _        _        _ 
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _ 
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _ 
+  _        _        _        @s_s_spc          @ray              @s_s_spc _        _        _        _
+)
+(deflayer dead_keys
+  XX       _        _        _        _        _        _        _        _        _        _        _        _        
+  XX       _        _        _        _        _        XX       _        _        _        _        _        XX       XX
+  _        _        _        _        _        XX       XX       XX       _        _        _        _        _        _     
+  _        _        _        _        _        XX       _        _        _        _        _        _        _    
+  XX       _        _        _        _        XX       _        _        _        _        _        _        XX
+  XX       XX       XX       _                 XX                _        XX       XX       XX       XX
+)
+(defalias
+    ctl_0 (tap-hold-next-release 200 0 lctl)
+    alt_4 (tap-hold-next-release 200 4 lalt)
+    met_5 (tap-hold-next-release 200 5 lmet)
+    sft_6 (tap-hold-next-release 200 6 lsft)
+
+    sft_down (tap-hold-next-release 200 down lsft)
+    met_up (tap-hold-next-release 200 up lmet)
+    alt_right (tap-hold-next-release 200 right lalt)
+    ctl_equal (tap-hold-next-release 200 = lctl)
+
+    hyp_7 (tap-hold-next-release 200 7 @hyp)
+    meh_8 (tap-hold-next-release 200 8 @meh)
+
+    meh_lbrc (tap-hold-next-release 200 S-[ @meh)
+    hyp_rbrc (tap-hold-next-release 200 S-] @hyp)
+)
+(deflayer space
+  XX       _        _        _        _        _        _        _        _        _        _        _        _        
+  XX       _        _        _        _        _        XX       _        _        _        _        _        XX       XX
+  _        _        @hyp_7   @meh_8   _        XX       XX       XX       _     @meh_lbrc @hyp_rbrc  _        _        _     
+  del      @ctl_0   @alt_4   @met_5   @sft_6   XX       _        _    @sft_down @met_up @alt_right @ctl_equal _    
+  XX       _        _        _        _        XX       _        _        _        _        _        _        XX
+  XX       XX       XX       _                 XX                _        XX       XX       XX       XX
 )
 (defalias
     off_cw (layer-rem caps_word)
@@ -151,41 +233,6 @@
   bspc     S-a      S-r      S-s      S-t      S-g      XX       S-m      S-n      S-e      S-i      S-o      @cw_quote
   @cw_esc  S-x      S-c      S-d      S-v      S-z     @cw_slash S-k      S-h      @cw_comma @cw_dot XX       XX
   XX       XX       XX       @cw_s_spc         @cw_spc           @off_cw  ret      @cw_s_s_spc XX    XX
-)
-
-(defalias
-
-    ctl_0 (tap-hold-next-release 200 0 lctl)
-    alt_4 (tap-hold-next-release 200 4 lalt)
-    met_5 (tap-hold-next-release 200 5 lmet)
-    sft_6 (tap-hold-next-release 200 6 lsft)
-
-    sft_down (tap-hold-next-release 200 down lsft)
-    met_up (tap-hold-next-release 200 up lmet)
-    alt_right (tap-hold-next-release 200 right lalt)
-    ctl_equal (tap-hold-next-release 200 = lctl)
-
-    hyp_7 (tap-hold-next-release 200 7 @hyp)
-    meh_8 (tap-hold-next-release 200 8 @meh)
-
-    meh_lbrc (tap-hold-next-release 200 S-[ @meh)
-    hyp_rbrc (tap-hold-next-release 200 S-] @hyp)
-)
-(deflayer space
-  XX       f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
-  XX       !        @        #        $        %        XX       ^        &        *        S-9      S-0      XX       XX
-  ~        grv      @hyp_7   @meh_8   9        XX       XX       XX       [     @meh_lbrc @hyp_rbrc  ]        home     end
-  del      @ctl_0   @alt_4   @met_5   @sft_6   XX       |        left @sft_down @met_up @alt_right @ctl_equal pgup
-  XX       1        2        3        S--      XX       \        +        -        S-,      S-.      pgdn     XX
-  XX       XX       XX       @s_s_spc          XX                @s_s_spc XX       XX       XX       XX
-)
-(deflayer sticky_space
-  _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        _        _        _        _        _        _        _        _        _        _        _        _
-  ~        _        7        8        _        _        _        _        _        S-[      S-]      _        _        _
-  _        0        4        5        6        _        _        _        down     up       right    =        _
-  _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        _        _                 @ray              _        _        _        _        _
 )
 (defalias
     cw_home (around @off_cw home)
@@ -262,7 +309,16 @@
 
 (defalias
   ;; fallthrough
+  lt_sn_spc (around @lt_spc (layer-toggle smart_num_space))
+  lt_sn_s_spc (around @lt_s_spc (layer-toggle smart_num_space))
+
   num_spc (tap-hold-next-release 200 spc (around @lt_spc (layer-toggle smart_num_space)))
+
+  num_s_spc (sticky-key 500 (around @an_num @lt_sn_s_spc))
+
+  ;; numpad overlaid on base layer with *, (, ) extending smart num
+  ;; so that smart num sticky shift behaves properly
+  num_s_s (sticky-key 500 (around lsft (around (layer-toggle num_pad) (layer-toggle smart_num_space_shifted))))
 
   num_0 (around @an_num 0)
   num_1 (around @an_num 1)
@@ -282,16 +338,26 @@
   num_semi (around @an_num ;)
 
 )
+(deflayer smart_num_space_shifted
+  _        _        _        _        _        _        _        _        _        _        _        _        _
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _
+  _        _        _        @num_star @num_lpar _      _        _        _        _        _        _        _        _
+  _        @num_rpar _       _        _        _        _        _        _        _        _        _        _
+  _        _        _        _        _        _        _        _        _        _        _        _        _
+  _        _        _        _                 _                 _        _        _        _        _
+)
 ;; all characters other than 0-9, -, +, *, /, _, =, ?, (, ), [, ], {, }, <, >, bspc, and del go back to base layer
 (deflayer smart_num
   _        _        _        _        _        _        _        _        _        _        _        _        _
   _        _        _        _        _        _        _        _        _        _        _        _        _        _
   _        _        @num_7   @num_8   @num_9   _        _        _        _        _        _        @num_semi _       _
-  _        @num_0   @num_4   @num_5   @num_6   _        _        _        _        _        _        _        _
+  @num_bspc @num_0  @num_4   @num_5   @num_6   _        _        _        _        _        _        _        _
   _        @num_1   @num_2   @num_3   _        _        @num_slash _      _        @num_comma @num_dot _      _
-  _        _        _        _                 @num_spc          _        _        _        _        _
+  _        _        _        @num_s_spc        @num_spc          @num_s_s _       _        _        _
 )
 (defalias
+  num_s_s_spc (sticky-key 500 (around lsft @lt_sn_s_spc))
+
   num_del (around @an_num del)
 
   num_minus (around @an_num -)
@@ -310,6 +376,7 @@
 
   num_star (around @an_num *)
 )
+;; ignore the numpad part of the space layer since we already have numpad on
 (deflayer smart_num_space
   _        _        _        _        _        _        _        _        _        _        _        _        _
   _        _        _        _        _        _        _        _        _        @num_star @num_lpar @num_rpar _     _
