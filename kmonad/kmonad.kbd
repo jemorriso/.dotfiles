@@ -132,7 +132,7 @@
 )
 (deflayer symbol_row
   _        _        _        _        _        _        _        _        _        _        _        _        _ 
-  _        !        @        #        $        %        _        ^        &        *        S-9      S-0      _        _ 
+  _        !        @        #        $        %        _        ^        &        *        \(       \)       _        _ 
   ~        grv      _        _        _        _        _        _        _        _        _        _        _        _ 
   _        _        _        _        _        _        _        _        _        _        _        _        _ 
   _        _        _        _        _        _        _        _        _        _        _        _        _ 
@@ -140,10 +140,10 @@
 )
 (deflayer symbols
   _        _        _        _        _        _        _        _        _        _        _        _        _ 
-  _        _        _        _        _        _        _        _        _        _        S-9      S-0      _        _ 
+  _        _        _        _        _        _        _        _        _        _        \(       \)       _        _ 
   _        _        _        _        _        _        _        _        [        {        }        ]        _        _ 
   _        _        _        _        _        _        |        _        _        _        _        =        _ 
-  _        _        _        _        S--      _        \        +        -        S-,      S-.      _        _ 
+  _        _        _        _        \_       _        \        +        -        <        >        _        _ 
   _        _        _        _                 _                 _        _        _        _        _ 
 )
 (deflayer num_pad
@@ -192,8 +192,8 @@
     hyp_7 (tap-hold-next-release 200 7 @hyp)
     meh_8 (tap-hold-next-release 200 8 @meh)
 
-    meh_lbrc (tap-hold-next-release 200 S-[ @meh)
-    hyp_rbrc (tap-hold-next-release 200 S-] @hyp)
+    meh_lbrc (tap-hold-next-release 200 { @meh)
+    hyp_rbrc (tap-hold-next-release 200 } @hyp)
 )
 (deflayer space
   XX       _        _        _        _        _        _        _        _        _        _        _        _        
@@ -253,8 +253,8 @@
     cw_ampr (around @off_cw &)
     cw_star (around @off_cw *)
 
-    cw_lpar (around @off_cw S-9)
-    cw_rpar (around @off_cw S-0)
+    cw_lpar (around @off_cw \( )
+    cw_rpar (around @off_cw \) )
     cw_lbkt (around @off_cw [)
     cw_rbkt (around @off_cw ])
     cw_lbrc (around @off_cw {)
@@ -277,7 +277,7 @@
   _        @cw_excl @cw_at   @cw_hash @cw_dllr @cw_perc _       @cw_caret @cw_ampr @cw_star @cw_lpar @cw_rpar _        _
   @cw_tild @cw_grv  _        _        _        _        _        _        @cw_lbkt @cw_lbrc @cw_rbrc @cw_rbkt @cw_home @cw_end
   _        _        _        _        _        _        @cw_pipe @cw_left @cw_down @cw_up @cw_right @cw_equal @cw_pgup
-  _        1        2        3        S--      _        @cw_bslash @cw_plus -      @cw_lt   @cw_gt   @cw_pgdn _
+  _        1        2        3        \_       _        @cw_bslash @cw_plus -      @cw_lt   @cw_gt   @cw_pgdn _
   _        _        _        @cw_s_s_spc       XX                @cw_s_s_spc       _        _        _        _
 )
 
@@ -292,8 +292,8 @@
 
   nav_lbrc (around @an_nav {)
   nav_rbrc (around @an_nav })
-  nav_lpar (around @an_nav S-9)
-  nav_rpar (around @an_nav S-0)
+  nav_lpar (around @an_nav \( )
+  nav_rpar (around @an_nav \) )
 
   nav_ctl_d (around @an_nav C-d)
   nav_ctl_u (around @an_nav C-u)
@@ -361,12 +361,12 @@
   num_del (around @an_num del)
 
   num_minus (around @an_num -)
-  num_unds (around @an_num S--)
+  num_unds (around @an_num \_ )
   num_equal (around @an_num =)
   num_plus (around @an_num +)
 
-  num_lpar (around @an_num S-9)
-  num_rpar (around @an_num S-0)
+  num_lpar (around @an_num \( )
+  num_rpar (around @an_num \) )
   num_lbrc (around @an_num {)
   num_rbrc (around @an_num })
   num_lbkt (around @an_num [)
