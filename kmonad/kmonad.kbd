@@ -99,8 +99,8 @@
 (deflayer colemak
   _        _        _        _        _        _        _        _        _        _        _        _        _
   _        _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        q        w        f        p        b        XX       j        l        u        y        ;        '        _
-  _        a        r        s        t        g        XX       m        n        e        i        o        ret
+  _        q        w        f        p        b        XX       j        l        u        y        ;        _        _
+  _        a        r        s        t        g        XX       m        n        e        i        o        '
   _        x        c        d        v        z        /        k        h        ,        .        _        _
   _        _        _        _                 _                 _        _        _        _        _
 )
@@ -116,7 +116,8 @@
     sft_down (tap-hold-next-release 200 down lsft)
     met_up (tap-hold-next-release 200 up lmet)
     alt_right (tap-hold-next-release 200 right lalt)
-    ctl_pipe (tap-hold-next-release 200 | lctl)
+    ;; ctl_pipe (tap-hold-next-release 200 | lctl)
+    ctl_equal (tap-hold-next-release 200 = lctl)
 
     hyp_7 (tap-hold-next-release 200 7 @hyp)
     meh_8 (tap-hold-next-release 200 8 @meh)
@@ -136,8 +137,8 @@
   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
   _        !        @        #        $        %        XX       ^        &        *        S-9      S-0      _        _
   ~        grv      @hyp_7   @meh_8   9        _        XX       _        [     @meh_lbrc @hyp_rbrc  ]        home     end
-  del      @ctl_0   @alt_4   @met_5   @sft_6   =        XX       left @sft_down @met_up @alt_right @ctl_pipe  pgup
-  _        1        2        3        +        _        \        S--      -        S-,      S-.      pgdn     _
+  del      @ctl_0   @alt_4   @met_5   @sft_6   _        |        left @sft_down @met_up @alt_right @ctl_equal pgup
+  _        1        2        3        S--      _        \        +        -        S-,      S-.      pgdn     _
   _        _        _        @s_s_spc          @spc_spc          @s_s_spc _        _        _        _
 )
 ;; this layer is needed for sticky keys to work on any mod-tap keys
@@ -145,8 +146,8 @@
   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
   _        !        @        #        $        %        XX       ^        &        *        S-9      S-0      _        _
   ~        grv      7        8        9        _        XX       _        [        S-[      S-]      ]        home     end
-  del      0        4        5        6        =        XX       left     down     up       right    |        pgup
-  _        1        2        3        +        _        \        S--      -        S-,      S-.      pgdn     _
+  del      0        4        5        6        _        |        left     down     up       right    =        pgup
+  _        1        2        3        S--      _        \        +        -        S-,      S-.      pgdn     _
   _        _        _        @s_s_spc          @spc_spc          @s_s_spc _        _        _        _
 )
 
@@ -233,31 +234,42 @@
 (deflayer smart_num
   @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num
   @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num    @off_num
-  @num_tab    @num_q      7           8           9           @num_b      XX          @num_j      @num_l      @num_u      @num_y      ;           @num_quote  @off_num
-  bspc        0           4           5           6           @num_g      XX          @num_m      @num_n      @num_e      @num_i      @num_o      @num_ret
+  @num_tab    @num_q      7           8           9           @num_b      XX          @num_j      @num_l      @num_u      @num_y      ;           @off_num    @off_num
+  bspc        0           4           5           6           @num_g      XX          @num_m      @num_n      @num_e      @num_i      @num_o      @num_quote
   @num_esc    1           2           3           @num_v      @num_z      /           @num_k      @num_h      ,           .           @off_num    @off_num
-  @off_num    @off_num    @off_num    @num_ret                @num_spc                @dumb_s_s   @off_num    @off_num    @off_num    @off_num
+  @off_num    @off_num    @off_num    @off_num                @num_spc                @dumb_s_s   @num_ret    @off_num    @off_num    @off_num
 )
 (deflayer smart_num_space
   _        _        _        _        _        _        _        _        _        _        _        _        _
   _ @num_excl @num_at @num_hash @num_dllr @num_perc     XX   @num_caret @num_ampr  *        S-9      S-0      _        _
   @num_tild @num_grv _       _        _        _        XX       _        [        S-[      S-]      ]       @num_home @num_end
-  del      _        _        _        _        =        XX   @num_left @num_down @num_up @num_right @num_pipe @num_pgup
-  _        _        _        _        +        _     @num_bslash S--      -        S-,      S-.     @num_pgdn _
+  del      _        _        _        _        _   @num_pipe @num_left @num_down @num_up @num_right  =        @num_pgup
+  _        _        _        _        S--      _     @num_bslash +        -        S-,      S-.     @num_pgdn _
   _        _        _        _                 _                 _        _        _        _        _
 )
 
 (defalias
     off_warp (layer-rem warp)
     warp_esc (around @off_warp esc)
+
+    on_wb (around @warp_esc (layer-add warp_base))
+    off_wb (around @to_warp (layer-rem warp_base))
 )
 (deflayer warp
   XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
   XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
   XX       _        _        _        _        _        XX       _        _        _        _        XX       XX       XX
-  spc      _        _        _        _        _        XX       _        n        e        i        _        XX
-  @warp_esc _       _        _        _        _        XX       _        _        _        _        _        XX
-  XX      @warp_esc XX       _                 bspc              kprt     del      XX       XX       XX
+  @warp_esc _       _        _        _        _        XX       _        n        e        i        _        @on_wb
+  @warp_esc _       _        _        _        _        XX       _        _        _        _        @on_wb   XX
+  XX      @warp_esc XX       _                 spc               bspc     kprt     del      XX       XX
+)
+(deflayer warp_base
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        @off_wb  _        
+  _        _        _        _                 _                 _        _        _        _        _
 )
 
 (defalias
