@@ -85,6 +85,9 @@ end)
 -- require("app_window_cycle")
 -- require("switcher")
 
+--------------------------------
+-- KEY REPEAT
+--------------------------------
 local savedKey = nil
 
 -- Event handler to capture key presses
