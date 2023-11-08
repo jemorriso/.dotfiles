@@ -66,8 +66,10 @@
 
     ;; use colemak layer for sticky shift because tap-hold keys do not work with sticky keys
     ;; also, keep the symbol row, so s_s differs from a true shift
+    ;; also, thumb keys are valuable so add some extended functioality
     lt_cole (layer-toggle colemak_wide_angle)
-    smart_shift (sticky-key 500 (around lsft (around (layer-toggle sticky_shifted) (around @lt_sym_row @lt_cole))))
+    ;; smart_shift (sticky-key 500 (around (layer-toggle sticky_shifted) (around @lt_sym_row (around lsft @lt_cole))))
+    smart_shift (sticky-key 500 (around (layer-toggle sticky_shifted) @lt_sym_row))
 
     ;; we need to use the layer toggle even when we are already on the layer in order to chain sticky keys, otherwise the first sticky key that took us to the layer wears off and we go back to the previous layer
     s_s_spc (sticky-key 500 (around lsft @lt_s_spc))
@@ -141,6 +143,23 @@
   _        x        c        d        v        z        /        k        h        ,        .        _        _        
   _        _        _        _                 _                 _        _        _        _        _        
 )
+;; (deflayer sticky_shifted
+;;   _        _        _        _        _        _        _        _        _        _        _        _        _
+;;   _        _        _        _        _        _        _        _        _        _        _        _        _        _
+;;   _        _        _        _        _        _        _        _        _        _        _        _        _        _
+;;   _        _        _        _        _        _        _        _        _        _        _        _        _
+;;   _        _        _        _        _        _        _        _        _        _        _        _        _
+;;   _        _        _        _                 @ray              @an_cw   _        _        _        _
+;; )
+(deflayer sticky_shifted
+  _        _        _        _        _        _        _        _        _        _        _        _        _
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _
+  S-tab    S-q      S-w      S-f      S-p      S-b      _        S-j      S-l      S-u      S-y      S-;      _        _
+  S-bspc   S-a      S-r      S-s      S-t      S-g      _        S-m      S-n      S-e      S-i      S-o      '
+  S-esc    S-x      S-c      S-d      S-v      S-z      S-/      S-k      S-h      S-,      S-.      _        _
+  _        _        _        f19               @an_num           @an_cw   S-ret    _        _        _
+)
+
 ;; TODO i was going to use these layers to factor out base layer components
 ;; but not sure how it will work with all layers added together acting as the base layer
 ;; (deflayer spacing_keys
@@ -185,14 +204,10 @@
 ;;   _        _        _        _        _        _        _        _        _        _        _        XX       XX       
 ;;   XX       _        _        _                 _                 _        _        _        XX       XX       
 ;; )
-(deflayer sticky_shifted
-  _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        _        _                 _                 @an_cw   _        _        _        _
-)
+
+;; -------------------------------------------------- 
+;; space layer
+;; -------------------------------------------------- 
 (deflayer function_keys
   _        f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
   _        _        _        _        _        _        _        _        _        _        _        _        _        _ 
