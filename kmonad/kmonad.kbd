@@ -99,7 +99,8 @@
     ;; -------------------------------------------------- 
     ;; layer-tap
     ;; -------------------------------------------------- 
-    spc_spc (tap-hold-next-release 200 spc @lt_spc)
+    ;; spc_spc (tap-hold-next-release 200 spc @lt_spc)
+    spc_spc (tap-hold-next-release 200 (around-next-timeout 200 (layer-toggle space_double_tap) spc) @lt_spc)
 
     ;; -------------------------------------------------- 
     ;; special keys
@@ -120,7 +121,7 @@
 ;; first defined layer is always the default layer
 (deflayer base
   XX       brdn     brup     C-up     M-spc    C-f5     A-f6     prev     pp       next     mute     vold     volu
-  XX       XX       @hr_/    @hr_c    XX       XX       XX       XX       XX       XX       @at_bspc @an_nav  XX       @an_num
+  XX       f19      @hr_/    @hr_c    XX       XX       XX       XX       XX       XX       @at_bspc @an_nav  f19      @an_num
   tab      q        @hyp_w   @meh_f   p        b        XX       j        l        @meh_u   @hyp_y   ;        @to_warp @hr_s
   bspc     @ctl_a   @alt_r   @met_s   @sft_t   g        f18      m        @sft_n   @met_e   @alt_i   @ctl_o   '
   esc      x        c        d        v        z        /        k        h        ,        .        XX       XX
@@ -149,6 +150,53 @@
   S-bspc   S-a      S-r      S-s      S-t      S-g      _        S-m      S-n      S-e      S-i      S-o      '
   S-esc    S-x      S-c      S-d      S-v      S-z      S-/      S-k      S-h      S-,      S-.      _        _
   _        _        _        f19               @an_num           @an_cw   S-ret    _        _        _
+)
+(defalias
+  sdt_a (around spc a)
+  sdt_b (around spc b)
+  sdt_c (around spc c)
+  sdt_d (around spc d)
+  sdt_e (around spc e)
+  sdt_f (around spc f)
+  sdt_g (around spc g)
+  sdt_h (around spc h)
+  sdt_i (around spc i)
+  sdt_j (around spc j)
+  sdt_k (around spc k)
+  sdt_l (around spc l)
+  sdt_m (around spc m)
+  sdt_n (around spc n)
+  sdt_o (around spc o)
+  sdt_p (around spc p)
+  sdt_q (around spc q)
+  sdt_r (around spc r)
+  sdt_s (around spc s)
+  sdt_t (around spc t)
+  sdt_u (around spc u)
+  sdt_v (around spc v)
+  sdt_w (around spc w)
+  sdt_x (around spc x)
+  sdt_y (around spc y)
+  sdt_z (around spc z)
+  sdt_semi (around spc ;)
+  sdt_quote (around spc ')
+  sdt_comma (around spc ,)
+  sdt_dot (around spc .)
+  sdt_slash (around spc /)
+  sdt_s_spc (around spc /)
+  sdt_smart_shift (around spc /)
+  sdt_bspc (around spc bspc)
+  sdt_tab (around spc tab)
+  sdt_esc (around spc esc)
+  sdt_ret (around spc ret)
+)
+(deflayer space_double_tap
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  @sdt_tab @sdt_q    @sdt_w    @sdt_f    @sdt_p    @sdt_b    _        @sdt_j    @sdt_l    @sdt_u    @sdt_y    _        _        _        
+  @sdt_bspc @sdt_a    @sdt_r    @sdt_s    @sdt_t    @sdt_g    _        @sdt_m    @sdt_n    @sdt_e    @sdt_i    @sdt_o    _        
+  @sdt_esc @sdt_x    @sdt_c    @sdt_d    @sdt_v    @sdt_z    _        @sdt_k    @sdt_h    _        _        _        _        
+  _        _        _        @sdt_s_spc         f19          @sdt_smart_shift _     _        _        _
 )
 
 ;; TODO i was going to use these layers to factor out base layer components
