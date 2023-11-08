@@ -142,14 +142,6 @@
   _        x        c        d        v        z        /        k        h        ,        .        _        _        
   _        _        _        _                 _                 _        _        _        _        _        
 )
-;; (deflayer sticky_shifted
-;;   _        _        _        _        _        _        _        _        _        _        _        _        _
-;;   _        _        _        _        _        _        _        _        _        _        _        _        _        _
-;;   _        _        _        _        _        _        _        _        _        _        _        _        _        _
-;;   _        _        _        _        _        _        _        _        _        _        _        _        _
-;;   _        _        _        _        _        _        _        _        _        _        _        _        _
-;;   _        _        _        _                 @ray              @an_cw   _        _        _        _
-;; )
 (deflayer sticky_shifted
   _        _        _        _        _        _        _        _        _        _        _        _        _
   _        _        _        _        _        _        _        _        _        _        _        _        _        _
@@ -218,7 +210,7 @@
 (deflayer symbol_row
   _        _        _        _        _        _        _        _        _        _        _        _        _ 
   _        !        @        #        $        %        _        ^        &        *        \(       \)       _        _ 
-  ~        grv      _        _        _        _        _        _        _        _        _        _        _        _ 
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _ 
   _        _        _        _        _        _        _        _        _        _        _        _        _ 
   _        _        _        _        _        _        _        _        _        _        _        _        _ 
   _        _        _        _                 _                 _        _        _        _        _ 
@@ -226,7 +218,7 @@
 (deflayer symbols
   _        _        _        _        _        _        _        _        _        _        _        _        _ 
   _        _        _        _        _        _        _        _        _        _        \(       \)       _        _ 
-  _        _        _        _        _        _        _        _        [        {        }        ]        _        _ 
+  ~        grv      _        _        _        _        _        _        [        {        }        ]        _        _ 
   _        _        _        _        _        _        |        _        _        _        _        =        _ 
   _        _        _        _        \_       _        \        +        -        <        >        _        _ 
   _        _        _        _                 _                 _        _        _        _        _ 
@@ -253,7 +245,7 @@
   _        _        _        _        _        _        _        _        _        _        _        _        _        _        
   _        _        _        _        _        _        _        _        _        _        _        _        _        
   _        _        _        _        _        _        _        _        _        _        _        _        _ 
-  _        _        _        @s_s_spc          @ray              @s_s_spc _        _        _        _
+  _        _        _        @ray              @an_nav           @s_s_spc _        _        _        _
 )
 (deflayer space_dead_keys
   XX       _        _        _        _        _        _        _        _        _        _        _        _        
@@ -261,7 +253,7 @@
   _        _        _        _        _        XX       XX       XX       _        _        _        _        _        _     
   _        _        _        _        _        XX       _        _        _        _        _        _        _    
   XX       _        _        _        _        XX       _        _        _        _        _        _        XX
-  XX       XX       XX       _                 XX                _        XX       XX       XX       XX
+  XX       XX       XX       _                 _                 _        XX       XX       XX       XX
 )
 (defalias
     ctl_0 (tap-hold-next-release 200 0 lctl)
@@ -297,7 +289,19 @@
   _        _        _        _        _        _        _        _        _        _        _        _        _        
   _        _        _        _                 _                 _        _        _        _        _        
 )
+;; NOTE this is the layer produced by combining all the above layers in this section (hold space key)
+;; (deflayer space
+;;  XX       f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
+;;  XX       !        @        #        $        %        XX       ^        &        *        \(       \)       XX       XX
+;;  ~        grv      @hyp_7   @meh_8   9        XX       XX       XX       [     @meh_lbrc @hyp_rbrc  ]        home     end
+;;  del      @ctl_0   @alt_4   @met_5   @sft_6   XX       |        left @sft_down @met_up @alt_right @ctl_equal pgup
+;;  XX       1        2        3        \_       XX       \        +        -        <        >        pgdn     XX
+;;  XX       XX       XX       @ray              @an_nav           @s_s_spc XX       XX       XX       XX
+;; )
 
+;; -------------------------------------------------- 
+;; caps word
+;; -------------------------------------------------- 
 (defalias
   ;; no homerow mods needed on caps word space layer
   lt_cw_s_spc (around @lt_s_spc (layer-toggle caps_word_space))
@@ -392,6 +396,9 @@
   _        _        _        _                 _                 _        _        _        _        _        
 )
 
+;; -------------------------------------------------- 
+;; smart nav
+;; -------------------------------------------------- 
 (defalias
   nav_left (around @an_nav left)
   nav_right (around @an_nav right)
@@ -418,6 +425,9 @@
   _        _        _        _                 _                 _        _        _        _        _
 )
 
+;; -------------------------------------------------- 
+;; smart num
+;; -------------------------------------------------- 
 (defalias
   ;; don't need number layer for smart num space
   lt_sn_s_spc (around @lt_fun
@@ -501,6 +511,9 @@
   _        _        _        _                 _                 _        _        _        _        _
 )
 
+;; -------------------------------------------------- 
+;; warpd
+;; -------------------------------------------------- 
 (defalias
     off_warp (layer-rem warp)
     warp_esc (around @off_warp esc)
@@ -526,6 +539,9 @@
   _        _        _        _                 _                 _        _        _        _        _
 )
 
+;; -------------------------------------------------- 
+;; alt tab
+;; -------------------------------------------------- 
 (defalias
     off_alt_tab (layer-rem alt_tab)
     at_esc (around @off_alt_tab esc)
@@ -540,6 +556,8 @@
   @at_off  @at_off  @at_off  @at_off           @at_off           @at_off  @at_off  @at_off  @at_off  @at_off
 )
 
+;; -------------------------------------------------- 
+;; -------------------------------------------------- 
 ;; (defalias
 ;;     ;; -------------------------------------------------- 
 ;;     ;; define colemak mods for sticky keys - sticky keys do no work with mod-tap
