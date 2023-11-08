@@ -100,9 +100,6 @@
     ;; layer-tap
     ;; -------------------------------------------------- 
     spc_spc (tap-hold-next-release 200 spc @lt_spc)
-    ;; c_nav (tap-hold-next-release 200 c @lt_nav)
-
-    ret_s_spc (tap-hold-next-release 200 ret (around lsft @lt_spc))
 
     ;; -------------------------------------------------- 
     ;; special keys
@@ -117,6 +114,8 @@
 
     ;; raycast
     ray (around lmet spc)
+
+    ;; mt_esc (multi-tap 200 esc f19)
 )
 ;; first defined layer is always the default layer
 (deflayer base
