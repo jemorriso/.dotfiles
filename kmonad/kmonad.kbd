@@ -577,13 +577,15 @@
     c_acm (around @c_ac lmet)
     c_ams (around @c_as lmet)
     c_cms (around @c_cs lmet)
-    c_meh (around @c_cs lalt)
+    c_acs (around @c_cs lalt)
 
+    c_meh (around @c_cs lalt)
     c_hyp (around @c_meh lmet)
 
     s_a (sticky-key 500 @c_a)
     s_ac (sticky-key 500 @c_ac)
     s_acm (sticky-key 500 @c_acm)
+    s_acs (sticky-key 500 @c_acs)
     s_am (sticky-key 500 @c_am)
     s_ams (sticky-key 500 @c_ams)
     s_as (sticky-key 500 @c_as)
@@ -599,49 +601,117 @@
   ;; an_s (around-next (layer-toggle around_next_shift))
   ;; sticky_s (sticky-key 500 @lt_col)
 
-    a_hrml (sticky-key 500 (around (layer-toggle sticky_hrm_a_left) @c_a))
-    c_hrml (sticky-key 500 (around (layer-toggle sticky_hrm_c_left) @c_c))
-    m_hrml (sticky-key 500 (around (layer-toggle sticky_hrm_m_left) @c_m))
-    s_hrml (sticky-key 500 (around (layer-toggle sticky_hrm_s_left) @c_s))
-    ;; s_ac (sticky-key 500 @c_ac)
+    ;; NOTE the order matters here, sticky layer needs to be on right to be applied on top of colemak layer
+    l_a (sticky-key 500 (around @c_a (layer-toggle left_a_sticky_hrm)))
+    l_c (sticky-key 500 (around @c_c (layer-toggle left_c_sticky_hrm)))
+    l_m (sticky-key 500 (around @c_m (layer-toggle left_m_sticky_hrm)))
+    l_s (sticky-key 500 (around @c_s (layer-toggle left_s_sticky_hrm)))
+    l_ac (sticky-key 500 (around @c_ac (layer-toggle left_ac_sticky_hrm)))
+    l_am (sticky-key 500 (around @c_am (layer-toggle left_am_sticky_hrm)))
+    l_as (sticky-key 500 (around @c_as (layer-toggle left_as_sticky_hrm)))
+    l_cm (sticky-key 500 (around @c_cm (layer-toggle left_cm_sticky_hrm)))
+    l_cs (sticky-key 500 (around @c_cs (layer-toggle left_cs_sticky_hrm)))
+    l_ms (sticky-key 500 (around @c_ms (layer-toggle left_ms_sticky_hrm)))
+
+    ;; TODO start here tomorrow
+    ;; l_a1 (sticky-key 500 (around @c_a (layer-toggle left_a_sticky_hrm)))
+    ;; l_c1 (sticky-key 500 (around @c_c (layer-toggle left_c_sticky_hrm)))
+    ;; l_m1 (sticky-key 500 (around @c_m (layer-toggle left_m_sticky_hrm)))
+    ;; l_s1 (sticky-key 500 (around @c_s (layer-toggle left_s_sticky_hrm)))
 )
 (deflayer sticky_hrm
   _        _        _        _        _        _        _        _        _        _        _        _        _        
   _        _        _        _        _        _        _        _        _        _        _        _        _        _        
   _        _        @s_hyp   @s_meh   _        _        _        _        _        @s_meh   @s_hyp   _        _        _
-  _        @c_hrml  @a_hrml  @m_hrml  @s_s     _        _        _        @s_s     @s_m     @s_a     @s_c     _        
+  _        @l_c     @l_a     @l_m     @l_s     _        _        _        @s_s     @s_m     @s_a     @s_c     _        
   _        _        _        _        _        _        _        _        _        _        _        _        _        
   _        _        _        _                 _                 _        _        _        _        _        
 )
-(deflayer sticky_hrm_a_left
+(deflayer space_sticky_hrm
   _        _        _        _        _        _        _        _        _        _        _        _        _        
   _        _        _        _        _        _        _        _        _        _        _        _        _        _        
-  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
-  _        @s_ac    _        _        _        _        _        _        _        _        _        _        _        
-  _        _        _        _        _        _        _        _        _        _        _        _        _        
-  _        _        _        _                 _                 _        _        _        _        _        
-)
-(deflayer sticky_hrm_c_left
-  _        _        _        _        _        _        _        _        _        _        _        _        _        
-  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
-  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
-  _        _        @s_ac    _        _        _        _        _        _        _        _        _        _        
+  _        _        @s_hyp   @s_meh   _        _        _        _        _        @s_meh   @s_hyp   _        _        _
+  _        @l_c     @l_a     @l_m     @l_s     _        _        _        @s_s     @s_m     @s_a     @s_c     _        
   _        _        _        _        _        _        _        _        _        _        _        _        _        
   _        _        _        _                 _                 _        _        _        _        _        
 )
-(deflayer sticky_hrm_m_left
+(deflayer left_a_sticky_hrm
   _        _        _        _        _        _        _        _        _        _        _        _        _        
   _        _        _        _        _        _        _        _        _        _        _        _        _        _        
   _        _        _        _        _        _        _        _        _        _        _        _        _        _        
-  _        _        _        _        @s_ms    _        _        _        _        _        _        _        _        
+  _        @l_ac    _        @l_am    @l_as    _        _        _        _        _        _        _        _        
   _        _        _        _        _        _        _        _        _        _        _        _        _        
   _        _        _        _                 _                 _        _        _        _        _        
 )
-(deflayer sticky_hrm_s_left
+(deflayer left_c_sticky_hrm
   _        _        _        _        _        _        _        _        _        _        _        _        _        
   _        _        _        _        _        _        _        _        _        _        _        _        _        _        
   _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        @l_ac    @l_cm    @l_cs    _        _        _        _        _        _        _        _        
   _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _                 _                 _        _        _        _        _        
+)
+(deflayer left_m_sticky_hrm
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        @l_cm    @l_am    _        @l_ms    _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _                 _                 _        _        _        _        _        
+)
+(deflayer left_s_sticky_hrm
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        @l_cs    @l_as    @l_ms    _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _                 _                 _        _        _        _        _        
+)
+(deflayer left_ac_sticky_hrm
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        @s_acm   @s_acs   _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _                 _                 _        _        _        _        _        
+)
+(deflayer left_am_sticky_hrm
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        @s_acm   _        _        @s_ams   _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _                 _                 _        _        _        _        _        
+)
+(deflayer left_as_sticky_hrm
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        @s_acs   _        @s_ams   _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _                 _                 _        _        _        _        _        
+)
+(deflayer left_cm_sticky_hrm
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        @s_acm   _        @s_cms   _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _                 _                 _        _        _        _        _        
+)
+(deflayer left_cs_sticky_hrm
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        @s_acs   @s_cms   _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _                 _                 _        _        _        _        _        
+)
+(deflayer left_ms_sticky_hrm
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        @s_cms   @s_ams   _        _        _        _        _        _        _        _        _        _        
   _        _        _        _        _        _        _        _        _        _        _        _        _        
   _        _        _        _                 _                 _        _        _        _        _        
 )
