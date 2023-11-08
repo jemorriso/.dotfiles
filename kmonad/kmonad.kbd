@@ -115,7 +115,10 @@
     ;; raycast
     ray (around lmet spc)
 
-    ;; mt_esc (multi-tap 200 esc f19)
+    ;; -------------------------------------------------- 
+    ;; 
+    ;; -------------------------------------------------- 
+    s_sticky_s (sticky-key 500 (layer-toggle sticky_hrm))
 )
 ;; first defined layer is always the default layer
 (deflayer base
@@ -123,7 +126,7 @@
   XX       XX       @hr_/    @hr_c    XX       XX       XX       XX       XX       XX       @at_bspc @an_nav  XX       @an_num
   tab      q        @hyp_w   @meh_f   p        b        XX       j        l        @meh_u   @hyp_y   ;        @to_warp @hr_s
   bspc     @ctl_a   @alt_r   @met_s   @sft_t   g        f18      m        @sft_n   @met_e   @alt_i   @ctl_o   '
-  esc      x        c        d        v        z        /        k        h        ,        .        XX       XX
+  esc      x        c        d        v        z        /        k        h        ,        .        @s_sticky_s XX
   XX       f18      f19      @s_spc            @spc_spc      @smart_shift ret      @s_s_spc XX       XX
 )
 (deflayer empty
@@ -137,16 +140,16 @@
 (deflayer colemak_wide_angle
   _        _        _        _        _        _        _        _        _        _        _        _        _        
   _        _        _        _        _        _        _        _        _        _        _        _        _        _        
-  _        q        w        f        p        b        _        j        l        u        y        ;        _        _        
-  _        a        r        s        t        g        _        m        n        e        i        o        '
-  _        x        c        d        v        z        /        k        h        ,        .        _        _        
-  _        _        _        _                 _                 _        _        _        _        _        
+  tab      q        w        f        p        b        _        j        l        u        y        ;        _        _        
+  bspc     a        r        s        t        g        _        m        n        e        i        o        '
+  esc      x        c        d        v        z        /        k        h        ,        .        _        _        
+  _        _        _        _                 spc               _        ret      _        _        _        
 )
 (deflayer sticky_shifted
   _        _        _        _        _        _        _        _        _        _        _        _        _
   _        _        _        _        _        _        _        _        _        _        _        _        _        _
   S-tab    S-q      S-w      S-f      S-p      S-b      _        S-j      S-l      S-u      S-y      S-;      _        _
-  S-bspc   S-a      S-r      S-s      S-t      S-g      _        S-m      S-n      S-e      S-i      S-o      '
+  S-bspc   S-a      S-r      S-s      S-t      S-g      _        S-m      S-n      S-e      S-i      S-o      S-'
   S-esc    S-x      S-c      S-d      S-v      S-z      S-/      S-k      S-h      S-,      S-.      _        _
   _        _        _        f19               @an_num           @an_cw   S-ret    _        _        _
 )
@@ -558,6 +561,90 @@
 
 ;; -------------------------------------------------- 
 ;; -------------------------------------------------- 
+(defalias
+    c_a (around lalt @lt_cole)
+    c_c (around lctl @lt_cole)
+    c_m (around lmet @lt_cole)
+    c_s (around lsft @lt_cole)
+
+    c_ac (around @c_c lalt)
+    c_am (around @c_m lalt)
+    c_as (around @c_s lalt)
+    c_cm (around @c_c lmet)
+    c_cs (around @c_s lctl)
+    c_ms (around @c_s lmet)
+
+    c_acm (around @c_ac lmet)
+    c_ams (around @c_as lmet)
+    c_cms (around @c_cs lmet)
+    c_meh (around @c_cs lalt)
+
+    c_hyp (around @c_meh lmet)
+
+    s_a (sticky-key 500 @c_a)
+    s_ac (sticky-key 500 @c_ac)
+    s_acm (sticky-key 500 @c_acm)
+    s_am (sticky-key 500 @c_am)
+    s_ams (sticky-key 500 @c_ams)
+    s_as (sticky-key 500 @c_as)
+    s_c (sticky-key 500 @c_c)
+    s_cm (sticky-key 500 @c_cm)
+    s_cms (sticky-key 500 @c_cms)
+    s_cs (sticky-key 500 @c_cs)
+    s_hyp (sticky-key 500 @c_hyp)
+    s_m (sticky-key 500 @c_m)
+    s_meh (sticky-key 500 @c_meh)
+    s_ms (sticky-key 500 @c_ms)
+    s_s (sticky-key 500 @c_s)
+  ;; an_s (around-next (layer-toggle around_next_shift))
+  ;; sticky_s (sticky-key 500 @lt_col)
+
+    a_hrml (sticky-key 500 (around (layer-toggle sticky_hrm_a_left) @c_a))
+    c_hrml (sticky-key 500 (around (layer-toggle sticky_hrm_c_left) @c_c))
+    m_hrml (sticky-key 500 (around (layer-toggle sticky_hrm_m_left) @c_m))
+    s_hrml (sticky-key 500 (around (layer-toggle sticky_hrm_s_left) @c_s))
+    ;; s_ac (sticky-key 500 @c_ac)
+)
+(deflayer sticky_hrm
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        @s_hyp   @s_meh   _        _        _        _        _        @s_meh   @s_hyp   _        _        _
+  _        @c_hrml  @a_hrml  @m_hrml  @s_s     _        _        _        @s_s     @s_m     @s_a     @s_c     _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _                 _                 _        _        _        _        _        
+)
+(deflayer sticky_hrm_a_left
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        @s_ac    _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _                 _                 _        _        _        _        _        
+)
+(deflayer sticky_hrm_c_left
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        @s_ac    _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _                 _                 _        _        _        _        _        
+)
+(deflayer sticky_hrm_m_left
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        @s_ms    _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _                 _                 _        _        _        _        _        
+)
+(deflayer sticky_hrm_s_left
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _        _        _        _        _        _        _        _        _        _        
+  _        _        _        _                 _                 _        _        _        _        _        
+)
 ;; (defalias
 ;;     ;; -------------------------------------------------- 
 ;;     ;; define colemak mods for sticky keys - sticky keys do no work with mod-tap
