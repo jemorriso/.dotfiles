@@ -221,51 +221,6 @@
   _        _        _        f19               @an_num           @an_cw   _        _        _        _
 )
 
-;; TODO i was going to use these layers to factor out base layer components
-;; but not sure how it will work with all layers added together acting as the base layer
-;; (deflayer spacing_keys
-;;   _        _        _        _        _        _        _        _        _        _        _        _        _        
-;;   _        _        _        _        _        _        _        _        _        _        _        _        _        _        
-;;   tab      _        _        _        _        _        _        _        _        _        _        _        _        _        
-;;   bspc     _        _        _        _        _        _        _        _        _        _        _        _        
-;;   esc      _        _        _        _        _        _        _        _        _        _        _        _        
-;;   _        _        _        _                 spc               _        ret      _        _        _        
-;; )
-;; (deflayer mac_keys
-;;   _        brdn     brup     C-up     M-spc    C-f5     A-f6     prev     pp       next     mute     vold     volu
-;;   _        _        _        _        _        _        _        _        _        _        _        _        _        _        
-;;   _        _        _        _        _        _        _        _        _        _        _        _        _        _        
-;;   _        _        _        _        _        _        _        _        _        _        _        _        _        
-;;   _        _        _        _        _        _        _        _        _        _        _        _        _        
-;;   _        _        _        _                 _                 _        _        _        _        _        
-;; )
-;; (deflayer base_special_keys
-;;   _        _        _        _        _        _        _        _        _        _        _        _        _        
-;;   _        _        @hr_/    @hr_c    _        _        _        _        _        _        @at_bspc @an_nav  _        @on_num
-;;   _        _        _        _        _        _        _        _        _        _        _        _        @to_warp @hr_s
-;;   _        @ctl_a   @alt_r   @met_s   @sft_t   _        _        _        @sft_n   @met_e   @alt_i   @ctl_o   _        
-;;   _        _        _        _        _        _        f18      _        _        _        _        _        _        
-;;   _        _        _        _        _        _        _        _        _        _        _        _        _        
-;;   _        f18      f19      @s_spc            @spc_spc          @s_s     _        @s_s_spc _        _        
-;; )
-;; (deflayer base_home_row_mods
-;;   _        _        _        _        _        _        _        _        _        _        _        _        _        
-;;   _        _        _        _        _        _        _        _        _        _        _        _        _        _       
-;;   _        _        @hyp_w   @meh_f   _        _        _        _        _        @meh_u   @hyp_y   _        _        _       
-;;   _        @ctl_a   @alt_r   @met_s   @sft_t   _        _        _        @sft_n   @met_e   @alt_i   @ctl_o   _        
-;;   _        _        _        _        _        _        _        _        _        _        _        _        _        
-;;   _        _        _        _        _        _        _        _        _        _        _        _        _        
-;;   _        _        _        _                 _                 _        _        _        _        _        
-;; )
-;; (deflayer base_dead_keys
-;;   XX       _        _        _        _        _        _        _        _        _        _        _        _        
-;;   XX       XX       _        _        XX       XX       XX       XX       XX       XX       _        _        XX       _        
-;;   _        _        _        _        _        _        XX       _        _        _        _        _        _        _        
-;;   _        _        _        _        _        _        _        _        _        _        _        _        _        
-;;   _        _        _        _        _        _        _        _        _        _        _        XX       XX       
-;;   XX       _        _        _                 _                 _        _        _        XX       XX       
-;; )
-
 ;; -------------------------------------------------- 
 ;; space layer
 ;; -------------------------------------------------- 
