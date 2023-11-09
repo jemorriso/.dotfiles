@@ -58,12 +58,6 @@
 
     s_spc (sticky-key 500 @lt_s_spc)
 
-    ;; define sticky_shift mods for sticky keys - sticky keys do not work with mod-tap
-    ;; if don't use sticky_base layer, then sticky shift on @ctl_a does not produce 'A'
-    ;; also, keep the symbol row, so s_s differs from a true shift
-    ;; lt_sbase (layer-toggle sticky_base)
-    ;; s_s (sticky-key 500 (around lsft (around @lt_sym_row @lt_sbase)))
-
     ;; use colemak layer for sticky shift because tap-hold keys do not work with sticky keys
     ;; also, keep the symbol row, so s_s differs from a true shift
     ;; also, thumb keys are valuable so add some extended functioality
@@ -331,13 +325,7 @@
   ;; no homerow mods needed on caps word space layer
   lt_cw_s_spc (around @lt_s_spc (layer-toggle caps_word_space))
 
-  ;; doesn't work for hold for some reason
-  ;; cw_spc (tap-hold-next-release 200 spc @lt_cw_s_spc)
-
-  ;; doesn't work at all for some reason
-  ;; cw_s_spc (sticky-key 500 (around @an_cw @lt_cw_s_spc))
-
-  ;; doesn't work for hold for some reason
+  ;; NOTE doesn't work for hold for some reason
   cw_s_spc (sticky-key 500 @lt_cw_s_spc)
 
   cw_a (around @an_cw S-a)
@@ -378,7 +366,7 @@
   _        @cw_x    @cw_c    @cw_d    @cw_v    @cw_z    _        @cw_k    @cw_h    _        _        _        _        
   _        _        _        @cw_s_spc         _                 _        _        _        _        _
 )
-;; for some reason this behaves differently to smart num, can't hold down cw_s_spc or cw_spc and repeat this layer
+;; NOTE for some reason this behaves differently to smart num, can't hold down cw_s_spc or cw_spc and repeat this layer
 (defalias
   cw_0 (around @an_cw 0)
   cw_1 (around @an_cw 1)
