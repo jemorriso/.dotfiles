@@ -378,24 +378,6 @@
   _        @cw_x    @cw_c    @cw_d    @cw_v    @cw_z    _        @cw_k    @cw_h    _        _        _        _        
   _        _        _        @cw_s_spc         _                 _        _        _        _        _
 )
-;; TODO note this works but not really what i want
-;; (defalias
-;;   an_cw_spc (around-next (layer-toggle caps_word_space))
-;;
-;;   cw_0 (around @an_cw (around @an_cw_spc 0))
-;;   cw_1 (around @an_cw (around @an_cw_spc 1))
-;;   cw_2 (around @an_cw (around @an_cw_spc 2))
-;;   cw_3 (around @an_cw (around @an_cw_spc 3))
-;;   cw_4 (around @an_cw (around @an_cw_spc 4))
-;;   cw_5 (around @an_cw (around @an_cw_spc 5))
-;;   cw_6 (around @an_cw (around @an_cw_spc 6))
-;;   cw_7 (around @an_cw (around @an_cw_spc 7))
-;;   cw_8 (around @an_cw (around @an_cw_spc 8))
-;;   cw_9 (around @an_cw (around @an_cw_spc 9))
-;;   cw_minus (around @an_cw (around @an_cw_spc -))
-;;   cw_unds (around @an_cw (around @an_cw_spc \_))
-;;   cw_del (around @an_cw (around @an_cw_spc del))
-;; )
 ;; for some reason this behaves differently to smart num, can't hold down cw_s_spc or cw_spc and repeat this layer
 (defalias
   cw_0 (around @an_cw 0)
