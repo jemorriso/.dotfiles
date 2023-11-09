@@ -178,8 +178,8 @@
   XX       XX       @hr_/    @hr_c    XX       XX       XX       XX       XX       XX       @at_bspc @an_nav  XX       @an_num
   @ms_tab  @ms_q    @ms_hyp_w @ms_meh_f @ms_p  @ms_b    XX       @ms_j    @ms_l    @ms_meh_u @ms_hyp_y @ms_semi @to_warp @hr_s
   @ms_bspc @ms_ctl_a @ms_alt_r @ms_met_s @ms_sft_t @ms_g f18     @ms_m    @ms_sft_n @ms_met_e @ms_alt_i @ms_ctl_o @ms_quote
-  @ms_esc  @ms_x    @ms_c    @ms_d    @ms_v    @ms_z    @ms_slash @ms_k   @ms_h    @ms_comma @ms_dot @s_sticky_s XX
-  XX       f18      f19      @s_spc            @ms_spc_spc   @smart_shift @ms_ret  @s_s_spc XX       XX
+  @ms_esc  @ms_x    @ms_c    @ms_d    @ms_v    @ms_z    @ms_slash @ms_k   @ms_h    @ms_comma @ms_dot @ms_ret  XX
+  XX       f18      f19      @s_spc            @ms_spc_spc   @smart_shift @s_sticky_s @s_s_spc XX    XX
 )
 (deflayer empty
   _        _        _        _        _        _        _        _        _        _        _        _        _        
@@ -209,16 +209,16 @@
   _        _        _        _        _        _        _        _        _        _        _        _        _        _        
   @ms_tab  @ms_q    @ms_w    @ms_f    @ms_p    @ms_b    _        @ms_j    @ms_l    @ms_u    @ms_y    @ms_semi _        _        
   @ms_bspc @ms_a    @ms_r    @ms_s    @ms_t    @ms_g    _        @ms_m    @ms_n    @ms_e    @ms_i    @ms_o    @ms_quote
-  @ms_esc  @ms_x    @ms_c    @ms_d    @ms_v    @ms_z    @ms_slash @ms_k   @ms_h    @ms_comma @ms_dot _        _        
-  _        _        _        _                 @ms_spc           _        @ms_ret  _        _        _        
+  @ms_esc  @ms_x    @ms_c    @ms_d    @ms_v    @ms_z    @ms_slash @ms_k   @ms_h    @ms_comma @ms_dot @ms_ret  _        
+  _        _        _        _                 @ms_spc           _        _        _        _        _        
 )
 (deflayer sticky_shifted
   _        _        _        _        _        _        _        _        _        _        _        _        _
   _        _        _        _        _        _        _        _        _        _        _        _        _        _
   S-tab    S-q      S-w      S-f      S-p      S-b      _        S-j      S-l      S-u      S-y      S-;      _        _
   S-bspc   S-a      S-r      S-s      S-t      S-g      _        S-m      S-n      S-e      S-i      S-o      S-'
-  S-esc    S-x      S-c      S-d      S-v      S-z      S-/      S-k      S-h      S-,      S-.      _        _
-  _        _        _        f19               @an_num           @an_cw   S-ret    _        _        _
+  S-esc    S-x      S-c      S-d      S-v      S-z      S-/      S-k      S-h      S-,      S-.      S-ret    _
+  _        _        _        f19               @an_num           @an_cw   _        _        _        _
 )
 
 ;; TODO i was going to use these layers to factor out base layer components
