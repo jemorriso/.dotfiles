@@ -163,12 +163,12 @@
 ;;   XX       f18      f19      @s_spc            @spc_spc      @smart_shift ret      @s_s_spc XX       XX
 ;; )
 (deflayer base
-  XX       brdn     brup     C-up     M-spc    C-f5     A-f6     prev     pp       next     mute     vold     volu
-  XX       XX       @hr_/    @hr_c    XX       XX       XX       XX       XX       XX       @at_bspc @an_nav  XX       @an_num
-  @ms_tab  @ms_q    @ms_hyp_w @ms_meh_f @ms_p  @ms_b    XX       @ms_j    @ms_l    @ms_meh_u @ms_hyp_y @ms_semi @to_warp @hr_s
-  @ms_bspc @ms_ctl_a @ms_alt_r @ms_met_s @ms_sft_t @ms_g f18     @ms_m    @ms_sft_n @ms_met_e @ms_alt_i @ms_ctl_o @ms_quote
-  @ms_esc  @ms_x    @ms_c    @ms_d    @ms_v    @ms_z    @ms_slash @ms_k   @ms_h    @ms_comma @ms_dot @ms_ret  XX
-  XX       f18      f19      @s_spc            @ms_spc_spc   @smart_shift XX       @s_s_spc XX    XX
+  XX        brdn       brup       C-up       M-spc        C-f5          A-f6       prev   pp         next       mute       vold       volu
+  XX        XX         @hr_/      @hr_c      XX           XX            XX         XX     XX         XX         @at_bspc   @an_nav    XX         @an_num
+  @ms_tab   @ms_q      @ms_hyp_w  @ms_meh_f  @ms_p        @ms_b         XX         @ms_j  @ms_l      @ms_meh_u  @ms_hyp_y  @ms_semi   @to_warp   @hr_s
+  @ms_bspc  @ms_ctl_a  @ms_alt_r  @ms_met_s  @ms_sft_t    @ms_g         f18        @ms_m  @ms_sft_n  @ms_met_e  @ms_alt_i  @ms_ctl_o  @ms_quote
+  @ms_esc   @ms_x      @ms_c      @ms_d      @ms_v        @ms_z         @ms_slash  @ms_k  @ms_h      @ms_comma  @ms_dot    @ms_ret    XX
+  XX        f18        f19        @s_spc     @ms_spc_spc  @smart_shift  @s_s_spc   XX     XX         XX
 )
 (deflayer empty
   _        _        _        _        _        _        _        _        _        _        _        _        _
