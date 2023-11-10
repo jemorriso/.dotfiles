@@ -163,12 +163,12 @@
 ;;   XX       f18      f19      @s_spc            @spc_spc      @smart_shift ret      @s_s_spc XX       XX
 ;; )
 (deflayer base
-  XX        brdn       brup       C-up       M-spc        C-f5          A-f6       prev   pp         next       mute       vold       volu
-  XX        XX         @hr_/      @hr_c      XX           XX            XX         XX     XX         XX         @at_bspc   @an_nav    XX         @an_num
-  @ms_tab   @ms_q      @ms_hyp_w  @ms_meh_f  @ms_p        @ms_b         XX         @ms_j  @ms_l      @ms_meh_u  @ms_hyp_y  @ms_semi   @to_warp   @hr_s
-  @ms_bspc  @ms_ctl_a  @ms_alt_r  @ms_met_s  @ms_sft_t    @ms_g         f18        @ms_m  @ms_sft_n  @ms_met_e  @ms_alt_i  @ms_ctl_o  @ms_quote
-  @ms_esc   @ms_x      @ms_c      @ms_d      @ms_v        @ms_z         @ms_slash  @ms_k  @ms_h      @ms_comma  @ms_dot    @ms_ret    XX
-  XX        f18        f19        @s_spc     @ms_spc_spc  @smart_shift  @s_s_spc   XX     XX         XX
+XX              brdn            brup            C-up            M-spc           C-f5            A-f6            prev            pp              next            mute            vold            volu                                                                                                                       
+XX       XX         @to_warp   @an_nav    @hr_c        @hr_/         XX         XX     XX         XX         @at_bspc   XX         @an_nav    @hr_s
+@ms_tab  @ms_q      @ms_hyp_w  @ms_meh_f  @ms_p        @ms_b         XX         @ms_j  @ms_l      @ms_meh_u  @ms_hyp_y  @ms_semi   @an_num    @to_warp
+@ms_bspc @ms_ctl_a  @ms_alt_r  @ms_met_s  @ms_sft_t    @ms_g         f18        @ms_m  @ms_sft_n  @ms_met_e  @ms_alt_i  @ms_ctl_o  @ms_quote
+@ms_esc  @ms_x      @ms_c      @ms_d      @ms_v        @ms_z         @ms_slash  @ms_k  @ms_h      @ms_comma  @ms_dot    @ms_ret    XX
+XX       XX         f19        @s_spc     @ms_spc_spc  @smart_shift  @s_s_spc   XX     XX         XX
 )
 (deflayer empty
   _        _        _        _        _        _        _        _        _        _        _        _        _
@@ -194,12 +194,12 @@
     ms_spc (around spc (around-next-timeout 200 @lt_cole XX))
 )
 (deflayer colemak_wide_angle
-  _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        _        _        _        _        _        _        _        _        _        _        _        _
-  @ms_tab  @ms_q    @ms_w    @ms_f    @ms_p    @ms_b    _        @ms_j    @ms_l    @ms_u    @ms_y    @ms_semi _        _
-  @ms_bspc @ms_a    @ms_r    @ms_s    @ms_t    @ms_g    _        @ms_m    @ms_n    @ms_e    @ms_i    @ms_o    @ms_quote
-  @ms_esc  @ms_x    @ms_c    @ms_d    @ms_v    @ms_z    @ms_slash @ms_k   @ms_h    @ms_comma @ms_dot @ms_ret  _
-  _        _        _        _                 @ms_spc           _        _        _        _        _
+     _       _     _     _      _      _       _       _     _       _        _       _         _
+     _       _     _     _      _      _       _       _     _       _        _       _         _     _
+  @ms_tab  @ms_q @ms_w @ms_f  @ms_p  @ms_b     _     @ms_j @ms_l   @ms_u    @ms_y  @ms_semi     _     _
+  @ms_bspc @ms_a @ms_r @ms_s  @ms_t  @ms_g     _     @ms_m @ms_n   @ms_e    @ms_i   @ms_o   @ms_quote
+  @ms_esc  @ms_x @ms_c @ms_d  @ms_v  @ms_z @ms_slash @ms_k @ms_h @ms_comma @ms_dot @ms_ret      _
+     _       _     _     _   @ms_spc   _       _       _     _       _
 )
 (deflayer sticky_shifted
   _        _        _        _        _        _        _        _        _        _        _        _        _
@@ -207,7 +207,7 @@
   S-tab    S-q      S-w      S-f      S-p      S-b      _        S-j      S-l      S-u      S-y      S-;      _        _
   S-bspc   S-a      S-r      S-s      S-t      S-g      _        S-m      S-n      S-e      S-i      S-o      S-'
   S-esc    S-x      S-c      S-d      S-v      S-z      S-/      S-k      S-h      S-,      S-.      S-ret    _
-  _        _        _        f19               @an_num           @an_cw   _        _        _        _
+  _        _        _        @hr_/             @hr_c             @an_cw   _        _        _        _
 )
 
 ;; --------------------------------------------------
@@ -259,7 +259,7 @@
   _        _        _        _        _        _        _        _        _        _        _        _        _        _
   _        _        _        _        _        _        _        _        _        _        _        _        _
   _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        _        @ray              @an_nav           @s_s_spc _        _        _        _
+  _        _        _        @ray              f19               @s_s_spc _        _        _        _
 )
 (deflayer space_dead_keys
   XX       _        _        _        _        _        _        _        _        _        _        _        _
@@ -317,6 +317,8 @@
 ;; caps word
 ;; --------------------------------------------------
 (defalias
+  off_cw (layer-rem caps_word)
+   
   ;; no homerow mods needed on caps word space layer
   lt_cw_s_spc (around @lt_s_spc (layer-toggle caps_word_space))
 
@@ -359,7 +361,7 @@
   _        @cw_q    @cw_w    @cw_f    @cw_p    @cw_b    _        @cw_j    @cw_l    @cw_u    @cw_y    _        _        _
   @cw_bspc @cw_a    @cw_r    @cw_s    @cw_t    @cw_g    _        @cw_m    @cw_n    @cw_e    @cw_i    @cw_o    _
   _        @cw_x    @cw_c    @cw_d    @cw_v    @cw_z    _        @cw_k    @cw_h    _        _        _        _
-  _        _        _        @cw_s_spc         _                 _        _        _        _        _
+  _        _        _        @cw_s_spc         _                 @off_cw  _        _        _        _
 )
 ;; NOTE for some reason this behaves differently to smart num, can't hold down cw_s_spc or cw_spc and repeat this layer
 (defalias
@@ -390,6 +392,8 @@
 ;; smart nav
 ;; --------------------------------------------------
 (defalias
+  off_nav (layer-rem smart_nav)
+
   nav_left (around @an_nav left)
   nav_right (around @an_nav right)
   nav_down (around @an_nav down)
@@ -408,7 +412,7 @@
 )
 (deflayer smart_nav
   _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        _        _        _        _        _        _        _        _      @nav_lpar @nav_rpar _       _
+  _        _        _        @off_nav _        _        _        _        _        _      @nav_lpar @nav_rpar @off_nav _
   _        _        _        _        _        _        _        _        _      @nav_lbrc @nav_rbrc _        home    end
   _        _        _        _        _        _        _     @nav_left @nav_down @nav_up @nav_right _        @nav_pgup
   _        _        _        _        _        _        _        _    @nav_ctl_d @nav_ctl_u _       @nav_pgdn _
@@ -419,6 +423,8 @@
 ;; smart num
 ;; --------------------------------------------------
 (defalias
+  off_num (layer-rem smart_num)
+
   ;; don't need number layer for smart num space
   lt_sn_s_spc (around @lt_fun
             (around @lt_sym_row
@@ -457,7 +463,7 @@
 (deflayer smart_num
   _        _        _        _        _        _        _        _        _        _        _        _        _
   _        _        _        _        _        _        _        _        _        _        _        _        _        _
-  _        _        @num_7   @num_8   @num_9   _        _        _        _        _        _        @num_semi _       _
+  _        _        @num_7   @num_8   @num_9   _        _        _        _        _        _        @num_semi @off_num _
   @num_bspc @num_0  @num_4   @num_5   @num_6   _        _        _        _        _        _        _        _
   _        @num_1   @num_2   @num_3   _        _        @num_slash _      _        @num_comma @num_dot _      _
   _        _        _        @num_s_spc        @num_spc          @num_s_s _       _        _        _
@@ -513,7 +519,7 @@
 )
 (deflayer warp
   XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX
-  XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       XX       @warp_esc @warp_esc
+  XX       XX       @warp_esc XX      XX       XX       XX       XX       XX       XX       XX       XX       @warp_esc @warp_esc
   XX       _        _        _        _        _        XX       _        _        _        _        XX       @warp_esc @warp_esc
   @warp_esc _       _        _        _        _        XX       _        n        e        i        _        @on_wb
   @warp_esc _       _        _        _        _        XX       _        _        _        _        @on_wb   XX
