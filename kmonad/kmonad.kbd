@@ -33,10 +33,10 @@
     lt_sym_row (layer-toggle symbol_row)
     lt_num (layer-toggle num_pad)
 
-    lt_s_spc (around @lt_sym_row (around @lt_num (layer-toggle space)))
-    lt_spc (around @lt_s_spc (layer-toggle space_hrm))
+    lt_spc (around @lt_sym_row (around @lt_num (layer-toggle space)))
+    lt_spc_hrm (around @lt_spc (layer-toggle space_hrm))
 
-    s_spc (sticky-key 500 @lt_s_spc)
+    s_spc (sticky-key 500 @lt_spc)
 
     ;; use colemak layer for sticky shift because tap-hold keys do not work with sticky keys
     ;; also, keep the symbol row, so s_s differs from a true shift
@@ -46,7 +46,7 @@
     smart_shift (sticky-key 500 (around (layer-toggle sticky_shifted) @lt_sym_row))
 
     ;; we need to use the layer toggle even when we are already on the layer in order to chain sticky keys, otherwise the first sticky key that took us to the layer wears off and we go back to the previous layer
-    s_s_spc (sticky-key 500 (around lsft @lt_s_spc))
+    s_s_spc (sticky-key 500 (around lsft @lt_spc))
 
     ;; --------------------------------------------------
     ;; home-row mods / mod-tap
@@ -73,7 +73,7 @@
     ;; --------------------------------------------------
     ;; layer-tap
     ;; --------------------------------------------------
-    spc_spc (tap-hold-next-release 200 spc @lt_spc)
+    spc_spc (tap-hold-next-release 200 spc @lt_spc_hrm)
 
     ;; --------------------------------------------------
     ;; special keys
@@ -129,8 +129,7 @@
     ms_comma (around , (around-next-timeout 150 @lt_cole XX))
     ms_dot (around . (around-next-timeout 150 @lt_cole XX))
 
-    ;; ms_s_spc (sticky-key 500 (around @lt_s_spc(around-next-timeout 150 @lt_s_spc XX))
-    ms_spc_spc (tap-hold-next-release 5000 (around spc (around-next-timeout 150 @lt_cole XX)) @lt_spc)
+    ms_spc_spc (tap-hold-next-release 5000 (around spc (around-next-timeout 150 @lt_cole XX)) @lt_spc_hrm)
     ms_ret (around ret (around-next-timeout 150 @lt_cole XX))
 )
 (deflayer base
@@ -233,15 +232,6 @@
   _             _             _             _             _             _             _             _             _             _             _             _             _
   _             _             _             _             _             _             _             _             _             _
 )
-;; NOTE this is the layer produced by combining all the above layers in this section (hold space key)
-;; (deflayer space
-;;  XX       f1       f2       f3       f4       f5       f6       f7       f8       f9       f10      f11      f12
-;;  XX       !        @        #        $        %        XX       ^        &        *        \(       \)       XX       XX
-;;  ~        grv      @hyp_7   @meh_8   9        XX       XX       XX       [     @meh_lbrc @hyp_rbrc  ]        home     end
-;;  del      @ctl_0   @alt_4   @met_5   @sft_6   XX       |        left @sft_down @met_up @alt_right @ctl_equal pgup
-;;  XX       1        2        3        \_       XX       \        +        -        <        >        pgdn     XX
-;;  XX       XX       XX       @ray              @an_nav           @s_s_spc XX       XX       XX       XX
-;; )
 
 ;; --------------------------------------------------
 ;; caps word
@@ -250,10 +240,10 @@
   off_cw (layer-rem caps_word)
 
   ;; no homerow mods needed on caps word space layer
-  lt_cw_s_spc (around @lt_s_spc (layer-toggle caps_word_space))
+  lt_cw_spc (around @lt_spc (layer-toggle caps_word_space))
 
   ;; NOTE doesn't work for hold for some reason
-  cw_s_spc (sticky-key 500 @lt_cw_s_spc)
+  cw_s_spc (sticky-key 500 @lt_cw_spc)
 
   cw_a (around @an_cw S-a)
   cw_b (around @an_cw S-b)
@@ -356,11 +346,11 @@
   off_num (layer-rem smart_num)
 
   ;; don't need number layer for smart num space
-  lt_sn_s_spc (around @lt_sym_row (around @lt_s_spc (layer-toggle smart_num_space)))
+  lt_sn_spc (around @lt_sym_row (around @lt_spc (layer-toggle smart_num_space)))
 
   ;; no homerow mods on smart num space. It gets too complicated and no benefit, since we already have homerow mods on smart num
-  num_spc (tap-hold-next-release 200 spc @lt_sn_s_spc)
-  num_s_spc (sticky-key 500 (around @an_num @lt_sn_s_spc))
+  num_spc (tap-hold-next-release 200 spc @lt_sn_spc)
+  num_s_spc (sticky-key 500 (around @an_num @lt_sn_spc))
 
   ;; numpad overlaid on base layer with *, (, ) extending smart num
   ;; so that smart num sticky shift behaves properly
