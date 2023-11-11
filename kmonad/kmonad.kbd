@@ -16,122 +16,122 @@
 )
 
 (defalias
-    ;; --------------------------------------------------
-    ;; define layer toggles and sticky layers
-    ;; --------------------------------------------------
+  ;; --------------------------------------------------
+  ;; define layer toggles and sticky layers
+  ;; --------------------------------------------------
 
-    an_nav (around-next (layer-toggle smart_nav))
-    an_num (around-next (layer-toggle smart_num))
-    an_cw (around-next (layer-toggle caps_word))
+  an_nav (around-next (layer-toggle smart_nav))
+  an_num (around-next (layer-toggle smart_num))
+  an_cw (around-next (layer-toggle caps_word))
 
-    on_warp (layer-add warp)
-    to_warp (around @on_warp (around lmet (around lalt c)))
+  on_warp (layer-add warp)
+  to_warp (around @on_warp (around lmet (around lalt c)))
 
-    on_alt_tab (layer-add alt_tab)
-    at_bspc (around @on_alt_tab (around lmet bspc))
+  on_alt_tab (layer-add alt_tab)
+  at_bspc (around @on_alt_tab (around lmet bspc))
 
-    lt_sym_row (layer-toggle symbol_row)
-    lt_num (layer-toggle num_pad)
+  lt_sym_row (layer-toggle symbol_row)
+  lt_num (layer-toggle num_pad)
 
-    lt_spc (around @lt_sym_row (around @lt_num (layer-toggle space)))
-    lt_spc_hrm (around @lt_spc (layer-toggle space_hrm))
+  lt_spc (around @lt_sym_row (around @lt_num (layer-toggle space)))
+  lt_spc_hrm (around @lt_spc (layer-toggle space_hrm))
 
-    sticky_spc (sticky-key 500 @lt_spc)
+  sticky_spc (sticky-key 500 @lt_spc)
 
-    ;; use colemak layer for sticky shift because tap-hold keys do not work with sticky keys
-    ;; also, keep the symbol row, so s_s differs from a true shift
-    ;; also, thumb keys are valuable so add some extended functioality
-    lt_cole (layer-toggle colemak_wide_angle)
-    ;; smart_shift (sticky-key 500 (around (layer-toggle sticky_shifted) (around @lt_sym_row (around lsft @lt_cole))))
-    smart_shift (sticky-key 500 (around (layer-toggle sticky_shifted) @lt_sym_row))
+  ;; use colemak layer for sticky shift because tap-hold keys do not work with sticky keys
+  ;; also, keep the symbol row, so s_s differs from a true shift
+  ;; also, thumb keys are valuable so add some extended functioality
+  lt_cole (layer-toggle colemak_wide_angle)
+  ;; smart_shift (sticky-key 500 (around (layer-toggle sticky_shifted) (around @lt_sym_row (around lsft @lt_cole))))
+  smart_shift (sticky-key 500 (around (layer-toggle sticky_shifted) @lt_sym_row))
 
-    ;; we need to use the layer toggle even when we are already on the layer in order to chain sticky keys,
-    ;; otherwise the first sticky key that took us to the layer wears off and we go back to the previous layer
-    s_sticky_spc (sticky-key 500 (around lsft @lt_spc))
+  ;; we need to use the layer toggle even when we are already on the layer in order to chain sticky keys,
+  ;; otherwise the first sticky key that took us to the layer wears off and we go back to the previous layer
+  s_sticky_spc (sticky-key 500 (around lsft @lt_spc))
 
-    ;; --------------------------------------------------
-    ;; home-row mods / mod-tap
-    ;; --------------------------------------------------
-    meh (around lsft (around lctl lalt))
-    hyp (around lmet @meh)
+  ;; --------------------------------------------------
+  ;; home-row mods / mod-tap
+  ;; --------------------------------------------------
+  meh (around lsft (around lctl lalt))
+  hyp (around lmet @meh)
 
-    ctl_a (tap-hold 200 a lctl)
-    alt_r (tap-hold 200 r lalt)
-    met_s (tap-hold 200 s lmet)
-    sft_t (tap-hold 200 t lsft)
+  ctl_a (tap-hold 200 a lctl)
+  alt_r (tap-hold 200 r lalt)
+  met_s (tap-hold 200 s lmet)
+  sft_t (tap-hold 200 t lsft)
 
-    sft_n (tap-hold 200 n lsft)
-    met_e (tap-hold 200 e lmet)
-    alt_i (tap-hold 200 i lalt)
-    ctl_o (tap-hold 200 o lctl)
+  sft_n (tap-hold 200 n lsft)
+  met_e (tap-hold 200 e lmet)
+  alt_i (tap-hold 200 i lalt)
+  ctl_o (tap-hold 200 o lctl)
 
-    hyp_w (tap-hold 200 w @hyp)
-    meh_f (tap-hold 200 f @meh)
+  hyp_w (tap-hold 200 w @hyp)
+  meh_f (tap-hold 200 f @meh)
 
-    meh_u (tap-hold 200 u @meh)
-    hyp_y (tap-hold 200 y @hyp)
+  meh_u (tap-hold 200 u @meh)
+  hyp_y (tap-hold 200 y @hyp)
 
-    ;; --------------------------------------------------
-    ;; layer-tap
-    ;; --------------------------------------------------
-    spc_spc (tap-hold-next-release 200 spc @lt_spc_hrm)
+  ;; --------------------------------------------------
+  ;; layer-tap
+  ;; --------------------------------------------------
+  spc_spc (tap-hold-next-release 200 spc @lt_spc_hrm)
 
-    ;; --------------------------------------------------
-    ;; special keys
-    ;; --------------------------------------------------
-    ;; homerow click
-    hr_c (around @meh r)
+  ;; --------------------------------------------------
+  ;; special keys
+  ;; --------------------------------------------------
+  ;; homerow click
+  hr_c (around @meh r)
+  ;; homerow search
+  hr_/ (around @meh /)
+  ;; homerow scroll
+  hr_s (around @hyp r)
 
-    ;; homerow search
-    hr_/ (around @meh /)
-    ;; homerow scroll
-    hr_s (around @hyp r)
+  ;; raycast
+  ray (around lmet spc)
 
-    ;; raycast
-    ray (around lmet spc)
+  ;; --------------------------------------------------
+  ;; require idle before ms for homerow mods and layer tap
+  ;; 'timerless' homerow mods
+  ;; --------------------------------------------------
+  ms_tab (around tab (around-next-timeout 150 @lt_cole XX))
+  ms_q (around q (around-next-timeout 150 @lt_cole XX))
+  ms_hyp_w (tap-hold-next-release 5000 (around w (around-next-timeout 150 @lt_cole XX)) @hyp)
+  ms_meh_f (tap-hold-next-release 5000 (around f (around-next-timeout 150 @lt_cole XX)) @meh)
+  ms_p (around p (around-next-timeout 150 @lt_cole XX))
+  ms_b (around b (around-next-timeout 150 @lt_cole XX))
+  ms_j (around j (around-next-timeout 150 @lt_cole XX))
+  ms_l (around l (around-next-timeout 150 @lt_cole XX))
+  ms_meh_u (tap-hold-next-release 5000 (around u (around-next-timeout 150 @lt_cole XX)) @meh)
+  ms_hyp_y (tap-hold-next-release 5000 (around y (around-next-timeout 150 @lt_cole XX)) @hyp)
+  ms_semi (around ; (around-next-timeout 150 @lt_cole XX))
 
-    ;; --------------------------------------------------
-    ;; require idle before ms for homerow mods and layer tap
-    ;; --------------------------------------------------
-    ms_tab (around tab (around-next-timeout 150 @lt_cole XX))
-    ms_q (around q (around-next-timeout 150 @lt_cole XX))
-    ms_hyp_w (tap-hold-next-release 5000 (around w (around-next-timeout 150 @lt_cole XX)) @hyp)
-    ms_meh_f (tap-hold-next-release 5000 (around f (around-next-timeout 150 @lt_cole XX)) @meh)
-    ms_p (around p (around-next-timeout 150 @lt_cole XX))
-    ms_b (around b (around-next-timeout 150 @lt_cole XX))
-    ms_j (around j (around-next-timeout 150 @lt_cole XX))
-    ms_l (around l (around-next-timeout 150 @lt_cole XX))
-    ms_meh_u (tap-hold-next-release 5000 (around u (around-next-timeout 150 @lt_cole XX)) @meh)
-    ms_hyp_y (tap-hold-next-release 5000 (around y (around-next-timeout 150 @lt_cole XX)) @hyp)
-    ms_semi (around ; (around-next-timeout 150 @lt_cole XX))
+  ms_bspc (around bspc (around-next-timeout 150 @lt_cole XX))
+  ms_ctl_a (tap-hold-next-release 5000 (around a (around-next-timeout 150 @lt_cole XX)) lctl)
+  ms_alt_r (tap-hold-next-release 5000 (around r (around-next-timeout 150 @lt_cole XX)) lalt)
+  ms_met_s (tap-hold-next-release 5000 (around s (around-next-timeout 150 @lt_cole XX)) lmet)
+  ms_sft_t (tap-hold-next-release 5000 (around t (around-next-timeout 150 @lt_cole XX)) lsft)
+  ms_g (around g (around-next-timeout 150 @lt_cole XX))
+  ms_m (around m (around-next-timeout 150 @lt_cole XX))
+  ms_sft_n (tap-hold-next-release 5000 (around n (around-next-timeout 150 @lt_cole XX)) lsft)
+  ms_met_e (tap-hold-next-release 5000 (around e (around-next-timeout 150 @lt_cole XX)) lmet)
+  ms_alt_i (tap-hold-next-release 5000 (around i (around-next-timeout 150 @lt_cole XX)) lalt)
+  ms_ctl_o (tap-hold-next-release 5000 (around o (around-next-timeout 150 @lt_cole XX)) lctl)
+  ms_quote (around ' (around-next-timeout 150 @lt_cole XX))
 
-    ms_bspc (around bspc (around-next-timeout 150 @lt_cole XX))
-    ms_ctl_a (tap-hold-next-release 5000 (around a (around-next-timeout 150 @lt_cole XX)) lctl)
-    ms_alt_r (tap-hold-next-release 5000 (around r (around-next-timeout 150 @lt_cole XX)) lalt)
-    ms_met_s (tap-hold-next-release 5000 (around s (around-next-timeout 150 @lt_cole XX)) lmet)
-    ms_sft_t (tap-hold-next-release 5000 (around t (around-next-timeout 150 @lt_cole XX)) lsft)
-    ms_g (around g (around-next-timeout 150 @lt_cole XX))
-    ms_m (around m (around-next-timeout 150 @lt_cole XX))
-    ms_sft_n (tap-hold-next-release 5000 (around n (around-next-timeout 150 @lt_cole XX)) lsft)
-    ms_met_e (tap-hold-next-release 5000 (around e (around-next-timeout 150 @lt_cole XX)) lmet)
-    ms_alt_i (tap-hold-next-release 5000 (around i (around-next-timeout 150 @lt_cole XX)) lalt)
-    ms_ctl_o (tap-hold-next-release 5000 (around o (around-next-timeout 150 @lt_cole XX)) lctl)
-    ms_quote (around ' (around-next-timeout 150 @lt_cole XX))
+  ms_esc (around esc (around-next-timeout 150 @lt_cole XX))
+  ms_x (around x (around-next-timeout 150 @lt_cole XX))
+  ms_c (around c (around-next-timeout 150 @lt_cole XX))
+  ms_d (around d (around-next-timeout 150 @lt_cole XX))
+  ms_v (around v (around-next-timeout 150 @lt_cole XX))
+  ms_z (around z (around-next-timeout 150 @lt_cole XX))
+  ms_slash (around / (around-next-timeout 150 @lt_cole XX))
+  ms_k (around k (around-next-timeout 150 @lt_cole XX))
+  ms_h (around h (around-next-timeout 150 @lt_cole XX))
+  ms_comma (around , (around-next-timeout 150 @lt_cole XX))
+  ms_dot (around . (around-next-timeout 150 @lt_cole XX))
 
-    ms_esc (around esc (around-next-timeout 150 @lt_cole XX))
-    ms_x (around x (around-next-timeout 150 @lt_cole XX))
-    ms_c (around c (around-next-timeout 150 @lt_cole XX))
-    ms_d (around d (around-next-timeout 150 @lt_cole XX))
-    ms_v (around v (around-next-timeout 150 @lt_cole XX))
-    ms_z (around z (around-next-timeout 150 @lt_cole XX))
-    ms_slash (around / (around-next-timeout 150 @lt_cole XX))
-    ms_k (around k (around-next-timeout 150 @lt_cole XX))
-    ms_h (around h (around-next-timeout 150 @lt_cole XX))
-    ms_comma (around , (around-next-timeout 150 @lt_cole XX))
-    ms_dot (around . (around-next-timeout 150 @lt_cole XX))
-
-    ms_spc_spc (tap-hold-next-release 5000 (around spc (around-next-timeout 150 @lt_cole XX)) @lt_spc_hrm)
-    ms_ret (around ret (around-next-timeout 150 @lt_cole XX))
+  ms_spc_spc (tap-hold-next-release 5000 (around spc (around-next-timeout 150 @lt_cole XX)) @lt_spc_hrm)
+  ms_ret (around ret (around-next-timeout 150 @lt_cole XX))
 )
 (deflayer base
   XX            brdn          brup          C-up          M-spc         C-f5          A-f6          prev          pp            next          mute          vold          volu
@@ -150,19 +150,19 @@
   _             _             _             _             _             _             _             _             _             _
 )
 (defalias
-    ms_w (around w (around-next-timeout 200 @lt_cole XX))
-    ms_f (around f (around-next-timeout 200 @lt_cole XX))
-    ms_u (around u (around-next-timeout 200 @lt_cole XX))
-    ms_y (around y (around-next-timeout 200 @lt_cole XX))
-    ms_a (around a (around-next-timeout 200 @lt_cole XX))
-    ms_r (around r (around-next-timeout 200 @lt_cole XX))
-    ms_s (around s (around-next-timeout 200 @lt_cole XX))
-    ms_t (around t (around-next-timeout 200 @lt_cole XX))
-    ms_n (around n (around-next-timeout 200 @lt_cole XX))
-    ms_e (around e (around-next-timeout 200 @lt_cole XX))
-    ms_i (around i (around-next-timeout 200 @lt_cole XX))
-    ms_o (around o (around-next-timeout 200 @lt_cole XX))
-    ms_spc (around spc (around-next-timeout 200 @lt_cole XX))
+  ms_w (around w (around-next-timeout 200 @lt_cole XX))
+  ms_f (around f (around-next-timeout 200 @lt_cole XX))
+  ms_u (around u (around-next-timeout 200 @lt_cole XX))
+  ms_y (around y (around-next-timeout 200 @lt_cole XX))
+  ms_a (around a (around-next-timeout 200 @lt_cole XX))
+  ms_r (around r (around-next-timeout 200 @lt_cole XX))
+  ms_s (around s (around-next-timeout 200 @lt_cole XX))
+  ms_t (around t (around-next-timeout 200 @lt_cole XX))
+  ms_n (around n (around-next-timeout 200 @lt_cole XX))
+  ms_e (around e (around-next-timeout 200 @lt_cole XX))
+  ms_i (around i (around-next-timeout 200 @lt_cole XX))
+  ms_o (around o (around-next-timeout 200 @lt_cole XX))
+  ms_spc (around spc (around-next-timeout 200 @lt_cole XX))
 )
 (deflayer colemak_wide_angle
   _             _             _             _             _             _             _             _             _             _             _             _             _
@@ -209,21 +209,21 @@
   XX            XX            XX            @ray          f19           @s_sticky_spc XX            XX            XX            XX
 )
 (defalias
-    ctl_0 (tap-hold-next-release 200 0 lctl)
-    alt_4 (tap-hold-next-release 200 4 lalt)
-    met_5 (tap-hold-next-release 200 5 lmet)
-    sft_6 (tap-hold-next-release 200 6 lsft)
+  ctl_0 (tap-hold-next-release 200 0 lctl)
+  alt_4 (tap-hold-next-release 200 4 lalt)
+  met_5 (tap-hold-next-release 200 5 lmet)
+  sft_6 (tap-hold-next-release 200 6 lsft)
 
-    hyp_7 (tap-hold-next-release 200 7 @hyp)
-    meh_8 (tap-hold-next-release 200 8 @meh)
+  hyp_7 (tap-hold-next-release 200 7 @hyp)
+  meh_8 (tap-hold-next-release 200 8 @meh)
 
-    sft_down (tap-hold-next-release 200 down lsft)
-    met_up (tap-hold-next-release 200 up lmet)
-    alt_right (tap-hold-next-release 200 right lalt)
-    ctl_equal (tap-hold-next-release 200 = lctl)
+  sft_down (tap-hold-next-release 200 down lsft)
+  met_up (tap-hold-next-release 200 up lmet)
+  alt_right (tap-hold-next-release 200 right lalt)
+  ctl_equal (tap-hold-next-release 200 = lctl)
 
-    meh_lbrc (tap-hold-next-release 200 { @meh)
-    hyp_rbrc (tap-hold-next-release 200 } @hyp)
+  meh_lbrc (tap-hold-next-release 200 { @meh)
+  hyp_rbrc (tap-hold-next-release 200 } @hyp)
 )
 (deflayer space_hrm
   _             _             _             _             _             _             _             _             _             _             _             _             _
@@ -381,7 +381,7 @@
   _             _             @num_7        @num_8        @num_9        _             _             _             _             _             _             @num_semi     @off_num      _
   @num_bspc     @num_0        @num_4        @num_5        @num_6        _             _             _             _             _             _             _             _
   _             @num_1        @num_2        @num_3        _             _             @num_slash    _             _             @num_comma    @num_dot      _             _
-  _             _             _             @num_sticky_spc    @num_spc      @num_sticky_sft      _             _             _             _
+  _             _             _             @num_sticky_spc @num_spc @num_sticky_sft  _             _             _             _
 )
 (defalias
   num_lpar (around @an_num \( )
@@ -426,11 +426,11 @@
 ;; warpd
 ;; --------------------------------------------------
 (defalias
-    off_warp (layer-rem warp)
-    warp_esc (around @off_warp esc)
+  off_warp (layer-rem warp)
+  warp_esc (around @off_warp esc)
 
-    on_wb (around @warp_esc (layer-add warp_base))
-    off_wb (around @to_warp (layer-rem warp_base))
+  on_wb (around @warp_esc (layer-add warp_base))
+  off_wb (around @to_warp (layer-rem warp_base))
 )
 (deflayer warp
   XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX
@@ -454,15 +454,15 @@
 ;; alt tab
 ;; --------------------------------------------------
 (defalias
-    off_alt_tab (layer-rem alt_tab)
-    at_esc (around @off_alt_tab esc)
-    at_off (around @off_alt_tab spc)
+  off_alt_tab (layer-rem alt_tab)
+  at_esc (around @off_alt_tab esc)
+  at_off (around @off_alt_tab spc)
 )
 (deflayer alt_tab
   @at_esc       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off
   @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       right         left          @at_off       @at_off
   @at_off       q             w             f             @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off
-  @at_esc       @at_off       @at_off       s             @at_off       @at_off       @at_off       left          down          up            rght          @at_off       @at_off
+  @at_esc       @at_off       @at_off       s             @at_off       @at_off       @at_off       left          down          up            right         @at_off       @at_off
   @at_esc       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off
   @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off
 )
