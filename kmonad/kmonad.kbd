@@ -202,10 +202,10 @@
 )
 (deflayer space
   XX            f1            f2            f3            f4            f5            f6            f7            f8            f9            f10           f11           f12
-  XX            _             _             _             _             _             XX            _             _             _             _             _             XX            XX
+  XX            _             _             _             _             _             XX            _             _             _             _             _             pgdn          pgup
   ~             grv           _             _             _             XX            XX            XX            [             {             }             ]             home          end
-  del           _             _             _             _             XX            |             left          down          up            right         =             pgup
-  XX            _             _             _             \_            XX            \             +             -             <             >             pgdn          XX
+  del           _             _             _             _             XX            |             left          down          up            right         =             pgdn
+  XX            _             _             _             \_            XX            \             +             -             <             >             XX            XX
   XX            XX            XX            @ray          f19           @s_sticky_spc XX            XX            XX            XX
 )
 (defalias
@@ -333,10 +333,10 @@
 )
 (deflayer smart_nav
   _             _             _             _             _             _             _             _             _             _             _             _             _
-  _             _             _             @off_nav      _             _             _             _             _             _             @nav_lpar     @nav_rpar     @off_nav      _
+  _             _             _             @off_nav      _             _             _             _             _             _             @nav_lpar     @nav_rpar     @nav_pgdn     @nav_pgup
   _             _             _             _             _             _             _             _             _             @nav_lbrc     @nav_rbrc     _             home          end
-  _             _             _             _             _             _             _             @nav_left     @nav_down     @nav_up       @nav_right    _             @nav_pgup
-  _             _             _             _             _             _             _             _             @nav_ctl_d    @nav_ctl_u    _             @nav_pgdn     _
+  _             _             _             _             _             _             _             @nav_left     @nav_down     @nav_up       @nav_right    _             @nav_pgdn
+  _             _             _             _             _             _             _             _             @nav_ctl_d    @nav_ctl_u    _             _             _
   _             _             _             _             _             _             _             _             _             _
 )
 
