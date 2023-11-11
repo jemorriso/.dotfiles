@@ -204,8 +204,8 @@
   XX            f1            f2            f3            f4            f5            f6            f7            f8            f9            f10           f11           f12
   XX            _             _             _             _             _             XX            _             _             _             _             _             pgdn          pgup
   ~             grv           _             _             _             XX            XX            XX            [             {             }             ]             home          end
-  del           _             _             _             _             XX            |             left          down          up            right         =             pgdn
-  XX            _             _             _             \_            XX            \             +             -             <             >             XX            XX
+  del           _             _             _             _             XX            |             left          down          up            right         \_            pgdn
+  XX            _             _             _             _             XX            \             +             -             <             >             =             XX
   XX            XX            XX            @ray          f19           @s_sticky_spc XX            XX            XX            XX
 )
 (defalias
@@ -304,8 +304,8 @@
   _             _             _             _             _             _             _             _             _             _             _             _             _
   _             _             _             _             _             _             _             _             _             _             _             _             _             _
   _             _             @cw_7         @cw_8         @cw_9         _             _             _             _             _             _             _             _             _
-  @cw_del       @cw_0         @cw_4         @cw_5         @cw_6         _             _             _             _             _             _             _             _
-  _             @cw_1         @cw_2         @cw_3         @cw_unds      _             _             _             @cw_minus     _             _             _             _
+  @cw_del       @cw_0         @cw_4         @cw_5         @cw_6         _             _             _             _             _             _             @cw_unds      _
+  _             @cw_1         @cw_2         @cw_3         _             _             _             _             @cw_minus     _             _             _             _
   _             _             _             _             _             _             _             _             _             _
 )
 
@@ -417,8 +417,8 @@
   _             _             _             _             _             _             _             _             _             _             _             _             _
   _             _             _             _             _             _             _             _             _             @num_star     @num_lpar     @num_rpar     _             _
   _             _             _             _             _             _             _             _             @num_lbkt     @num_lbrc     @num_rbrc     @num_rbkt     _             _
-  @num_del      _             _             _             _             _             _             _             _             _             _             @num_equal    _
-  _             _             _             _             @num_unds     _             _             @num_plus     @num_minus    @num_lt       @num_gt       _             _
+  @num_del      _             _             _             _             _             _             _             _             _             _             @num_unds     _
+  _             _             _             _             _             _             _             @num_plus     @num_minus    @num_lt       @num_gt       @num_equal    _
   _             _             _             _             _             _             _             _             _             _
 )
 
