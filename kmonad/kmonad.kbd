@@ -133,15 +133,6 @@
     ms_spc_spc (tap-hold-next-release 5000 (around spc (around-next-timeout 150 @lt_cole XX)) @lt_spc)
     ms_ret (around ret (around-next-timeout 150 @lt_cole XX))
 )
-;; first defined layer is always the default layer
-;; (deflayer base
-;;   XX       brdn     brup     C-up     M-spc    C-f5     A-f6     prev     pp       next     mute     vold     volu
-;;   XX       XX       @hr_/    @hr_c    XX       XX       XX       XX       XX       XX       @at_bspc @an_nav  XX       @an_num
-;;   tab      q        @hyp_w   @meh_f   p        b        XX       j        l        @meh_u   @hyp_y   ;        @to_warp @hr_s
-;;   bspc     @ctl_a   @alt_r   @met_s   @sft_t   g        f18      m        @sft_n   @met_e   @alt_i   @ctl_o   '
-;;   esc      x        c        d        v        z        /        k        h        ,        .        @s_sticky_s XX
-;;   XX       f18      f19      @s_spc            @spc_spc      @smart_shift ret      @s_s_spc XX       XX
-;; )
 (deflayer base
   XX            brdn          brup          C-up          M-spc         C-f5          A-f6          prev          pp            next          mute          vold          volu
   XX            XX            @to_warp      @an_nav       @hr_c         @hr_/         XX            XX            XX            XX            @at_bspc      XX            @an_nav       @hr_s
