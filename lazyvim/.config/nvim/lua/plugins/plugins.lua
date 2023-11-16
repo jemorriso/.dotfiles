@@ -1,5 +1,21 @@
 return {
   {
+    "folke/zen-mode.nvim",
+    keys = {
+      { "<localleader>z", "<cmd>ZenMode<cr>", desc = "toggle zen mode" },
+      {
+        "<localleader>f",
+        [[<cmd>lua require("zen-mode").toggle({ window = { width = 1, height = 1 }, plugins = { gitsigns = { enabled = false }, }, })<cr>]],
+        desc = "toggle zen mode",
+      },
+    },
+    opts = {
+      plugins = {
+        gitsigns = { enabled = true },
+      },
+    },
+  },
+  {
     "echasnovski/mini.nvim",
     version = false,
     config = function()
