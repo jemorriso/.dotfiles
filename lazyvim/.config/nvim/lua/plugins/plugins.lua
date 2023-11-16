@@ -94,6 +94,11 @@ return {
   },
   {
     "epwalsh/obsidian.nvim",
+    config = function()
+      require("obsidian").setup({
+        disable_frontmatter = true,
+      })
+    end,
     lazy = true,
     event = {
       -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
@@ -112,6 +117,12 @@ return {
     },
     keys = {
       { "<localleader>f", "<cmd>ObsidianFollowLink<cr>", desc = "obsidian follow link" },
+      {
+        "<localleader>td",
+        [[<cmd>lua require("obsidian").util.toggle_checkbox()<cr>]],
+        desc = "obsidian toggle checkbox",
+      },
+      { "<localleader>ot", [[<cmd>execute "normal! i\[\[" . strftime("%Y-%m-%d") . "\]\]"<cr>]] },
     },
   },
   {
