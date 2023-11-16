@@ -5,11 +5,13 @@ return {
     config = function()
       require("mini.align").setup()
     end,
+  },
+  {
     "mrjones2014/smart-splits.nvim",
     config = function()
       require("smart-splits").setup({
         resize_mode = {
-          resize_keys = { "left", "down", "up", "right" },
+          resize_keys = { "m", "n", "e", "i" },
         },
       })
       -- vim.keymap.set("n", "<C-left>", require("smart-splits").move_cursor_left)
@@ -17,12 +19,33 @@ return {
       -- vim.keymap.set("n", "<C-up>", require("smart-splits").move_cursor_up)
       -- vim.keymap.set("n", "<C-right>", require("smart-splits").move_cursor_right)
     end,
-    -- keys = {
-    -- { "n", "<C-left>", require("smart-splits").move_cursor_left },
-    -- { "n", "<C-down>", require("smart-splits").move_cursor_down },
-    -- { "n", "<C-up>", require("smart-splits").move_cursor_up },
-    -- { "n", "<C-right>", require("smart-splits").move_cursor_right },
-    -- },
+    keys = {
+      { "<localleader>r", [[<cmd>lua require("smart-splits").start_resize_mode()<cr>]], desc = "enter resize mode" },
+      { "<A-m>", [[<cmd>lua require("smart-splits").move_cursor_left()<cr>]], desc = "move cursor left" },
+      { "<A-n>", [[<cmd>lua require("smart-splits").move_cursor_down()<cr>]], desc = "move cursor down" },
+      { "<A-e>", [[<cmd>lua require("smart-splits").move_cursor_up()<cr>]], desc = "move cursor up" },
+      { "<A-i>", [[<cmd>lua require("smart-splits").move_cursor_right()<cr>]], desc = "move cursor right" },
+      { "<C-A-m>", [[<cmd>lua require("smart-splits").resize_left()<cr>]], desc = "resize left" },
+      { "<C-A-n>", [[<cmd>lua require("smart-splits").resize_down()<cr>]], desc = "resize down" },
+      { "<C-A-e>", [[<cmd>lua require("smart-splits").resize_up()<cr>]], desc = "resize up" },
+      { "<C-A-i>", [[<cmd>lua require("smart-splits").resize_right()<cr>]], desc = "resize right" },
+      {
+        "<S-A-m>",
+        [[<cmd>lua require("smart-splits").swap_buf_left({ move_cursor = true })<cr>]],
+        desc = "resize left",
+      },
+      {
+        "<S-A-n>",
+        [[<cmd>lua require("smart-splits").swap_buf_down({ move_cursor = true })<cr>]],
+        desc = "resize down",
+      },
+      { "<S-A-e>", [[<cmd>lua require("smart-splits").swap_buf_up({ move_cursor = true })<cr>]], desc = "resize up" },
+      {
+        "<S-A-i>",
+        [[<cmd>lua require("smart-splits").swap_buf_right({ move_cursor = true })<cr>]],
+        desc = "resize right",
+      },
+    },
   },
   {
     "zbirenbaum/copilot.lua",
