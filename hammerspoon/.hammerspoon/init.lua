@@ -6,14 +6,6 @@ hs.loadSpoon("SpoonInstall")
 local VimMode = hs.loadSpoon("VimMode")
 local vim = VimMode:new()
 
-vim:disableForApp("Code")
-vim:disableForApp("Cursor")
-vim:disableForApp("PyCharm")
-vim:disableForApp("iTerm2")
-vim:disableForApp("Terminal")
-vim:disableForApp("Kitty")
-vim:disableForApp("Wezterm")
-
 vim:shouldDimScreenInNormalMode(false)
 vim:shouldShowAlertInNormalMode(true)
 vim:setAlertFont("Courier New")
@@ -26,12 +18,7 @@ vim:enableBetaFeature("block_cursor_overlay")
 --------------------------------
 
 k = hs.hotkey.modal.new({}, "f19")
--- function k:entered()
--- 	hs.alert("Entered mode")
--- end
--- function k:exited()
--- 	hs.alert("Exited mode")
--- end
+
 k:bind("", "escape", function()
 	k:exit()
 end)
@@ -80,10 +67,6 @@ k:bind("", "t", function()
 	hs.application.launchOrFocus("Todoist")
 	k:exit()
 end)
-
--- require("window_cycle")
--- require("app_window_cycle")
--- require("switcher")
 
 --------------------------------
 -- KEY REPEAT
