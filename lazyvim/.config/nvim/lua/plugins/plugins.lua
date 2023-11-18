@@ -1,5 +1,32 @@
 return {
   {
+    "nvim-telescope/telescope-smart-history.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "kkharji/sqlite.lua" },
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    config = function()
+      local actions = require("telescope.actions")
+      require("telescope").setup({
+        defaults = {
+          mappings = {
+            i = {
+              ["<C-down>"] = actions.cycle_history_next,
+              ["<C-up>"] = actions.cycle_history_prev,
+              ["<C-n>"] = actions.cycle_history_next,
+              ["<C-p>"] = actions.cycle_history_prev,
+            },
+          },
+          history = {
+            path = "~/.local/share/nvim/databases/telescope_history.sqlite3",
+            limit = 100,
+          },
+        },
+      })
+      require("telescope").load_extension("smart_history")
+    end,
+  },
+  {
     "folke/zen-mode.nvim",
     keys = {
       { "<localleader>z", "<cmd>ZenMode<cr>", desc = "toggle zen mode" },
