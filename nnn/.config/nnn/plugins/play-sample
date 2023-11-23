@@ -1,0 +1,19 @@
+# #!/usr/bin/env sh
+#
+# if [ -z "$NNN_FIFO" ]; then
+#
+# 	exit 1
+# fi
+#
+# while read FILE; do
+# 	# Check if the file is an audio file
+# 	if file --mime-type "$FILE" | grep -q "audio"; then
+# 		sox "$FILE" -d >/dev/null 2>&1
+# 	fi
+#
+# done <"$NNN_FIFO" &
+# disown
+
+if file --mime-type "$1" | grep -q "audio"; then
+	sox "$1" -d >/dev/null 2>&1
+fi
