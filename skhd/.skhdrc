@@ -7,6 +7,8 @@
 # 0x2A : backslash
 # 0x2F : comma
 # 0x2B : period
+# 0x30 : tab
+# 0x24 : enter
 
 # modes - based on https://github.com/nikhgupta/dotfiles/blob/osx/config/skhd/skhdrc
 # :: default : osascript -e 'display notification "DEFAULT" with title "DEFAULT"'
@@ -38,69 +40,94 @@
 # meh - r: homerow
 # meh - w: warp
 
-# meh - 1 : yabai -m space --focus 1
-# meh - 2 : yabai -m space --focus 2
-# meh - 3 : yabai -m space --focus 3
-# meh - 4 : yabai -m space --focus 4
-# meh - 5 : yabai -m space --focus 5
-# meh - 6 : yabai -m space --focus 6
-# meh - 7 : yabai -m space --focus 7
-# meh - 8 : yabai -m space --focus 8
-# meh - 9 : yabai -m space --focus 9
-# meh - 0 : yabai -m space --focus 10
-#
-# meh - left : yabai -m window --focus west
-# meh - down : yabai -m window --focus south
-# meh - up : yabai -m window --focus north
-# meh - right : yabai -m window --focus east
-#
-# meh - f : yabai -m window --toggle zoom-fullscreen
+meh - 1 : yabai -m space --focus 1
+meh - 2 : yabai -m space --focus 2
+meh - 3 : yabai -m space --focus 3
+meh - 4 : yabai -m space --focus 4
+meh - 5 : yabai -m space --focus 5
+meh - 6 : yabai -m space --focus 6
+meh - 7 : yabai -m space --focus 7
+meh - 8 : yabai -m space --focus 8
+meh - 9 : yabai -m space --focus 9
+meh - 0 : yabai -m space --focus 10
 
-# meh - d : yabai -m window --focus stack.next || yabai -m window --focus stack.first
-# meh - u : yabai -m window --focus stack.prev || yabai -m window --focus stack.last
+hyper - 1 : yabai -m window --space 1; yabai -m space --focus 1
+hyper - 2 : yabai -m window --space 2; yabai -m space --focus 2
+hyper - 3 : yabai -m window --space 3; yabai -m space --focus 3
+hyper - 4 : yabai -m window --space 4; yabai -m space --focus 4
+hyper - 5 : yabai -m window --space 5; yabai -m space --focus 5
+hyper - 6 : yabai -m window --space 6; yabai -m space --focus 6
+hyper - 7 : yabai -m window --space 7; yabai -m space --focus 7
+hyper - 8 : yabai -m window --space 8; yabai -m space --focus 8
+hyper - 9 : yabai -m window --space 9; yabai -m space --focus 9
+hyper - 0 : yabai -m window --space 10; yabai -m space --focus 10
+
+ctrl + alt + cmd - 1 : yabai -m window --space 1
+ctrl + alt + cmd - 2 : yabai -m window --space 2
+ctrl + alt + cmd - 3 : yabai -m window --space 3
+ctrl + alt + cmd - 4 : yabai -m window --space 4
+ctrl + alt + cmd - 5 : yabai -m window --space 5
+ctrl + alt + cmd - 6 : yabai -m window --space 6
+ctrl + alt + cmd - 7 : yabai -m window --space 7
+ctrl + alt + cmd - 8 : yabai -m window --space 8
+ctrl + alt + cmd - 9 : yabai -m window --space 9
+ctrl + alt + cmd - 0 : yabai -m window --space 10
+
+meh - m : yabai -m window --focus west
+meh - n : yabai -m window --focus south
+meh - e : yabai -m window --focus north
+meh - i : yabai -m window --focus east
+
+hyper - m : yabai -m window --swap west
+hyper - n : yabai -m window --swap south
+hyper - e : yabai -m window --swap north
+hyper - i : yabai -m window --swap east
+
+# just do both so it doesn't matter which side the window is on
+ctrl + alt + cmd - m : yabai -m window --resize left:-20:0 ; yabai -m window --resize right:-20:0
+ctrl + alt + cmd - n : yabai -m window --resize bottom:0:20 ; yabai -m window --resize top:0:20
+ctrl + alt + cmd - e : yabai -m window --resize top:0:-20 ; yabai -m window --resize bottom:0:-20
+ctrl + alt + cmd - i : yabai -m window --resize right:20:0 ; yabai -m window --resize left:20:0
+
+hyper - left : yabai_stack west
+hyper - down : yabai_stack south
+hyper - up : yabai_stack north
+hyper - right : yabai_stack east
+
+meh - f : yabai -m window --toggle zoom-fullscreen
+
+meh - u : yabai -m space --focus prev || yabai -m space --focus last
+meh - y : yabai -m space --focus next || yabai -m space --focus first
+
+hyper - u : yabai -m window --focus stack.prev || yabai -m window --focus stack.last
+hyper - y : yabai -m window --focus stack.next || yabai -m window --focus stack.first
+
+meh - 0x2B : yabai -m space --move prev
+meh - 0x2F : yabai -m space --move next
+
+ctrl + alt + cmd - 0x2F : yabai -m space --rotate 90
+ctrl + alt + cmd - 0x2B : yabai -m space --rotate 270
+
+meh - 0x30 : yabai -m space --focus recent
+hyper - 0x30 : yabai -m display --focus recent
+
+meh - 0x24 : yabai -m space --display next || yabai -m space --display first
+
+meh - x : yabai -m space --destroy
+# create space to the right of current space
+meh - c : space=$(yabai -m query --spaces --space | jq -r '.index') && yabai -m space --create ; yabai -m space last --move $((space+1))
 
 # meh - t : yabai -m space --layout bsp
 # meh - s : yabai -m space --layout stack
 # meh - 0x31 : yabai -m space --layout float
 
-# hyper - 1 : yabai -m window --space 1; yabai -m space --focus 1
-# hyper - 2 : yabai -m window --space 2; yabai -m space --focus 2
-# hyper - 3 : yabai -m window --space 3; yabai -m space --focus 3
-# hyper - 4 : yabai -m window --space 4; yabai -m space --focus 4
-# hyper - 5 : yabai -m window --space 5; yabai -m space --focus 5
-# hyper - 6 : yabai -m window --space 6; yabai -m space --focus 6
-# hyper - 7 : yabai -m window --space 7; yabai -m space --focus 7
-# hyper - 8 : yabai -m window --space 8; yabai -m space --focus 8
-# hyper - 9 : yabai -m window --space 9; yabai -m space --focus 9
-# hyper - 0 : yabai -m window --space 10; yabai -m space --focus 10
-
-# hyper - 1 : yabai -m window --space 1; yabai -m space --focus 1; yabai -m window --grid 1:1:0:0:1:1
-# hyper - 2 : yabai -m window --space 2; yabai -m space --focus 2; yabai -m window --grid 1:1:0:0:1:1
-# hyper - 3 : yabai -m window --space 3; yabai -m space --focus 3; yabai -m window --grid 1:1:0:0:1:1
-# hyper - 4 : yabai -m window --space 4; yabai -m space --focus 4; yabai -m window --grid 1:1:0:0:1:1
-# hyper - 5 : yabai -m window --space 5; yabai -m space --focus 5; yabai -m window --grid 1:1:0:0:1:1
-# hyper - 6 : yabai -m window --space 6; yabai -m space --focus 6; yabai -m window --grid 1:1:0:0:1:1
-# hyper - 7 : yabai -m window --space 7; yabai -m space --focus 7; yabai -m window --grid 1:1:0:0:1:1
-# hyper - 8 : yabai -m window --space 8; yabai -m space --focus 8; yabai -m window --grid 1:1:0:0:1:1
-# hyper - 9 : yabai -m window --space 9; yabai -m space --focus 9; yabai -m window --grid 1:1:0:0:1:1
-# hyper - 0 : yabai -m window --space 10; yabai -m space --focus 10; yabai -m window --grid 1:1:0:0:1:1
-
 # hyper - left : yabai -m window --swap west
 # hyper - down : yabai -m window --swap south
 # hyper - up : yabai -m window --swap north
 # hyper - right : yabai -m window --swap east
-#
+
 # hyper - 0x31 : yabai -m window --toggle float
 
-# just do both so it doesn't matter which side the window is on
-# ctrl + alt + cmd - left : yabai -m window --resize left:-20:0 ; yabai -m window --resize right:-20:0
-# ctrl + alt + cmd - down : yabai -m window --resize bottom:0:20 ; yabai -m window --resize top:0:20
-# ctrl + alt + cmd - up : yabai -m window --resize top:0:-20 ; yabai -m window --resize bottom:0:-20
-# ctrl + alt + cmd - right : yabai -m window --resize right:20:0 ; yabai -m window --resize left:20:0
-
-# ctrl + alt + cmd - n : yabai -m space --rotate 90
-# ctrl + alt + cmd - p : yabai -m space --rotate 270
-#
 # ctrl + alt + cmd - c : yabai -m space --create ; yabai -m space --focus next
 # ctrl + alt + cmd - d : yabai -m space --destroy ; yabai -m space --focus recent
 #
@@ -123,8 +150,6 @@
 # meh - right : yabai -m window --warp east
 #
 # # don't seem to work
-# meh - 0x2F : yabai -m space --move prev
-# meh - 0x2B : yabai -m space --move next
 
 # hyper - b : yabai -m display --focus recent
 # hyper - n : yabai -m display --focus east || yabai -m display --focus 1
