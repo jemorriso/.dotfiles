@@ -54,6 +54,7 @@
   ;; --------------------------------------------------
   meh (around lsft (around lctl lalt))
   hyp (around lmet @meh)
+  cam (around lmet (around lctl lalt))
 
   sft_a (tap-hold 200 a lsft)
   ctl_a (tap-hold 200 r lctl)
@@ -67,7 +68,9 @@
 
   hyp_w (tap-hold 200 w @hyp)
   meh_f (tap-hold 200 f @meh)
+  cam_p (tap-hold 200 p @cam)
 
+  cam_l (tap-hold 200 l @cam)
   meh_u (tap-hold 200 u @meh)
   hyp_y (tap-hold 200 y @hyp)
 
@@ -95,27 +98,27 @@
   ;; --------------------------------------------------
   ms_tab (around tab (around-next-timeout 150 @lt_cole XX))
   ms_q (around q (around-next-timeout 150 @lt_cole XX))
-  ms_hyp_w (tap-hold-next-release 5000 (around w (around-next-timeout 150 @lt_cole XX)) @hyp)
-  ms_meh_f (tap-hold-next-release 5000 (around f (around-next-timeout 150 @lt_cole XX)) @meh)
-  ms_p (around p (around-next-timeout 150 @lt_cole XX))
+  ms_hyp_w (tap-hold-next-release 200 (around w (around-next-timeout 150 @lt_cole XX)) @hyp)
+  ms_meh_f (tap-hold-next-release 200 (around f (around-next-timeout 150 @lt_cole XX)) @meh)
+  ms_cam_p (tap-hold-next-release 200 (around p (around-next-timeout 150 @lt_cole XX)) @cam)
   ms_b (around b (around-next-timeout 150 @lt_cole XX))
   ms_j (around j (around-next-timeout 150 @lt_cole XX))
-  ms_l (around l (around-next-timeout 150 @lt_cole XX))
-  ms_meh_u (tap-hold-next-release 5000 (around u (around-next-timeout 150 @lt_cole XX)) @meh)
-  ms_hyp_y (tap-hold-next-release 5000 (around y (around-next-timeout 150 @lt_cole XX)) @hyp)
+  ms_cam_l (tap-hold-next-release 200 (around l (around-next-timeout 150 @lt_cole XX)) @cam)
+  ms_meh_u (tap-hold-next-release 200 (around u (around-next-timeout 150 @lt_cole XX)) @meh)
+  ms_hyp_y (tap-hold-next-release 200 (around y (around-next-timeout 150 @lt_cole XX)) @hyp)
   ms_semi (around ; (around-next-timeout 150 @lt_cole XX))
 
   ms_bspc (around bspc (around-next-timeout 150 @lt_cole XX))
-  ms_sft_a (tap-hold-next-release 5000 (around a (around-next-timeout 150 @lt_cole XX)) lsft)
-  ms_ctl_a (tap-hold-next-release 5000 (around r (around-next-timeout 150 @lt_cole XX)) lctl)
-  ms_alt_s (tap-hold-next-release 5000 (around s (around-next-timeout 150 @lt_cole XX)) lalt)
-  ms_met_t (tap-hold-next-release 5000 (around t (around-next-timeout 150 @lt_cole XX)) lmet)
+  ms_sft_a (tap-hold-next-release 200 (around a (around-next-timeout 150 @lt_cole XX)) lsft)
+  ms_ctl_a (tap-hold-next-release 200 (around r (around-next-timeout 150 @lt_cole XX)) lctl)
+  ms_alt_s (tap-hold-next-release 200 (around s (around-next-timeout 150 @lt_cole XX)) lalt)
+  ms_met_t (tap-hold-next-release 200 (around t (around-next-timeout 150 @lt_cole XX)) lmet)
   ms_g (around g (around-next-timeout 150 @lt_cole XX))
   ms_m (around m (around-next-timeout 150 @lt_cole XX))
-  ms_met_n (tap-hold-next-release 5000 (around n (around-next-timeout 150 @lt_cole XX)) lmet)
-  ms_alt_e (tap-hold-next-release 5000 (around e (around-next-timeout 150 @lt_cole XX)) lalt)
-  ms_ctl_i (tap-hold-next-release 5000 (around i (around-next-timeout 150 @lt_cole XX)) lctl)
-  ms_sft_o (tap-hold-next-release 5000 (around o (around-next-timeout 150 @lt_cole XX)) lsft)
+  ms_met_n (tap-hold-next-release 200 (around n (around-next-timeout 150 @lt_cole XX)) lmet)
+  ms_alt_e (tap-hold-next-release 200 (around e (around-next-timeout 150 @lt_cole XX)) lalt)
+  ms_ctl_i (tap-hold-next-release 200 (around i (around-next-timeout 150 @lt_cole XX)) lctl)
+  ms_sft_o (tap-hold-next-release 200 (around o (around-next-timeout 150 @lt_cole XX)) lsft)
   ms_quote (around ' (around-next-timeout 150 @lt_cole XX))
 
   ms_esc (around esc (around-next-timeout 150 @lt_cole XX))
@@ -130,13 +133,13 @@
   ms_comma (around , (around-next-timeout 150 @lt_cole XX))
   ms_dot (around . (around-next-timeout 150 @lt_cole XX))
 
-  ms_spc_spc (tap-hold-next-release 5000 (around spc (around-next-timeout 150 @lt_cole XX)) @lt_spc_hrm)
+  ms_spc_spc (tap-hold-next-release 200 (around spc (around-next-timeout 150 @lt_cole XX)) @lt_spc_hrm)
   ms_ret (around ret (around-next-timeout 150 @lt_cole XX))
 )
 (deflayer base
   XX            brdn          brup          C-up          M-spc         C-f5          A-f6          prev          pp            next          mute          vold          volu
   XX            XX            @to_warp      @an_nav       @hr_c         @hr_/         XX            XX            XX            XX            @at_bspc      XX            @an_nav       @hr_s
-  @ms_tab       @ms_q         @ms_hyp_w     @ms_meh_f     @ms_p         @ms_b         XX            @ms_j         @ms_l         @ms_meh_u     @ms_hyp_y     @ms_semi      @an_num       @to_warp
+  @ms_tab       @ms_q         @ms_hyp_w     @ms_meh_f     @ms_cam_p     @ms_b         XX            @ms_j         @ms_cam_l     @ms_meh_u     @ms_hyp_y     @ms_semi      @an_num       @to_warp
   @ms_bspc      @ms_sft_a     @ms_ctl_a     @ms_alt_s     @ms_met_t     @ms_g         f18           @ms_m         @ms_met_n     @ms_alt_e     @ms_ctl_i     @ms_sft_o     @ms_quote
   @ms_esc       @ms_x         @ms_c         @ms_d         @ms_v         @ms_z         @ms_slash     @ms_k         @ms_h         @ms_comma     @ms_dot       @ms_ret       XX
   XX            XX            XX            @sticky_spc   @ms_spc_spc   @smart_shift  @s_sticky_spc XX            XX            XX
@@ -152,6 +155,8 @@
 (defalias
   ms_w (around w (around-next-timeout 200 @lt_cole XX))
   ms_f (around f (around-next-timeout 200 @lt_cole XX))
+  ms_p (around p (around-next-timeout 150 @lt_cole XX))
+  ms_l (around l (around-next-timeout 150 @lt_cole XX))
   ms_u (around u (around-next-timeout 200 @lt_cole XX))
   ms_y (around y (around-next-timeout 200 @lt_cole XX))
   ms_a (around a (around-next-timeout 200 @lt_cole XX))
