@@ -1,5 +1,31 @@
 return {
   {
+    "kndndrj/nvim-dbee",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+    },
+    build = function()
+      -- Install tries to automatically detect the install method.
+      -- if it fails, try calling it with one of these parameters:
+      --    "curl", "wget", "bitsadmin", "go"
+      require("dbee").install()
+    end,
+    config = function()
+      require("dbee").setup({
+        sources = {
+          require("dbee.sources").MemorySource:new({
+            name = "espn",
+            type = "duck",
+            url = "~/source/box-bot/box_bot_dlt/tests/duckdb/espn_nfl_pipeline.duckdb",
+          }),
+        },
+      })
+    end,
+    keys = {
+      { "<localleader>dd", "<cmd>lua require('dbee').open()<cr>", desc = "open dbee" },
+    },
+  },
+  {
     "nvim-telescope/telescope-smart-history.nvim",
     dependencies = { "nvim-telescope/telescope.nvim", "kkharji/sqlite.lua" },
   },
