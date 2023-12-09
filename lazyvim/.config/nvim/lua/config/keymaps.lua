@@ -22,12 +22,19 @@ map("n", ",t", [[:put =strftime('%T')<cr>kJ]], { desc = "Put time" })
 map({ "n", "v" }, "<c-d>", "<c-d>zz")
 map({ "n", "v" }, "<c-u>", "<c-u>zz")
 
-map("n", "<A-down>", "<cmd>m .+1<cr>==", { desc = "Move down" })
-map("n", "<A-up>", "<cmd>m .-2<cr>==", { desc = "Move up" })
-map("i", "<A-down>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
-map("i", "<A-up>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
-map("v", "<A-down>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
-map("v", "<A-up>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
+-- colemak movement
+map("n", "<C-m>", "<C-w>h", { desc = "Go to left window", remap = true })
+map("n", "<C-n>", "<C-w>j", { desc = "Go to lower window", remap = true })
+map("n", "<C-e>", "<C-w>k", { desc = "Go to upper window", remap = true })
+map("n", "<C-i>", "<C-w>l", { desc = "Go to right window", remap = true })
+
+-- need to remap these because zellij
+-- map("n", "<A-down>", "<cmd>m .+1<cr>==", { desc = "Move down" })
+-- map("n", "<A-up>", "<cmd>m .-2<cr>==", { desc = "Move up" })
+-- map("i", "<A-down>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
+-- map("i", "<A-up>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
+-- map("v", "<A-down>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
+-- map("v", "<A-up>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 map("n", "<S-left>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
 map("n", "<S-right>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
