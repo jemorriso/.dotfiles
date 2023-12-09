@@ -341,7 +341,8 @@ return {
     config = function()
       -- vim.g.slime_target = "tmux"
       -- vim.g.slime_target = "neovim"
-      vim.g.slime_target = "kitty"
+      -- vim.g.slime_target = "kitty"
+      vim.g.slime_target = "zellij"
     end,
   },
   {
