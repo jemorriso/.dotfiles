@@ -36,6 +36,8 @@ yabai -m config                                 \
     # normal_window_opacity        0.95           \
     # window_opacity               on             \
     
+
+# TODO try something other than cmd or meh
 yabai -m config mouse_modifier meh
 
 # yabai -m config mouse_action1 resize
