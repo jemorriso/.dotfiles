@@ -108,6 +108,9 @@ return {
     config = function()
       require("chatgpt").setup({
         -- api_key_cmd = "op read op://Personal/OpenAI/credential",
+        openai_params = {
+          model = "gpt-4",
+        },
       })
     end,
     dependencies = {
