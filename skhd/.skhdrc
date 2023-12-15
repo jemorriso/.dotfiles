@@ -10,33 +10,6 @@
 # 0x30 : tab
 # 0x24 : enter
 
-# modes - based on https://github.com/nikhgupta/dotfiles/blob/osx/config/skhd/skhdrc
-# :: default : osascript -e 'display notification "DEFAULT" with title "DEFAULT"'
-# :: launcher @ : osascript -e 'display notification "PREFIX" with title "PREFIX"'
-# :: default
-# :: launcher @
-
-# default < meh - a ; launcher
-# launcher < escape ; default
-#
-# # launch apps with launcher 😍
-# launcher < a : open -a arc; skhd -k 'escape'
-# launcher < c : open -a 'google chrome'; skhd -k 'escape'
-# launcher < d : open -a discord; skhd -k 'escape'
-# launcher < f : open -a finder; skhd -k 'escape'
-# launcher < g : open -a signal; skhd -k 'escape'
-# launcher < i : open -a iterm; skhd -k 'escape'
-# launcher < k : open -a kitty; skhd -k 'escape'
-# launcher < l : open -a 'ableton live 11 suite'; skhd -k 'escape'
-# launcher < m : open -a messages; skhd -k 'escape'
-# launcher < o : open -a obsidian; skhd -k 'escape'
-# launcher < p : open -a preview; skhd -k 'escape'
-# launcher < r : open -a 'microsoft remote desktop'; skhd -k 'escape'
-# launcher < s : open -a spotify; skhd -k 'escape'
-# launcher < t : open -a 'microsoft teams'; skhd -k 'escape'
-# launcher < w : open -a wezterm; skhd -k 'escape'
-# launcher < x : open -a firefox; skhd -k 'escape'
-
 # meh - r: homerow
 # meh - w: warp
 
