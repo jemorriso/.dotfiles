@@ -143,10 +143,10 @@ keybinds clear-defaults=true {
         bind "Alt q" { Quit; }
         //bind "Alt u" { GoToPreviousTab; }
         //bind "Alt y" { GoToNextTab; }
-        bind "Alt m" { MoveFocusOrTab "Left"; }
-        bind "Alt n" { MoveFocus "Down"; }
-        bind "Alt e" { MoveFocus "Up"; }
-        bind "Alt i" { MoveFocusOrTab "Right"; }
+        bind "Alt Left" { MoveFocusOrTab "Left"; }
+        bind "Alt Down" { MoveFocus "Down"; }
+        bind "Alt Up" { MoveFocus "Up"; }
+        bind "Alt Right" { MoveFocusOrTab "Right"; }
         bind "Alt =" "Alt +" { Resize "Increase"; }
         bind "Alt -" { Resize "Decrease"; }
         bind "Alt [" { PreviousSwapLayout; }
