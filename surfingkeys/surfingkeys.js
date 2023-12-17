@@ -497,6 +497,12 @@ api.unmapAllExcept([
   // '<Ctrl-Alt-i>', open in neovim, not working
 ]);
 
+api.unmap('<Space>', /youtube.com/);
+api.unmap('<ArrowLeft>', /youtube.com/);
+api.unmap('<ArrowDown>', /youtube.com/);
+api.unmap('<ArrowRight>', /youtube.com/);
+api.unmap('<ArrowUp>', /youtube.com/);
+
 api.vmap("<ArrowLeft>", "h");
 api.vmap("<ArrowDown>", "j");
 api.vmap("<ArrowUp>", "k");
