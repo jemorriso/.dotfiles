@@ -486,6 +486,7 @@ api.unmapAllExcept([
   'i',
   'n',
   'o',
+  'p',
   'r',
   't',
   'u',
