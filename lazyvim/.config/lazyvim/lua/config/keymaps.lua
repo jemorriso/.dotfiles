@@ -23,10 +23,10 @@ map({ "n", "v" }, "<c-d>", "<c-d>zz")
 map({ "n", "v" }, "<c-u>", "<c-u>zz")
 
 -- colemak movement
-map("n", "<C-m>", "<C-w>h", { desc = "Go to left window", remap = true })
-map("n", "<C-n>", "<C-w>j", { desc = "Go to lower window", remap = true })
-map("n", "<C-e>", "<C-w>k", { desc = "Go to upper window", remap = true })
-map("n", "<C-i>", "<C-w>l", { desc = "Go to right window", remap = true })
+vim.keymap.set("n", "<a-m>", "<C-w>h", { desc = "Go to left window" })
+vim.keymap.set("n", "<a-n>", "<C-w>j", { desc = "Go to lower window" })
+vim.keymap.set("n", "<a-e>", "<C-w>k", { desc = "Go to upper window" })
+vim.keymap.set("n", "<a-i>", "<C-w>l", { desc = "Go to right window" })
 
 -- need to remap these because zellij
 -- map("n", "<A-down>", "<cmd>m .+1<cr>==", { desc = "Move down" })

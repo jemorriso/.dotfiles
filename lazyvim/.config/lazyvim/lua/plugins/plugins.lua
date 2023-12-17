@@ -59,47 +59,47 @@ return {
       require("mini.align").setup()
     end,
   },
-  {
-    "mrjones2014/smart-splits.nvim",
-    config = function()
-      require("smart-splits").setup({
-        resize_mode = {
-          resize_keys = { "m", "n", "e", "i" },
-        },
-      })
-      -- vim.keymap.set("n", "<C-left>", require("smart-splits").move_cursor_left)
-      -- vim.keymap.set("n", "<C-down>", require("smart-splits").move_cursor_down)
-      -- vim.keymap.set("n", "<C-up>", require("smart-splits").move_cursor_up)
-      -- vim.keymap.set("n", "<C-right>", require("smart-splits").move_cursor_right)
-    end,
-    keys = {
-      { "<localleader>r", [[<cmd>lua require("smart-splits").start_resize_mode()<cr>]], desc = "enter resize mode" },
-      { "<A-m>", [[<cmd>lua require("smart-splits").move_cursor_left()<cr>]], desc = "move cursor left" },
-      { "<A-n>", [[<cmd>lua require("smart-splits").move_cursor_down()<cr>]], desc = "move cursor down" },
-      { "<A-e>", [[<cmd>lua require("smart-splits").move_cursor_up()<cr>]], desc = "move cursor up" },
-      { "<A-i>", [[<cmd>lua require("smart-splits").move_cursor_right()<cr>]], desc = "move cursor right" },
-      { "<C-A-m>", [[<cmd>lua require("smart-splits").resize_left()<cr>]], desc = "resize left" },
-      { "<C-A-n>", [[<cmd>lua require("smart-splits").resize_down()<cr>]], desc = "resize down" },
-      { "<C-A-e>", [[<cmd>lua require("smart-splits").resize_up()<cr>]], desc = "resize up" },
-      { "<C-A-i>", [[<cmd>lua require("smart-splits").resize_right()<cr>]], desc = "resize right" },
-      {
-        "<S-A-m>",
-        [[<cmd>lua require("smart-splits").swap_buf_left({ move_cursor = true })<cr>]],
-        desc = "resize left",
-      },
-      {
-        "<S-A-n>",
-        [[<cmd>lua require("smart-splits").swap_buf_down({ move_cursor = true })<cr>]],
-        desc = "resize down",
-      },
-      { "<S-A-e>", [[<cmd>lua require("smart-splits").swap_buf_up({ move_cursor = true })<cr>]], desc = "resize up" },
-      {
-        "<S-A-i>",
-        [[<cmd>lua require("smart-splits").swap_buf_right({ move_cursor = true })<cr>]],
-        desc = "resize right",
-      },
-    },
-  },
+  -- {
+  --   "mrjones2014/smart-splits.nvim",
+  --   config = function()
+  --     require("smart-splits").setup({
+  --       resize_mode = {
+  --         resize_keys = { "m", "n", "e", "i" },
+  --       },
+  --     })
+  --     -- vim.keymap.set("n", "<C-left>", require("smart-splits").move_cursor_left)
+  --     -- vim.keymap.set("n", "<C-down>", require("smart-splits").move_cursor_down)
+  --     -- vim.keymap.set("n", "<C-up>", require("smart-splits").move_cursor_up)
+  --     -- vim.keymap.set("n", "<C-right>", require("smart-splits").move_cursor_right)
+  --   end,
+  --   keys = {
+  --     { "<localleader>r", [[<cmd>lua require("smart-splits").start_resize_mode()<cr>]], desc = "enter resize mode" },
+  --     { "<A-m>", [[<cmd>lua require("smart-splits").move_cursor_left()<cr>]], desc = "move cursor left" },
+  --     { "<A-n>", [[<cmd>lua require("smart-splits").move_cursor_down()<cr>]], desc = "move cursor down" },
+  --     { "<A-e>", [[<cmd>lua require("smart-splits").move_cursor_up()<cr>]], desc = "move cursor up" },
+  --     { "<A-i>", [[<cmd>lua require("smart-splits").move_cursor_right()<cr>]], desc = "move cursor right" },
+  --     { "<C-A-m>", [[<cmd>lua require("smart-splits").resize_left()<cr>]], desc = "resize left" },
+  --     { "<C-A-n>", [[<cmd>lua require("smart-splits").resize_down()<cr>]], desc = "resize down" },
+  --     { "<C-A-e>", [[<cmd>lua require("smart-splits").resize_up()<cr>]], desc = "resize up" },
+  --     { "<C-A-i>", [[<cmd>lua require("smart-splits").resize_right()<cr>]], desc = "resize right" },
+  --     {
+  --       "<S-A-m>",
+  --       [[<cmd>lua require("smart-splits").swap_buf_left({ move_cursor = true })<cr>]],
+  --       desc = "resize left",
+  --     },
+  --     {
+  --       "<S-A-n>",
+  --       [[<cmd>lua require("smart-splits").swap_buf_down({ move_cursor = true })<cr>]],
+  --       desc = "resize down",
+  --     },
+  --     { "<S-A-e>", [[<cmd>lua require("smart-splits").swap_buf_up({ move_cursor = true })<cr>]], desc = "resize up" },
+  --     {
+  --       "<S-A-i>",
+  --       [[<cmd>lua require("smart-splits").swap_buf_right({ move_cursor = true })<cr>]],
+  --       desc = "resize right",
+  --     },
+  --   },
+  -- },
   {
     "zbirenbaum/copilot.lua",
     opts = {
@@ -238,21 +238,21 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    keys = {
-      { "<cr>", desc = "Increment selection" },
-      { "<bs>", desc = "Decrement selection", mode = "x" },
-    },
-    opts = {
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "<cr>",
-          node_incremental = "<cr>",
-          scope_incremental = "<s-cr>",
-          node_decremental = "<bs>",
-        },
-      },
-    },
+    -- keys = {
+    --   { "<cr>", desc = "Increment selection" },
+    --   { "<bs>", desc = "Decrement selection", mode = "x" },
+    -- },
+    -- opts = {
+    --   incremental_selection = {
+    --     enable = true,
+    --     keymaps = {
+    --       init_selection = "<cr>",
+    --       node_incremental = "<cr>",
+    --       scope_incremental = "<s-cr>",
+    --       node_decremental = "<bs>",
+    --     },
+    --   },
+    -- },
     -- todo: this works but it is very slow. I can improve it
     -- config = function()
     --   vim.opt.foldmethod = "expr"
