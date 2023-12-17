@@ -429,6 +429,8 @@ settings.theme = `
 // currently not working
 settings.tabsMRUOrder = true;
 
+settings.scrollStepSize = 150;
+
 api.Hints.setCharacters("arstgoienmqwfpbyuljzxcdvhk");
 
 api.mapkey("b", "Choose a tab with omnibar", function () {
@@ -436,7 +438,7 @@ api.mapkey("b", "Choose a tab with omnibar", function () {
 });
 
 api.map("<ArrowDown>", "j");
-api.map("<ArrowLeft>", "h"); // TODO increase scroll speed
+api.map("<ArrowLeft>", "h");
 api.map("<ArrowRight>", "l");
 api.map("<ArrowUp>", "k");
 api.map("<Backspace>", "S");
@@ -465,6 +467,7 @@ api.unmapAllExcept([
   'F',
   'G',
   'I',
+  'N',
   'T',
   'U',
   '[[',
@@ -476,6 +479,7 @@ api.unmapAllExcept([
   'gg',
   'gm',
   'i',
+  'n',
   'o',
   'r',
   't',
