@@ -436,6 +436,9 @@ api.Hints.setCharacters("arstgoienmqwfpbyuljzxcdvhk");
 api.mapkey("b", "Choose a tab with omnibar", function () {
   api.Front.openOmnibar({ type: "Tabs" });
 });
+api.mapkey("<Space>", "Choose a tab with omnibar", function () {
+  api.Front.openOmnibar({ type: "Tabs" });
+});
 
 api.map("<ArrowDown>", "j");
 api.map("<ArrowLeft>", "h");
@@ -462,6 +465,8 @@ api.unmapAllExcept([
   '<ArrowUp>',
   '<Backspace>',
   '<Delete>',
+  '<Esc>',
+  '<Space>',
   '?',
   'D',
   'F',
