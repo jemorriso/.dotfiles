@@ -426,10 +426,8 @@ settings.theme = `
   }
 `;
 
-// custom settings
-// settings.tabsThreshold = 0;
-
-// api.unmapAllExcept([]);
+// currently not working
+settings.tabsMRUOrder = true;
 
 api.Hints.setCharacters("arstgoienmqwfpbyuljzxcdvhk");
 
@@ -437,129 +435,63 @@ api.mapkey("b", "Choose a tab with omnibar", function () {
   api.Front.openOmnibar({ type: "Tabs" });
 });
 
-api.map("zf", "cf");
-api.unmap("cf");
-
+api.map("<ArrowDown>", "j");
+api.map("<ArrowLeft>", "h"); // TODO increase scroll speed
+api.map("<ArrowRight>", "l");
+api.map("<ArrowUp>", "k");
 api.map("<Backspace>", "S");
-api.unmap("S");
-
 api.map("<Delete>", "D");
-api.unmap("D");
-
-api.map("b", "T");
-api.unmap("T");
-
 api.map("D", "P");
-api.unmap("P");
-
-// todo
-// api.map("h", "oh");
-// api.unmap("oh");
-
-// api.map("x", "ox");
-
-api.map("o", "go");
-api.unmap("go");
-
-// todo
-// api.map("zi", "oi");
-// api.unmap("oi");
-
-api.map("zm", "om");
-api.unmap("om");
-
-api.map("gm", "<Alt-m>");
-api.unmap("<Alt-m>");
-
 api.map("F", "af");
-api.unmap("af");
-
-// todo
-// api.map("zs", "<Alt-s>");
-// api.unmap("<Alt-s>");
-
+api.map("gm", "<Alt-m>");
+api.map("o", "go");
+api.map("zf", "cf");
+api.map("zm", "om");
 api.map("zp", "<Alt-i>");
-api.unmap("<Alt-i>");
 
-api.map("sw", "se");
-api.unmap("se");
-
-// todos
-// remap q
-
-// not sure about
-// ;m
-// ctrl+h
-// ctrl+j
-// cs
-// cS
-
-api.unmap("e"); // scroll half page up
-api.unmap("od"); // open search with alias d
-api.unmap("ob"); // open search with alias b
-api.unmap("oe"); // open search with alias e
-api.unmap("og"); // open search with alias g
-api.unmap("ow"); // open search with alias w
-api.unmap("os"); // open search with alias s
-api.unmap("oy"); // open search with alias y
-api.unmap("sd"); // search selected with ddg
-api.unmap("sb"); // search selected with baidu
-api.unmap("on"); // open new tab
-api.unmap("C"); // open link in non-active new tab
-api.unmap("<Ctrl-i>"); // input box with vim editor
-api.unmap("h"); // scroll left
-api.unmap("j"); // scroll down
-api.unmap("k"); // scroll up
-api.unmap("l"); // scroll right
-api.unmap("ZZ"); // save session and quit
-api.unmap("ZR"); // restore session
-api.unmap("gb"); // open bookmarks
-api.unmap(";db"); // remove bookmark
-api.unmap("ab"); // bookmark current page
-api.unmap("gr"); // read selected text
-// api.unmap(";s"); // open pdf viewer
-api.unmap(";dh"); // delete old history
-// proxy commands
-api.unmap("cp");
-api.unmap(";pa");
-api.unmap(";pb");
-api.unmap(";pd");
-api.unmap(";ps");
-api.unmap(";pc");
-api.unmap(";cp");
-api.unmap(";ap");
-// query commands
-api.unmap("cq");
-api.unmap("yQ");
-api.unmap("Q");
-
-// don't work properly in arc browser
-api.unmap("x"); // close tab
-api.unmap("X"); // restore closed tab
-api.unmap("E"); // go one tab left
-api.unmap("R"); // go one tab right
-api.unmap("B"); // go one back in tab history
-api.unmap("gt"); // go to first tab
-api.unmap("gT"); // go to last tab
-api.unmap("gp"); // go to playing tab
-api.unmap("<Ctrl-6>"); // go to last used tab
-api.unmap("ox"); // open recently closed url
-api.unmap("g0"); // go to first tab
-api.unmap("g$"); // go to last tab
-api.unmap("<Alt-p>"); // pin tab
-api.unmap("<Alt-m>"); // mute tab
-api.unmap("W"); // move tab to new window
-api.unmap(">>"); // move tab
-api.unmap("<<"); // move tab
-api.unmap(";v"); // open neovim
-api.unmap(";j"); // close downloads
-
-// various close tab commands
-api.unmap("gx0");
-api.unmap("gx$");
-api.unmap("gxt");
-api.unmap("gxT");
-api.unmap("gxx");
+api.unmapAllExcept([
+  '$',
+  '.',
+  '/',
+  '0',
+  '<ArrowDown>',
+  '<ArrowLeft>',
+  '<ArrowRight>',
+  '<ArrowUp>',
+  '<Backspace>',
+  '<Delete>',
+  '?',
+  'D',
+  'F',
+  'G',
+  'I',
+  'T',
+  'U',
+  '[[',
+  ']]',
+  'b',
+  'd',
+  'f',
+  'gf',
+  'gg',
+  'gm',
+  'i',
+  'o',
+  'r',
+  't',
+  'u',
+  'v',
+  'yT',
+  'yt',
+  'yy',
+  'zf',
+  'zi',
+  'zm',
+  'zo',
+  'zp',
+  'zr',
+  // '<Ctrl-Alt-i>', open in neovim, not working
+]);
 
 api.vmap("<ArrowLeft>", "h");
 api.vmap("<ArrowDown>", "j");
