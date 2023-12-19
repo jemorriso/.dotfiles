@@ -245,20 +245,45 @@ require('lazy').setup({
       },
     },
   },
-  -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
-  --       These are some example plugins that I've included in the kickstart repository.
-  --       Uncomment any of the lines below to enable them.
-  -- require 'kickstart.plugins.autoformat',
-  -- require 'kickstart.plugins.debug',
 
-  -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
-  --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
-  --    up-to-date with whatever is in the kickstart repo.
-  --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  --
-  --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  -- { import = 'custom.plugins' },
-}, {})
+  {
+    'mrjones2014/smart-splits.nvim',
+    config = function()
+      require('smart-splits').setup {
+        resize_mode = {
+          resize_keys = { 'm', 'n', 'e', 'i' },
+        },
+      }
+    end,
+    keys = {
+      { '<localleader>r', [[<cmd>lua require("smart-splits").start_resize_mode()<cr>]], desc = 'enter resize mode' },
+      { '<A-m>', [[<cmd>lua require("smart-splits").move_cursor_left()<cr>]], desc = 'move cursor left' },
+      { '<A-n>', [[<cmd>lua require("smart-splits").move_cursor_down()<cr>]], desc = 'move cursor down' },
+      { '<A-e>', [[<cmd>lua require("smart-splits").move_cursor_up()<cr>]], desc = 'move cursor up' },
+      { '<A-i>', [[<cmd>lua require("smart-splits").move_cursor_right()<cr>]], desc = 'move cursor right' },
+      { '<C-A-m>', [[<cmd>lua require("smart-splits").resize_left()<cr>]], desc = 'resize left' },
+      { '<C-A-n>', [[<cmd>lua require("smart-splits").resize_down()<cr>]], desc = 'resize down' },
+      { '<C-A-e>', [[<cmd>lua require("smart-splits").resize_up()<cr>]], desc = 'resize up' },
+      { '<C-A-i>', [[<cmd>lua require("smart-splits").resize_right()<cr>]], desc = 'resize right' },
+      {
+        '<S-A-m>',
+        [[<cmd>lua require("smart-splits").swap_buf_left({ move_cursor = true })<cr>]],
+        desc = 'resize left',
+      },
+      {
+        '<S-A-n>',
+        [[<cmd>lua require("smart-splits").swap_buf_down({ move_cursor = true })<cr>]],
+        desc = 'resize down',
+      },
+      { '<S-A-e>', [[<cmd>lua require("smart-splits").swap_buf_up({ move_cursor = true })<cr>]], desc = 'resize up' },
+      {
+        '<S-A-i>',
+        [[<cmd>lua require("smart-splits").swap_buf_right({ move_cursor = true })<cr>]],
+        desc = 'resize right',
+      },
+    },
+  },
+}
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
