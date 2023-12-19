@@ -235,6 +235,8 @@ require('lazy').setup({
     },
   },
 
+  { 'rmagatti/auto-session', opts = { auto_save_enabled = true, auto_restore_enabled = true } },
+
   {
     'stevearc/conform.nvim',
     opts = {
