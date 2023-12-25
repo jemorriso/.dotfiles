@@ -3,6 +3,7 @@
 path+=('/Users/jerry/.local/bin')
 path+=('/Users/jerry/bin')
 path+=('/opt/homebrew/Cellar/todoist/0.20.0/bin')
+path+=('/Users/jerry/.spicetify')
 
 source ${HOME}/.ghcup/env
 
@@ -51,6 +52,8 @@ export EDITOR="nvim"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 export FZF_DEFAULT_OPTS="--bind ctrl-a:select-all,ctrl-d:deselect-all,ctrl-t:toggle-all"
+
+export PATH=$PATH:/Users/jerry/.spicetify
 
 alias lg="lazygit"
 alias ls="eza"
