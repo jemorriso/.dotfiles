@@ -1,0 +1,18 @@
+/* hide title bar */
+#header {
+    display: none;
+    }
+
+* {
+    font-family: JetBrainsMono Nerd Font;
+}
+
+/* https://forum.vivaldi.net/topic/29218/customize-a-dark-color-for-the-new-tab-blank-page/11 */
+webview[src="about:blank"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--colorBg);
+}
