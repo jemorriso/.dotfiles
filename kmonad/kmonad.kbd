@@ -103,6 +103,8 @@
   ms_meh_u (tap-hold-next-release 200 (around u (around-next-timeout 150 @lt_cole XX)) @meh)
   ms_hyp_y (tap-hold-next-release 200 (around y (around-next-timeout 150 @lt_cole XX)) @hyp)
   ms_semi (around ; (around-next-timeout 150 @lt_cole XX))
+  ms_quote (around ' (around-next-timeout 150 @lt_cole XX))
+  ms_bslash (around \ (around-next-timeout 150 @lt_cole XX))
 
   ms_bspc (around bspc (around-next-timeout 150 @lt_cole XX))
   ms_sft_a (tap-hold-next-release 200 (around a (around-next-timeout 150 @lt_cole XX)) lsft)
@@ -115,7 +117,7 @@
   ms_alt_e (tap-hold-next-release 200 (around e (around-next-timeout 150 @lt_cole XX)) lalt)
   ms_ctl_i (tap-hold-next-release 200 (around i (around-next-timeout 150 @lt_cole XX)) lctl)
   ms_sft_o (tap-hold-next-release 200 (around o (around-next-timeout 150 @lt_cole XX)) lsft)
-  ms_quote (around ' (around-next-timeout 150 @lt_cole XX))
+  ms_ret (around ret (around-next-timeout 150 @lt_cole XX))
 
   ms_esc (around esc (around-next-timeout 150 @lt_cole XX))
   ms_x (around x (around-next-timeout 150 @lt_cole XX))
@@ -123,21 +125,20 @@
   ms_d (around d (around-next-timeout 150 @lt_cole XX))
   ms_v (around v (around-next-timeout 150 @lt_cole XX))
   ms_z (around z (around-next-timeout 150 @lt_cole XX))
-  ms_slash (around / (around-next-timeout 150 @lt_cole XX))
   ms_k (around k (around-next-timeout 150 @lt_cole XX))
   ms_h (around h (around-next-timeout 150 @lt_cole XX))
   ms_comma (around , (around-next-timeout 150 @lt_cole XX))
   ms_dot (around . (around-next-timeout 150 @lt_cole XX))
+  ms_slash (around / (around-next-timeout 150 @lt_cole XX))
 
   ms_spc_spc (tap-hold-next-release 200 (around spc (around-next-timeout 150 @lt_cole XX)) @lt_spc_hrm)
-  ms_ret (around ret (around-next-timeout 150 @lt_cole XX))
 )
 (deflayer base
   XX            brdn          brup          C-up          M-spc         C-f5          A-f6          prev          pp            next          mute          vold          volu
-  XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            @at_bspc      XX            XX            XX            
-  @ms_tab       @ms_q         @ms_hyp_w     @ms_meh_f     @ms_cam_p     @ms_b         XX            @ms_j         @ms_cam_l     @ms_meh_u     @ms_hyp_y     @ms_semi      @an_num       XX
-  @ms_bspc      @ms_sft_a     @ms_ctl_a     @ms_alt_s     @ms_met_t     @ms_g         XX            @ms_m         @ms_met_n     @ms_alt_e     @ms_ctl_i     @ms_sft_o     @ms_quote
-  @ms_esc       @ms_x         @ms_c         @ms_d         @ms_v         @ms_z         @ms_slash     @ms_k         @ms_h         @ms_comma     @ms_dot       @ms_ret       XX
+  XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            @at_bspc      @an_num       XX            XX            
+  @ms_tab       @ms_q         @ms_hyp_w     @ms_meh_f     @ms_cam_p     @ms_b         XX            @ms_j         @ms_cam_l     @ms_meh_u     @ms_hyp_y     @ms_semi      @ms_quote     @ms_bslash
+  @ms_bspc      @ms_sft_a     @ms_ctl_a     @ms_alt_s     @ms_met_t     @ms_g         XX            @ms_m         @ms_met_n     @ms_alt_e     @ms_ctl_i     @ms_sft_o     @ms_ret
+  @ms_esc       @ms_x         @ms_c         @ms_d         @ms_v         @ms_z         XX            @ms_k         @ms_h         @ms_comma     @ms_dot       @ms_slash     XX
   XX            XX            XX            @sticky_spc   @ms_spc_spc   @smart_shift  @s_sticky_spc XX            XX            XX
 )
 (deflayer empty
@@ -168,17 +169,17 @@
 (deflayer colemak_wide_angle
   _             _             _             _             _             _             _             _             _             _             _             _             _
   _             _             _             _             _             _             _             _             _             _             _             _             _             _
-  @ms_tab       @ms_q         @ms_w         @ms_f         @ms_p         @ms_b         _             @ms_j         @ms_l         @ms_u         @ms_y         @ms_semi      _             _
-  @ms_bspc      @ms_a         @ms_r         @ms_s         @ms_t         @ms_g         _             @ms_m         @ms_n         @ms_e         @ms_i         @ms_o         @ms_quote
-  @ms_esc       @ms_x         @ms_c         @ms_d         @ms_v         @ms_z         @ms_slash     @ms_k         @ms_h         @ms_comma     @ms_dot       @ms_ret       _
+  @ms_tab       @ms_q         @ms_w         @ms_f         @ms_p         @ms_b         _             @ms_j         @ms_l         @ms_u         @ms_y         @ms_semi      @ms_quote     @ms_bslash
+  @ms_bspc      @ms_a         @ms_r         @ms_s         @ms_t         @ms_g         _             @ms_m         @ms_n         @ms_e         @ms_i         @ms_o         @ms_ret
+  @ms_esc       @ms_x         @ms_c         @ms_d         @ms_v         @ms_z         _             @ms_k         @ms_h         @ms_comma     @ms_dot       @ms_slash     _
   _             _             _             _             @ms_spc_spc   _             _             _             _             _
 )
 (deflayer sticky_shifted
   _             _             _             _             _             _             _             _             _             _             _             _             _
   _             _             _             _             _             _             _             _             _             _             _             _             _             _
-  S-tab         S-q           S-w           S-f           S-p           S-b           _             S-j           S-l           S-u           S-y           S-;           _             _
-  S-bspc        S-a           S-r           S-s           S-t           S-g           _             S-m           S-n           S-e           S-i           S-o           S-'
-  S-esc         S-x           S-c           S-d           S-v           S-z           S-/           S-k           S-h           S-,           S-.           S-ret         _
+  S-tab         S-q           S-w           S-f           S-p           S-b           _             S-j           S-l           S-u           S-y           S-;           S-'           S-\
+  S-bspc        S-a           S-r           S-s           S-t           S-g           _             S-m           S-n           S-e           S-i           S-o           S-ret
+  S-esc         S-x           S-c           S-d           S-v           S-z           _             S-k           S-h           S-,           S-.           S-/           _
   _             _             _             @hr_/         @hr_c         @an_cw        _             _             _             _
 )
 
@@ -205,8 +206,8 @@
   XX            f1            f2            f3            f4            f5            f6            f7            f8            f9            f10           f11           f12
   XX            _             _             _             _             _             XX            _             _             _             _             _             pgdn          pgup
   ~             grv           _             _             _             XX            XX            XX            [             {             }             ]             home          end
-  del           _             _             _             _             XX            |             left          down          up            right         =             +
-  XX            _             _             _             _             XX            \             \_            -             <             >             _             XX
+  del           _             _             _             _             XX            XX            left          down          up            right         =             +
+  XX            _             _             _             XX            XX            XX            \_            -             <             >             _             XX
   XX            XX            XX            @ray          f19           @s_sticky_spc XX            XX            XX            XX
 )
 (defalias
