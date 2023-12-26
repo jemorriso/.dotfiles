@@ -1,1 +1,1 @@
-require('jerry.lazy')
+require 'jerry.lazy'
