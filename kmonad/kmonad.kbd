@@ -20,12 +20,8 @@
   ;; define layer toggles and sticky layers
   ;; --------------------------------------------------
 
-  an_nav (around-next (layer-toggle smart_nav))
   an_num (around-next (layer-toggle smart_num))
   an_cw (around-next (layer-toggle caps_word))
-
-  on_warp (layer-add warp)
-  to_warp (around @on_warp (around lmet (around lalt c)))
 
   on_alt_tab (layer-add alt_tab)
   at_bspc (around @on_alt_tab (around lmet bspc))
@@ -138,9 +134,9 @@
 )
 (deflayer base
   XX            brdn          brup          C-up          M-spc         C-f5          A-f6          prev          pp            next          mute          vold          volu
-  XX            XX            @to_warp      @an_nav       @hr_c         @hr_/         XX            XX            XX            XX            @at_bspc      XX            @an_nav       @hr_s
-  @ms_tab       @ms_q         @ms_hyp_w     @ms_meh_f     @ms_cam_p     @ms_b         XX            @ms_j         @ms_cam_l     @ms_meh_u     @ms_hyp_y     @ms_semi      @an_num       @to_warp
-  @ms_bspc      @ms_sft_a     @ms_ctl_a     @ms_alt_s     @ms_met_t     @ms_g         f18           @ms_m         @ms_met_n     @ms_alt_e     @ms_ctl_i     @ms_sft_o     @ms_quote
+  XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            @at_bspc      XX            XX            XX            
+  @ms_tab       @ms_q         @ms_hyp_w     @ms_meh_f     @ms_cam_p     @ms_b         XX            @ms_j         @ms_cam_l     @ms_meh_u     @ms_hyp_y     @ms_semi      @an_num       XX
+  @ms_bspc      @ms_sft_a     @ms_ctl_a     @ms_alt_s     @ms_met_t     @ms_g         XX            @ms_m         @ms_met_n     @ms_alt_e     @ms_ctl_i     @ms_sft_o     @ms_quote
   @ms_esc       @ms_x         @ms_c         @ms_d         @ms_v         @ms_z         @ms_slash     @ms_k         @ms_h         @ms_comma     @ms_dot       @ms_ret       XX
   XX            XX            XX            @sticky_spc   @ms_spc_spc   @smart_shift  @s_sticky_spc XX            XX            XX
 )
@@ -315,37 +311,6 @@
 )
 
 ;; --------------------------------------------------
-;; smart nav
-;; --------------------------------------------------
-(defalias
-  off_nav (layer-rem smart_nav)
-
-  nav_left (around @an_nav left)
-  nav_right (around @an_nav right)
-  nav_down (around @an_nav down)
-  nav_up (around @an_nav up)
-
-  nav_pgup (around @an_nav pgup)
-  nav_pgdn (around @an_nav pgdn)
-
-  nav_lbrc (around @an_nav {)
-  nav_rbrc (around @an_nav })
-  nav_lpar (around @an_nav \( )
-  nav_rpar (around @an_nav \) )
-
-  nav_ctl_d (around @an_nav C-d)
-  nav_ctl_u (around @an_nav C-u)
-)
-(deflayer smart_nav
-  _             _             _             _             _             _             _             _             _             _             _             _             _
-  _             _             _             @off_nav      _             _             _             _             _             _             @nav_lpar     @nav_rpar     @nav_pgdn     @nav_pgup
-  _             _             _             _             _             _             _             _             _             @nav_lbrc     @nav_rbrc     _             home          end
-  _             _             _             _             _             _             _             @nav_left     @nav_down     @nav_up       @nav_right    _             _ 
-  _             _             _             _             _             _             _             _             @nav_ctl_d    @nav_ctl_u    _             _             _
-  _             _             _             _             _             _             _             _             _             _
-)
-
-;; --------------------------------------------------
 ;; smart num
 ;; --------------------------------------------------
 (defalias
@@ -424,34 +389,6 @@
   _             _             _             _             _             _             _             _             @num_lbkt     @num_lbrc     @num_rbrc     @num_rbkt     _             _
   @num_del      _             _             _             _             _             _             _             _             _             _             @num_equal    @num_plus
   _             _             _             _             _             _             _             @num_unds     @num_minus    @num_lt       @num_gt       _             _
-  _             _             _             _             _             _             _             _             _             _
-)
-
-;; --------------------------------------------------
-;; warpd
-;; --------------------------------------------------
-(defalias
-  off_warp (layer-rem warp)
-  warp_esc (around @off_warp esc)
-
-  on_wb (around @warp_esc (layer-add warp_base))
-  off_wb (around @to_warp (layer-rem warp_base))
-)
-(deflayer warp
-  XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX
-  XX            XX            @warp_esc     XX            XX            XX            XX            XX            XX            XX            XX            XX            @warp_esc     @warp_esc
-  XX            _             _             _             _             _             XX            _             _             _             _             XX            @warp_esc     @warp_esc
-  @warp_esc     _             _             _             _             _             XX            _             n             e             i             _             @on_wb
-  @warp_esc     _             _             _             _             _             XX            _             _             _             _             @on_wb        XX
-  XX            @warp_esc     XX            _             spc           bspc          kprt          del           XX            XX
-)
-;; this layer is for quickly typing and then jumping back into warp
-(deflayer warp_base
-  _             _             _             _             _             _             _             _             _             _             _             _             _
-  _             _             _             _             _             _             _             _             _             _             _             _             _             _
-  _             _             _             _             _             _             _             _             _             _             _             _             _             _
-  _             _             _             _             _             _             _             _             _             _             _             _             _
-  _             _             _             _             _             _             _             _             _             _             _             @off_wb       _
   _             _             _             _             _             _             _             _             _             _
 )
 
