@@ -204,10 +204,10 @@
 )
 (deflayer space
   XX            f1            f2            f3            f4            f5            f6            f7            f8            f9            f10           f11           f12
-  XX            _             _             _             _             _             XX            _             _             _             _             _             pgdn          pgup
-  ~             grv           _             _             _             XX            XX            XX            [             {             }             ]             home          end
-  del           _             _             _             _             XX            XX            left          down          up            right         =             +
-  XX            _             _             _             XX            XX            XX            \_            -             <             >             _             XX
+  XX            _             _             _             _             _             XX            _             _             _             _             _             _             _
+  ~             grv           _             _             _             XX            XX            XX            [             {             }             ]             _             _
+  del           _             _             _             _             home          end           left          down          up            right         =             +
+  XX            _             _             _             XX            pgup          pgdn          \_            -             <             >             _             XX
   XX            XX            XX            @ray          f19           @s_sticky_spc XX            XX            XX            XX
 )
 (defalias
