@@ -12,7 +12,7 @@ return {
       },
     },
   },
-  config = function()
-    vim.cmd.colorscheme 'kanagawa'
-  end,
+  -- config = function()
+  --   vim.cmd.colorscheme 'kanagawa'
+  -- end,
 }
