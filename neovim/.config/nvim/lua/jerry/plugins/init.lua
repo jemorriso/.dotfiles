@@ -1,3 +1,8 @@
 return {
-    { 'numToStr/Comment.nvim', opts = {} },
+  {
+    'numToStr/Comment.nvim',
+    'tpope/vim-fugitive',
+    'tpope/vim-rhubarb',
+    'tpope/vim-sleuth',
+  },
 }
