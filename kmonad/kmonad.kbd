@@ -37,7 +37,8 @@
   ;; lt_spc (around @lt_num (layer-toggle space))
   ;; lt_spc_hrm (around @lt_spc (layer-toggle space_hrm))
 
-  lt_spc (around @lt_num @lt_nav)
+  lt_space_special (layer-toggle space_special)
+  lt_spc (around @lt_space_special (around @lt_num @lt_nav))
   lt_spc_hrm (around @lt_num_hrm @lt_nav_hrm)
 
   sticky_spc (sticky-key 500 @lt_spc)
