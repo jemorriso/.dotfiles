@@ -1,1 +1,2 @@
-require('jerry.lazy')
+require 'jerry.core'
+require 'jerry.lazy'
