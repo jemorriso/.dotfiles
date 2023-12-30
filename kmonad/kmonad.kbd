@@ -138,11 +138,11 @@
 )
 (deflayer base
   XX            brdn          brup          C-up          M-spc         C-f5          A-f6          prev          pp            next          mute          vold          volu
-  XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            @at_bspc      @an_num       XX            XX            
-  @ms_tab       @ms_q         @ms_hyp_w     @ms_meh_f     @ms_cam_p     @ms_b         XX            @ms_j         @ms_cam_l     @ms_meh_u     @ms_hyp_y     @ms_semi      @ms_quote     @ms_bslash
+  XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            XX            
+  @ms_tab       @ms_q         @ms_hyp_w     @ms_meh_f     @ms_cam_p     @ms_b         XX            @ms_j         @ms_cam_l     @ms_meh_u     @ms_hyp_y     @ms_semi      @ms_quote     XX
   @ms_bspc      @ms_sft_a     @ms_ctl_a     @ms_alt_s     @ms_met_t     @ms_g         XX            @ms_m         @ms_met_n     @ms_alt_e     @ms_ctl_i     @ms_sft_o     @ms_ret
-  @ms_esc       @ms_x         @ms_c         @ms_d         @ms_v         @ms_z         XX            @ms_k         @ms_h         @ms_comma     @ms_dot       @ms_slash     XX
-  XX            XX            XX            @sticky_spc   @ms_spc_spc   @smart_shift  @s_sticky_spc XX            XX            XX
+  @ms_esc       @ms_x         @ms_c         @ms_d         @ms_v         @ms_z         @ms_bslash    @ms_k         @ms_h         @ms_comma     @ms_dot       @ms_slash     XX
+  XX            XX            @at_bspc      @sticky_spc_nsft @ms_spc_spc @smart_shift @sticky_num   @an_num       XX            XX
 )
 (deflayer empty
   _             _             _             _             _             _             _             _             _             _             _             _             _
@@ -421,5 +421,5 @@
   @at_off       q             w             f             @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off
   @at_esc       @at_off       @at_off       s             @at_off       @at_off       @at_off       left          down          up            right         @at_off       @at_off
   @at_esc       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off
-  @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off
+  @at_off       @at_off       right         @at_off       @at_off       @at_off       @at_off       @at_off       @at_off       @at_off
 )
