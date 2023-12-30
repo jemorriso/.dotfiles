@@ -27,11 +27,16 @@
   at_bspc (around @on_alt_tab (around lmet bspc))
 
   lt_num (layer-toggle num_pad)
+  lt_num_sft (layer-toggle num_pad_shifted)
 
   lt_spc (around @lt_num (layer-toggle space))
+  lt_spc_nsft (around @lt_num_sft (layer-toggle space))
   lt_spc_hrm (around @lt_spc (layer-toggle space_hrm))
 
   sticky_spc (sticky-key 500 @lt_spc)
+  sticky_spc_nsft (sticky-key 500 @lt_spc_nsft)
+
+  sticky_num (sticky-key 500 @lt_num)
 
   ;; use colemak layer for sticky shift because tap-hold keys do not work with sticky keys
   ;; also, keep the symbol row, so s_s differs from a true shift
@@ -190,6 +195,14 @@
   _             _             7             8             9             _             _             _             _             _             _             _             _             _
   _             0             4             5             6             _             _             _             _             _             _             _             _
   _             1             2             3             _             _             _             _             _             _             _             _             _
+  _             _             _             _             _             _             _             _             _             _
+)
+(deflayer num_pad_shifted
+  _             _             _             _             _             _             _             _             _             _             _             _             _
+  _             _             _             _             _             _             _             _             _             _             _             _             _             _
+  _             _             &             *             \(            _             _             _             _             _             _             _             _             _
+  _             \)            $             %             ^             _             _             _             _             _             _             _             _
+  _             !             @             #             _             _             _             _             _             _             _             _             _
   _             _             _             _             _             _             _             _             _             _
 )
 (deflayer space
