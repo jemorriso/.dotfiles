@@ -26,10 +26,9 @@
   on_alt_tab (layer-add alt_tab)
   at_bspc (around @on_alt_tab (around lmet bspc))
 
-  lt_sym_row (layer-toggle symbol_row)
   lt_num (layer-toggle num_pad)
 
-  lt_spc (around @lt_sym_row (around @lt_num (layer-toggle space)))
+  lt_spc (around @lt_num (layer-toggle space))
   lt_spc_hrm (around @lt_spc (layer-toggle space_hrm))
 
   sticky_spc (sticky-key 500 @lt_spc)
@@ -38,8 +37,7 @@
   ;; also, keep the symbol row, so s_s differs from a true shift
   ;; also, thumb keys are valuable so add some extended functioality
   lt_cole (layer-toggle colemak_wide_angle)
-  ;; smart_shift (sticky-key 500 (around (layer-toggle sticky_shifted) (around @lt_sym_row (around lsft @lt_cole))))
-  smart_shift (sticky-key 500 (around (layer-toggle sticky_shifted) @lt_sym_row))
+  smart_shift (sticky-key 500 (layer-toggle sticky_shifted))
 
   ;; we need to use the layer toggle even when we are already on the layer in order to chain sticky keys,
   ;; otherwise the first sticky key that took us to the layer wears off and we go back to the previous layer
@@ -186,14 +184,6 @@
 ;; --------------------------------------------------
 ;; space layer
 ;; --------------------------------------------------
-(deflayer symbol_row
-  _             _             _             _             _             _             _             _             _             _             _             _             _
-  _             !             @             #             $             %             _             ^             &             *             \(            \)            _             _
-  _             _             _             _             _             _             _             _             _             _             _             _             _             _
-  _             _             _             _             _             _             _             _             _             _             _             _             _
-  _             _             _             _             _             _             _             _             _             _             _             _             _
-  _             _             _             _             _             _             _             _             _             _
-)
 (deflayer num_pad
   _             _             _             _             _             _             _             _             _             _             _             _             _
   _             _             _             _             _             _             _             _             _             _             _             _             _             _
