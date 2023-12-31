@@ -431,11 +431,10 @@ settings.tabsMRUOrder = true;
 
 settings.scrollStepSize = 150;
 
+// settings.lurkingPattern = /youtube.com/;
+
 api.Hints.setCharacters("arstgoienmqwfpbyuljzxcdvhk");
 
-api.mapkey("b", "Choose a tab with omnibar", function () {
-  api.Front.openOmnibar({ type: "Tabs" });
-});
 api.mapkey("<Space>", "Choose a tab with omnibar", function () {
   api.Front.openOmnibar({ type: "Tabs" });
 });
@@ -446,19 +445,22 @@ api.map("<ArrowRight>", "l");
 api.map("<ArrowUp>", "k");
 api.map("<Backspace>", "S");
 api.map("<Delete>", "D");
-api.map("D", "P");
 api.map("F", "af");
 api.map("gm", "<Alt-m>");
+api.map("gp", "<Alt-i>");
 api.map("o", "go");
+api.map("sw", "se");
 api.map("zf", "cf");
 api.map("zm", "om");
-api.map("zp", "<Alt-i>");
+api.map("U", "E");
+api.map("Y", "R");
 
 api.unmapAllExcept([
   '$',
   '.',
   '/',
   '0',
+  '<<',
   '<ArrowDown>',
   '<ArrowLeft>',
   '<ArrowRight>',
@@ -467,30 +469,47 @@ api.unmapAllExcept([
   '<Delete>',
   '<Esc>',
   '<Space>',
+  '>>',
   '?',
-  'D',
   'F',
   'G',
-  'I',
   'N',
   'T',
   'U',
+  'W',
+  'X',
+  'Y',
   '[[',
   ']]',
-  'b',
   'd',
   'f',
+  'g$',
+  'g0',
+  'gU',
   'gf',
   'gg',
+  'gi',
   'gm',
+  'gp',
+  'gu',
+  'gx$',
+  'gx0',
+  'gxT',
+  'gxt',
+  'gxx',
   'i',
   'n',
   'o',
   'p',
   'r',
+  'sg',
+  'sh',
+  'sw',
+  'sy',
   't',
   'u',
   'v',
+  'x',
   'yT',
   'yt',
   'yy',
@@ -498,16 +517,9 @@ api.unmapAllExcept([
   'zi',
   'zm',
   'zo',
-  'zp',
   'zr',
   // '<Ctrl-Alt-i>', open in neovim, not working
 ]);
-
-api.unmap('<Space>', /youtube.com/);
-api.unmap('<ArrowLeft>', /youtube.com/);
-api.unmap('<ArrowDown>', /youtube.com/);
-api.unmap('<ArrowRight>', /youtube.com/);
-api.unmap('<ArrowUp>', /youtube.com/);
 
 api.vmap("<ArrowLeft>", "h");
 api.vmap("<ArrowDown>", "j");
