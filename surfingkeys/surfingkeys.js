@@ -439,10 +439,6 @@ api.mapkey("<Space>", "Choose a tab with omnibar", function () {
   api.Front.openOmnibar({ type: "Tabs" });
 });
 
-api.map("<ArrowDown>", "j");
-api.map("<ArrowLeft>", "h");
-api.map("<ArrowRight>", "l");
-api.map("<ArrowUp>", "k");
 api.map("<Backspace>", "S");
 api.map("<Delete>", "D");
 api.map("F", "af");
@@ -461,10 +457,6 @@ api.unmapAllExcept([
   '/',
   '0',
   '<<',
-  '<ArrowDown>',
-  '<ArrowLeft>',
-  '<ArrowRight>',
-  '<ArrowUp>',
   '<Backspace>',
   '<Delete>',
   '<Esc>',
