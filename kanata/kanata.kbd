@@ -1,0 +1,136 @@
+(defsrc
+  esc           f1            f2            f3            f4            f5            f6            f7            f8            f9            f10           f11           f12
+  grv           1             2             3             4             5             6             7             8             9             0             -             =             bspc
+  tab           q             w             e             r             t             y             u             i             o             p             [             ]             \
+  caps          a             s             d             f             g             h             j             k             l             ;             '             ret
+  lsft          z             x             c             v             b             n             m             ,             .             /             rsft          up
+  fn            lctl          lalt          lmet          spc           rmet          ralt          left          down          rght
+)
+(deffakekeys
+  to_base (layer-switch base)
+)
+(defalias
+  spc_space (tap-hold-release 200 200 spc (layer-while-held space))
+  sticky_sft (one-shot 500 lsft)
+
+  ;; a_sft (tap-hold-release 200 200 a lsft)
+  ;; r_ctl (tap-hold-release 200 200 r lctl)
+  ;; s_alt (tap-hold-release 200 200 s lalt)
+  ;; t_met (tap-hold-release 200 200 t lmet)
+
+  ;; f_meh (tap-hold-release 200 200 f (multi lctl lalt lsft))
+  ;; w_hyp (tap-hold-release 200 200 w (multi lctl lalt lsft lmet))
+
+  n_met (tap-hold-release 200 200 n lmet)
+  ;; e_alt (tap-hold-release 200 200 e lalt)
+  ;; i_ctl (tap-hold-release 200 200 i lctl)
+  ;; o_sft (tap-hold-release 200 200 o lsft)
+
+  ;; u_meh (tap-hold-release 200 200 u (multi lctl lalt lsft))
+  ;; y_hyp (tap-hold-release 200 200 y (multi lctl lalt lsft lmet))
+
+  
+  ;; alias to cancel tap-hold keys if typing rapidly but restore after a short idle period
+  type (multi
+    (layer-switch base_typing)
+    (on-idle-fakekey to_base tap 100)
+  )
+
+  ms_q (multi q @type)
+  f_comb (chord combos f)
+  w_comb (chord combos w)
+  ms_p (multi p @type)
+  ms_b (multi b @type)
+
+  ms_l (multi l @type)
+  ms_j (multi j @type)
+  u_comb (chord combos u)
+  y_comb (chord combos y)
+  ms_; (multi ; @type)
+
+  ms_bspc (multi bspc @type)
+  ms_a_sft (tap-hold-release 200 200 (multi a @type) lsft)
+  r_comb (chord combos r)
+  s_comb (chord combos s)
+  ms_t_met (tap-hold-release 200 200 (multi t @type) lmet)
+  ms_g (multi g @type)
+
+  ms_m (multi m @type)
+  ms_n_met (tap-hold-release 200 200 (multi n @type) lmet)
+  e_comb (chord combos e)
+  i_comb (chord combos i)
+  ms_o_sft (tap-hold-release 200 200 (multi o @type) lsft)
+  ms_' (multi ' @type)
+
+  ms_z (multi z @type)
+  ms_x (multi x @type)
+  ms_c (multi c @type)
+  ms_d (multi d @type)
+  ms_v (multi v @type)
+
+  ms_k (multi k @type)
+  ms_h (multi h @type)
+  ms_, (multi , @type)
+  ms_. (multi . @type)
+
+  ms_spc_space (tap-hold-release 200 200 (multi spc @type) (layer-while-held space))
+)
+(defchords combos 40 
+  (w) (tap-hold-release 200 200 (multi w @type) (multi lctl lalt lsft lmet))
+  (f) (tap-hold-release 200 200 (multi f @type) (multi lctl lalt lsft))
+  (u) (tap-hold-release 200 200 (multi u @type) (multi lctl lalt lsft))
+  (y) (tap-hold-release 200 200 (multi y @type) (multi lctl lalt lsft lmet))
+
+  (r) (tap-hold-release 200 200 (multi r @type) lctl)
+  (s) (tap-hold-release 200 200 (multi s @type) lalt)
+  (e) (tap-hold-release 200 200 (multi e @type) lalt)
+  (i) (tap-hold-release 200 200 (multi i @type) lctl)
+
+  (r s) (tap-hold-release 200 200 esc (multi lctl lalt)) 
+  (e i) (tap-hold-release 200 200 ret (multi lctl lalt))
+)
+(deflayer base
+  XX            brdn          brup          C-up          M-spc         C-f5          A-f6          prev          pp            next          mute          vold          volu
+  grv           1             2             3             4             5             XX            6             7             8             9             0             -             =
+  tab           @ms_q         @w_comb       @f_comb       @ms_p         @ms_b         XX            @ms_j         @ms_l         @u_comb       @y_comb       @ms_;         [             ]
+  @ms_bspc      @ms_a_sft     @r_comb       @s_comb       @ms_t_met     @ms_g         XX            @ms_m         @n_met        @e_comb       @i_comb       @ms_o_sft     @ms_'
+  @ms_z         @ms_x         @ms_c         @ms_d         @ms_v         XX            \             @ms_k         @ms_h         @ms_,         @ms_.         /             XX            
+  XX            XX            XX            XX            @ms_spc_space @sticky_sft   XX            XX            XX            XX            
+)
+(deflayer base_typing
+  _             _             _             _             _             _             _             _             _             _             _             _             _
+  grv           1             2             3             4             5             XX            6             7             8             9             0             -             =
+  tab           q             w             f             p             b             XX            j             l             u             y             ;             [             ]
+  bspc          a             r             s             t             g             XX            m             n             e             i             o             '  
+  z             x             c             d             v             XX            \             k             h             ,             .             /             XX            
+  XX            XX            XX            XX            @spc_space    @sticky_sft   XX            XX            XX            XX            
+)
+(deflayer space
+  _             f1            f2            f3            f4            f5            f6            f7            f8            f9            f10           f11           f12
+  _             _             _             _             _             _             _             _             _             _             _             _             _             _
+  _             _             _             _             _             _             _             _             _             _             _             _             _             _
+  _             _             _             _             _             _             _             left          down          up            rght          _             _
+  _             _             _             _             _             _             _             _             _             _             _             _             _
+  _             _             _             _             _             _             _             _             _             _
+)
+;; (defalias
+;;   down_met (tap-hold-release-timeout 200 200 down lmet down)
+;;   up_alt (tap-hold-release-timeout 200 200 up lalt up)
+;;   rght_sft (tap-hold-release-timeout 200 200 rght lsft rght)
+;; )
+;; (deflayer space
+;;   _             f1            f2            f3            f4            f5            f6            f7            f8            f9            f10           f11           f12
+;;   _             _             _             _             _             _             _             _             _             _             _             _             _             _
+;;   _             _             _             _             _             _             _             _             _             _             _             _             _             _
+;;   _             _             _             _             _             _             _             left          @down_met     @up_alt       @rght_sft     _             _
+;;   _             _             _             _             _             _             _             _             _             _             _             _             _
+;;   _             _             _             _             _             _             _             _             _             _
+;; )
+(deflayer empty
+  _             _             _             _             _             _             _             _             _             _             _             _             _
+  _             _             _             _             _             _             _             _             _             _             _             _             _             _
+  _             _             _             _             _             _             _             _             _             _             _             _             _             _
+  _             _             _             _             _             _             _             _             _             _             _             _             _
+  _             _             _             _             _             _             _             _             _             _             _             _             _
+  _             _             _             _             _             _             _             _             _             _
+)
