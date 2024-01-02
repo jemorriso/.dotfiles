@@ -9,6 +9,10 @@
 (deffakekeys
   to_base (layer-switch base)
 )
+(defvar
+  lhs (q w f p b a r s t z x c d v)
+  rhs (j l u y m n e i o k h)
+)
 (defalias
   spc_space (tap-hold-release 200 200 spc (layer-while-held space))
   sticky_sft (one-shot 500 lsft)
@@ -21,7 +25,7 @@
   ;; f_meh (tap-hold-release 200 200 f (multi lctl lalt lsft))
   ;; w_hyp (tap-hold-release 200 200 w (multi lctl lalt lsft lmet))
 
-  n_met (tap-hold-release 200 200 n lmet)
+  ;; n_met (tap-hold-release 200 200 n lmet)
   ;; e_alt (tap-hold-release 200 200 e lalt)
   ;; i_ctl (tap-hold-release 200 200 i lctl)
   ;; o_sft (tap-hold-release 200 200 o lsft)
@@ -49,17 +53,17 @@
   ms_; (multi ; @type)
 
   ms_bspc (multi bspc @type)
-  ms_a_sft (tap-hold-release 200 200 (multi a @type) lsft)
+  ms_a_sft (tap-hold-except-keys 200 200 (multi a @type) lsft $lhs)
   r_comb (chord combos r)
   s_comb (chord combos s)
-  ms_t_met (tap-hold-release 200 200 (multi t @type) lmet)
+  ms_t_met (tap-hold-release-keys 200 200 (multi t @type) lmet $lhs)
   ms_g (multi g @type)
 
   ms_m (multi m @type)
-  ms_n_met (tap-hold-release 200 200 (multi n @type) lmet)
+  ms_n_met (tap-hold-release-keys 200 200 (multi n @type) lmet $rhs)
   e_comb (chord combos e)
   i_comb (chord combos i)
-  ms_o_sft (tap-hold-release 200 200 (multi o @type) lsft)
+  ms_o_sft (tap-hold-release-keys 200 200 (multi o @type) lsft $rhs)
   ms_' (multi ' @type)
 
   ms_z (multi z @type)
@@ -76,15 +80,17 @@
   ms_spc_space (tap-hold-release 200 200 (multi spc @type) (layer-while-held space))
 )
 (defchords combos 40 
-  (w) (tap-hold-release 200 200 (multi w @type) (multi lctl lalt lsft lmet))
-  (f) (tap-hold-release 200 200 (multi f @type) (multi lctl lalt lsft))
-  (u) (tap-hold-release 200 200 (multi u @type) (multi lctl lalt lsft))
-  (y) (tap-hold-release 200 200 (multi y @type) (multi lctl lalt lsft lmet))
+  (w) (tap-hold-release-keys 200 200 (multi w @type) (multi lctl lalt lsft lmet) $lhs)
+  (f) (tap-hold-release-keys 200 200 (multi f @type) (multi lctl lalt lsft) $lhs)
 
-  (r) (tap-hold-release 200 200 (multi r @type) lctl)
-  (s) (tap-hold-release 200 200 (multi s @type) lalt)
-  (e) (tap-hold-release 200 200 (multi e @type) lalt)
-  (i) (tap-hold-release 200 200 (multi i @type) lctl)
+  (u) (tap-hold-release-keys 200 200 (multi u @type) (multi lctl lalt lsft) $rhs)
+  (y) (tap-hold-release-keys 200 200 (multi y @type) (multi lctl lalt lsft lmet) $rhs)
+
+  (r) (tap-hold-release-keys 200 200 (multi r @type) lctl $lhs)
+  (s) (tap-hold-release-keys 200 200 (multi s @type) lalt $lhs)
+
+  (e) (tap-hold-release-keys 200 200 (multi e @type) lalt $rhs)
+  (i) (tap-hold-release-keys 200 200 (multi i @type) lctl $rhs)
 
   (r s) (tap-hold-release 200 200 esc (multi lctl lalt)) 
   (e i) (tap-hold-release 200 200 ret (multi lctl lalt))
@@ -93,7 +99,7 @@
   XX            brdn          brup          C-up          M-spc         C-f5          A-f6          prev          pp            next          mute          vold          volu
   grv           1             2             3             4             5             XX            6             7             8             9             0             -             =
   tab           @ms_q         @w_comb       @f_comb       @ms_p         @ms_b         XX            @ms_j         @ms_l         @u_comb       @y_comb       @ms_;         [             ]
-  @ms_bspc      @ms_a_sft     @r_comb       @s_comb       @ms_t_met     @ms_g         XX            @ms_m         @n_met        @e_comb       @i_comb       @ms_o_sft     @ms_'
+  @ms_bspc      @ms_a_sft     @r_comb       @s_comb       @ms_t_met     @ms_g         XX            @ms_m         @ms_n_met     @e_comb       @i_comb       @ms_o_sft     @ms_'
   @ms_z         @ms_x         @ms_c         @ms_d         @ms_v         XX            \             @ms_k         @ms_h         @ms_,         @ms_.         /             XX            
   XX            XX            XX            XX            @ms_spc_space @sticky_sft   XX            XX            XX            XX            
 )
