@@ -127,11 +127,13 @@
   (e) (tap-hold-release 200 200 (multi e @type) lalt)
   (i) (tap-hold-release 200 200 (multi i @type) lctl)
 
-  (r s) (tap-hold-release 200 200 esc (multi lctl lalt)) 
+  (r s) (tap-hold-release 200 200 XX  (multi lctl lalt)) 
   (r t) (tap-hold-release 200 200 XX  (multi lctl lmet)) 
-  (s t) (tap-hold-release 200 200 ret (multi lalt lmet)) 
+  (s t) (tap-hold-release 200 200 XX  (multi lalt lmet)) 
   (r s t) (tap-hold-release 200 200 XX  (multi lctl lalt lmet)) 
 
+  ;; (r s) (tap-hold-release 200 200 esc (multi lctl lalt)) 
+  ;; (s t) (tap-hold-release 200 200 ret (multi lalt lmet)) 
   ;; (e i) (tap-hold-release 200 200 ret (multi lctl lalt))
   ;; (w f) tab
 )
@@ -189,18 +191,18 @@
 ;; )
 (deflayer base
   XX            XX            @___          @___          XX            XX            XX            XX            XX            [             ]             XX            XX
-  @___          `             @ms_q         @w_comb       @f_comb       @ms_p         @ms_b         @ms_j         @ms_l         @u_comb       @y_comb       @ms_;         @___          @___
-  -             @ms_a_sft     @r_comb       @s_comb       @t_comb       @ms_g         XX            @ms_m         @ms_n_met     @e_comb       @i_comb       @ms_o_sft     @ms_'         XX
-  =             @ms_z         @ms_x         @ms_c         @ms_d         @ms_v         XX            @ms_k         @ms_h         @ms_,         @ms_.         /             \  
-  XX            S-tab         tab           @ms_spc_space f18           f19           XX            @stky_space   @stky_sft     @___          @___          XX            XX            
-  XX            XX            XX            @___          bspc          @stky_space_lsym @___       XX            XX            XX            
+  @___          `             @ms_q         @w_comb       @f_comb       @ms_p         @ms_b         @ms_j         @ms_l         @u_comb       @y_comb       @ms_;         -             =
+  esc           @ms_a_sft     @r_comb       @s_comb       @t_comb       @ms_g         XX            @ms_m         @ms_n_met     @e_comb       @i_comb       @ms_o_sft     @ms_'         XX
+  @___          @ms_z         @ms_x         @ms_c         @ms_d         @ms_v         XX            @ms_k         @ms_h         @ms_,         @ms_.         /             \  
+  XX            S-tab         tab           @ms_spc_space f18           f19           XX            @stky_space   @stky_sft     ret           @___          XX            XX            
+  XX            XX            XX            XX            bspc          @stky_space_lsym @___       XX            XX            XX            
 )
 (deflayer base_typing
   XX            XX            XX            XX            XX            XX            XX            XX            XX            [             ]             XX            XX
-  XX            `             q             @w_comb       @f_comb       p             b             j             l             @u_comb       @y_comb       ;             XX            XX
-  -             a             @r_comb       @s_comb       t             g             XX            m             n             @e_comb       @i_comb       o             '             XX
-  =             z             x             c             d             v             XX            k             h             ,             .             /             \             
-  XX            S-tab         tab           @spc_space    f18           f19           XX            @stky_space   @stky_sft     XX            XX            XX            XX            
+  XX            `             q             @w_comb       @f_comb       p             b             j             l             @u_comb       @y_comb       ;             -             =
+  esc           a             @r_comb       @s_comb       t             g             XX            m             n             @e_comb       @i_comb       o             '             XX
+  XX            z             x             c             d             v             XX            k             h             ,             .             /             \             
+  XX            S-tab         tab           @spc_space    f18           f19           XX            @stky_space   @stky_sft     ret           XX            XX            XX            
   XX            XX            XX            XX            bspc          @stky_space_lsym XX         XX            XX            XX            
 )
 (defalias
@@ -220,8 +222,8 @@
   _             _             _             @7_hyp        @8_meh        9             _             _             _             _             _             _             _             _
   _             @0_sft        @4_ctl        @5_alt        @6_met        _             _             left          @down_met     @up_alt       @rght_sft     _             _             _
   _             _             1             2             3             _             _             home          pgdn          pgup          end           _             _
-  _             _             _             _             _             _             _             _             _             del           _             _             _
-  _             _             _             _             _             _             _             _             _             _
+  _             _             _             _             _             _             _             _             _             _             _             _             _
+  _             _             _             _             del           _             _             _             _             _
 )
 (defalias
   $_ctl (tap-hold-release 200 200 @$ lctl)
