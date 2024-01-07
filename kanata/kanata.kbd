@@ -14,24 +14,20 @@
 (defalias
   ___ XX
 
+  meh (multi lctl lalt lsft)
+  hyp (multi lctl lalt lsft lmet)
+
   to_base (layer-switch base)
   to_alt_tab (layer-switch alt_tab)
 
-  ;; l_num (layer-while-held num_pad)
-  ;; l_nav (layer-while-held nav)
   l_space (layer-while-held space)
   l_space_lsym (layer-while-held space_left_sym)
-  ;; l_fsft (layer-while-held fake_shift)
+  l_smart_space (layer-while-held smart_space)
   l_arrows (layer-while-held smart_arrows)
+  l_smart_num (layer-while-held smart_num)
+  l_smart_num_sft (layer-while-held smart_num_shifted)
   l_fn (layer-while-held function)
   l_media (layer-while-held media)
-
-  os_arrows (one-shot 1000 @l_arrows)
-  ;; os_arrows (macro 10 (one-shot 500 @l_arrows))
-  ;; os_arrows down
-
-  meh (multi lctl lalt lsft)
-  hyp (multi lctl lalt lsft lmet)
 
   ;; spc_space (tap-hold-release 200 200 spc (layer-while-held space))
   ;; spc_space (tap-hold-release 200 200 spc @l_space)
@@ -40,6 +36,9 @@
   ;; stky_sft_met (tap-hold-release 200 200 (one-shot 500 lsft) lmet)
   stky_space (one-shot 500 @l_space)
   stky_space_lsym (one-shot 500 @l_space_lsym)
+  stky_smart_space (one-shot 500 @l_space_lsym)
+
+  stky_smart_num_sft (multi (one-shot 500 lsft) (one-shot 500 @l_smart_num_sft))
 
   tab_space (tap-hold-release 200 200 tab @l_space)
   ret_space (tap-hold-release 200 200 ret @l_space)
@@ -48,12 +47,15 @@
 
   spc_alt (tap-hold-release 200 200 spc lalt)
   f18_ctl (tap-hold-release 200 200 f18 lctl)
+  f19_meh (tap-hold-release 200 200 f19 @meh)
 
   stky_space_met (tap-hold-release 200 200 @stky_space lmet)
   sft_td (tap-dance 200 ((one-shot 500 lsft) (caps-word 2000)))
 
-  bspc_meh (tap-hold-release 200 200 bspc @meh)
-  stky_space_lsym_hyp (tap-hold-release 200 200 @stky_space_lsym @hyp)
+  stky_smart_space_met (tap-hold-release 200 200 @stky_space lmet)
+  stky_smart_space_ctl (tap-hold-release 200 200 @stky_space lctl)
+  ;; bspc_meh (tap-hold-release 200 200 bspc @meh)
+  ;; stky_space_lsym_hyp (tap-hold-release 200 200 @stky_space_lsym @hyp)
 
   ;; a_sft (tap-hold-release 200 200 a lsft)
   ;; r_ctl (tap-hold-release 200 200 r lctl)
@@ -99,7 +101,8 @@
   y_comb (chord combos y)
   ms_; (multi ; @type)
 
-  ms_bspc_meh (multi @bspc_meh @type)
+  ;; ms_bspc_meh (multi @bspc_meh @type)
+  ms_bspc (multi bspc @type)
   ms_a_sft (tap-hold-release 200 200 (multi a @type) lsft)
   r_comb (chord combos r)
   s_comb (chord combos s)
@@ -222,20 +225,20 @@
 ;;   _             _             _             _             _             _             _             _             _             _
 ;; )
 (deflayer base
-  XX            XX            @os_arrows    @alt_tab_multi XX           XX            XX            XX            XX            [             ]             XX            XX
+  XX            XX            @___          @alt_tab_multi XX           XX            XX            XX            XX            [             ]             XX            XX
   @___          `             @ms_q         @w_comb       @f_comb       @ms_p         @ms_b         @ms_j         @ms_l         @u_comb       @y_comb       @ms_;         -             =
-  esc           @ms_a_sft     @r_comb       @s_comb       @t_comb       @ms_g         XX            @ms_m         @ms_n_met     @e_comb       @i_comb       @ms_o_sft     @ms_'         XX
-  @___          @ms_z         @ms_x         @ms_c         @ms_d         @ms_v         XX            @ms_k         @ms_h         @ms_,         @ms_.         /             \  
-  XX            @sft_tab_med  @tab_space    @ms_spc_alt   @f18_ctl      f19           XX            @stky_space_met @sft_td     @ret_space    @l_fn         XX            XX            
-  XX            XX            XX            @os_arrows    @ms_bspc_meh  @stky_space_lsym_hyp @___   XX            XX            XX            
+  esc           @ms_a_sft     @r_comb       @s_comb       @t_comb       @ms_g         f19           @ms_m         @ms_n_met     @e_comb       @i_comb       @ms_o_sft     @ms_'         XX
+  @___          @ms_z         @ms_x         @ms_c         @ms_d         @ms_v         f18           @ms_k         @ms_h         @ms_,         @ms_.         /             \  
+  XX            @sft_tab_med  tab           @ms_spc_alt   @stky_smart_space_ctl @meh  @hyp          @stky_smart_space_met @sft_td ret         @l_fn         XX            XX            
+  XX            XX            XX            @___          @ms_bspc      @stky_space_lsym @___       XX            XX            XX            
 )
 (deflayer base_typing
   XX            XX            XX            @alt_tab_multi XX           XX            XX            XX            XX            [             ]             XX            XX
   XX            `             q             @w_comb       @f_comb       p             b             j             l             @u_comb       @y_comb       ;             -             =
-  esc           a             @r_comb       @s_comb       t             g             XX            m             n             @e_comb       @i_comb       o             '             XX
-  XX            z             x             c             d             v             XX            k             h             ,             .             /             \             
-  XX            @sft_tab_med  @tab_space    @spc_alt      @f18_ctl      f19           XX            @stky_space_met @sft_td     @ret_space    @l_fn         XX            XX            
-  XX            XX            XX            @os_arrows    @bspc_meh     @stky_space_lsym_hyp XX     XX            XX            XX            
+  esc           a             @r_comb       @s_comb       t             g             f19           m             n             @e_comb       @i_comb       o             '             XX
+  XX            z             x             c             d             v             f18           k             h             ,             .             /             \             
+  XX            @sft_tab_med  tab           @spc_alt      @stky_smart_space_ctl @meh  @hyp          @stky_smart_space_met @sft_td ret         @l_fn         XX            XX            
+  XX            XX            XX            @___          bspc          @stky_space_lsym XX     XX            XX            XX            
 )
 (defalias
   num_0 (multi (on-release-fakekey persist_num tap) 0)
@@ -270,8 +273,8 @@
   num_4_ctl (tap-hold-release 200 200 @num_4 lctl)
   num_5_alt (tap-hold-release 200 200 @num_5 lalt)
   num_6_met (tap-hold-release 200 200 @num_6 lmet)
-  num_7_hyp (tap-hold-release 200 200 @num_7 lhyp)
-  num_8_meh (tap-hold-release 200 200 @num_8 lmeh)
+  num_7_hyp (tap-hold-release 200 200 @num_7 @hyp)
+  num_8_meh (tap-hold-release 200 200 @num_8 @meh)
 
   arr_down_met (tap-hold-release-timeout 200 200 @arr_down lmet down)
   arr_up_alt (tap-hold-release-timeout 200 200 @arr_up lalt down)
@@ -324,7 +327,41 @@
   _             _             _             _             _             _             _             _             _             _             _             _             _
   _             _             _             _             _             _             _             _             _             _
 )
+(defalias
+  ;; num_bspc (around @an_smart_num bspc)
+  ;; num_del (around @an_smart_num del)
+  ;;
+  ;; num_slash (around @an_smart_num /)
+  ;; num_comma (around @an_smart_num ,)
+  ;; num_dot (around @an_smart_num .)
+  ;; num_semi (around @an_smart_num ;)
+  ;; num_lbkt (around @an_smart_num [)
+  ;; num_rbkt (around @an_smart_num ])
+  ;; num_lpar (around @an_smart_num \()
+  ;; num_rpar (around @an_smart_num \))
+  ;; num_minus (around @an_smart_num -)
+  ;; num_unds (around @an_smart_num \_ )
+  ;; num_equal (around @an_smart_num =)
+  ;; num_plus (around @an_smart_num +)
+  ;;
+  ;; num_lt (around @an_smart_num <)
+  ;; num_gt (around @an_smart_num >)
+  ;; num_lbrc (around @an_smart_num {)
+  ;; num_rbrc (around @an_smart_num })
+  ;; num_qmark (around @an_smart_num ?)
+  ;; num_colon (around @an_smart_num :)
+  ;;
+  ;; num_star (around @an_smart_num *)
+)
 (deflayer smart_num
+  _             _             _             _             _             _             _             _             _             _             _             _             _
+  _             _             _             @num_7        @num_8        @num_9        _             _             _             _             _             _             _             _
+  _             @num_0        @num_4        @num_5        @num_6        _             _             _             _             _             _             _             _             _
+  _             _             @num_1        @num_2        @num_3        _             _             _             _             _             _             _             _
+  _             _             _             _             _             _             _             _             @stky_smart_num_sft _       _             _             _
+  _             _             _             _             _             _             _             _             _             _
+)
+(deflayer smart_num_shifted
   _             _             _             _             _             _             _             _             _             _             _             _             _
   _             _             _             _             _             _             _             _             _             _             _             _             _             _
   _             _             _             _             _             _             _             _             _             _             _             _             _             _
