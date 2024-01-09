@@ -220,7 +220,7 @@
   _             _             _             @num_7_hyp    @num_8_meh    @num_9        _             _             _             _             _             _             _             _
   _             @num_0_sft    @num_4_ctl    @num_5_alt    @num_6_met    _             _             @arr_left     @arr_down_met @arr_up_alt   @arr_rght_sft _             _             _
   _             _             @num_1        @num_2        @num_3        _             _             home          pgdn          pgup          end           _             _
-  _             _             _             _             _             _             _             _             _             _             _             _             _
+  _             _             @to_base      _             _             _             _             _             _             @to_base      _             _             _
   _             _             _             _             del           _             _             _             _             _
 )
 (defalias
@@ -288,15 +288,15 @@
   _             _             _             @num_7        @num_8        @num_9        _             _             _             _             _             @num_;        @num_-        @num_=
   _             @num_0        @num_4        @num_5        @num_6        _             _             _             _             _             _             _             _             _
   _             _             @num_1        @num_2        @num_3        _             _             _             _             @num_,        @num_.        @num_/        _
-  _             _             _             _             _             _             _             _             @stky_smart_num_sft _       _             _             _
+  _             _             @to_base      _             _             _             _             _             @stky_smart_num_sft @to_base _            _             _
   _             _             _             _             @num_bspc     @stky_smart_num_space_lsym _ _            _             _       
 )
 (deflayer smart_num_shifted
   _             _             _             _             _             _             _             _             _             @num_{        @num_}        _             _
   _             _             _             _             _             _             _             _             _             _             _             @num_:        @num__        @num_+
   _             _             _             _             _             _             _             _             _             _             _             _             _             _
-  _             _             _             _             _             _             _             _             _             _             _             _             _
   _             _             _             _             _             _             _             _             _             @num_<        @num_>        @num_?        _
+  _             _             @to_base      _             _             _             _             _             _             @to_base      _             _             _
   _             _             _             _             _             _             _             _             _             _
 )
 (deflayer smart_num_space_lsym
@@ -304,7 +304,7 @@
   _             _             _             _             @num_*        _             _             _             _             _             _             _             _             _
   _             _             _             _             _             _             _             _             _             _             _             _             _             _
   _             _             _             _             _             _             _             _             _             _             _             _             _
-  _             _             _             _             _             _             _             _             _             _             _             _             _
+  _             _             @to_base      _             _             _             _             _             _             @to_base      _             _             _
   _             _             _             _             _             _             _             _             _             _
 )
 (deflayer smart_arrows
@@ -312,7 +312,7 @@
   _             _             _             _             _             _             _             _             _             _             _             _             _             _
   _             _             _             _             _             _             _             @arr_left     @arr_down     @arr_up       @arr_rght     _             _             _
   _             _             _             _             _             _             _             _             _             _             _             _             _
-  _             _             _             _             _             _             _             _             _             _             _             _             _
+  _             _             @to_base      _             _             _             _             _             _             @to_base      _             _             _
   _             _             _             _             _             _             _             _             _             _
 )
 (defalias
