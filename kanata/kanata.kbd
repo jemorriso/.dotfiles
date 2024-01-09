@@ -54,31 +54,31 @@
   )
 
   ms_q (multi q @type)
-  f_comb (chord combos f)
-  w_comb (chord combos w)
+  ms_f_comb (chord combos f)
+  ms_w_comb (chord combos w)
   ms_p (multi p @type)
   ms_b (multi b @type)
 
   ms_l (multi l @type)
   ms_j (multi j @type)
-  u_comb (chord combos u)
-  y_comb (chord combos y)
+  ms_u_comb (chord combos u)
+  ms_y_comb (chord combos y)
   ms_; (multi ; @type)
 
   ;; ms_bspc_meh (multi @bspc_meh @type)
   ;; ms_bspc (multi bspc @type)
   ms_bspc_space (tap-hold-release 200 200 (multi bspc @type) @l_space)
   ms_a_sft (tap-hold-release 200 200 (multi a @type) lsft)
-  r_comb (chord combos r)
-  s_comb (chord combos s)
-  t_comb (chord combos t)
+  ms_r_comb (chord combos r)
+  ms_s_comb (chord combos s)
+  ms_t_comb (chord combos t)
   ;; ms_t_met (tap-hold-release 200 200 (multi t @type) lmet)
   ms_g (multi g @type)
 
   ms_m (multi m @type)
   ms_n_met (tap-hold-release 200 200 (multi n @type) lmet)
-  e_comb (chord combos e)
-  i_comb (chord combos i)
+  ms_e_comb (chord combos e)
+  ms_i_comb (chord combos i)
   ms_o_sft (tap-hold-release 200 200 (multi o @type) lsft)
   ms_' (multi ' @type)
 
@@ -147,16 +147,8 @@
 )
 (deflayer base
   @___          XX            @___          @alt_tab_multi XX           XX            XX            XX            XX            [             ]             XX            XX
-  @___          `             @ms_q         @w_comb       @f_comb       @ms_p         @ms_b         @ms_j         @ms_l         @u_comb       @y_comb       @ms_;         -             =
-  esc           @ms_a_sft     @r_comb       @s_comb       @t_comb       @ms_g         f19           @ms_m         @ms_n_met     @e_comb       @i_comb       @ms_o_sft     @ms_'         XX
-  @___          @ms_z         @ms_x         @ms_c         @ms_d         @ms_v         f18           @ms_k         @ms_h         @ms_,         @ms_.         /             \  
-  XX            @sft_tab_med  tab           @ms_spc_alt   @stky_smart_space_ctl @meh  @hyp          @stky_smart_space_met @sft_td ret         @l_fn         XX            XX            
-  @___          XX            XX            @___          @ms_bspc_space @stky_space_lsym @___      XX            XX            XX            
-)
-(deflayer base_qwerty
-  @___          XX            @___          @alt_tab_multi XX           XX            XX            XX            XX            [             ]             XX            XX
-  @___          `             @ms_q         @w_comb       @f_comb       @ms_p         @ms_b         @ms_j         @ms_l         @u_comb       @y_comb       @ms_;         -             =
-  esc           @ms_a_sft     @r_comb       @s_comb       @t_comb       @ms_g         f19           @ms_m         @ms_n_met     @e_comb       @i_comb       @ms_o_sft     @ms_'         XX
+  @___          `             @ms_q         @ms_w_comb    @ms_f_comb    @ms_p         @ms_b         @ms_j         @ms_l         @ms_u_comb    @ms_y_comb    @ms_;         -             =
+  esc           @ms_a_sft     @ms_r_comb    @ms_s_comb    @ms_t_comb    @ms_g         f19           @ms_m         @ms_n_met     @ms_e_comb    @ms_i_comb    @ms_o_sft     @ms_'         XX
   @___          @ms_z         @ms_x         @ms_c         @ms_d         @ms_v         f18           @ms_k         @ms_h         @ms_,         @ms_.         /             \  
   XX            @sft_tab_med  tab           @ms_spc_alt   @stky_smart_space_ctl @meh  @hyp          @stky_smart_space_met @sft_td ret         @l_fn         XX            XX            
   @___          XX            XX            @___          @ms_bspc_space @stky_space_lsym @___      XX            XX            XX            
