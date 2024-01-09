@@ -154,14 +154,6 @@
   XX            @sft_tab_med  tab           @ms_spc_alt   @stky_smart_space_ctl @meh  @hyp          @stky_smart_space_met @sft_td ret         @l_fn         XX            XX            
   @___          XX            XX            @___          @ms_bspc_space @stky_space_lsym @___      XX            XX            XX            
 )
-(deflayer base_qwerty
-  @___          XX            @___          @alt_tab_multi XX           XX            XX            XX            XX            [             ]             XX            XX
-  @___          `             @ms_q         @w_comb       @f_comb       @ms_p         @ms_b         @ms_j         @ms_l         @u_comb       @y_comb       @ms_;         -             =
-  esc           @ms_a_sft     @r_comb       @s_comb       @t_comb       @ms_g         f19           @ms_m         @ms_n_met     @e_comb       @i_comb       @ms_o_sft     @ms_'         XX
-  @___          @ms_z         @ms_x         @ms_c         @ms_d         @ms_v         f18           @ms_k         @ms_h         @ms_,         @ms_.         /             \  
-  XX            @sft_tab_med  tab           @ms_spc_alt   @stky_smart_space_ctl @meh  @hyp          @stky_smart_space_met @sft_td ret         @l_fn         XX            XX            
-  @___          XX            XX            @___          @ms_bspc_space @stky_space_lsym @___      XX            XX            XX            
-)
 (deflayer base_typing
   XX            XX            XX            @alt_tab_multi XX           XX            XX            XX            XX            [             ]             XX            XX
   XX            `             q             @w_comb       @f_comb       p             b             j             l             @u_comb       @y_comb       ;             -             =
