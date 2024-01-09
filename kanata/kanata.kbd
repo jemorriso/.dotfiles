@@ -100,7 +100,6 @@
   ;; thumb tap-hold mod cluster
   spc_alt (tap-hold-release 200 200 spc lalt)
   stky_smart_space_ctl (tap-hold-release 200 200 @stky_smart_space lctl)
-  ;; stky_space_met (tap-hold-release 200 200 @stky_space lmet)
   sft_td (tap-dance 200 ((one-shot 500 lsft) (caps-word 2000)))
   stky_smart_space_met (tap-hold-release 200 200 @stky_smart_space lmet)
 )
@@ -164,8 +163,8 @@
 )
 (deflayer base_typing
   XX            XX            XX            @alt_tab_multi XX           XX            XX            XX            XX            [             ]             XX            XX
-  XX            `             q             @w_comb       @f_comb       p             b             j             l             @u_comb       @y_comb       ;             -             =
-  esc           a             @r_comb       @s_comb       t             g             f19           m             n             @e_comb       @i_comb       o             '             XX
+  XX            `             q             w             f             p             b             j             l             u             y             ;             -             =
+  esc           a             r             s             t             g             f19           m             n             e             i             o             '             XX
   XX            z             x             c             d             v             f18           k             h             ,             .             /             \             
   XX            @sft_tab_med  tab           @spc_alt      @stky_smart_space_ctl @meh  @hyp          @stky_smart_space_met @sft_td ret         @l_fn         XX            XX            
   XX            XX            XX            @___          @bspc_space   @stky_space_lsym XX         XX            XX            XX            
