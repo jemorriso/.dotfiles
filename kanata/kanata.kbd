@@ -26,68 +26,32 @@
   l_arrows (layer-while-held smart_arrows)
   l_smart_num (layer-while-held smart_num)
   l_smart_num_sft (layer-while-held smart_num_shifted)
+  l_smart_num_space_lsym (layer-while-held smart_num_space_lsym)
   l_fn (layer-while-held function)
   l_media (layer-while-held media)
 
-  ;; spc_space (tap-hold-release 200 200 spc (layer-while-held space))
-  ;; spc_space (tap-hold-release 200 200 spc @l_space)
-  ;; stky_fsft (one-shot 500 @l_fsft)
-  stky_sft (one-shot 500 lsft)
-  ;; stky_sft_met (tap-hold-release 200 200 (one-shot 500 lsft) lmet)
   stky_space (one-shot 500 @l_space)
+  ;; spc_space (tap-hold-release 200 200 spc @l_space)
+  ;; stky_sft_met (tap-hold-release 200 200 (one-shot 500 lsft) lmet)
   stky_space_lsym (one-shot 500 @l_space_lsym)
-  stky_smart_space (one-shot 500 @l_space_lsym)
-
-  stky_smart_num_sft (multi (one-shot 500 lsft) (one-shot 500 @l_smart_num_sft))
-
-  tab_space (tap-hold-release 200 200 tab @l_space)
-  ret_space (tap-hold-release 200 200 ret @l_space)
+  stky_smart_space (one-shot 500 @l_smart_space)
 
   sft_tab_med (tap-hold-release 200 200 S-tab @l_media)
 
-  spc_alt (tap-hold-release 200 200 spc lalt)
-  f18_ctl (tap-hold-release 200 200 f18 lctl)
-  f19_meh (tap-hold-release 200 200 f19 @meh)
-
-  stky_space_met (tap-hold-release 200 200 @stky_space lmet)
-  sft_td (tap-dance 200 ((one-shot 500 lsft) (caps-word 2000)))
-
-  stky_smart_space_met (tap-hold-release 200 200 @stky_space lmet)
-  stky_smart_space_ctl (tap-hold-release 200 200 @stky_space lctl)
+  bspc_space (tap-hold-release 200 200 bspc @l_space)
   ;; bspc_meh (tap-hold-release 200 200 bspc @meh)
   ;; stky_space_lsym_hyp (tap-hold-release 200 200 @stky_space_lsym @hyp)
-
-  ;; a_sft (tap-hold-release 200 200 a lsft)
-  ;; r_ctl (tap-hold-release 200 200 r lctl)
-  ;; s_alt (tap-hold-release 200 200 s lalt)
-  ;; t_met (tap-hold-release 200 200 t lmet)
-
-  ;; f_meh (tap-hold-release 200 200 f (multi lctl lalt lsft))
-  ;; w_hyp (tap-hold-release 200 200 w (multi lctl lalt lsft lmet))
-
-  ;; n_met (tap-hold-release 200 200 n lmet)
-  ;; e_alt (tap-hold-release 200 200 e lalt)
-  ;; i_ctl (tap-hold-release 200 200 i lctl)
-  ;; o_sft (tap-hold-release 200 200 o lsft)
-
-  ;; u_meh (tap-hold-release 200 200 u (multi lctl lalt lsft))
-  ;; y_hyp (tap-hold-release 200 200 y (multi lctl lalt lsft lmet))
-
   
+  alt_tab_multi (multi @to_alt_tab M-bspc)  
+)
+(defalias
+  ;; home-row mod quick typing aliases
+
   ;; alias to cancel tap-hold keys if typing rapidly but restore after a short idle period
   type (multi
     (layer-switch base_typing)
     (on-idle-fakekey fk_to_base tap 100)
   )
-
-  alt_tab_multi (multi @to_alt_tab M-bspc)  
-  ;; alt_tab_multi M-bspc
-
-  ;; alt_rpt (switch
-  ;;   (and (key-history b 1) (key-history a 2)) b break
-  ;;   ((key-history a 2)) b break
-  ;;   () XX break
-  ;; )
 
   ms_q (multi q @type)
   f_comb (chord combos f)
@@ -102,7 +66,8 @@
   ms_; (multi ; @type)
 
   ;; ms_bspc_meh (multi @bspc_meh @type)
-  ms_bspc (multi bspc @type)
+  ;; ms_bspc (multi bspc @type)
+  ms_bspc_space (tap-hold-release 200 200 (multi bspc @type) @l_space)
   ms_a_sft (tap-hold-release 200 200 (multi a @type) lsft)
   r_comb (chord combos r)
   s_comb (chord combos s)
@@ -130,7 +95,17 @@
 
   ;; ms_spc_space (tap-hold-release 200 200 (multi spc @type) @l_space)
   ms_spc_alt (tap-hold-release 200 200 (multi spc @type) lalt)
-
+)
+(defalias
+  ;; thumb tap-hold mod cluster
+  spc_alt (tap-hold-release 200 200 spc lalt)
+  stky_smart_space_ctl (tap-hold-release 200 200 @stky_smart_space lctl)
+  ;; stky_space_met (tap-hold-release 200 200 @stky_space lmet)
+  sft_td (tap-dance 200 ((one-shot 500 lsft) (caps-word 2000)))
+  stky_smart_space_met (tap-hold-release 200 200 @stky_smart_space lmet)
+)
+(defalias
+  ;; shifted character aliases
   rpar S-0
   ! S-1
   @ S-2
@@ -148,6 +123,10 @@
   | S-\
   _ S--
   + S-=
+  < S-,
+  > S-.
+  ? S-/
+  : S-;
 )
 (defchords combos 30 
   (w) (tap-hold-release 200 200 (multi w @type) @hyp)
@@ -166,71 +145,22 @@
   (r t) (tap-hold-release 200 200 XX  (multi lctl lmet)) 
   (s t) (tap-hold-release 200 200 A-C-S-r (multi lalt lmet)) 
   (r s t) (tap-hold-release 200 200 XX  (multi lctl lalt lmet)) 
-
-  ;; (r s) (tap-hold-release 200 200 esc (multi lctl lalt)) 
-  ;; (s t) (tap-hold-release 200 200 ret (multi lalt lmet)) 
-  ;; (e i) (tap-hold-release 200 200 ret (multi lctl lalt))
-  ;; (w f) tab
 )
-;; (deflayer base
-;;   XX            brdn          brup          C-up          M-spc         C-f5          A-f6          prev          pp            next          mute          vold          volu
-;;   XX            XX            =             -             XX            XX            XX            XX            XX            XX            [             ]             `             XX            
-;;   tab           @ms_q         @w_comb       @f_comb       @ms_p         @ms_b         XX            @ms_j         @ms_l         @u_comb       @y_comb       @ms_;         @ms_'         \
-;;   @ms_bspc      @ms_a_sft     @r_comb       @s_comb       @ms_t_met     @ms_g         XX            @ms_m         @ms_n_met     @e_comb       @i_comb       @ms_o_sft     ret  
-;;   esc           @ms_x         @ms_c         @ms_d         @ms_v         @ms_z         XX            @ms_k         @ms_h         @ms_,         @ms_.         /             XX            
-;;   XX            XX            XX            @stky_space_lsym @ms_spc_space @stky_fsft @stky_space   XX            XX            XX            
-;; )
-;; (deflayer base_typing
-;;   _             _             _             _             _             _             _             _             _             _             _             _             _
-;;   XX            XX            =             -             XX            XX            XX            XX            XX            XX            [             ]             `             XX            
-;;   tab           q             w             f             p             b             XX            j             l             u             y             ;             '             \            
-;;   bspc          a             r             s             t             g             XX            m             n             e             i             o             ret  
-;;   esc           x             c             d             v             z             XX            k             h             ,             .             /             XX            
-;;   XX            XX            XX            XX            @spc_space    @stky_fsft    XX            XX            XX            XX            
-;; )
-;; (defalias
-;;   0_sft (tap-hold-release 200 200 0 lsft)
-;;   4_ctl (tap-hold-release 200 200 4 lctl)
-;;   5_alt (tap-hold-release 200 200 5 lalt)
-;;   6_met (tap-hold-release 200 200 6 lmet)
-;;   7_hyp (tap-hold-release 200 200 7 @hyp)
-;;   8_meh (tap-hold-release 200 200 8 @meh)
-;;
-;;   down_met (tap-hold-release-timeout 200 200 down lmet down)
-;;   up_alt (tap-hold-release-timeout 200 200 up lalt up)
-;;   rght_sft (tap-hold-release-timeout 200 200 rght lsft rght)
-;; )
-;; (deflayer space
-;;   _             f1            f2            f3            f4            f5            f6            f7            f8            f9            f10           f11           f12
-;;   _             _             _             _             _             _             _             _             _             _             _             _             _
-;;   _             _             _             _             _             _             _             _             _             _             @lpar         @rpar         _             _
-;;   _             _             @7_hyp        @8_meh        9             _             _             _             _             _             _             _             _             _
-;;   del           @0_sft        @4_ctl        @5_alt        @6_met        _             _             left          @down_met     @up_alt       @rght_sft     _             _
-;;   _             1             2             3             _             _             _             home          pgdn          pgup          end           _             _
-;;   _             _             _             _             _             _             _             _             _             _
-;; )
-;; (defalias
-;;   $_ctl (tap-hold-release 200 200 @$ lctl)
-;;   %_alt (tap-hold-release 200 200 @% lalt)
-;;   ^_met (tap-hold-release 200 200 @^ lmet)
-;;   &_hyp (tap-hold-release 200 200 @& @hyp)
-;;   *_meh (tap-hold-release 200 200 @* @meh)
-;; )
-;; (deflayer space_left_sym
-;;   _             f1            f2            f3            f4            f5            f6            f7            f8            f9            f10           f11           f12
-;;   _             _             _             _             _             _             _             _             _             _             @lpar         @rpar         _             _
-;;   _             _             @&_hyp        @*_meh        _             _             _             _             _             _             _             _             _             _
-;;   del           _             @$_ctl        @%_alt        @^_met        _             _             left          @down_met     @up_alt       @rght_sft     _             _
-;;   _             @!            @@            @#            _             _             _             home          pgdn          pgup          end           _             _
-;;   _             _             _             _             _             _             _             _             _             _
-;; )
 (deflayer base
-  XX            XX            @___          @alt_tab_multi XX           XX            XX            XX            XX            [             ]             XX            XX
+  @___          XX            @___          @alt_tab_multi XX           XX            XX            XX            XX            [             ]             XX            XX
   @___          `             @ms_q         @w_comb       @f_comb       @ms_p         @ms_b         @ms_j         @ms_l         @u_comb       @y_comb       @ms_;         -             =
   esc           @ms_a_sft     @r_comb       @s_comb       @t_comb       @ms_g         f19           @ms_m         @ms_n_met     @e_comb       @i_comb       @ms_o_sft     @ms_'         XX
   @___          @ms_z         @ms_x         @ms_c         @ms_d         @ms_v         f18           @ms_k         @ms_h         @ms_,         @ms_.         /             \  
   XX            @sft_tab_med  tab           @ms_spc_alt   @stky_smart_space_ctl @meh  @hyp          @stky_smart_space_met @sft_td ret         @l_fn         XX            XX            
-  XX            XX            XX            @___          @ms_bspc      @stky_space_lsym @___       XX            XX            XX            
+  @___          XX            XX            @___          @ms_bspc_space @stky_space_lsym @___      XX            XX            XX            
+)
+(deflayer base_qwerty
+  @___          XX            @___          @alt_tab_multi XX           XX            XX            XX            XX            [             ]             XX            XX
+  @___          `             @ms_q         @w_comb       @f_comb       @ms_p         @ms_b         @ms_j         @ms_l         @u_comb       @y_comb       @ms_;         -             =
+  esc           @ms_a_sft     @r_comb       @s_comb       @t_comb       @ms_g         f19           @ms_m         @ms_n_met     @e_comb       @i_comb       @ms_o_sft     @ms_'         XX
+  @___          @ms_z         @ms_x         @ms_c         @ms_d         @ms_v         f18           @ms_k         @ms_h         @ms_,         @ms_.         /             \  
+  XX            @sft_tab_med  tab           @ms_spc_alt   @stky_smart_space_ctl @meh  @hyp          @stky_smart_space_met @sft_td ret         @l_fn         XX            XX            
+  @___          XX            XX            @___          @ms_bspc_space @stky_space_lsym @___      XX            XX            XX            
 )
 (deflayer base_typing
   XX            XX            XX            @alt_tab_multi XX           XX            XX            XX            XX            [             ]             XX            XX
@@ -238,24 +168,7 @@
   esc           a             @r_comb       @s_comb       t             g             f19           m             n             @e_comb       @i_comb       o             '             XX
   XX            z             x             c             d             v             f18           k             h             ,             .             /             \             
   XX            @sft_tab_med  tab           @spc_alt      @stky_smart_space_ctl @meh  @hyp          @stky_smart_space_met @sft_td ret         @l_fn         XX            XX            
-  XX            XX            XX            @___          bspc          @stky_space_lsym XX     XX            XX            XX            
-)
-(defalias
-  num_0 (multi (on-release-fakekey persist_num tap) 0)
-  num_1 (multi (on-release-fakekey persist_num tap) 1)
-  num_2 (multi (on-release-fakekey persist_num tap) 2)
-  num_3 (multi (on-release-fakekey persist_num tap) 3)
-  num_4 (multi (on-release-fakekey persist_num tap) 4)
-  num_5 (multi (on-release-fakekey persist_num tap) 5)
-  num_6 (multi (on-release-fakekey persist_num tap) 6)
-  num_7 (multi (on-release-fakekey persist_num tap) 7)
-  num_8 (multi (on-release-fakekey persist_num tap) 8)
-  num_9 (multi (on-release-fakekey persist_num tap) 9)
-
-  arr_left (multi (on-release-fakekey persist_arrows tap) left)
-  arr_down (multi (on-release-fakekey persist_arrows tap) down)
-  arr_up (multi (on-release-fakekey persist_arrows tap) up)
-  arr_rght (multi (on-release-fakekey persist_arrows tap) rght)
+  XX            XX            XX            @___          @bspc_space   @stky_space_lsym XX         XX            XX            XX            
 )
 (defalias
   0_sft (tap-hold-release 200 200 0 lsft)
@@ -268,17 +181,6 @@
   down_met (tap-hold-release-timeout 200 200 down lmet down)
   up_alt (tap-hold-release-timeout 200 200 up lalt up)
   rght_sft (tap-hold-release-timeout 200 200 rght lsft rght)
-
-  num_0_sft (tap-hold-release 200 200 @num_0 lsft)
-  num_4_ctl (tap-hold-release 200 200 @num_4 lctl)
-  num_5_alt (tap-hold-release 200 200 @num_5 lalt)
-  num_6_met (tap-hold-release 200 200 @num_6 lmet)
-  num_7_hyp (tap-hold-release 200 200 @num_7 @hyp)
-  num_8_meh (tap-hold-release 200 200 @num_8 @meh)
-
-  arr_down_met (tap-hold-release-timeout 200 200 @arr_down lmet down)
-  arr_up_alt (tap-hold-release-timeout 200 200 @arr_up lalt down)
-  arr_rght_sft (tap-hold-release-timeout 200 200 @arr_rght lsft down)
 )
 (deflayer space
   _             _             _             _             _             _             _             _             _             @lpar         @rpar         _             _             
@@ -287,6 +189,38 @@
   _             _             1             2             3             _             _             home          pgdn          pgup          end           _             _
   _             _             _             _             _             _             _             _             _             _             _             _             _
   _             _             _             _             del           _             _             _             _             _
+)
+(defalias
+  fk_num (on-release-fakekey persist_num tap)
+  fk_arrows (on-release-fakekey persist_arrows tap)
+
+  num_0 (multi @fk_num 0)
+  num_1 (multi @fk_num 1)
+  num_2 (multi @fk_num 2)
+  num_3 (multi @fk_num 3)
+  num_4 (multi @fk_num 4)
+  num_5 (multi @fk_num 5)
+  num_6 (multi @fk_num 6)
+  num_7 (multi @fk_num 7)
+  num_8 (multi @fk_num 8)
+  num_9 (multi @fk_num 9)
+
+  num_0_sft (tap-hold-release 200 200 @num_0 lsft)
+  num_4_ctl (tap-hold-release 200 200 @num_4 lctl)
+  num_5_alt (tap-hold-release 200 200 @num_5 lalt)
+  num_6_met (tap-hold-release 200 200 @num_6 lmet)
+  num_7_hyp (tap-hold-release 200 200 @num_7 @hyp)
+  num_8_meh (tap-hold-release 200 200 @num_8 @meh)
+
+  arr_left (multi @fk_arrows left)
+  arr_down (multi @fk_arrows down)
+  arr_up (multi @fk_arrows up)
+  arr_rght (multi @fk_arrows rght)
+
+  arr_down_met (tap-hold-release-timeout 200 200 @arr_down lmet down)
+  arr_up_alt (tap-hold-release-timeout 200 200 @arr_up lalt down)
+  arr_rght_sft (tap-hold-release-timeout 200 200 @arr_rght lsft down)
+
 )
 (deflayer smart_space
   _             _             _             _             _             _             _             _             _             @lpar         @rpar         _             _             
@@ -328,42 +262,53 @@
   _             _             _             _             _             _             _             _             _             _
 )
 (defalias
-  ;; num_bspc (around @an_smart_num bspc)
-  ;; num_del (around @an_smart_num del)
-  ;;
-  ;; num_slash (around @an_smart_num /)
-  ;; num_comma (around @an_smart_num ,)
-  ;; num_dot (around @an_smart_num .)
-  ;; num_semi (around @an_smart_num ;)
-  ;; num_lbkt (around @an_smart_num [)
-  ;; num_rbkt (around @an_smart_num ])
-  ;; num_lpar (around @an_smart_num \()
-  ;; num_rpar (around @an_smart_num \))
-  ;; num_minus (around @an_smart_num -)
-  ;; num_unds (around @an_smart_num \_ )
-  ;; num_equal (around @an_smart_num =)
-  ;; num_plus (around @an_smart_num +)
-  ;;
-  ;; num_lt (around @an_smart_num <)
-  ;; num_gt (around @an_smart_num >)
-  ;; num_lbrc (around @an_smart_num {)
-  ;; num_rbrc (around @an_smart_num })
-  ;; num_qmark (around @an_smart_num ?)
-  ;; num_colon (around @an_smart_num :)
-  ;;
-  ;; num_star (around @an_smart_num *)
+  stky_smart_num_sft (multi (one-shot 500 lsft) (one-shot 500 @l_smart_num_sft))
+  stky_smart_num_space_lsym (one-shot 500 @l_smart_num_space_lsym)
+
+  num_bspc (multi @fk_num bspc)
+  num_del (multi @fk_num del)
+
+  num_/ (multi @fk_num /)
+  num_, (multi @fk_num ,)
+  num_. (multi @fk_num .)
+  num_; (multi @fk_num ;)
+  num_[ (multi @fk_num [)
+  num_] (multi @fk_num ])
+  num_- (multi @fk_num -)
+  num_= (multi @fk_num =)
+
+  num_lpar (multi @fk_num (macro 10 @lpar))
+  num_rpar (multi @fk_num (macro 10 @rpar))
+  num_+ (multi @fk_num (macro 10 @+))
+  num__ (multi @fk_num (macro 10 @_ ))
+  num_< (multi @fk_num (macro 10 @<))
+  num_> (multi @fk_num (macro 10 @>))
+  num_{ (multi @fk_num (macro 10 @{))
+  num_} (multi @fk_num (macro 10 @}))
+  num_? (multi @fk_num (macro 10 @?))
+  num_: (multi @fk_num (macro 10 @:))
+
+  num_* (multi @fk_num (macro 10 @*))
 )
 (deflayer smart_num
-  _             _             _             _             _             _             _             _             _             _             _             _             _
-  _             _             _             @num_7        @num_8        @num_9        _             _             _             _             _             _             _             _
+  _             _             _             _             _             _             _             _             _             @num_[        @num_]        _             _
+  _             _             _             @num_7        @num_8        @num_9        _             _             _             _             _             @num_;        @num_-        @num_=
   _             @num_0        @num_4        @num_5        @num_6        _             _             _             _             _             _             _             _             _
-  _             _             @num_1        @num_2        @num_3        _             _             _             _             _             _             _             _
+  _             _             @num_1        @num_2        @num_3        _             _             _             _             @num_,        @num_.        @num_/        _
   _             _             _             _             _             _             _             _             @stky_smart_num_sft _       _             _             _
-  _             _             _             _             _             _             _             _             _             _
+  _             _             _             _             @num_bspc     @stky_smart_num_space_lsym _ _            _             _       
 )
 (deflayer smart_num_shifted
-  _             _             _             _             _             _             _             _             _             _             _             _             _
+  _             _             _             _             _             _             _             _             _             @num_{        @num_}        _             _
+  _             _             _             _             _             _             _             _             _             _             _             @num_:        @num__        @num_+
   _             _             _             _             _             _             _             _             _             _             _             _             _             _
+  _             _             _             _             _             _             _             _             _             _             _             _             _
+  _             _             _             _             _             _             _             _             _             @num_<        @num_>        @num_?        _
+  _             _             _             _             _             _             _             _             _             _
+)
+(deflayer smart_num_space_lsym
+  _             _             _             _             _             _             _             _             _             @num_lpar     @num_rpar     _             _
+  _             _             _             _             @num_*        _             _             _             _             _             _             _             _             _
   _             _             _             _             _             _             _             _             _             _             _             _             _             _
   _             _             _             _             _             _             _             _             _             _             _             _             _
   _             _             _             _             _             _             _             _             _             _             _             _             _
