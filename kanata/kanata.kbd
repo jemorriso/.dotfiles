@@ -99,9 +99,11 @@
 (defalias
   ;; thumb tap-hold mod cluster
   spc_alt (tap-hold-release 200 200 spc lalt)
-  stky_smart_space_ctl (tap-hold-release 200 200 @stky_smart_space lctl)
+  ;; stky_smart_space_ctl (tap-hold-release 200 200 @stky_smart_space lctl)
+  tab_ctl (tap-hold-release 200 200 tab lctl)
   sft_td (tap-dance 200 ((one-shot 500 lsft) (caps-word 2000)))
-  stky_smart_space_met (tap-hold-release 200 200 @stky_smart_space lmet)
+  ;; stky_smart_space_met (tap-hold-release 200 200 @stky_smart_space lmet)
+  ret_met (tap-hold-release 200 200 ret lmet)
 )
 (defalias
   ;; shifted character aliases
@@ -150,7 +152,7 @@
   @___          `             @ms_q         @ms_w_comb    @ms_f_comb    @ms_p         @ms_b         @ms_j         @ms_l         @ms_u_comb    @ms_y_comb    @ms_;         -             =
   esc           @ms_a_sft     @ms_r_comb    @ms_s_comb    @ms_t_comb    @ms_g         XX            @ms_m         @ms_n_met     @ms_e_comb    @ms_i_comb    @ms_o_sft     @ms_'         XX
   @___          @ms_z         @ms_x         @ms_c         @ms_d         @ms_v         XX            @ms_k         @ms_h         @ms_,         @ms_.         /             \  
-  XX            @sft_tab_med  tab           @ms_spc_alt   @stky_smart_space_ctl @meh  @hyp          @stky_smart_space_met @sft_td ret         @l_fn         XX            XX            
+  XX            @sft_tab_med  @stky_smart_space @ms_spc_alt @tab_ctl    @meh          @hyp          @ret_met      @sft_td       @stky_smart_space @l_fn     XX            XX            
   @___          XX            XX            @___          @ms_bspc_space @stky_space_lsym @___      XX            XX            XX            
 )
 (deflayer base_typing
@@ -158,7 +160,7 @@
   XX            `             q             w             f             p             b             j             l             u             y             ;             -             =
   esc           a             r             s             t             g             XX            m             n             e             i             o             '             XX
   XX            z             x             c             d             v             XX            k             h             ,             .             /             \             
-  XX            @sft_tab_med  tab           @spc_alt      @stky_smart_space_ctl @meh  @hyp          @stky_smart_space_met @sft_td ret         @l_fn         XX            XX            
+  XX            @sft_tab_med  @stky_smart_space @spc_alt  @tab_ctl      @meh          @hyp          @ret_met      @sft_td       @stky_smart_space @l_fn     XX            XX            
   XX            XX            XX            XX            @bspc_space   @stky_space_lsym XX         XX            XX            XX            
 )
 (defalias
