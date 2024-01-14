@@ -10,8 +10,30 @@
 # 0x30 : tab
 # 0x24 : enter
 
-# meh - r: homerow
+# --------------------------------
+# system-wide shortcuts
+# --------------------------------
+# f19 : hammerspoon enter window switching mode
+#
+# alt + ctrl - h : toggle hidden bar
+# alt + ctrl - m : toggle amphetamine
+# alt + ctrl - backspace : AltTab switch windows, no hold, visible spaces only
+# alt + ctrl - grave : AltTab switch app windows, no hold
+#
+# cmd - space : raycast
+# cmd - tab : AltTab switch windows
+# cmd - backspace : AltTab switch windows, no hold
+# cmd - grave : AltTab switch app windows
+#
+# cmd + shift - space : 1password quick access
+#
+# meh - r: homerow hint click
+# meh - /: homerow search click
 # meh - w: warp
+#
+# hyper - r: homerow scroll
+#
+# -------------------
 
 # ctrl + cmd - m : cliclick -r -e 2 m:0,0 
 # ctrl + cmd - m : cliclick -r m:0,0
